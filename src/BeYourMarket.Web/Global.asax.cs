@@ -104,7 +104,8 @@ namespace BeYourMarket.Web
                 var language = Context.GetPrincipalAppLanguageForRequest().GetLanguage();
 
                 // Set date time format only if the database is ready
-                if (dbContext.Database.Exists())
+                //if (dbContext.Database.Exists())
+                if (dbContext.Database.Exists()  && CacheHelper.Settings != null)
                 {
                     // Short Date and time pattern
                     System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo(language);

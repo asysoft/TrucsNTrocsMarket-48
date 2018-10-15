@@ -36,7 +36,11 @@ namespace BeYourMarket.Service
         {
             get { return _container.Resolve<IListingTypeService>(); }
         }
-
+        
+        private ILocationRefService LocationRefService
+        {
+            get { return _container.Resolve<LocationRefService>(); }
+        }
         private IContentPageService ContentPageService
         {
             get { return _container.Resolve<IContentPageService>(); }
@@ -88,6 +92,8 @@ namespace BeYourMarket.Service
             GetCachedItem(CacheKeys.ContentPages);
             GetCachedItem(CacheKeys.EmailTemplates);
             GetCachedItem(CacheKeys.Statistics);
+
+            GetCachedItem(CacheKeys.LocationsRef);
         }
 
         public void UpdateCache(CacheKeys CacheKeyName, object CacheItem, int priority = (int)CacheItemPriority.NotRemovable)
@@ -96,6 +102,8 @@ namespace BeYourMarket.Service
             {
                 var policy = new CacheItemPolicy();
                 policy.Priority = (CacheItemPriority)priority;
+
+                //ASY 
                 //policy.AbsoluteExpiration = DateTimeOffset.Now.AddSeconds(10.00);
 
                 // Add inside cache 
@@ -113,7 +121,11 @@ namespace BeYourMarket.Service
                     {
                         case CacheKeys.Settings:
                             var setting = SettingService.Queryable().FirstOrDefault();
-                            UpdateCache(CacheKeys.Settings, setting);
+
+                            // ASY : test null
+                            //if(setting != null)
+                                UpdateCache(CacheKeys.Settings, setting);
+
                             break;
                         case CacheKeys.SettingDictionary:
                             var settingDictionary = SettingDictionaryService.Queryable().ToList();
@@ -126,6 +138,10 @@ namespace BeYourMarket.Service
                         case CacheKeys.ListingTypes:
                             var ListingTypes = ListingTypeService.Query().Include(x => x.CategoryListingTypes).Select().ToList();
                             UpdateCache(CacheKeys.ListingTypes, ListingTypes);
+                            break;
+                        case CacheKeys.LocationsRef:
+                            var LocationsRef = LocationRefService.Queryable().OrderBy(x => x.Name).ToList();
+                            UpdateCache(CacheKeys.LocationsRef, LocationsRef); 
                             break;
                         case CacheKeys.ContentPages:
                             var contentPages = ContentPageService.Queryable().Where(x => x.Published).OrderBy(x => x.Ordering).ToList();

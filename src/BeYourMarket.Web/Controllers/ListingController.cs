@@ -196,6 +196,9 @@ namespace BeYourMarket.Web.Controllers
                 Categories = CacheHelper.Categories
             };
 
+            // ASY : a voir fait 2 fois
+            model.LocationsRef = CacheHelper.LocationsRef;
+
             if (id.HasValue)
             {
                 // return unauthorized if not authenticated
@@ -229,6 +232,7 @@ namespace BeYourMarket.Web.Controllers
                 listing = new Listing()
                 {
                     CategoryID = CacheHelper.Categories.Any() ? CacheHelper.Categories.FirstOrDefault().ID : 0,
+                    LocationRefID = CacheHelper.LocationsRef.Any() ? CacheHelper.LocationsRef.FirstOrDefault().ID : 0,
                     Created = DateTime.Now.Date,
                     LastUpdated = DateTime.Now.Date,
                     Expiration = DateTime.MaxValue,
@@ -267,12 +271,16 @@ namespace BeYourMarket.Web.Controllers
             model.UserID = listing.UserID;
             model.CategoryID = listing.CategoryID;
             model.ListingTypeID = listing.ListingTypeID;
+            model.LocationRefID = listing.LocationRefID;
 
             // Listing types
             model.ListingTypes = CacheHelper.ListingTypes.Where(x => x.CategoryListingTypes.Any(y => y.CategoryID == model.CategoryID)).ToList();
 
             // Listing Categories
             model.Categories = CacheHelper.Categories;
+
+            // Listing Locations
+            model.LocationsRef = CacheHelper.LocationsRef;
 
             return model;
         }

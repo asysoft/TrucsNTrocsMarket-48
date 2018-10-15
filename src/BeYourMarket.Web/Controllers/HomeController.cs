@@ -95,6 +95,19 @@ namespace BeYourMarket.Web.Controllers
             return View("~/Views/Listing/Listings.cshtml", model);
         }
 
+        // ASY : Recherche par zone sur click sur la carte
+        public async Task<ActionResult> SearchByLocationRef(SearchListingModel model, string zoneRefSearch)
+        {
+            if (model.LocationsRef == null)
+                model.LocationsRef = new List<LocationRef>();
+
+            model.LocationsRef.Add(new LocationRef { Name = zoneRefSearch } );
+
+            await GetSearchResult(model);
+
+            return View("~/Views/Listing/Listings.cshtml", model);
+        }
+
         private async Task GetSearchResult(SearchListingModel model)
         {
             IEnumerable<Listing> items = null;
@@ -171,6 +184,12 @@ namespace BeYourMarket.Web.Controllers
                 items = items.Where(x => !string.IsNullOrEmpty(x.Location) && x.Location.IndexOf(model.Location, StringComparison.OrdinalIgnoreCase) != -1);
             }
 
+            // LocationRef : recherche par zone -  pour une zone - indice 0
+            //if ( model.LocationsRef != null && !string.IsNullOrEmpty(model.LocationsRef[0].ZoneRef ))
+            //{
+            //    items = items.Where(x => (x.ListingLocationsRef != null) && x.ListingLocationsRef.Contains( model.LocationsRef[0]) );
+            //}
+
             // Picture
             if (model.PhotoOnly)
                 items = items.Where(x => x.ListingPictures.Count > 0);
@@ -196,6 +215,8 @@ namespace BeYourMarket.Web.Controllers
 
             model.BreadCrumb = breadCrumb;
             model.Categories = CacheHelper.Categories;
+            //ASY
+            model.LocationsRef = CacheHelper.LocationsRef;
 
             model.Listings = itemsModelList;
             model.ListingsPageList = itemsModelList.ToPagedList(model.PageNumber, model.PageSize);

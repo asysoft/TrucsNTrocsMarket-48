@@ -32,12 +32,13 @@
 </head>
 
 <body>
-    <div class="wrapper row-offcanvas row-offcanvas-left">
+    <div class="wrapper row-offcanvas row-offcanvas-left" >
 
-        <aside class="left-section sidebar-offcanvas @(Convert.ToBoolean(ViewBag.SideCollapse) ? "collapse-left" : "")">
+        <aside class="left-section sidebar-offcanvas @(Convert.ToBoolean(ViewBag.SideCollapse) ? "collapse-left" : "")"  >
             <header class="header hidden-xs">
                 <a href="@Url.Action("Index", "Home")" class="logo">
-                    <img src="@ImageHelper.GetCommunityImagePath("logo", "png")" alt="@settings.Name">
+                    @*<img src="@ImageHelper.GetCommunityImagePath("logo", "png")" alt="@settings.Name">*@
+                    Trucs N Trocs
                 </a>
             </header>
 
@@ -46,7 +47,7 @@
 
         <aside class="right-section">
             <header class="header">
-                <nav class="navbar navbar-static-top user-nav" role="navigation">
+                <nav class="navbar navbar-static-top user-nav" role="navigation" style="background-image:url(@ImageHelper.GetCommunityImagePath("BandeauVert","png")); background-repeat: no-repeat ;width: 100%; ">
                     <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>

@@ -1,0 +1,721 @@
+
+Zone 1 : Port-Louis
+Zone 2 : Triolet - Pamplemousse
+Zone 3 : Rivière du Rempart - Goodlands
+Zone 4 : Riviere noir - Le Morne
+Zone 5 : Plaines Wilhems - Quatre bornes - Vacoas - Phoenix
+Zone 6 : Moka - Quartier Militaire
+Zone 7 : Flacq
+Zone 8 : Savanne
+Zone 9 : Grand Port
+
+
+
+
+Ville de chaque zone:
+
+Zone 1 : Port-Louis
+
+Abercombie
+Baie Grande Rivière Nord Ouest
+Bell Village
+Cantin's Peak
+Cassis
+Champ de Mars
+Colline Monneron
+Fort Adélaïde
+Fort George
+Fort Victoria
+Fort Williams
+Grand Glacis
+Ile aux Tonneliers
+Ile Bakly
+La Fenêtre 
+Montagne du Pouce
+Pieter Both
+Plaine Lauzun
+Plaine Verte
+Port Louis
+Priest Peak
+Roche Bois
+Ste Croix
+Tranquebar
+Trou Fanfaron
+Valée des Prêtres
+Valée du Pouce
+Valée Pitot
+Virgin's Peak
+
+
+Zone 2 : Triolet - Pamplemousse
+
+Arsenal
+Baie aux Tortues
+Baie du Tombeau
+Balaclava
+Bassin Loulou
+Bellevue Harel
+Bellevue Pitot
+Bois Mangues
+Bois Marchand
+Bois Pignolet
+Bois Rouge
+Bon Air
+Butte aux Papayes
+Calebasses
+Camp Scipion
+Canton Nancy
+Chateau de Villebague
+Congomah
+Crève Coeur
+d'Epinay
+Eaux Bouillies
+Fond du Sac
+Fort Albert
+Ganachaud
+Gowsal
+Grande Rosalie
+La Louisa
+La Nicolière
+La Paix
+Le Goulet
+Le Plessis
+Les Mariannes
+Mon Gout
+Mon Rocher
+Mont Choisy
+Mont Piton
+Montagne Callebasses
+Montagne Longue
+Morcellement St André
+Moulin à Poudre
+Notre Dame
+Pamplemousses
+Petit Galopin
+Petite Julie
+Plaine des Calebasses
+Plaine des Papayes
+Pointe aux Canonniers
+Pointe aux Piments
+Pointe Roches Noires
+Riche Terre
+Roche Bois
+Rouge Terre
+Ruisseau Rose
+Solitude
+Terre Rouge
+The Mount
+Triolet
+Trou aux Biches
+Valton
+Ville Valio
+Villebague
+
+Zone 3 : Rivière du Rempart
+
+Amaury
+Amitié
+Anse Bonsergent
+Anse la raie
+Antoinette
+Barlow
+Bassin Bernard
+Bassin Goëmons
+Bassin Humbert
+Beau Manguier
+Beau Séjour
+Bellevue Maurel
+Belmont
+Bon Espoir
+Bras de mer des Frégates
+Butte à Herbe
+Calodyne
+Camp Pavé
+Cap Malheureux
+Coin de Mire
+Cottage
+Espérance Trébuchet
+Forbach
+Forbach Hill
+Gokoola
+Goodlands
+Grand Baie
+Grand Gaube
+Haute Rive
+Hermitage
+Ile d'Ambre
+Ile Plate
+Ilot du Mort
+Ilot Gabriel
+Labourdonnais
+Mapou
+Melville
+Mlle Jeanne
+Mon Loisir
+Mon Songe
+Mont Oreb
+Mont Piton
+Moulin à Vent
+Pavillon
+Perebeyre
+Petit Paquet
+Petit Raffray
+Piton
+Plaine des Roches
+Pointe aux Roches
+Pointe Bernard
+Pointe Bonhomme
+Pointe Butte aux Sable
+Pointe d'Azur
+Pointe de l'Embarcadère
+Pointe Eglise
+Pointe Lascar
+Pointe l'Hortal
+Pointe Madras
+Pointe Oscorne
+Poudre d'Or
+Poudre d'or Hamlet
+Réunion Maurel
+Rivière du Rempart
+Roche Terre
+Roches Noires
+Schoenfeld
+Sottise
+St François
+The Vale
+Union Maurel
+
+Zone 4 : Riviere noir - Le Morne
+
+Albion
+Anna
+Baie de la Grande Rivière Noire
+Baie de la Petite Rivière
+Baie de la Petite Rivière Noire
+Baie du Tamarin
+Bambous
+Beaux Songes
+Bel Air
+Belle Eau
+Belle Isle
+Belle Vue
+Cachette
+Camp Benoît
+Canot
+Castavelle
+Chamarel
+Chebel
+Clarence
+Coteau Raffin
+Eau Bonne
+Eau Bouillie
+Flic en Flac
+Gorges de la Rivière Noire
+Grande Case Noyale
+Grande Rivière Noire
+Grandes Gorges
+Gros Cailloux
+Ile aux Bénitiers
+Ilot Fortier
+Ilot Fourneau
+Ilot Malais
+La Chaumière
+La Coupée St Martin
+La Crète
+La Ferme
+La Gaulette
+La Mecque
+La Mivoie
+La Preneuse
+Laviléon
+Le Bosquet
+Le Morne Brabant
+L'embrasure
+Les Salines
+Magenta
+Médine
+Mon Désir
+Mon Vallon
+Mont St Pierre
+Montagne Brise Fer
+Montagne Corps de Garde
+Montagne du Rempart
+Montagne Jacquot
+Montagne Laporte
+Montagne Simonet
+Montagne Trois Mamelles
+Montagnes Vacoas
+Montée Bois Puant
+Palma
+Palmyre
+Petit Moka
+Petit Verger
+Petite Case Noyale
+Petite Rivière
+Petite Rivière Noire
+Piton Canot
+Piton du Fouge
+Piton St Denis
+Pointe aux Caves
+Pointe aux Sables
+Pointe Corail de la Prairie
+Pointe de la Petite Rivière
+Pointe des Pêcheurs
+Pointe du Tamarin
+Pointe Marron
+Pointe Moyenne
+Pointe Sud Ouest
+Richelieu
+Tamarin
+Tamarin Estate
+Tamarin Falls
+Tour Martello de l'Harmonie
+Tourelle du Tamarin
+Trois Cavernes
+Wolmar
+Yemen
+
+Zone 5 : Plaines Wilheims
+
+Atelier
+Bagatelle
+Bananes
+Bassin
+Beard
+Beau Bassin
+Belle Terre
+Bigara
+Camp Fouquereau
+Camp Roche
+Candos
+Château Trianon
+Coriolis
+Coromandel
+Curepipe
+Eau Coulée
+Ebène
+Floréal
+Forest Side
+Galléa
+Glen Park
+Grand Bassin
+Henrietta
+Highlands
+La Brasserie
+La Caverne
+La Croisée
+La Louise
+La Marie
+Ligne Barrique
+Mare aux Vacoas
+Mare Longue
+Mare Ory
+Mont Petit Malabar
+Mont Roches
+Montagne Lagrave
+Montagne Perruche
+Petit Camp
+Phoenix
+Plaine Raoul
+Plaine Sophie
+Plaisance
+Quatre Bornes
+Quinze Cantons
+Réservoir de Tamarin Falls
+Réunion
+River Side
+Rose Hill
+Solférino
+St Jean
+Stanley
+Trou aux Cerfs
+Trou de Madame Bouchet
+Vacoas
+Ville d'Avray
+Wooton
+
+Zone 6 : Moka - Quartier Militaire
+
+Alma
+Anse Courtois
+Bar le Duc
+Beau Bois
+Belle Rive
+Bois Clair
+Bonne Veine
+Butte Chaumont
+Camp Thorel
+Cilline Alma
+Circonstance
+Côte d'Or
+Dubreuil
+Espérance
+Gingenbre
+Helvetia
+Hermitage
+Junction Peak
+La Chartreuse
+La Dagotière
+La Laura
+La Pipe
+La Russie
+l'Agrément
+l'Avenir
+Le Bocage
+Le Réduit
+Magenta
+Malenga
+Martindale
+Melrose
+Midlands
+Minissy
+Moka
+Mon Désert Alma
+Mont Ida
+Montagne Blanche
+Montagne du Pouce
+Montagne la Terre
+Montagne les Deux Mamelles
+Montagne Ory
+Nouvelle Découverte
+Pailles
+Pépinière
+Pépinière
+Petit paquet
+Pic des Guibies
+Pic Grand Fond
+Pic Seneque
+Piton du Milieu
+Providence
+Quartier Militaire
+Réservoir Piton Milieu
+Ripailles
+Rivière Baptiste
+Roselyn Cottage
+Salazie
+Sans Soucis
+St Julien Hillock
+St Pierre
+Valetta
+Verdun
+Verdun Hill
+Vuilemin
+
+Zone 7 : Flacq
+
+Anse Cunat
+Argy
+Beau Champ
+Beau Rivage
+Bel Air
+Bel Etang
+Belle Mare
+Belle Rive
+Belle Rose
+Belvédère
+Bois d'Oiseaux
+Bois d'Oiseaux
+Bois Jacot
+Bon Accueil
+Bonne Mère
+Bramsthan
+Bras de Mer Delcourt
+Bras d'Eau
+Brisée Verdière
+Camp de Masque
+Camp de Masque Pavé
+Camp Ithier
+Camp Marcelin
+Camp Marcellin
+Centre de Flacq
+Choisy
+Clemencia
+Constance
+Deep River
+Ecroignard
+Ernest Florent
+F.U.E.L.
+Grande Retraite
+Grande Rivière Sud Est
+Ile aux Cerfs
+Ile aux Chats
+Ile aux Lubines
+Ile Camisard
+Ile de l'Est
+Ile Forancis
+Ile Malino
+Ilot des Roches
+La Caroline
+La Commune
+La Gaité
+La Laura
+La Lucie Roy
+La Nourrice
+Lalmatie
+L'Aventure
+Lenferna
+Les Sept Chemins
+Lesur
+l'Etoile
+l'Unité
+Mare aux Fougères
+Mare aux Lubines
+Mare d'Australia
+Mare la Chaux
+Mare Sarcelles
+Médine
+Mont Barbe
+Mont Couve
+Mont Ravat
+Mont Villars
+Montagne Chat
+Montagne de la Nicolière
+Montagne Fayence
+Montagne Maurice
+Montagne Nouvelle Découverte
+Olivia
+Palmar
+Pellegrin
+Petit Bois
+Petite Cabane
+Petite Retraite
+Pointe aux Boeufs
+Pointe de Flacq
+Pointe de la Baterie
+Pointe de Roches Noires
+Pointe d'Esny
+Pointe du Puit des Hollandais
+Pointe Lafayette
+Pointe Quatre Cocos
+Pointe Radeau
+Pointe Radeau
+Pont Blanc
+Pont Bon Dieu
+Pont Lardier
+Pont Praslin
+Poste de Flacq
+Poste Lafayette
+Quatre Cocos
+Quatre Soeurs
+Queen Victoria
+Rich Fund
+Riche Mare
+Rivière Profonde
+Rivière Sèche
+Sébastopol
+St Julien
+St Julien d'Hotman
+Ste Ursule
+Trou d'Eau Douce
+
+Zone 8 : Savanne
+
+Anse St Martin
+Baie du Cap
+Baie du Jacotet
+Bassin Blanc
+Baty Mare
+Beau Bois
+Beau Champ
+Bel Air
+Bel Ombre
+Bénarès
+Bois Chéri
+Bois Sec
+Bon Courage
+Britannia
+Camp Diable
+Chamouny
+Château
+Chemin Grenier
+Choisy
+Colmar
+Cratère Kanaka
+Fantaisie
+Fontenelle
+Frederica
+Grand Bois
+Gris Gris
+Ilot Sanche
+Jurançon
+La Flora
+La Roche qui Pleure
+Le Petit Cap
+Les Mares
+Luchon
+Macondé
+Mare Anguilles
+Mont Blanc
+Mont Surinam
+Montagne Cocotte
+Montagne Savanne
+Piton Capote
+Piton Grand Bassin
+Piton Poule
+Piton Savanne
+Plaine Champagne
+Pointe aux Roches
+Pointe Citronniers
+Pomponnette
+Riambel
+Riche Bois
+Rivière des Anguilles
+Rivière Dragon
+Rochester Falls
+Ruisseau des Créoles
+Savannah
+Souillac
+St Aubin
+St Félix
+St Félix
+St Martin
+St Martin
+Surinam
+Terracne
+Trou Desny
+Union St Aubin
+
+Zone 9 : 
+
+Anse Colas
+Anse du Grand Sable
+Anse Fauverelle
+Anse Hercule
+Anse Jonchée
+Astroea
+Bambous Virieux
+Barachois Rochecouste
+Beau Climat
+Beau Fond
+Beau Site
+Beau Vallon
+Bel Air
+Belle Vue
+Blue Bay
+Bois des Amourettes
+Bois d'Oiseaux
+Camp Carol
+Camp Poule
+Carreau Acacia
+Cent Gaulette
+Cluny
+Dalais
+Deux Bras
+Eau Bleue
+Ferney
+Fressange
+Grand Sable
+Gros Billot
+Gros Bois
+Ile aux Aigrettes
+Ile aux Fous
+Ile aux Oiseaux
+Ile de la Passe
+Ile des deux Cocos
+Ile Marianne
+Ile Vacoas
+Ilot Chat
+Ilot Flamants
+Ilot Singe
+Joli Bois
+La Barraque
+La Cambuse
+La Chaux
+La Rampe
+La Rosa
+La Terre Rouge
+Le Bouchon
+Le Chaland
+Le Souffleur
+Le Val
+Le Vallon
+Leboeuf
+Les Mares
+L'Escalier
+Ligne Barin
+Madame Lolo
+Mahébourg
+Malakoff
+Mare Chicose
+Mare d'Albert
+Mare Tabac
+Mon Désert
+Mon Trésor
+Mont des Hollandais
+Mont Fertile
+Montagne Bambou
+Montagne Camisard
+Montagne des Créoles
+Montagne du Lion
+Montagne Table à Perrot
+Montagne Vernon
+Mouchoir Rouge
+New Grove
+Nouvelle France
+Pavillon du Grand Port
+Petit Sable
+Piton Rouge
+Plaine Magnien
+Plaisance
+Pointe aux Feuilles
+Pointe aux Roches
+Pointe Bambou
+Pointe Brocus
+Pointe Chaour
+Pointe Corps de Garde
+Pointe de la Colonie
+Pointe des Deux Cocos
+Pointe des Régates
+Pointe Desny
+Pointe du Diable
+Pointe du Hangard
+Pointe Jérôme
+Pointe Vacoas
+Pont Colville
+Pont Molino
+Pont Naturel
+Riche en Eau
+Rivière des Créoles
+Rivière du Poste
+Rocher des Oiseaux
+Rose Belle
+Ruisseau Copeau
+Savinia
+St Hubert
+Ste Hilaire
+Ste Philomène
+Trois Boutiques
+Trou Beloute
+Trou Thomy
+Union Park
+Union Vale
+Vieux Grand Port
+Ville Noire
+Virginia
+
+Zone 10 : Rodrigues 
+
+Anse Ally 
+Anse Quitor 
+Anse-aux-Anglais 
+Caverne Provert 
+Citronnelle 
+Grand Baie 
+Grande Montagne 
+Graviers 
+île aux Cocos 
+Jeantac 
+La Ferme 
+Mangues 
+Maréchal 
+Mont Lubin 
+Palissade 
+Petit Gabriel 
+Plaine Caverne 
+Pointe Coton 
+Port Mathurin
+Port Sud-Est 
+Saint-François 
+Saint-Gabriel 
+Terre Rouge
+

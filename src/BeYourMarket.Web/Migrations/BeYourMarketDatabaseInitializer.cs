@@ -117,13 +117,13 @@ namespace BeYourMarket.Web.Migrations
                 context.Settings.Add(new Model.Models.Setting()
                 {
                     ID = 1,
-                    Name = "BeYourMarket",
-                    Description = "Find the beauty and spa service providers in your neighborhood!",
-                    Slogan = "BeYourMarket - Spa Demo",
+                    Name = "TrucnTrocs",
+                    Description = "Trouver des biens et des services de tous genre dans votre entourage!",
+                    Slogan = "TrucnTrocs -  Demo",
                     SearchPlaceHolder = "Search your Spa...",
-                    EmailContact = "hello@beyourmarket.com",
+                    EmailContact = "hello@TrucnTrocs.com",
                     Version = "1.0",
-                    Currency = "DKK",
+                    Currency = "EUR",
                     TransactionFeePercent = 1,
                     TransactionMinimumSize = 10,
                     TransactionMinimumFee = 10,

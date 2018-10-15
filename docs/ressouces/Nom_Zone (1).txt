@@ -1,0 +1,10 @@
+Zone 1 : Port-Louis
+Zone 2 : Pamplemousse
+Zone 3 : Rivière du Rempart
+Zone 4 : Riviere noir
+Zone 5 : Plaines Wilhems
+Zone 6 : Moka
+Zone 7 : Flacq
+Zone 8 : Savanne
+Zone 9 : Grand-Port
+Zone 10 : Rodrigues

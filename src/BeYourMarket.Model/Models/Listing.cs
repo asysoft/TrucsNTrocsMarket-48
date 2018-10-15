@@ -11,6 +11,7 @@ namespace BeYourMarket.Model.Models
             this.ListingPictures = new List<ListingPicture>();
             this.ListingReviews = new List<ListingReview>();
             this.ListingStats = new List<ListingStat>();
+
             this.Orders = new List<Order>();
             this.MessageThreads = new List<MessageThread>();
         }
@@ -33,7 +34,14 @@ namespace BeYourMarket.Model.Models
         public bool Premium { get; set; }
         public System.DateTime Expiration { get; set; }
         public string IP { get; set; }
+
         public string Location { get; set; }
+
+        //public virtual LocationRef LocationRefID { get; set; }
+        public int LocationRefID { get; set; }
+        // Pour faire du Lazy Loading
+        public virtual LocationRef LocationRef { get; set; }
+
         public Nullable<double> Latitude { get; set; }
         public Nullable<double> Longitude { get; set; }
         public System.DateTime Created { get; set; }
@@ -47,5 +55,6 @@ namespace BeYourMarket.Model.Models
         public virtual ICollection<ListingStat> ListingStats { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
         public virtual ICollection<MessageThread> MessageThreads { get; set; }
+        
     }
 }

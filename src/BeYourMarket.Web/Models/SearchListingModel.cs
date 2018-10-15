@@ -36,6 +36,8 @@ namespace BeYourMarket.Web.Models
 
         public List<ListingType> ListingTypes { get; set; }
 
+        public List<LocationRef> LocationsRef { get; set; }
+
         public ListingModelGrid Grid { get; set; }
     }
 }

@@ -62,6 +62,7 @@ namespace BeYourMarket.Model.Models.Mapping
             this.Property(t => t.Expiration).HasColumnName("Expiration");
             this.Property(t => t.IP).HasColumnName("IP");
             this.Property(t => t.Location).HasColumnName("Location");
+            this.Property(t => t.LocationRefID).HasColumnName("LocationRefID");
             this.Property(t => t.Latitude).HasColumnName("Latitude");
             this.Property(t => t.Longitude).HasColumnName("Longitude");
             this.Property(t => t.Created).HasColumnName("Created");
@@ -77,7 +78,9 @@ namespace BeYourMarket.Model.Models.Mapping
             this.HasRequired(t => t.ListingType)
                 .WithMany(t => t.Listings)
                 .HasForeignKey(d => d.ListingTypeID).WillCascadeOnDelete();
-
+            this.HasRequired(t => t.LocationRef)
+                .WithMany(t => t.Listings)
+                .HasForeignKey(d => d.LocationRefID).WillCascadeOnDelete();
         }
     }
 }

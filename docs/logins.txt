@@ -1,0 +1,52 @@
+   Control Panel URL     Username     Password 
+    https://ccp.my-hosting-panel.com     shak29     suM9Cyk7 
+	
+---------------------------------------------
+Support :
+Login : asysoft@yahoo.com
+Pwd:
+
+Login : asysoft@yahoo.com
+Pwd:
+
+---------------------------------------------
+Solid CP : SQL Server 2016
+base : Shak29_tntmarket_testdb
+server : 	198.38.83.33
+Login : Shak29_tnttest2018
+Pwd : TnTtest2018
+
+
+		
+---------------------------------------------
+ftp :
+server : 	198.38.83.197
+Login : dev
+pwd
+
+----- server Local DEV
+login : asysoft95@gmail.com
+pwd : Doudou2018
+
+<connectionStrings>
+  <add name="DefaultConnection" connectionString="Data Source=ACER-PC\SQLEXPRESS2012_2;Initial Catalog=TnTMarketDB;Integrated Security=False;Persist Security Info=False;User ID=sa;Password=sadev2012"
+    providerName="System.Data.SqlClient" />
+</connectionStrings>
+
+-------------------------------------- server test
+URL : http://test.trucsntrocs.com
+login : asysoft@yahoo.com
+pwd : TnTtest2018
+
+    <add name="DefaultConnection" connectionString="Data Source=198.38.83.33;Initial Catalog=Shak29_tntmarket_testdb;Integrated Security=False;Persist Security Info=False;User ID=shak29_tnttest2018;Password=TnTtest2018"
+        providerName="System.Data.SqlClient" />
+-----
+Yo Man, voici tes accès a la première version Beta de l'appli sur le serveur de test :
+(tu es administrateur)
+URL : http://test.trucsntrocs.com
+login/EMail : shakeel.ruhomaun@free.fr
+pwd : TnTtest2018
+
+Dits moi si tu atteints le site, et si tu arrive a te connecter avec tes identifiants
+N'hesites pas a créer plein d'annonces!
+		

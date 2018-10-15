@@ -1,0 +1,174 @@
+﻿<error errorId="6f8a0271-fbd1-4aae-866c-07c517c8fa88" host="ACER-PC" type="System.Web.HttpParseException" message="Expected &quot;}&quot;.&#xD;&#xA;" source="System.Web.WebPages.Razor" detail="System.Web.HttpParseException (0x80004005): Expected &quot;}&quot;.&#xD;&#xA;&#xD;&#xA;   à System.Web.WebPages.Razor.RazorBuildProvider.EnsureGeneratedCode()&#xD;&#xA;   à System.Web.WebPages.Razor.RazorBuildProvider.get_CodeCompilerType()&#xD;&#xA;   à System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)&#xD;&#xA;   à System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()&#xD;&#xA;   à System.Web.Compilation.BuildProvidersCompiler.PerformBuild()&#xD;&#xA;   à System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)&#xD;&#xA;   à System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)&#xD;&#xA;   à System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)&#xD;&#xA;   à System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)&#xD;&#xA;   à System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)&#xD;&#xA;   à System.Web.Compilation.BuildManager.GetCompiledType(String virtualPath)&#xD;&#xA;   à System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.GetCompiledType(String virtualPath)&#xD;&#xA;   à System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)&#xD;&#xA;   à System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)&#xD;&#xA;   à System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   à System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   à System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   à System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)&#xD;&#xA;   à System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;&gt;c__DisplayClass2b.&lt;BeginInvokeAction&gt;b__1c()&#xD;&#xA;   à System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;BeginInvokeAction&gt;b__1e(IAsyncResult asyncResult)" user="asysoft95@gmail.com" time="2018-10-02T17:52:01.4235712Z" statusCode="500" webHostHtmlMessage="&lt;!DOCTYPE html&gt;&#xD;&#xA;&lt;html&gt;&#xD;&#xA;    &lt;head&gt;&#xD;&#xA;        &lt;title&gt;Erreur d'analyse&lt;/title&gt;&#xD;&#xA;        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;&#xD;&#xA;        &lt;style&gt;&#xD;&#xA;         body {font-family:&quot;Verdana&quot;;font-weight:normal;font-size: .7em;color:black;} &#xD;&#xA;         p {font-family:&quot;Verdana&quot;;font-weight:normal;color:black;margin-top: -5px}&#xD;&#xA;         b {font-family:&quot;Verdana&quot;;font-weight:bold;color:black;margin-top: -5px}&#xD;&#xA;         H1 { font-family:&quot;Verdana&quot;;font-weight:normal;font-size:18pt;color:red }&#xD;&#xA;         H2 { font-family:&quot;Verdana&quot;;font-weight:normal;font-size:14pt;color:maroon }&#xD;&#xA;         pre {font-family:&quot;Consolas&quot;,&quot;Lucida Console&quot;,Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}&#xD;&#xA;         .marker {font-weight: bold; color: black;text-decoration: none;}&#xD;&#xA;         .version {color: gray;}&#xD;&#xA;         .error {margin-bottom: 10px;}&#xD;&#xA;         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }&#xD;&#xA;         @media screen and (max-width: 639px) {&#xD;&#xA;          pre { width: 440px; overflow: auto; white-space: pre-wrap; word-wrap: break-word; }&#xD;&#xA;         }&#xD;&#xA;         @media screen and (max-width: 479px) {&#xD;&#xA;          pre { width: 280px; }&#xD;&#xA;         }&#xD;&#xA;        &lt;/style&gt;&#xD;&#xA;    &lt;/head&gt;&#xD;&#xA;&#xD;&#xA;    &lt;body bgcolor=&quot;white&quot;&gt;&#xD;&#xA;&#xD;&#xA;            &lt;span&gt;&lt;H1&gt;Erreur du serveur dans l'application '/'.&lt;hr width=100% size=1 color=silver&gt;&lt;/H1&gt;&#xD;&#xA;&#xD;&#xA;            &lt;h2&gt; &lt;i&gt;Erreur d'analyse&lt;/i&gt; &lt;/h2&gt;&lt;/span&gt;&#xD;&#xA;&#xD;&#xA;            &lt;font face=&quot;Arial, Helvetica, Geneva, SunSans-Regular, sans-serif &quot;&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt; Description : &lt;/b&gt;Une erreur s'est produite au cours de l'analyse d'une ressource requise pour répondre à cette demande. Veuillez consulter ci-dessous les détails relatifs à l'erreur d'analyse en question, puis modifier votre fichier source de manière appropriée.&#xD;&#xA;            &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt; Message d'erreur de l'analyseur: &lt;/b&gt;Expected &amp;quot;}&amp;quot;.&lt;br&gt;&lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt;Erreur source:&lt;/b&gt; &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;table width=100% bgcolor=&quot;#ffffcc&quot;&gt;&#xD;&#xA;               &lt;tr&gt;&#xD;&#xA;                  &lt;td&gt;&#xD;&#xA;                      &lt;code&gt;&lt;pre&gt;&#xD;&#xA;&#xD;&#xA;Ligne 99 : &#xD;&#xA;Ligne 100 :}&#xD;&#xA;&lt;/pre&gt;&lt;/code&gt;&#xD;&#xA;&#xD;&#xA;                  &lt;/td&gt;&#xD;&#xA;               &lt;/tr&gt;&#xD;&#xA;            &lt;/table&gt;&#xD;&#xA;&#xD;&#xA;            &lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt; Fichier source : &lt;/b&gt; /Views/Home/Index.cshtml&lt;b&gt; &amp;nbsp;&amp;nbsp; Ligne : &lt;/b&gt; 101&#xD;&#xA;            &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;    &lt;/body&gt;&#xD;&#xA;&lt;/html&gt;&#xD;&#xA;">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CACHE_CONTROL:max-age=0&#xD;&#xA;HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, br&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7&#xD;&#xA;HTTP_COOKIE:__RequestVerificationToken=9sewQKX_Wntd-cOtFrnXSL53N1Aisfb-jlDM5kOAwPF7c-xKlGVffeIC3QEEMVlocu8X2IxWaCKN4AGIGijXrCUvgR65B2q0hw1ze3PZW0A1; .AspNet.ApplicationCookie=pXom_wMv-_YNY07BUn4nAydm4j5UDraP9_QQPe_Afccd3u6aRvN69hgZWC0gfnOsJgD1ESpOZ_ATwy2-9q-wokq8RhCHPIDC1-OSAzTmYBYnXKzcnhHu205zQxO88UpZ-tmG7-9cXDNCYa65UWG1q4z-f6HM03WKB-BeRKiclDwy3tknSRG9gCpWzfohTahxg56yUoL_Or7SfTr9vU9W6AJ_gUX7RBTkFxcvsk9AFeTpw43X9-P_pR74Ilq5OmZomO9By6go8TTLV5RXXP98lP5KVA7Z-tRAMx-8cuEjDiUQRKkX4__zthoBezdAgmx7dauTLaD3NxYof08_u9z04kSN_jtn7y_8mB2-rWS9ZLAe9yhGyoiJZXjDpLm4bByIOinCIfcXoxETaR2nKqTySHjeYOGAP5S2eYEUFzHzonbWTJTfmW1ZAzhJrZbfeLESqI4Cur2nsUZE2-DtnAVyWO0bjHoqhCbMmm7jqRVtucgsnUrVApkSTiNdqgMJ_-J1ifILCxjh1RH3nGWU4jeMZg; i18n.langtag=fr&#xD;&#xA;HTTP_HOST:localhost:58365&#xD;&#xA;HTTP_REFERER:http://localhost:58365/fr/manage/dashboard&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36&#xD;&#xA;HTTP_UPGRADE_INSECURE_REQUESTS:1&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Cache-Control: max-age=0&#xD;&#xA;Connection: keep-alive&#xD;&#xA;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8&#xD;&#xA;Accept-Encoding: gzip, deflate, br&#xD;&#xA;Accept-Language: fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7&#xD;&#xA;Cookie: __RequestVerificationToken=9sewQKX_Wntd-cOtFrnXSL53N1Aisfb-jlDM5kOAwPF7c-xKlGVffeIC3QEEMVlocu8X2IxWaCKN4AGIGijXrCUvgR65B2q0hw1ze3PZW0A1; .AspNet.ApplicationCookie=pXom_wMv-_YNY07BUn4nAydm4j5UDraP9_QQPe_Afccd3u6aRvN69hgZWC0gfnOsJgD1ESpOZ_ATwy2-9q-wokq8RhCHPIDC1-OSAzTmYBYnXKzcnhHu205zQxO88UpZ-tmG7-9cXDNCYa65UWG1q4z-f6HM03WKB-BeRKiclDwy3tknSRG9gCpWzfohTahxg56yUoL_Or7SfTr9vU9W6AJ_gUX7RBTkFxcvsk9AFeTpw43X9-P_pR74Ilq5OmZomO9By6go8TTLV5RXXP98lP5KVA7Z-tRAMx-8cuEjDiUQRKkX4__zthoBezdAgmx7dauTLaD3NxYof08_u9z04kSN_jtn7y_8mB2-rWS9ZLAe9yhGyoiJZXjDpLm4bByIOinCIfcXoxETaR2nKqTySHjeYOGAP5S2eYEUFzHzonbWTJTfmW1ZAzhJrZbfeLESqI4Cur2nsUZE2-DtnAVyWO0bjHoqhCbMmm7jqRVtucgsnUrVApkSTiNdqgMJ_-J1ifILCxjh1RH3nGWU4jeMZg; i18n.langtag=fr&#xD;&#xA;Host: localhost:58365&#xD;&#xA;Referer: http://localhost:58365/fr/manage/dashboard&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36&#xD;&#xA;Upgrade-Insecure-Requests: 1&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/2/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="D:\Soft\DVP\DvpASY_Web2018\TrucsNTrocsMarket\src\BeYourMarket.Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="ApplicationCookie" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="asysoft95@gmail.com" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="asysoft95@gmail.com" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="asysoft95@gmail.com" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="2" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/2" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="D:\Soft\DVP\DvpASY_Web2018\TrucsNTrocsMarket\src\BeYourMarket.Web\" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="50282" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="58365" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/" />
+    </item>
+    <item name="HTTP_CACHE_CONTROL">
+      <value string="max-age=0" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, br" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="__RequestVerificationToken=9sewQKX_Wntd-cOtFrnXSL53N1Aisfb-jlDM5kOAwPF7c-xKlGVffeIC3QEEMVlocu8X2IxWaCKN4AGIGijXrCUvgR65B2q0hw1ze3PZW0A1; .AspNet.ApplicationCookie=pXom_wMv-_YNY07BUn4nAydm4j5UDraP9_QQPe_Afccd3u6aRvN69hgZWC0gfnOsJgD1ESpOZ_ATwy2-9q-wokq8RhCHPIDC1-OSAzTmYBYnXKzcnhHu205zQxO88UpZ-tmG7-9cXDNCYa65UWG1q4z-f6HM03WKB-BeRKiclDwy3tknSRG9gCpWzfohTahxg56yUoL_Or7SfTr9vU9W6AJ_gUX7RBTkFxcvsk9AFeTpw43X9-P_pR74Ilq5OmZomO9By6go8TTLV5RXXP98lP5KVA7Z-tRAMx-8cuEjDiUQRKkX4__zthoBezdAgmx7dauTLaD3NxYof08_u9z04kSN_jtn7y_8mB2-rWS9ZLAe9yhGyoiJZXjDpLm4bByIOinCIfcXoxETaR2nKqTySHjeYOGAP5S2eYEUFzHzonbWTJTfmW1ZAzhJrZbfeLESqI4Cur2nsUZE2-DtnAVyWO0bjHoqhCbMmm7jqRVtucgsnUrVApkSTiNdqgMJ_-J1ifILCxjh1RH3nGWU4jeMZg; i18n.langtag=fr" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:58365" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:58365/fr/manage/dashboard" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36" />
+    </item>
+    <item name="HTTP_UPGRADE_INSECURE_REQUESTS">
+      <value string="1" />
+    </item>
+  </serverVariables>
+  <cookies>
+    <item name="__RequestVerificationToken">
+      <value string="9sewQKX_Wntd-cOtFrnXSL53N1Aisfb-jlDM5kOAwPF7c-xKlGVffeIC3QEEMVlocu8X2IxWaCKN4AGIGijXrCUvgR65B2q0hw1ze3PZW0A1" />
+    </item>
+    <item name=".AspNet.ApplicationCookie">
+      <value string="pXom_wMv-_YNY07BUn4nAydm4j5UDraP9_QQPe_Afccd3u6aRvN69hgZWC0gfnOsJgD1ESpOZ_ATwy2-9q-wokq8RhCHPIDC1-OSAzTmYBYnXKzcnhHu205zQxO88UpZ-tmG7-9cXDNCYa65UWG1q4z-f6HM03WKB-BeRKiclDwy3tknSRG9gCpWzfohTahxg56yUoL_Or7SfTr9vU9W6AJ_gUX7RBTkFxcvsk9AFeTpw43X9-P_pR74Ilq5OmZomO9By6go8TTLV5RXXP98lP5KVA7Z-tRAMx-8cuEjDiUQRKkX4__zthoBezdAgmx7dauTLaD3NxYof08_u9z04kSN_jtn7y_8mB2-rWS9ZLAe9yhGyoiJZXjDpLm4bByIOinCIfcXoxETaR2nKqTySHjeYOGAP5S2eYEUFzHzonbWTJTfmW1ZAzhJrZbfeLESqI4Cur2nsUZE2-DtnAVyWO0bjHoqhCbMmm7jqRVtucgsnUrVApkSTiNdqgMJ_-J1ifILCxjh1RH3nGWU4jeMZg" />
+    </item>
+    <item name="i18n.langtag">
+      <value string="fr" />
+    </item>
+  </cookies>
+</error>

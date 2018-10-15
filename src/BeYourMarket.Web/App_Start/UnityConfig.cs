@@ -52,6 +52,7 @@ namespace BeYourMarket.Web.App_Start
                 .RegisterType<IRepositoryAsync<MessageParticipant>, Repository<MessageParticipant>>()
                 .RegisterType<IRepositoryAsync<MessageReadState>, Repository<MessageReadState>>()
                 .RegisterType<IRepositoryAsync<MessageThread>, Repository<MessageThread>>()
+                .RegisterType<IRepositoryAsync<LocationRef>, Repository<LocationRef>>()
 
                 .RegisterType<ISettingService, SettingService>()
                 .RegisterType<ICategoryService, CategoryService>()
@@ -70,6 +71,7 @@ namespace BeYourMarket.Web.App_Start
                 .RegisterType<IAspNetUserService, AspNetUserService>()
                 .RegisterType<IAspNetRoleService, AspNetRoleService>()
                 .RegisterType<IListingTypeService, ListingTypeService>()
+                .RegisterType<ILocationRefService, LocationRefService>()
                 .RegisterType<IListingReviewService, ListingReviewService>()
                 .RegisterType<ICategoryListingTypeService, CategoryListingTypeService>()
                 .RegisterType<IMessageService, MessageService>()

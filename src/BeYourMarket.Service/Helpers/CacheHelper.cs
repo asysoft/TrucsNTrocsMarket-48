@@ -82,5 +82,15 @@ namespace BeYourMarket.Service
                 return string.Format("https://connect.stripe.com/oauth/authorize?response_type=code&amp;client_id={0}&amp;scope=read_write", GetSettingDictionary("StripeClientID").Value);
             }
         }
+
+        public static List<LocationRef> LocationsRef
+        {
+            get
+            {
+                return ContainerManager.GetConfiguredContainer().Resolve<BeYourMarket.Service.DataCacheService>().GetCachedItem(CacheKeys.LocationsRef) as List<LocationRef>;
+            }
+        }
+
+
     }
 }

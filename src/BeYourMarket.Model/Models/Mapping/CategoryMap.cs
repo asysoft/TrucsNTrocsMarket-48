@@ -15,6 +15,11 @@ namespace BeYourMarket.Model.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(255);
 
+            this.Property(t => t.Description)
+                .IsRequired()
+                .HasMaxLength(255);
+
+
             // Table & Column Mappings
             this.ToTable("Categories");
             this.Property(t => t.ID).HasColumnName("ID");

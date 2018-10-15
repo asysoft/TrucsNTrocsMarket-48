@@ -15,9 +15,15 @@ namespace BeYourMarket.Web.Models
             Users = new List<ApplicationUser>();
             Pictures = new List<PictureModel>();
             CustomFields = new CustomFieldListingModel();
+
+            // ASY : zones et villes dans combo
+            LocationsRef = new List<LocationRef>();
         }
 
         public int CategoryID { get; set; }
+
+        // ASY : zones et ville dans combo
+        public int LocationRefID { get; set; }
 
         public int ListingTypeID { get; set; }
 
@@ -26,6 +32,8 @@ namespace BeYourMarket.Web.Models
         public Listing ListingItem { get; set; }
 
         public List<Category> Categories { get; set; }
+
+        public List<LocationRef> LocationsRef { get; set; }
 
         public List<ListingType> ListingTypes { get; set; }
 

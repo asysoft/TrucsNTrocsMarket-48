@@ -83,6 +83,7 @@
     <Compile Include="Models\ListingReview.cs" />
     <Compile Include="Models\ListingStat.cs" />
     <Compile Include="Models\ListingType.cs" />
+    <Compile Include="Models\LocationRef.cs" />
     <Compile Include="Models\Mapping\AspNetRoleMap.cs" />
     <Compile Include="Models\Mapping\AspNetUserClaimMap.cs" />
     <Compile Include="Models\Mapping\AspNetUserLoginMap.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="Models\Mapping\ListingReviewMap.cs" />
     <Compile Include="Models\Mapping\ListingStatMap.cs" />
     <Compile Include="Models\Mapping\ListingTypeMap.cs" />
+    <Compile Include="Models\Mapping\LocationRefMap.cs" />
     <Compile Include="Models\Mapping\MessageMap.cs" />
     <Compile Include="Models\Mapping\MessageParticipantMap.cs" />
     <Compile Include="Models\Mapping\MessageReadStateMap.cs" />

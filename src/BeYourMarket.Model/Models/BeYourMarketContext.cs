@@ -10,7 +10,7 @@ namespace BeYourMarket.Model.Models
     {
         static BeYourMarketContext()
         {
-            // Check if migrate database to latest version automatically (using automatic migration)
+            // Check if migrate database to latest version automatically (using automatic migration)D:\Soft\DVP\DvpASY_Web2018\TrucsNTrocsMarket\src\BeYourMarket.Model\Models\BeYourMarketContext.cs
             // AutomaticMigrationDataLossAllowed is disabled by default (can be configred in web.config)
             // reference: http://stackoverflow.com/questions/10646111/entity-framework-migrations-enable-automigrations-along-with-added-migration
             if (BeYourMarketConfigurationManager.MigrateDatabaseToLatestVersion){
@@ -53,6 +53,7 @@ namespace BeYourMarket.Model.Models
         public DbSet<Setting> Settings { get; set; }
         public DbSet<StripeConnect> StripeConnects { get; set; }
         public DbSet<StripeTransaction> StripeTransactions { get; set; }
+        public DbSet<LocationRef> LocationsRef { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -84,6 +85,8 @@ namespace BeYourMarket.Model.Models
             modelBuilder.Configurations.Add(new SettingMap());
             modelBuilder.Configurations.Add(new StripeConnectMap());
             modelBuilder.Configurations.Add(new StripeTransactionMap());
+            modelBuilder.Configurations.Add(new LocationRefMap());
+
         }
     }
 }
