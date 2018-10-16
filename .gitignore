@@ -206,3 +206,6 @@ FakesAssemblies/
 
 #BeYourMarket exclude
 *.pot.backup
+
+#ErrorLogs
+ErrorLogs/

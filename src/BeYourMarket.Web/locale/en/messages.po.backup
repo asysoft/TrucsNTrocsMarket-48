@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-10-14 21:51-01:00\n"
-"PO-Revision-Date: 2018-10-14 21:51-01:00\n"
+"POT-Creation-Date: 2018-10-14 22:06-01:00\n"
+"PO-Revision-Date: 2018-10-14 22:06-01:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1866,11 +1866,11 @@ msgstr ""
 msgid "Listing ID"
 msgstr ""
 
-#: Controllers\ListingController.cs:599
+#: Controllers\ListingController.cs:603
 msgid "Listing is updated!"
 msgstr ""
 
-#: Controllers\ListingController.cs:872
+#: Controllers\ListingController.cs:876
 msgid "Listing review is not allowed!"
 msgstr ""
 
@@ -2223,7 +2223,7 @@ msgstr ""
 msgid "Message is sent."
 msgstr ""
 
-#: Controllers\ListingController.cs:730
+#: Controllers\ListingController.cs:734
 msgid "Message sent succesfully!"
 msgstr ""
 
@@ -3490,8 +3490,8 @@ msgstr ""
 msgid "Thank you for confirming your email."
 msgstr ""
 
-#: Controllers\ListingController.cs:854
-#: Controllers\ListingController.cs:943
+#: Controllers\ListingController.cs:858
+#: Controllers\ListingController.cs:947
 msgid "Thanks for your feedback!"
 msgstr ""
 
@@ -3617,13 +3617,13 @@ msgid "There are no new messages"
 msgstr ""
 
 #: Controllers\ListingController.cs:186
-#: Controllers\ListingController.cs:381
+#: Controllers\ListingController.cs:385
 #: Areas\Admin\Controllers\ListingController.cs:390
 #: Areas\Admin\Controllers\ListingController.cs:490
 msgid "There are not categories available yet."
 msgstr ""
 
-#: Controllers\ListingController.cs:452
+#: Controllers\ListingController.cs:456
 msgid "There are not listing types available yet."
 msgstr ""
 
@@ -4063,21 +4063,21 @@ msgstr ""
 msgid "You cannot delete Administrator, change the user role first."
 msgstr ""
 
-#: Controllers\ListingController.cs:612
+#: Controllers\ListingController.cs:616
 #: Areas\Admin\Controllers\ListingController.cs:657
 msgid "You cannot delete item with orders! You can deactivate it instead."
 msgstr ""
 
-#: Controllers\ListingController.cs:807
+#: Controllers\ListingController.cs:811
 msgid "You cannot review the order!"
 msgstr ""
 
-#: Controllers\ListingController.cs:799
-#: Controllers\ListingController.cs:899
+#: Controllers\ListingController.cs:803
+#: Controllers\ListingController.cs:903
 msgid "You cannot review yourself!"
 msgstr ""
 
-#: Controllers\ListingController.cs:702
+#: Controllers\ListingController.cs:706
 msgid "You cannot send message to yourself!"
 msgstr ""
 
@@ -4085,7 +4085,7 @@ msgstr ""
 msgid "You cannot the listing type. There should be at least one listing type."
 msgstr ""
 
-#: Controllers\ListingController.cs:885
+#: Controllers\ListingController.cs:889
 msgid "You have reach the review limits today!"
 msgstr ""
 
@@ -4132,7 +4132,7 @@ msgstr ""
 msgid "Your Email"
 msgstr ""
 
-#: Controllers\ListingController.cs:620
+#: Controllers\ListingController.cs:624
 msgid "Your listing has been deleted."
 msgstr ""
 
