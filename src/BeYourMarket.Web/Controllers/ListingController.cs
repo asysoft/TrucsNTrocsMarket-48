@@ -492,6 +492,7 @@ namespace BeYourMarket.Web.Controllers
                 listingExisting.Latitude = listing.Latitude;
                 listingExisting.Longitude = listing.Longitude;
 
+                // Gestion des locations
                 listingExisting.Location = listing.Location;
                 listingExisting.LocationRefID = listing.LocationRefID;
 
