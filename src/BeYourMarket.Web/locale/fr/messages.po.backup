@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-10-14 22:06-01:00\n"
-"PO-Revision-Date: 2018-10-14 22:06-01:00\n"
+"POT-Creation-Date: 2018-10-19 15:23-01:00\n"
+"PO-Revision-Date: 2018-10-19 15:23-01:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,7 +12,7 @@ msgstr ""
 msgid "\", \"(((\").Replace(\""
 msgstr ""
 
-#: Views\Listing\Listing.cshtml:268
+#: Views\Listing\Listing.cshtml:277
 #: Views\Listing\Profile.cshtml:25
 #: Views\Listing\Review.cshtml:36
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:268
@@ -68,7 +68,7 @@ msgstr ""
 msgid "Accept Email"
 msgstr ""
 
-#: Views\Listing\ListingUpdate.cshtml:64
+#: Views\Listing\ListingUpdate.cshtml:68
 #: Areas\Admin\Views\Listing\Listings.cshtml:67
 #: Areas\Admin\Views\Listing\ListingUpdate.cshtml:133
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:64
@@ -216,7 +216,7 @@ msgstr ""
 msgid "Already a member?"
 msgstr "Deja membre"
 
-#: Views\Listing\ListingUpdate.cshtml:25
+#: Views\Listing\ListingUpdate.cshtml:29
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:25
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:25
 #: obj\Release\Package\PackageTmp\Views\Listing\ListingUpdate.cshtml:25
@@ -323,7 +323,7 @@ msgstr ""
 msgid "Button Label"
 msgstr ""
 
-#: Views\Listing\ListingUpdate.cshtml:133
+#: Views\Listing\ListingUpdate.cshtml:155
 #: Views\Listing\Review.cshtml:74
 #: Views\Payment\Orders.cshtml:26
 #: Views\Payment\Orders.cshtml:30
@@ -458,7 +458,7 @@ msgstr ""
 
 #: Views\Listing\Listing.cshtml:140
 #: Views\Listing\Listings.cshtml:50
-#: Views\Listing\ListingUpdate.cshtml:35
+#: Views\Listing\ListingUpdate.cshtml:39
 #: Views\Listing\_ListingGridList.cshtml:35
 #: Areas\Admin\Views\Listing\CategoryUpdate.cshtml:4
 #: Areas\Admin\Views\Listing\CategoryUpdate.cshtml:12
@@ -632,8 +632,8 @@ msgstr "Confirmer le Mot de Passe"
 
 #: Views\Account\Register.cshtml:54
 #: Views\Account\Register.cshtml:55
-#: Views\Listing\ListingUpdate.cshtml:126
-#: Views\Listing\ListingUpdate.cshtml:127
+#: Views\Listing\ListingUpdate.cshtml:148
+#: Views\Listing\ListingUpdate.cshtml:149
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:54
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:55
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:123
@@ -681,9 +681,9 @@ msgstr ""
 
 #: Views\Home\Contact.cshtml:4
 #: Views\Listing\Listing.cshtml:66
-#: Views\Listing\Listing.cshtml:236
-#: Views\Listing\Listing.cshtml:239
-#: Views\Listing\Listing.cshtml:272
+#: Views\Listing\Listing.cshtml:245
+#: Views\Listing\Listing.cshtml:248
+#: Views\Listing\Listing.cshtml:281
 #: Views\Listing\_ListingContactModal.cshtml:8
 #: obj\Debug\AspnetCompileMerge\Source\Views\Home\Contact.cshtml:4
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:66
@@ -720,8 +720,8 @@ msgstr ""
 msgid "Contact Name"
 msgstr ""
 
-#: Views\Listing\Listing.cshtml:230
-#: Views\Listing\Listing.cshtml:230
+#: Views\Listing\Listing.cshtml:239
+#: Views\Listing\Listing.cshtml:239
 #: Views\Listing\_ListingContactModal.cshtml:17
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:230
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:230
@@ -984,12 +984,12 @@ msgstr ""
 msgid "Date Format"
 msgstr ""
 
-#: Views\Listing\Listing.cshtml:175
+#: Views\Listing\Listing.cshtml:184
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:175
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:175
 #: obj\Release\Package\PackageTmp\Views\Listing\Listing.cshtml:175
 msgid "Date Posted"
-msgstr ""
+msgstr "Date d'émission"
 
 #: Areas\Admin\Views\Manage\SettingsLanguage.cshtml:17
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\SettingsLanguage.cshtml:17
@@ -1033,7 +1033,7 @@ msgid "Deleted!"
 msgstr ""
 
 #: Views\Listing\Listing.cshtml:55
-#: Views\Listing\ListingUpdate.cshtml:48
+#: Views\Listing\ListingUpdate.cshtml:52
 #: Views\Listing\_ListingGridList.cshtml:40
 #: Views\Payment\Orders.cshtml:128
 #: Areas\Admin\Views\ContentPage\ContentPages.cshtml:46
@@ -1083,7 +1083,7 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: Views\Listing\ListingUpdate.cshtml:49
+#: Views\Listing\ListingUpdate.cshtml:53
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:49
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:49
 #: obj\Release\Package\PackageTmp\Views\Listing\ListingUpdate.cshtml:49
@@ -1210,7 +1210,7 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: Views\Listing\ListingUpdate.cshtml:116
+#: Views\Listing\ListingUpdate.cshtml:138
 #: Areas\Admin\Views\Manage\SettingsEmail.cshtml:18
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:113
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:113
@@ -1350,14 +1350,13 @@ msgstr "Saisisser un email"
 msgid "Enter Email"
 msgstr "Saisisser un email"
 
-#: Views\Listing\ListingUpdate.cshtml:117
+#: Views\Listing\ListingUpdate.cshtml:139
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:114
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:114
 #: obj\Release\Package\PackageTmp\Views\Listing\ListingUpdate.cshtml:114
 msgid "Enter Email Address"
 msgstr "Saisisser une adresse email"
 
-#: Views\Listing\ListingUpdate.cshtml:86
 #: Areas\Admin\Views\Listing\ListingUpdate.cshtml:174
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:86
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:86
@@ -1368,14 +1367,18 @@ msgstr "Saisisser une adresse email"
 msgid "Enter Location"
 msgstr "Entrer un Lieux"
 
-#: Views\Listing\ListingUpdate.cshtml:109
+#: Views\Listing\ListingUpdate.cshtml:110
+msgid "Enter Location detail"
+msgstr "Ajouter des details sur le lieu"
+
+#: Views\Listing\ListingUpdate.cshtml:131
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:106
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:106
 #: obj\Release\Package\PackageTmp\Views\Listing\ListingUpdate.cshtml:106
 msgid "Enter Phone Number"
 msgstr "Entrer un numero de telephone"
 
-#: Views\Listing\ListingUpdate.cshtml:44
+#: Views\Listing\ListingUpdate.cshtml:48
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:44
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:44
 #: obj\Release\Package\PackageTmp\Views\Listing\ListingUpdate.cshtml:44
@@ -1428,7 +1431,7 @@ msgstr ""
 msgid "Enter your email."
 msgstr ""
 
-#: Views\Listing\ListingUpdate.cshtml:105
+#: Views\Listing\ListingUpdate.cshtml:127
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:102
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:102
 #: obj\Release\Package\PackageTmp\Views\Listing\ListingUpdate.cshtml:102
@@ -1579,7 +1582,7 @@ msgstr ""
 msgid "Frontend"
 msgstr ""
 
-#: Views\Listing\ListingUpdate.cshtml:104
+#: Views\Listing\ListingUpdate.cshtml:126
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:101
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:101
 #: obj\Release\Package\PackageTmp\Views\Listing\ListingUpdate.cshtml:101
@@ -1760,7 +1763,7 @@ msgstr ""
 msgid "Join"
 msgstr "S'inscrire"
 
-#: Views\Listing\Listing.cshtml:263
+#: Views\Listing\Listing.cshtml:272
 #: Views\Listing\Profile.cshtml:28
 #: Views\Listing\Review.cshtml:33
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:263
@@ -1831,7 +1834,7 @@ msgstr ""
 msgid "Last Updated"
 msgstr ""
 
-#: Views\Home\Index.cshtml:106
+#: Views\Home\Index.cshtml:153
 #: obj\Debug\AspnetCompileMerge\Source\Views\Home\Index.cshtml:104
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Home\Index.cshtml:104
 #: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:105
@@ -1852,25 +1855,25 @@ msgstr "Entrer"
 msgid "List"
 msgstr "Liste"
 
-#: Views\Listing\ListingUpdate.cshtml:34
+#: Views\Listing\ListingUpdate.cshtml:38
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:34
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:34
 #: obj\Release\Package\PackageTmp\Views\Listing\ListingUpdate.cshtml:34
 msgid "Listing Details"
 msgstr "Détails de l'annonce"
 
-#: Views\Listing\Listing.cshtml:183
+#: Views\Listing\Listing.cshtml:192
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:183
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:183
 #: obj\Release\Package\PackageTmp\Views\Listing\Listing.cshtml:183
 msgid "Listing ID"
 msgstr ""
 
-#: Controllers\ListingController.cs:603
+#: Controllers\ListingController.cs:614
 msgid "Listing is updated!"
 msgstr "Annonce mise a jour!"
 
-#: Controllers\ListingController.cs:876
+#: Controllers\ListingController.cs:887
 msgid "Listing review is not allowed!"
 msgstr "Les commentaires sur l'annonce ne sont pas permises"
 
@@ -1930,7 +1933,7 @@ msgstr "Mise � jour du Type d'Annonce"
 msgid "Listing Types"
 msgstr "Types d'Annonce"
 
-#: Views\Listing\ListingUpdate.cshtml:4
+#: Views\Listing\ListingUpdate.cshtml:6
 #: Areas\Admin\Views\Listing\ListingUpdate.cshtml:4
 #: Areas\Admin\Views\Listing\ListingUpdate.cshtml:16
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:4
@@ -1996,10 +1999,12 @@ msgid "Listings by category"
 msgstr "Annonces par Categorie"
 
 #: Views\Listing\Listing.cshtml:167
+#: Views\Listing\ListingUpdate.cshtml:87
+msgid "Localization"
+msgstr "Localisation"
+
 #: Views\Listing\Listings.cshtml:70
 #: Views\Listing\Listings.cshtml:71
-#: Views\Listing\ListingUpdate.cshtml:83
-#: Views\Listing\ListingUpdate.cshtml:85
 #: Views\Listing\_ListingGridList.cshtml:43
 #: Areas\Admin\Views\Listing\ListingUpdate.cshtml:170
 #: Areas\Admin\Views\Listing\ListingUpdate.cshtml:172
@@ -2029,6 +2034,10 @@ msgstr "Annonces par Categorie"
 #: obj\Release\Package\PackageTmp\Areas\Admin\Views\Listing\ListingUpdate.cshtml:172
 msgid "Location"
 msgstr "Lieux"
+
+#: Views\Listing\Listing.cshtml:176
+msgid "Location detail"
+msgstr "Précisions sur le lieu"
 
 #: Views\Shared\Lockout.cshtml:4
 #: obj\Debug\AspnetCompileMerge\Source\Views\Shared\Lockout.cshtml:4
@@ -2095,7 +2104,7 @@ msgstr ""
 msgid "Login Failure"
 msgstr "Echec de connection"
 
-#: Views\Listing\ListingUpdate.cshtml:26
+#: Views\Listing\ListingUpdate.cshtml:30
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:26
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:26
 #: obj\Release\Package\PackageTmp\Views\Listing\ListingUpdate.cshtml:26
@@ -2180,7 +2189,7 @@ msgstr ""
 msgid "Manage Users"
 msgstr "Utilisateurs"
 
-#: Views\Listing\Listing.cshtml:216
+#: Views\Listing\Listing.cshtml:225
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:216
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:216
 #: obj\Release\Package\PackageTmp\Views\Listing\Listing.cshtml:216
@@ -2223,7 +2232,7 @@ msgstr ""
 msgid "Message is sent."
 msgstr ""
 
-#: Controllers\ListingController.cs:734
+#: Controllers\ListingController.cs:745
 msgid "Message sent succesfully!"
 msgstr ""
 
@@ -2381,13 +2390,13 @@ msgstr ""
 
 # obj\Debug\AspnetCompileMerge\Source\Views\Home\Index.cshtml:72
 # obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Home\Index.cshtml:72
-#: Views\Home\Index.cshtml:74
+#: Views\Home\Index.cshtml:107
 #: obj\Debug\AspnetCompileMerge\Source\Views\Home\Index.cshtml:73
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Home\Index.cshtml:73
 #, obj\Debug\AspnetCompileMerge\Source\Views\Home\Index.cshtml:72
 #, obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Home\Index.cshtml:72
 msgid "Number of Listing actually on site: "
-msgstr "Nombre d'annonce actuellement sur le site: "
+msgstr "Nombre d'annonces actuellement sur le site :  "
 
 #: Views\Listing\Listings.cshtml:88
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:88
@@ -2532,8 +2541,8 @@ msgstr ""
 #: Views\Account\Login.cshtml:28
 #: Views\Account\Register.cshtml:50
 #: Views\Account\Register.cshtml:51
-#: Views\Listing\ListingUpdate.cshtml:122
-#: Views\Listing\ListingUpdate.cshtml:123
+#: Views\Listing\ListingUpdate.cshtml:144
+#: Views\Listing\ListingUpdate.cshtml:145
 #: Views\Manage\Index.cshtml:13
 #: Areas\Admin\Views\Install\Index.cshtml:32
 #: Areas\Admin\Views\Install\Index.cshtml:33
@@ -2652,7 +2661,7 @@ msgid "Pending"
 msgstr ""
 
 #: Models\ManageViewModels.cs:65
-#: Views\Listing\ListingUpdate.cshtml:108
+#: Views\Listing\ListingUpdate.cshtml:130
 #: Views\Manage\AddPhoneNumber.cshtml:3
 #: Views\Manage\UserProfile.cshtml:56
 #: Areas\Admin\Views\Manage\Users.cshtml:41
@@ -2776,8 +2785,8 @@ msgstr ""
 
 #: Views\Listing\Listing.cshtml:150
 #: Views\Listing\Listings.cshtml:75
-#: Views\Listing\ListingUpdate.cshtml:55
-#: Views\Listing\ListingUpdate.cshtml:57
+#: Views\Listing\ListingUpdate.cshtml:59
+#: Views\Listing\ListingUpdate.cshtml:61
 #: Views\Listing\_ListingGridList.cshtml:41
 #: Views\Payment\Orders.cshtml:125
 #: Views\Payment\Payment.cshtml:63
@@ -2868,14 +2877,14 @@ msgstr ""
 msgid "Provider"
 msgstr ""
 
-#: Views\Listing\ListingUpdate.cshtml:17
+#: Views\Listing\ListingUpdate.cshtml:21
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:17
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:17
 #: obj\Release\Package\PackageTmp\Views\Listing\ListingUpdate.cshtml:17
 msgid "Publish a listing (it's 100% free)"
 msgstr "Deposer une annonce (c'est 100% gratuit)"
 
-#: Views\Listing\ListingUpdate.cshtml:132
+#: Views\Listing\ListingUpdate.cshtml:154
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:129
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:129
 #: obj\Release\Package\PackageTmp\Views\Listing\ListingUpdate.cshtml:129
@@ -2903,7 +2912,7 @@ msgstr "Publier l'annonce"
 #: obj\Release\Package\PackageTmp\Views\Shared\_NavigationSide.cshtml:70
 #: obj\Release\Package\PackageTmp\Views\Shared\_NavigationSide.cshtml:84
 msgid "Publish new listing"
-msgstr "Publier de nouvelles annonces"
+msgstr "Deposer une annonce"
 
 #: Areas\Admin\Views\ContentPage\ContentPages.cshtml:48
 #: Areas\Admin\Views\ContentPage\ContentPageUpdate.cshtml:62
@@ -2916,12 +2925,12 @@ msgstr "Publier de nouvelles annonces"
 msgid "Published"
 msgstr ""
 
-#: Views\Listing\ListingUpdate.cshtml:102
+#: Views\Listing\ListingUpdate.cshtml:124
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:99
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:99
 #: obj\Release\Package\PackageTmp\Views\Listing\ListingUpdate.cshtml:99
 msgid "Publisher's Info"
-msgstr "Infos su publieur"
+msgstr "Infos sur le proprietaire"
 
 #: Views\Payment\Orders.cshtml:127
 #: Areas\Admin\Views\Payment\Order.cshtml:108
@@ -3141,7 +3150,7 @@ msgstr "Commentaires"
 msgid "Save"
 msgstr ""
 
-#: Views\Home\Index.cshtml:67
+#: Views\Home\Index.cshtml:97
 #: Views\Manage\Dashboard.cshtml:24
 #: Views\Manage\Messages.cshtml:34
 #: obj\Debug\AspnetCompileMerge\Source\Views\Home\Index.cshtml:66
@@ -3209,7 +3218,7 @@ msgstr ""
 msgid "Searchable"
 msgstr ""
 
-#: Views\Home\Index.cshtml:106
+#: Views\Home\Index.cshtml:153
 #: obj\Debug\AspnetCompileMerge\Source\Views\Home\Index.cshtml:104
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Home\Index.cshtml:104
 #: obj\Release\Package\PackageTmp\Views\Home\Index.cshtml:105
@@ -3292,7 +3301,7 @@ msgstr ""
 msgid "Settings"
 msgstr "Parametrage"
 
-#: Views\Listing\Listing.cshtml:277
+#: Views\Listing\Listing.cshtml:286
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:277
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:277
 #: obj\Release\Package\PackageTmp\Views\Listing\Listing.cshtml:277
@@ -3321,7 +3330,7 @@ msgstr ""
 msgid "Show Email"
 msgstr ""
 
-#: Views\Listing\ListingUpdate.cshtml:112
+#: Views\Listing\ListingUpdate.cshtml:134
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:109
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:109
 #: obj\Release\Package\PackageTmp\Views\Listing\ListingUpdate.cshtml:109
@@ -3490,8 +3499,8 @@ msgstr ""
 msgid "Thank you for confirming your email."
 msgstr ""
 
-#: Controllers\ListingController.cs:858
-#: Controllers\ListingController.cs:947
+#: Controllers\ListingController.cs:869
+#: Controllers\ListingController.cs:958
 msgid "Thanks for your feedback!"
 msgstr ""
 
@@ -3617,13 +3626,13 @@ msgid "There are no new messages"
 msgstr ""
 
 #: Controllers\ListingController.cs:186
-#: Controllers\ListingController.cs:385
+#: Controllers\ListingController.cs:389
 #: Areas\Admin\Controllers\ListingController.cs:390
 #: Areas\Admin\Controllers\ListingController.cs:490
 msgid "There are not categories available yet."
 msgstr ""
 
-#: Controllers\ListingController.cs:456
+#: Controllers\ListingController.cs:460
 msgid "There are not listing types available yet."
 msgstr ""
 
@@ -3669,7 +3678,7 @@ msgstr ""
 msgid "Time Format"
 msgstr ""
 
-#: Views\Listing\ListingUpdate.cshtml:43
+#: Views\Listing\ListingUpdate.cshtml:47
 #: Views\Listing\_ListingGridList.cshtml:38
 #: Views\Payment\Orders.cshtml:123
 #: Areas\Admin\Views\ContentPage\ContentPages.cshtml:45
@@ -3842,7 +3851,7 @@ msgstr ""
 msgid "Unsuccessful login with service."
 msgstr ""
 
-#: Views\Listing\ListingUpdate.cshtml:74
+#: Views\Listing\ListingUpdate.cshtml:78
 #: Areas\Admin\Views\Listing\ListingUpdate.cshtml:159
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:74
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:74
@@ -3961,7 +3970,7 @@ msgstr "vérifier le Numéro de téléphone"
 msgid "Version"
 msgstr ""
 
-#: Views\Listing\Listing.cshtml:231
+#: Views\Listing\Listing.cshtml:240
 #: Views\Listing\_ListingContactModal.cshtml:18
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:231
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\_ListingContactModal.cshtml:18
@@ -3972,7 +3981,7 @@ msgstr ""
 msgid "View User's other listings"
 msgstr ""
 
-#: Views\Listing\Listing.cshtml:266
+#: Views\Listing\Listing.cshtml:275
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:266
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:266
 #: obj\Release\Package\PackageTmp\Views\Listing\Listing.cshtml:266
@@ -3986,12 +3995,12 @@ msgstr ""
 msgid "View Your Profile"
 msgstr ""
 
-#: Views\Listing\Listing.cshtml:191
+#: Views\Listing\Listing.cshtml:200
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:191
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:191
 #: obj\Release\Package\PackageTmp\Views\Listing\Listing.cshtml:191
 msgid "Views"
-msgstr ""
+msgstr "Vues"
 
 #: Areas\Admin\Views\Manage\Dashboard.cshtml:8
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\Dashboard.cshtml:8
@@ -4063,21 +4072,21 @@ msgstr ""
 msgid "You cannot delete Administrator, change the user role first."
 msgstr ""
 
-#: Controllers\ListingController.cs:616
+#: Controllers\ListingController.cs:627
 #: Areas\Admin\Controllers\ListingController.cs:657
 msgid "You cannot delete item with orders! You can deactivate it instead."
 msgstr ""
 
-#: Controllers\ListingController.cs:811
+#: Controllers\ListingController.cs:822
 msgid "You cannot review the order!"
 msgstr ""
 
-#: Controllers\ListingController.cs:803
-#: Controllers\ListingController.cs:903
+#: Controllers\ListingController.cs:814
+#: Controllers\ListingController.cs:914
 msgid "You cannot review yourself!"
 msgstr ""
 
-#: Controllers\ListingController.cs:706
+#: Controllers\ListingController.cs:717
 msgid "You cannot send message to yourself!"
 msgstr ""
 
@@ -4085,7 +4094,7 @@ msgstr ""
 msgid "You cannot the listing type. There should be at least one listing type."
 msgstr ""
 
-#: Controllers\ListingController.cs:889
+#: Controllers\ListingController.cs:900
 msgid "You have reach the review limits today!"
 msgstr ""
 
@@ -4132,7 +4141,7 @@ msgstr ""
 msgid "Your Email"
 msgstr "Votre Email"
 
-#: Controllers\ListingController.cs:624
+#: Controllers\ListingController.cs:635
 msgid "Your listing has been deleted."
 msgstr ""
 

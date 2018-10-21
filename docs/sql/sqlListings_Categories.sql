@@ -11,4 +11,9 @@ SELECT *  FROM [dbo].[Categories]
 SELECT *  FROM [dbo].[CategoryListingTypes]
 
 SELECT *  FROM [dbo].[Settings]
+
+select * from [dbo].[LocationsRef]
+where ID = 43
+
+
 ----------

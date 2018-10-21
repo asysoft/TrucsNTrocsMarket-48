@@ -164,7 +164,16 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    [[[Location]]]
+                                                    [[[Localization]]]
+                                                </td>
+                                                <td>
+                                                    @Model.ListingCurrent.LocationRef.Name "-" @Model.ListingCurrent.LocationRef.Description
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                            <tr>
+                                                <td>
+                                                    [[[Location detail]]]
                                                 </td>
                                                 <td>
                                                     @Html.DisplayFor(x => Model.ListingCurrent.Location)

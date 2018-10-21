@@ -68,5 +68,25 @@ namespace BeYourMarket.Web.Utilities
                 return "http://placehold.it/500x300";
             }
         }
+
+
+        public static string GetCommunityImagePubsPath(string name, string format = "jpg", bool returnEmptyIfNotFound = false)
+        {
+            var filePath = string.Format("~/images/community/pubs/{0}.{1}", name, format);
+            if (File.Exists(HostingEnvironment.MapPath(filePath)))
+            {
+                return ImageVersion(filePath);
+            }
+            else if (returnEmptyIfNotFound)
+            {
+                return string.Empty;
+            }
+            else
+            {
+                return "http://placehold.it/500x300";
+            }
+        }
+
+
     }
 }

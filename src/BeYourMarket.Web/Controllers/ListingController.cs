@@ -248,6 +248,9 @@ namespace BeYourMarket.Web.Controllers
                 }
             }
 
+            // AS : populate loc ref
+            listing.LocationRef = CacheHelper.LocationsRef.Where(m => m.ID == listing.LocationRefID).FirstOrDefault();
+
             // Populate model with listing
             await PopulateListingUpdateModel(listing, model);
 
@@ -277,10 +280,10 @@ namespace BeYourMarket.Web.Controllers
             model.ListingTypes = CacheHelper.ListingTypes.Where(x => x.CategoryListingTypes.Any(y => y.CategoryID == model.CategoryID)).ToList();
 
             // Listing Categories
-            model.Categories = CacheHelper.Categories;
+          //  model.Categories = CacheHelper.Categories;
 
             // Listing Locations
-            model.LocationsRef = CacheHelper.LocationsRef;
+           //+ model.LocationsRef = CacheHelper.LocationsRef;
 
             return model;
         }
@@ -294,6 +297,7 @@ namespace BeYourMarket.Web.Controllers
                 .Include(x => x.ListingMetas.Select(y => y.MetaField))
                 .Include(x => x.ListingStats)
                 .Include(x => x.ListingType)
+                .Include(x => x.LocationRef)
                 .SelectAsync();
 
             var item = itemQuery.FirstOrDefault();
@@ -469,6 +473,10 @@ namespace BeYourMarket.Web.Controllers
                 listing.UserID = userIdCurrent;
                 listing.Enabled = true;
                 listing.Currency = CacheHelper.Settings.Currency;
+                listing.Created = DateTime.Now;
+
+                // AS : populate loc ref
+                listing.LocationRef = CacheHelper.LocationsRef.Where(m => m.ID == listing.LocationRefID).FirstOrDefault();
 
                 updateCount = true;
                 _listingService.Insert(listing);
@@ -492,7 +500,7 @@ namespace BeYourMarket.Web.Controllers
                 listingExisting.Latitude = listing.Latitude;
                 listingExisting.Longitude = listing.Longitude;
 
-                // Gestion des locations
+                // Gestion des locations    
                 listingExisting.Location = listing.Location;
                 listingExisting.LocationRefID = listing.LocationRefID;
 

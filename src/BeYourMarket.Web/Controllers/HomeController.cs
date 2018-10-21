@@ -315,5 +315,17 @@ namespace BeYourMarket.Web.Controllers
             return this.Redirect(returnUrl);
         }
         #endregion
+
+        public ActionResult TreeView()
+        {
+            //var db = new context();
+            var rootId = 0;
+            var locationsRef = CacheHelper.LocationsRef.ToList();
+
+            var locationsRefTree = locationsRef.OrderBy(x => x.Parent).ThenBy(x => x.Ordering).ToList().GenerateTree(x => x.ID, x => x.Parent, rootId);
+
+            return View(locationsRefTree.ToList());
+        }
+
     }
 }
