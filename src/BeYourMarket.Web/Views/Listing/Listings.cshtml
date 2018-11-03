@@ -11,6 +11,7 @@
 
 @section Styles {
     <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <link href="~/Content/jsTree/themes/default/style.min.css" rel="stylesheet" />
 }
 
 @helper DisplayBreadCrumb()
@@ -48,9 +49,13 @@
 
                                 <div class="form-group">
                                     <label>[[[Category]]]</label>
-                                    @Html.DropDownListFor(m => m.CategoryID, new SelectList(Model.Categories, "ID", "Name", Model.CategoryID), "[[[All Categories]]]", new { @class = "form-control", onchange = "this.form.submit()" })
+                                 </div>
+                                <div class="form-body" style="border-style:groove;overflow-y: auto; height: 240px;">
+                                    <div id="jstreeCateg">  </div>
+                                    <input type="hidden" id="CategoryIDhidd" name="CategoryIDsSearch" value="@Model.CategoryIDsSearch" />
                                 </div>
 
+                                <br />
                                 <div class="form-group">
                                     <label>[[[Listing Type]]]</label>
                                     @foreach (var listingType in Model.ListingTypes)
@@ -66,9 +71,14 @@
                                     }
                                 </div>
 
+                                <label>[[[Localization]]]</label>
+                                <div class="form-body" style="border-style:groove;overflow-y: auto; height: 270px;">
+                                    <div id="jstreeLoc"> </div>
+                                    <input type="hidden" id="LocationRefIDhidd" name="LocationRefIDsSearch" value="@Model.LocationRefIDsSearch" />
+                                </div>
                                 <div class="form-group">
-                                    <label>[[[Location]]]</label>
-                                    <input type="text" class="form-control" placeholder="[[[Location]]]" id="Location" name="Location" value="@Model.Location">
+                                    <input type="text" class="form-control input-lg" placeholder="[[[Enter Location detail]]]" id="Location" name="Location" value="@Model.Location">
+
                                 </div>
 
                                 <div class="form-group">
@@ -126,7 +136,7 @@
                             @Html.Partial("~/Views/Listing/_ListingGrid.cshtml", Model)
                             break;
                         case BeYourMarket.Model.Enum.Enum_SortView.List:
-                        @Html.Partial("~/Views/Listing/_ListingGridList.cshtml", Model)
+                            @Html.Partial("~/Views/Listing/_ListingGridList.cshtml", Model)
                             break;
                         case BeYourMarket.Model.Enum.Enum_SortView.Map:
                             break;
@@ -158,4 +168,89 @@
 </div>
 @section Scripts {
     <script src="https://maps.googleapis.com/maps/api/js?signed_in=true&libraries=places" async defer></script>
+    <script>
+
+        $(function () {
+            $('#jstreeCateg').jstree({
+                'core': {
+                    "multiple": true,
+                    "check_callback": false,
+                    'data': {
+                        'url': '/jsTree3/GetJsTree3CategData/'  ,
+                        "data": function (node) {
+                            return {
+                                id  : "@Model.CategoryID",
+                                ids : "@Model.CategoryIDsSearch" };
+                        },
+                        'dataType': 'json',
+                    },
+                    "themes": {
+                        "responsive": true,
+                        "variant": 'larg',
+                        "stripes": false,
+                        "icons": false,
+                        "ellipsis": false,
+                        "dots": false
+                    },
+                    "checkbox": {
+                        "visible": true,
+                        "two_state": false
+                    }
+                },
+                "plugins": [ "checkbox"]
+            });
+
+            $('#jstreeCateg').on("changed.jstree", function (e, data) {
+                if (data != null && data.selected != null && data.selected.length > 0) {
+                    document.getElementById('CategoryIDhidd').value = data.selected.join(";");
+                }
+                else
+                    document.getElementById('CategoryIDhidd').value = null;            
+            });
+
+        });
+
+        $(function () {
+            $('#jstreeLoc').jstree({
+                'core': {
+                    "multiple": true,
+                    "check_callback": false,
+                    'data': {
+                        'url': '/jsTree3/GetJsTree3LocData/'  ,
+                        "data": function (node) {
+                            return {
+                                id  : "@Model.LocationRefID",
+                                ids: "@Model.LocationRefIDsSearch"
+                            };
+                        },
+                        'dataType': 'json',
+                    },
+                    "themes": {
+                        "responsive": true,
+                        "variant": 'larg',
+                        "stripes": false,
+                        "icons": false,
+                        "ellipsis": false,
+                        "dots": false
+                    },
+                    "checkbox": {
+                        "visible": true,
+                        "two_state": false
+                    }
+                },
+                "plugins": [ "checkbox"]
+            });
+
+            $('#jstreeLoc').on("changed.jstree", function (e, data) {
+                if (data != null && data.selected != null && data.selected.length > 0) {
+                    document.getElementById('LocationRefIDhidd').value = data.selected.join(";");                    
+                }
+                else
+                    document.getElementById('LocationRefIDhidd').value = null;                    
+            });
+
+        });
+    </script>
+
+
 }

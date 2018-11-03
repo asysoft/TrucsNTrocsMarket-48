@@ -14,7 +14,7 @@ namespace BeYourMarket.Web
         {
             ConfigureAuth(app);
 
-           // createRolesandUsers();
+            //createRolesandUsers();
 
         }
 
@@ -28,12 +28,12 @@ namespace BeYourMarket.Web
 
 
             // In Startup iam creating first Admin Role and creating a default Admin User    
-            if (!roleManager.RoleExists("Admin"))
+            if (!roleManager.RoleExists("Administrator"))
             {
 
                 // first we create Admin rool   
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-                role.Name = "Admin";
+                role.Name = "Administrator";
                 roleManager.Create(role);
             }
 
@@ -43,7 +43,7 @@ namespace BeYourMarket.Web
                 user.UserName = "asy";
                 user.Email = "asysoft@yahoo.com";
 
-                string userPWD = "doudou";
+                string userPWD = "TnTtest2018";
 
                 //////////////////////
                 user.RegisterDate = DateTime.Now;
@@ -91,7 +91,7 @@ namespace BeYourMarket.Web
             //Add default User to Role Admin   
             if (chkUser.Succeeded)
             {
-                var result1 = UserManager.AddToRole(user.Id, "Admin");
+                var result1 = UserManager.AddToRole(user.Id, "Administrator");
 
             }
             

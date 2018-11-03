@@ -293,7 +293,12 @@ namespace BeYourMarket.Web.Models
             foreach (PropertyInfo prop in props)
             {
                 if (prop.Name.ToLower() == "id")
+                {
                     li.MergeAttribute("id", prop.GetValue(item, null).ToString());
+                    // test
+                    //li.MergeAttribute("data-jstree", "{'checked':true}");
+
+                }
                 // Do something with propValue  
                 if (prop.Name.ToLower() == "sortorder")
                     li.MergeAttribute("priority", prop.GetValue(item, null).ToString());

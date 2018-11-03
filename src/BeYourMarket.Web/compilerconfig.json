@@ -1,6 +1,6 @@
 ﻿[
-  {
-    "outputFile": "Themes/Default/Content/theme.css",
-    "inputFile": "Themes/Default/Content/theme.less"
-  }
+    {
+      "outputFile": "Themes/Default/Content/theme.css",
+      "inputFile": "Themes/Default/Content/theme.less"
+    }
 ]

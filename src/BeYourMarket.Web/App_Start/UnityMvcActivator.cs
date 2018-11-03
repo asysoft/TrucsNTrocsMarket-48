@@ -45,7 +45,7 @@ namespace BeYourMarket.Web.App_Start
             }
             catch (ReflectionTypeLoadException ex)
             {
-            http://stackoverflow.com/questions/1091853/error-message-unable-to-load-one-or-more-of-the-requested-types-retrieve-the-l
+            //  http://stackoverflow.com/questions/1091853/error-message-unable-to-load-one-or-more-of-the-requested-types-retrieve-the-l
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
                 foreach (Exception exSub in ex.LoaderExceptions)
                 {

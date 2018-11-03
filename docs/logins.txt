@@ -1,3 +1,5 @@
+﻿
+---------------- SOLID CP
    Control Panel URL     Username     Password 
     https://ccp.my-hosting-panel.com     shak29     suM9Cyk7 
 	
@@ -9,15 +11,17 @@ Pwd:
 Login : asysoft@yahoo.com
 Pwd:
 
----------------------------------------------
-Solid CP : SQL Server 2016
+-------------------SQL SERVER ---------------
+---- Solid CP : SQL Server 2016
 base : Shak29_tntmarket_testdb
 server : 	198.38.83.33
 Login : Shak29_tnttest2018
 Pwd : TnTtest2018
 
+---- LOCAL sur HP-ASY
+SQLExpress2012
+sa /sadev2018
 
-		
 ---------------------------------------------
 ftp :
 server : 	198.38.83.197
@@ -26,6 +30,7 @@ pwd
 
 ----- server Local DEV
 login : asysoft95@gmail.com
+
 pwd : Doudou2018
 
 <connectionStrings>
@@ -47,6 +52,16 @@ URL : http://test.trucsntrocs.com
 login/EMail : shakeel.ruhomaun@free.fr
 pwd : TnTtest2018
 
-Dits moi si tu atteints le site, et si tu arrive a te connecter avec tes identifiants
-N'hesites pas a créer plein d'annonces!
+--------  GIT REPO
+
+GIT - sur SOLID  CP 
+http://bonobo.trucsntrocs.com/Repository/Index
+asy / TnT2018
+
+GIT ; 
+http://bonobo.trucsntrocs.com/Repository/Index
+asy / TnT2018
+
+SQLExpress2012
+sa /sadev2018
 		

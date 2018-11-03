@@ -359,6 +359,16 @@
     <Content Include="Content\jsTree\themes\default\style.min.css" />
     <Content Include="Content\jsTree\themes\default\throbber.gif" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\themes\default-dark\32px.png" />
+    <Content Include="Content\themes\default-dark\40px.png" />
+    <Content Include="Content\themes\default-dark\style.css" />
+    <Content Include="Content\themes\default-dark\style.min.css" />
+    <Content Include="Content\themes\default-dark\throbber.gif" />
+    <Content Include="Content\themes\default\32px.png" />
+    <Content Include="Content\themes\default\40px.png" />
+    <Content Include="Content\themes\default\style.css" />
+    <Content Include="Content\themes\default\style.min.css" />
+    <Content Include="Content\themes\default\throbber.gif" />
     <Content Include="css\animate.css" />
     <Content Include="css\admin\bootstrap-reset.css" />
     <Content Include="Areas\Admin\Views\Shared\_CategoryCustomFields.cshtml" />
@@ -482,14 +492,8 @@
     <Content Include="Scripts\jquery.maphilight.min.js" />
     <Content Include="Scripts\jquery.validate.globalize.js" />
     <Content Include="Scripts\jquery.validate.globalize.min.js" />
-    <Content Include="Scripts\jsTree3\jstree.js" />
-    <Content Include="Scripts\jsTree3\jstree.min.js" />
-    <Content Include="Themes\Default\Content\color.css.map">
-      <DependentUpon>color.css</DependentUpon>
-    </Content>
-    <Content Include="Themes\Default\Content\helper.css.map">
-      <DependentUpon>helper.css</DependentUpon>
-    </Content>
+    <Content Include="Scripts\jstree.js" />
+    <Content Include="Scripts\jstree.min.js" />
     <Content Include="Areas\Admin\Views\Plugin\Plugins.cshtml" />
     <Content Include="Areas\Admin\Views\Hook\ConfigureHook.cshtml" />
     <Content Include="Plugins\installed.json" />
@@ -502,12 +506,14 @@
     <Content Include="Areas\Admin\Views\Listing\ListingTypeUpdate.cshtml" />
     <Content Include="Views\Listing\_ListingCard.cshtml" />
     <None Include="compilerconfig.json" />
-    <Content Include="compilerconfig.json.defaults">
+    <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
-    </Content>
+    </None>
     <Content Include="Views\Emails\_Layout.cshtml" />
     <Content Include="locale\it\messages.po" />
     <Content Include="locale\fr\messages.po" />
+    <Content Include="Content\themes\default\Thumbs.db" />
+    <Content Include="Content\themes\default-dark\Thumbs.db" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Views\Listing\_ListingContactModal.cshtml" />
     <Content Include="Views\Shared\_ListingTypes.cshtml" />
@@ -566,6 +572,12 @@
     <Content Include="Scripts\cldr\supplemental\windowsZones.json" />
     <Content Include="Views\Listing\_ListingPayment.cshtml" />
     <Content Include="Views\Listing\_ListingReviewModal.cshtml" />
+    <Content Include="Scripts\cldr\main\fr\ca-generic.json" />
+    <Content Include="Scripts\cldr\main\fr\ca-gregorian.json" />
+    <Content Include="Scripts\cldr\main\fr\currencies.json" />
+    <Content Include="Scripts\cldr\main\fr\dateFields.json" />
+    <Content Include="Scripts\cldr\main\fr\numbers.json" />
+    <Content Include="Scripts\cldr\main\fr\timeZoneNames.json" />
     <Content Include="Views\Shared\_jsTreeDemo.cshtml" />
     <Content Include="Views\jsTree3\Demo.cshtml" />
     <Content Include="Views\jsTree3\AJAXDemo.cshtml" />
@@ -1290,9 +1302,6 @@
     <Content Include="Views\Shared\_GridPager.cshtml" />
     <Content Include="Views\Shared\_AjaxGridPager.cshtml" />
     <Content Include="Scripts\gridmvc.min.js.map" />
-    <Content Include="Themes\Default\Content\theme.css.map">
-      <DependentUpon>theme.css</DependentUpon>
-    </Content>
     <Content Include="locale\messages.pot" />
     <Content Include="Views\Shared\_LanguageSelector.cshtml" />
     <Content Include="PostBuild\i18n.PostBuild.exe.config">

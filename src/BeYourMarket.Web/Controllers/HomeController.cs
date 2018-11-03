@@ -96,12 +96,14 @@ namespace BeYourMarket.Web.Controllers
         }
 
         // ASY : Recherche par zone sur click sur la carte
-        public async Task<ActionResult> SearchByLocationRef(SearchListingModel model, string zoneRefSearch)
+        public async Task<ActionResult> SearchByLocationRefZone(SearchListingModel model, string zoneName)
         {
-            if (model.LocationsRef == null)
-                model.LocationsRef = new List<LocationRef>();
+            LocationRef refZone = (LocationRef) CacheHelper.LocationsRef.Where(y => y.Name == zoneName).FirstOrDefault() ;
+            List< LocationRef> lstZone = CacheHelper.LocationsRef.Where(x => x.Parent == refZone.ID).ToList();
 
-            model.LocationsRef.Add(new LocationRef { Name = zoneRefSearch } );
+            model.LocationRefIDsSearch = string.Empty;
+            foreach (LocationRef loc in lstZone)
+                model.LocationRefIDsSearch += ";" + loc.ID.ToString();
 
             await GetSearchResult(model);
 
@@ -112,17 +114,34 @@ namespace BeYourMarket.Web.Controllers
         {
             IEnumerable<Listing> items = null;
 
-            // Category
-            if (model.CategoryID != 0)
+             // Category
+            if ( (model.CategoryID != 0) || !String.IsNullOrEmpty(model.CategoryIDsSearch)  )
             {
-                items = await _listingService.Query(x => x.CategoryID == model.CategoryID)
-                    .Include(x => x.ListingPictures)
-                    .Include(x => x.Category)
-                    .Include(x => x.ListingType)
-                    .Include(x => x.AspNetUser)
-                    .Include(x => x.ListingReviews)
-                    .SelectAsync();
+                // Recherche multi critegere
+                if (!String.IsNullOrEmpty(model.CategoryIDsSearch))
+                {
+                    List<string> idsCat = model.CategoryIDsSearch.Split(';').ToList();
 
+                    items = await _listingService.Query(x => idsCat.Contains(x.CategoryID.ToString()) )
+                        .Include(x => x.ListingPictures)
+                        .Include(x => x.Category)
+                        .Include(x => x.ListingType)
+                        .Include(x => x.AspNetUser)
+                        .Include(x => x.ListingReviews)
+                        .Include(x => x.LocationRef)
+                        .SelectAsync();
+                }
+                else // Recherche mono critegere
+                {
+                    items = await _listingService.Query(x => x.CategoryID == model.CategoryID)
+                        .Include(x => x.ListingPictures)
+                        .Include(x => x.Category)
+                        .Include(x => x.ListingType)
+                        .Include(x => x.AspNetUser)
+                        .Include(x => x.ListingReviews)
+                        .Include(x => x.LocationRef)
+                        .SelectAsync();
+                }
                 // Set listing types
                 model.ListingTypes = CacheHelper.ListingTypes.Where(x => x.CategoryListingTypes.Any(y => y.CategoryID == model.CategoryID)).ToList();
             }
@@ -151,16 +170,18 @@ namespace BeYourMarket.Web.Controllers
                         x.Title.ToLower().Contains(model.SearchText) ||
                         x.Description.ToLower().Contains(model.SearchText) ||
                         x.Location.ToLower().Contains(model.SearchText));
+
                 }
                 else
                     items = await _listingService.Query(
                         x => x.Title.ToLower().Contains(model.SearchText) ||
                         x.Description.ToLower().Contains(model.SearchText) ||
-                        x.Location.ToLower().Contains(model.SearchText))
+                        x.Location.ToLower().Contains(model.SearchText) )
                         .Include(x => x.ListingPictures)
                         .Include(x => x.Category)
                         .Include(x => x.AspNetUser)
                         .Include(x => x.ListingReviews)
+                        .Include(x => x.LocationRef)
                         .SelectAsync();
             }
 
@@ -172,23 +193,35 @@ namespace BeYourMarket.Web.Controllers
                     .Include(x => x.Category)
                     .Include(x => x.AspNetUser)
                     .Include(x => x.ListingReviews)
+                    .Include(x => x.LocationRef)
                     .SelectAsync();
             }
 
             // Filter items by Listing Type
-            items = items.Where(x => model.ListingTypeID.Contains(x.ListingTypeID));
+            if (model.ListingTypeID != null)
+                items = items.Where(x => model.ListingTypeID.Contains(x.ListingTypeID));
+
+            // par liste de locationRef
+            if ((model.LocationRefID != 0) || !String.IsNullOrEmpty(model.LocationRefIDsSearch))
+            {
+                // Recherche multi critegere
+                if (!String.IsNullOrEmpty(model.LocationRefIDsSearch))
+                {
+                    List<string> idsCat = model.LocationRefIDsSearch.Split(';').ToList();
+                    items = items.Where(x => idsCat.Contains(x.LocationRefID.ToString() ) ); 
+                }
+                else // Recherche mono critegere
+                {
+                    items = items.Where(x => x.LocationRefID == model.LocationRefID );
+                }
+
+            }
 
             // Location
             if (!string.IsNullOrEmpty(model.Location))
             {
                 items = items.Where(x => !string.IsNullOrEmpty(x.Location) && x.Location.IndexOf(model.Location, StringComparison.OrdinalIgnoreCase) != -1);
             }
-
-            // LocationRef : recherche par zone -  pour une zone - indice 0
-            //if ( model.LocationsRef != null && !string.IsNullOrEmpty(model.LocationsRef[0].ZoneRef ))
-            //{
-            //    items = items.Where(x => (x.ListingLocationsRef != null) && x.ListingLocationsRef.Contains( model.LocationsRef[0]) );
-            //}
 
             // Picture
             if (model.PhotoOnly)

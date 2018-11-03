@@ -9,7 +9,6 @@
 @section Styles {
     <link href="~/Content/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet" />
     <link href="~/Content/jsTree/themes/default/style.min.css" rel="stylesheet" />
-
 }
 
 <div class="main-section">
@@ -37,7 +36,10 @@
                             <fieldset>
                                 <legend>[[[Listing Details]]]</legend>
                                 <label>[[[Category]]]</label>
-                                @Html.DropDownListFor(m => m.CategoryID, new SelectList(Model.Categories, "ID", "Name", Model.ListingItem.CategoryID), new { @class = "form-control input-lg m-b-10" })
+                                 <div class="form-body" style="border-style:groove;overflow-y: auto; height: 240px;">
+                                    <div id="jstreeCateg">  </div>
+                                    <input type="hidden" id="CategoryIDhidd" name="CategoryID" value="@Model.ListingItem.CategoryID" />
+                                </div>
 
                                 <div id="listingTypesPlaceHolder">
                                     @Html.Partial("_ListingTypes", Model)
@@ -87,28 +89,12 @@
                                 <legend>[[[Localization]]]</legend>
 
                                 <div class="form-body" style="border-style:groove;overflow-y: auto; height: 270px;">
-                                    <div id="jstree">
-                                        @(Html.TreeView(Model.LocationsRef.Select(i => new { i.ID, i.Name, i.Description, i.Parent }).Where(p => p.Parent == 0).OrderBy(s => Int32.Parse(s.Name.Substring(4))).ToList())
-                                                                                  .EmptyContent("Villes par Zone")
-                                                                                  .Children(m => Model.LocationsRef.Select(i => new { i.ID, i.Name, i.Description, i.Parent }).ToList())
-                                                                                 .HtmlAttributes(new { id = "tree" })
-                                                                              .ChildrenHtmlAttributes(new { @class = "subItem" })
-                                                                                  .ItemText(m => m.Name)
-                                                                                  .ItemTemplate(
-                                                                                        @<text>
-                                                                                            <a href="" desc="@item.Description">@item.Name : @item.Description</a>
-                                                                                        </text>)
-                                        )
-
-                                    </div>
-                                    <input type="hidden" id="LocationRefID" name="LocationRefID" value="@Model.ListingItem.LocationRefID" />
+                                    <div id="jstreeLoc"> </div>
+                                    <input type="hidden" id="LocationRefIDhidd" name="LocationRefID" value="@Model.ListingItem.LocationRefID" />
                                 </div>
 
                                 <div class="form-group">
-                                    @*@Html.DropDownListFor(m => m.LocationRefID, new SelectList(Model.LocationsRef, "ID", "Name", Model.ListingItem.LocationRefID), new { @class = "form-control input-lg m-b-10" })*@
-                                    <br/>
                                     <input type="text" class="form-control input-lg" placeholder="[[[Enter Location detail]]]" id="Location" name="Location" value="@Model.ListingItem.Location">
-
                                 </div>
 
                                 <input type="hidden" id="Longitude" name="Longitude" value="@Model.ListingItem.Longitude" />
@@ -415,55 +401,78 @@
         }
     </script>
 
-    <script src="~/Scripts/jsTree3/jstree.min.js"></script>
     <script>
+        
         $(function () {
-            var selectedData;
-            $('#jstree').jstree({
-                "core": {
+            $('#jstreeCateg').jstree({
+                'core': {
                     "multiple": false,
                     "check_callback": false,
-                    "expand_selected_onload": false,
+                    'data': {
+                        'url': '/jsTree3/GetJsTree3CategData/'  ,
+                        "data": function (node) { return { id:  @Model.CategoryID }; },
+                        'dataType': 'json',
+                    },
                     "themes": {
                         "responsive": true,
                         "variant": 'larg',
                         "stripes": false,
                         "icons": false,
-                        "ellipsis" : false,
-                        "dots": false 
+                        "ellipsis": false,
+                        "dots": false
                     },
                     "checkbox": {
-                        "visible": true
-                    }
-
-                },
-                "types": {
-                    "default": {
-                        "icon": "fa fa-folder icon-state-warning icon-lg"
-                    },
-                    "file": {
-                        "icon": "fa fa-file icon-state-warning icon-lg"
+                        "visible": true,
+                        "two_state": false
                     }
                 },
-                "plugins": ["dnd", "state", "types", "checkbox"]
+                "plugins": [ "checkbox"]
             });
 
-        $('#jstree').on("changed.jstree", function (e, data) {    
-            if (data != null && data.selected != null && data.selected.length > 0) {
-                document.getElementById('LocationRefID').value = data.selected[0];
-               console.log(data.selected[0]);
-            }
+            $('#jstreeCateg').on("changed.jstree", function (e, data) {
+                if (data != null && data.selected != null && data.selected.length > 0) {
+                    document.getElementById('CategoryIDhidd').value = data.selected[0];
 
-            //var i = parseInt(data.selected[0]) +  @Model.ListingItem.LocationRefID ;
-
-           
-        });
-
+                }
+            });
 
         });
+        
+        $(function () {
+            $('#jstreeLoc').jstree({
+                'core': {
+                    "multiple": false,
+                    "check_callback": false,
+                    'data': {
+                        'url': '/jsTree3/GetJsTree3LocData/',
+                        "data": function (node) { return { id:  @Model.LocationRefID }; },
+                        'dataType': 'json',
+                    },
+                    "themes": {
+                        "responsive": true,
+                        "variant": 'larg',
+                        "stripes": false,
+                        "icons": false,
+                        "ellipsis": false,
+                        "dots": false
+                    },
+                    "checkbox": {
+                        "visible": true,
+                        "two_state": false
+                    }
+                },
+                "plugins": [ "checkbox"]
+            });
 
+            $('#jstreeLoc').on("changed.jstree", function (e, data) {
+                if (data != null && data.selected != null && data.selected.length > 0) {
+                    document.getElementById('LocationRefIDhidd').value = data.selected[0];
 
+                }
+            });
 
-
+        });
     </script>
+
+
 }

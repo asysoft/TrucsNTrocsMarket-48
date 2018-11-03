@@ -28,6 +28,6 @@
         </a>
     </div>
     <div class="card-action">
-        <a href="@Url.Action("Listing", "Listing", new { id = Model.ListingCurrent.ID })"><i class="fa fa-map-marker"></i> @Model.ListingCurrent.Location</a>
+        <a href="@Url.Action("Listing", "Listing", new { id = Model.ListingCurrent.ID })"><i class="fa fa-map-marker"></i> @Model.ListingCurrent.LocationRef.Name - @Model.ListingCurrent.LocationRef.Description - @Model.ListingCurrent.Location</a>
     </div>
 </div>

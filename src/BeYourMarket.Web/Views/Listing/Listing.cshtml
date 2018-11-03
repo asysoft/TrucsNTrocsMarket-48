@@ -43,9 +43,9 @@
                                         @Html.DisplayFor(x => x.ListingCurrent.PriceFormatted) @Model.ListingCurrent.ListingType.PriceUnitLabel
                                     </h4>
                                 }
-                                <p class="lead text-lighten">
-                                    @Model.ListingCurrent.Location
-                                </p>
+                                    <p class="lead text-lighten">
+                                        @Model.ListingCurrent.LocationRef.Name - @Model.ListingCurrent.LocationRef.Description - @Model.ListingCurrent.Location
+                                    </p>
                             </div>
 
                         </div>
@@ -167,7 +167,7 @@
                                                     [[[Localization]]]
                                                 </td>
                                                 <td>
-                                                    @Model.ListingCurrent.LocationRef.Name "-" @Model.ListingCurrent.LocationRef.Description
+                                                    @Model.ListingCurrent.LocationRef.Name - @Model.ListingCurrent.LocationRef.Description
                                                 </td>
                                             </tr>
                                             <tr>
@@ -185,14 +185,6 @@
                                                 </td>
                                                 <td>
                                                     @Model.ListingCurrent.Created.ToShortDateString()
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    [[[Listing ID]]]
-                                                </td>
-                                                <td>
-                                                    @Model.ListingCurrent.ID
                                                 </td>
                                             </tr>
                                             <tr>

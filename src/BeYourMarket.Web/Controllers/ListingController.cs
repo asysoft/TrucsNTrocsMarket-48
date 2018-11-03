@@ -233,9 +233,9 @@ namespace BeYourMarket.Web.Controllers
                 {
                     CategoryID = CacheHelper.Categories.Any() ? CacheHelper.Categories.FirstOrDefault().ID : 0,
                     LocationRefID = CacheHelper.LocationsRef.Any() ? CacheHelper.LocationsRef.FirstOrDefault().ID : 0,
-                    Created = DateTime.Now.Date,
-                    LastUpdated = DateTime.Now.Date,
-                    Expiration = DateTime.MaxValue,
+                    Created = new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day),
+                    LastUpdated = new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day),
+                    Expiration = new DateTime(DateTime.Now.Date.Year + 50, DateTime.Now.Date.Month, DateTime.Now.Date.Day),
                     Enabled = true,
                     Active = true,
                 };
