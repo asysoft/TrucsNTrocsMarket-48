@@ -178,14 +178,11 @@
             });
 
 
-            //$(".Area1").on("click", function (e) {
             $("#idMap").on("click", function (e) {
                 e.preventDefault();
                 var el = document.getElementById(e.target.className);
                 if (el != null && el.style != null) {
                     el.style.color = 'red';
-
-                    @*window.location.href = '@Url.Action("SearchByLocationRefZone", "Home",  new { zoneName = ' + e.target.className + '})';*@
                     el.click();
                 }
 

@@ -23,6 +23,7 @@ using BeYourMarket.Core.Web;
 using BeYourMarket.Service.Models;
 using Microsoft.Practices.Unity;
 using BeYourMarket.Web.Extensions;
+using System.Globalization;
 
 namespace BeYourMarket.Web.Controllers
 {
@@ -465,8 +466,12 @@ namespace BeYourMarket.Web.Controllers
                 listing.ListingTypeID = listingTypes.FirstOrDefault().ID;
             }
 
+            // ASY : set la lat lng, en insert ou en update depuis la collection form
+            listing.Latitude = Double.Parse(form["Latitude"].Replace(',', '.'), CultureInfo.InvariantCulture);                                     ; 
+            listing.Longitude = Double.Parse(form["Longitude"].Replace(',', '.'), CultureInfo.InvariantCulture);
+
             if (listing.ID == 0)
-            {
+            {                                  
                 listing.ObjectState = Repository.Pattern.Infrastructure.ObjectState.Added;
                 listing.IP = Request.GetVisitorIP();
                 listing.Expiration = DateTime.MaxValue.AddDays(-1);

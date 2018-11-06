@@ -43,9 +43,9 @@
                                         @Html.DisplayFor(x => x.ListingCurrent.PriceFormatted) @Model.ListingCurrent.ListingType.PriceUnitLabel
                                     </h4>
                                 }
-                                    <p class="lead text-lighten">
-                                        @Model.ListingCurrent.LocationRef.Name - @Model.ListingCurrent.LocationRef.Description - @Model.ListingCurrent.Location
-                                    </p>
+                                <p class="lead text-lighten">
+                                    @Model.ListingCurrent.LocationRef.Name - @Model.ListingCurrent.LocationRef.Description - @Model.ListingCurrent.Location
+                                </p>
                             </div>
 
                         </div>
@@ -334,8 +334,8 @@
         $(".text-swap").on("click", function () {
             var el = $(this);
             el.text() == el.data("text-swap")
-              ? el.text(el.data("text-original"))
-              : el.text(el.data("text-swap"));
+                ? el.text(el.data("text-original"))
+                : el.text(el.data("text-swap"));
         });
     </script>
 
@@ -372,5 +372,30 @@
         </text>
     }
 
-    <script src="https://maps.googleapis.com/maps/api/js?signed_in=true&libraries=places&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgB8z009mHSrPLaJUobfgmI1gTlk1aqyc&libraries=places&callback=initMap" async defer></script>
+    @*<script type="text/javascript">
+        $(function () {
+            $("#btnShowMap").click(function () {
+                $("#dialog").dialog({
+                    modal: true,
+                    title: "Google Map of Iskon Temple Ahmedabad",
+                    width: 650,
+                    hright: 500,
+                    buttons: {
+                        Close: function () {
+                            $(this).dialog('close');
+                        }
+                    },
+                    open: function () {
+                        var mapOptions = {
+                            center: new google.maps.LatLng(23.02715, 72.50852),
+                            zoom: 15,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        }
+                        var map = new google.maps.Map($("#div_googlemap")[0], mapOptions);
+                    }
+                });
+            });
+        });
+    </script>*@
 }

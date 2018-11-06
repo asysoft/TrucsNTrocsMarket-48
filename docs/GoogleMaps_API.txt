@@ -1,0 +1,16 @@
+https://console.cloud.google.com/google/maps-apis/overview?onboard=true&project=tntmarket-1541347832164&consoleUI=CLOUD
+------------------------------
+Date de création	
+4 nov. 2018 à 16:24:39
+Créé par	
+asysoft95@gmail.com (vous)
+-----------------------------------
+
+My Project : TnTMarket
+key=AIzaSyCgB8z009mHSrPLaJUobfgmI1gTlk1aqyc
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgB8z009mHSrPLaJUobfgmI1gTlk1aqyc&libraries=places&callback=initMap" async defer></script>
+
+
+old
+<script src="https://maps.googleapis.com/maps/api/js?signed_in=true&libraries=places&callback=initMap" async defer></script>

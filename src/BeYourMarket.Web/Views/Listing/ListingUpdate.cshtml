@@ -36,7 +36,7 @@
                             <fieldset>
                                 <legend>[[[Listing Details]]]</legend>
                                 <label>[[[Category]]]</label>
-                                 <div class="form-body" style="border-style:groove;overflow-y: auto; height: 240px;">
+                                <div class="form-body" style="border-style:groove;overflow-y: auto; height: 240px;">
                                     <div id="jstreeCateg">  </div>
                                     <input type="hidden" id="CategoryIDhidd" name="CategoryID" value="@Model.ListingItem.CategoryID" />
                                 </div>
@@ -97,6 +97,7 @@
                                     <input type="text" class="form-control input-lg" placeholder="[[[Enter Location detail]]]" id="Location" name="Location" value="@Model.ListingItem.Location">
                                 </div>
 
+                                <input type="hidden" id="LocSelectedName" name="LocSelectedName" width="200" />
                                 <input type="hidden" id="Longitude" name="Longitude" value="@Model.ListingItem.Longitude" />
                                 <input type="hidden" id="Latitude" name="Latitude" value="@Model.ListingItem.Latitude" />
 
@@ -150,8 +151,11 @@
 </div>
 
 @section Scripts {
-    <script src="https://maps.googleapis.com/maps/api/js?signed_in=true&libraries=places&callback=initMap" async defer></script>
     @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgB8z009mHSrPLaJUobfgmI1gTlk1aqyc&libraries=places&callback=initMap" async defer></script>
+
+
 
     <script src="~/Scripts/fileinput.min.js"></script>
     @Html.Partial("_LocalizationFileInput")
@@ -241,8 +245,8 @@
             var mapOptions = {
                 draggable: isDraggable,
                 scrollwheel: false, // Prevent users to start zooming the map when scrolling down the page
-                zoom: 14,
-                center: new google.maps.LatLng(-33.8688, 151.2195),
+                zoom: 13,
+                center: new google.maps.LatLng(-20.1608912, 57.50122220000003),
             };
 
             @{ var hasLatLng = @Model.ListingItem.Latitude.HasValue && @Model.ListingItem.Longitude.HasValue; }
@@ -252,13 +256,12 @@
                 <text>
             mapOptions = {
                 center: new google.maps.LatLng(@Model.ListingItem.Latitude.Value.ToString(System.Globalization.CultureInfo.InvariantCulture), @Model.ListingItem.Longitude.Value.ToString(System.Globalization.CultureInfo.InvariantCulture)),
-                zoom: 14
+                zoom: 12
             };
             </text>
             };
 
-            var map = new google.maps.Map(document.getElementById('map-canvas'),
-              mapOptions);
+            var map = new google.maps.Map(document.getElementById('map-canvas'),  mapOptions);
 
             @if (hasLatLng){
                 <text>
@@ -273,8 +276,8 @@
 
             geocoder = new google.maps.Geocoder();
 
-            var input = (document.getElementById('Location'));
-
+            var input = (document.getElementById('LocSelectedName'));
+            
             // Try HTML5 geolocation
             if (@Model.ListingItem.ID == 0){
                 if (navigator.geolocation) {
@@ -296,7 +299,10 @@
                                     infowindow.setContent(results[1].formatted_address);
                                     infowindow.open(map, marker);
 
-                                    $('#Location').val(results[1].formatted_address);
+                                    $('#LocSelectedName').val(results[1].formatted_address);
+
+                                    alert(results[1].formatted_address);
+
                                     $('#Latitude').val(pos.lat());
                                     $('#Longitude').val(pos.lng());
 
@@ -316,27 +322,134 @@
                 }
             }
 
+            var options = {
+                types: ['(cities)'],
+                componentRestrictions: { country: 'mu' }
+            };
             var autocomplete = new google.maps.places.Autocomplete(input);
             autocomplete.bindTo('bounds', map);
 
+            // ASY : Set the data fields to return when the user selects a place.
+            autocomplete.setFields(  ['address_components', 'geometry', 'icon', 'name']);
+
+            // ASY : try 
+            //var service = new google.maps.places.AutocompleteService();
+            //var txtLoc = document.getElementById('LocSelectedName').value;
+            //service.getQueryPredictions({ input: txtLoc }, displaySuggestions);
+
+            var autoCompleService = new google.maps.places.AutocompleteService();
+            var placesService = new google.maps.places.PlacesService(map);
             var infowindow = new google.maps.InfoWindow();
             var marker = new google.maps.Marker({
                 map: map,
                 anchorPoint: new google.maps.Point(0, -29)
             });
 
-            google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            // ASY
+            var callbackSetMaps = function (predictions, status) {
+                if (status != google.maps.places.PlacesServiceStatus.OK) {
+                    alert(status);
+                    return;
+                }
+
+                predictions.forEach(function (prediction) {
+                    //var li = document.createElement('li');
+                    //li.appendChild(document.createTextNode(prediction.description));
+                    //document.getElementById('LocSelectedName').appendChild(li);
+
+                    getPlaceDetails(prediction.place_id);
+
+                });
+            };
+
+            // Get place details
+            function getPlaceDetails(placeId) {
+                var request = {
+                    placeId: placeId
+                };
+
+                placesService.getDetails(request, function (place, status) {
+
+                    if (status === google.maps.places.PlacesServiceStatus.OK) {
+
+                        if (!place.geometry) {
+                            window.alert("Autocomplete's returned place contains no geometry");
+                            window.alert("No details available for input: '" + place.name + "'");
+                            return;
+                        }
+
+                        // Set lat/long
+                        $('#Latitude').val(place.geometry.location.lat());
+                        $('#Longitude').val(place.geometry.location.lng());
+
+                        //window.alert("Latitude : '" + document.getElementById('Latitude').value + "'");
+                        //window.alert("Longitude : '" + document.getElementById('Longitude').value + "'");
+
+                        // If the place has a geometry, then present it on a map.
+                        if (place.geometry.viewport) {
+                            map.fitBounds(place.geometry.viewport);
+                        } else {
+                            map.setCenter(place.geometry.location);
+                            map.setZoom(12);
+                        }
+                        marker.setIcon(({
+                            url: place.icon,
+                            size: new google.maps.Size(71, 71),
+                            origin: new google.maps.Point(0, 0),
+                            anchor: new google.maps.Point(17, 34),
+                            scaledSize: new google.maps.Size(35, 35)
+                        }));
+                        marker.setPosition(place.geometry.location);
+                        marker.setVisible(true);
+
+                        var address = '';
+                        if (place.address_components) {
+                            address = [
+                                (place.address_components[0] && place.address_components[0].short_name || ''),
+                                (place.address_components[1] && place.address_components[1].short_name || ''),
+                                (place.address_components[2] && place.address_components[2].short_name || '')
+                            ].join(' ');
+                        }
+
+                        infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
+                        infowindow.open(map, marker);
+
+                    }
+                });
+            }
+
+            //google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            autocomplete.addListener('place_changed', function () {
                 infowindow.close();
                 marker.setVisible(false);
                 var place = autocomplete.getPlace();
+
+                if (!place ) {
+
+                    //perform request. limit results to Maurice
+                    //var txtLoc = document.getElementById('LocSelectedName').value;
+                    var request = {
+                        input: document.getElementById('LocSelectedName').value ,
+                        types: ['establishment', 'geocode'],
+                        componentRestrictions: { country: 'mu' },
+                    };
+                    autoCompleService.getPlacePredictions(request, callbackSetMaps);
+                    return;
+                }
+               // window.alert("ASY Debug ---- autocomplete.getPlace() : '" + place.name + "'");
+
                 if (!place.geometry) {
                     window.alert("Autocomplete's returned place contains no geometry");
+                    window.alert("No details available for input: '" + place.name + "'");
                     return;
                 }
 
                 // Set lat/long
                 $('#Latitude').val(place.geometry.location.lat());
                 $('#Longitude').val(place.geometry.location.lng());
+
+                //window.alert("Latitude : '" + document.getElementById('Latitude').value + "'");
+                //window.alert("Longitude : '" + document.getElementById('Longitude').value + "'");
 
                 // If the place has a geometry, then present it on a map.
                 if (place.geometry.viewport) {
@@ -367,6 +480,10 @@
                 infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
                 infowindow.open(map, marker);
             });
+
+            // ASY : force fire event
+          //  autocomplete.place_changed();
+           google.maps.event.trigger(autocomplete, 'place_changed');
 
             google.maps.event.addDomListener(input, 'keydown', function (e) {
                 if (e.keyCode == 13) {
@@ -402,7 +519,7 @@
     </script>
 
     <script>
-        
+
         $(function () {
             $('#jstreeCateg').jstree({
                 'core': {
@@ -437,7 +554,7 @@
             });
 
         });
-        
+
         $(function () {
             $('#jstreeLoc').jstree({
                 'core': {
@@ -467,6 +584,16 @@
             $('#jstreeLoc').on("changed.jstree", function (e, data) {
                 if (data != null && data.selected != null && data.selected.length > 0) {
                     document.getElementById('LocationRefIDhidd').value = data.selected[0];
+
+                    // Recupere le ou les texte selectionne
+                    var i, j, r = [];
+                    for (i = 0, j = data.selected.length; i < j; i++) {
+                        r.push(data.instance.get_node(data.selected[i]).text);
+                    }
+                    var sel = r.join(' ') + ', ile Maurice';
+                    document.getElementById('LocSelectedName').value = sel;
+
+                    initMap();
 
                 }
             });

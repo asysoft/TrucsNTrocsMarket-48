@@ -19,7 +19,7 @@
                         @Html.Partial("_UserMessage")
                         @Html.ValidationSummary(true, string.Empty, new { @class = "alert alert-danger" })
 
-                        @Html.HiddenFor(x=> x.ListingItem.ID)
+                        @Html.HiddenFor(x => x.ListingItem.ID)
                         <div class="form-group">
                             <label class="col-sm-2 control-label">ID</label>
                             <div class="col-sm-10">
@@ -206,7 +206,9 @@
 </div>
 
 @section Scripts {
-    <script src="https://maps.googleapis.com/maps/api/js?signed_in=true&libraries=places&callback=initMap" async defer></script>
+    @*<script src="https://maps.googleapis.com/maps/api/js?signed_in=true&libraries=places&callback=initMap" async defer></script>*@
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgB8z009mHSrPLaJUobfgmI1gTlk1aqyc&libraries=places&callback=initMap" async defer></script>
+
     @Scripts.Render("~/bundles/jqueryval")
     <script src="~/Scripts/fileinput.min.js"></script>
     @Html.Partial("_LocalizationFileInput")
@@ -338,7 +340,7 @@
 
                                     $('#Location').val(results[1].formatted_address);
                                     $('#Latitude').val(pos.lat());
-                                    $('#Longitude').val(pos.lng());                                    
+                                    $('#Longitude').val(pos.lng());
 
                                 } else {
                                     alert('No results found');
@@ -438,7 +440,7 @@
 
             var infowindow = new google.maps.InfoWindow(options);
             map.setCenter(options.position);
-        }        
+        }
     </script>
 }
 
