@@ -247,7 +247,7 @@ namespace BeYourMarket.Web.Areas.Admin.Controllers
             {
                 var path = Path.Combine(Server.MapPath("~/images/community"), string.Format("{0}.{1}", Path.GetFileName(key), formatFile));
 
-                System.IO.File.Delete(path);
+                 System.IO.File.Delete(path);
 
                 var result = new { Success = "true", Message = "" };
                 return Json(result, JsonRequestBehavior.AllowGet);

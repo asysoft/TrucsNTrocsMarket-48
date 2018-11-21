@@ -83,19 +83,34 @@ namespace jsTree3.Controllers
             var children = new List<JsTree3Node>();
             bool bSelected = false;
             bool bOpened = false;
+            bool bcheckAllChilds = false;
 
             foreach (Category par in categories.Where(x => x.Parent == 0).OrderBy(y => y.ID))
             {
+                // reinit pour chaque groupr de categ
+                bSelected = false;
+                bOpened = false;
+                bcheckAllChilds = false;
+
                 var node = JsTree3Node.NewNode(par.ID.ToString());
 
-                node.state = new State(false, false, bSelected);
+                // si selection d une categ entire dans le panneau de gauche
+                if (idsSel.Contains(par.ID.ToString()))
+                {
+                    bSelected = true;
+                    bOpened = true;
+                    bcheckAllChilds = true;
+                }
+
+                node.state = new State(bOpened, false, bSelected);
+                //node.state.opened = true;  ??
                 node.text = par.Name;
                 //node.icon = 
                 foreach (Category child in categories.Where(x => x.Parent == par.ID))
                 {
                     var nodeChild = JsTree3Node.NewNode(child.ID.ToString());
 
-                    if (idsSel.Contains( child.ID.ToString() ) )
+                    if (bcheckAllChilds || (idsSel.Contains( child.ID.ToString() ) ) )
                     {
                         bSelected = true;
                         bOpened = true;

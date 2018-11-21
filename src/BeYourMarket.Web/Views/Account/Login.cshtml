@@ -5,11 +5,90 @@
     ViewBag.Title = "[[[Login]]]";
 }
 
+@section Styles {
+    <style>
+        #dGeneral {
+            overflow: auto;
+            background-color: #EAF4D3;
+        }
+
+        /*#dPart {
+            margin-top: 5px;
+            font-size: 14px;
+        }*/
+
+        #dPro {
+            display: none;
+
+        }
+
+        #idBtnType {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        #divLogoHautGauche {
+            float : left;
+            margin-left: 10px;
+            margin-top: 0px;
+            width: 150px;
+            height: 184px;
+        }
+
+        #divPubRegisterHaut{
+            margin-left: 200px;
+            margin-top: 10px;
+            width : 800px;
+            height: 200px;
+        }
+
+        #divPubRegisterGauche {
+            float : left;
+            margin-left: 1px;
+            margin-top: 150px;
+            width: 250px;
+            height: 350px;
+        }
+
+        #divPubRegisterDroite {
+            float : right;
+            margin-left: 1px
+            margin-right: 15px;
+            margin-top: 150px;
+            width: 250px;
+            height: 350px;
+        }
+    </style>
+}
+
+
+
 <div class="main-section">
-    <div class="container-fluid">
-        <div class=" center-block col-md-6">
+    <div class="container" style="background-color:#EAF4D3">
+        <div id="divLogoHautGauche" style="background-image: url(@ImageHelper.GetCommunityImagePath("LogoTnTcom_150x184", "png"));"></div>
+        <div id="divPubRegisterHaut">
+            <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Haut_800x200_Img1"))" style="display: block;" pubHaut />
+            <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Haut_800x200_Img2"))" style="display: none;" pubHaut />
+            <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Haut_800x200_Img3"))" style="display: none;" pubHaut />
+
+        </div>
+        <div id="divPubRegisterGauche">
+            <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Gauche_250x350_Img1"))" style="display: block;" pubgauche />
+            <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Gauche_250x350_Img2"))" style="display: none;" pubgauche />
+            <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Gauche_250x350_Img3"))" style="display: none;" pubgauche />
+
+        </div>
+        <div id="divPubRegisterDroite">
+            <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Droite_250x350_Img1"))" style="display: block;" pubdroite />
+            <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Droite_250x350_Img2"))" style="display: none;" pubdroite />
+            <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Droite_250x350_Img3"))" style="display: none;" pubdroite />
+        </div>
+        <div class="mx-auto col-md-6 ">
             <div class="panel panel-default mrg-t">
-                <div class="panel-body bdr-b panel-header">
+                <div class="panel-body bdr-b panel-header" style="text-align:center;">
                     <h4>[[[Login to your account]]]</h4>
                 </div>
 
@@ -31,7 +110,7 @@
                             <input type="checkbox" id="RememberMe" name="RememberMe" value="true" />
                             <label for="RememberMe">[[[Remember me?]]]</label>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-lg">[[[Let me in]]]</button>
+                        <button type="submit" class="btn btn-success btn-lg w-100 ">[[[Let me in]]]</button>
                     }
 
                 </div>
@@ -46,5 +125,6 @@
 </div>
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval") 
+    @Scripts.Render("~/bundles/jqueryval")
+ 
 }

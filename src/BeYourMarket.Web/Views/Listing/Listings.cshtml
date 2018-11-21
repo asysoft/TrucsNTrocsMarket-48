@@ -12,11 +12,29 @@
 @section Styles {
     <link href="~/Content/PagedList.css" rel="stylesheet" />
     <link href="~/Content/jsTree/themes/default/style.min.css" rel="stylesheet" />
+
+    <style>
+        #divLogoHautGauche {
+            float: left;
+            margin-left: 10px;
+            margin-top: 0px;
+            width: 150px;
+            height: 184px;
+            background-repeat: no-repeat;
+        }
+
+        #divPubHaut {
+            margin-left: 30px;
+            margin-top: 1px;
+            width: 800px;
+            height: 200px;
+        }
+    </style>
 }
 
 @helper DisplayBreadCrumb()
 {
-    if (Model.CategoryID != 0)
+    if ((Model.CategoryID != 0) && (Model.CategoryID != -1))
     {
         var settings = CacheHelper.Settings;
 
@@ -32,23 +50,31 @@
         </ol>
     }
 }
-<div class="container-fluid body-content">
+<div class="container-fluid body-content" style="background-color:#EAF4D3">
 
     @DisplayBreadCrumb()
 
     <div class="mrg-tb">
         <div class="row">
+            <div id="divLogoHautGauche" style="background-image: url(@ImageHelper.GetCommunityImagePath("LogoTnTcom_150x184", "png"));"></div>
+            <div id="divPubHaut">
+                <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Haut_800x200_Img1")" style="display: block;" pubHaut />
+                <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Haut_800x200_Img2")" style="display: none;" pubHaut />
+                <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Haut_800x200_Img3")" style="display: none;" pubHaut />
+            </div>
             <div class="col-md-3">
-                <div class="search-widget panel panel-default">
+
+                <div class="search-widget panel panel-default mt-5">
                     <form method="get" action="@Url.Action("Search", "Home", new { })">
-                        <div class="panel-heading">
-                            [[[Refine Search]]]
+                        <div class="panel-heading mt-2">
+                            <h4>[[[Refine Search]]]</h4>
+
                         </div>
                         <div class="panel-body">
                             <fieldset>
 
                                 <div class="form-group">
-                                    <label>[[[Category]]]</label>
+                                    <h5>[[[Category]]]</h5>
                                 </div>
                                 <div class="form-body" style="border-style:groove;overflow-y: auto; height: 240px;">
                                     <div id="jstreeCateg">  </div>
@@ -57,10 +83,10 @@
 
                                 <br />
                                 <div class="form-group">
-                                    <label>[[[Listing Type]]]</label>
+                                    <h5>[[[Listing Type]]]</h5>
                                     @foreach (var listingType in Model.ListingTypes)
                                     {
-                                        <div class="row">
+                                        <div class="row ml-5">
                                             <div class="col-xs-12">
                                                 @{var listingTypeCheckBoxID = "ListingTypeID_" + listingType.ID; }
                                                 <input type="radio" id="@listingTypeCheckBoxID" name="ListingTypeID" value="@listingType.ID" @( Model.ListingTypeID.Contains(listingType.ID) ? "checked" : "") onchange="this.form.submit()" />
@@ -71,26 +97,26 @@
                                     }
                                 </div>
 
-                                <label>[[[Localization]]]</label>
+                                <h5>[[[Localization]]]</h5>
                                 <div class="form-body" style="border-style:groove;overflow-y: auto; height: 270px;">
                                     <div id="jstreeLoc"> </div>
                                     <input type="hidden" id="LocationRefIDhidd" name="LocationRefIDsSearch" value="@Model.LocationRefIDsSearch" />
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group mt-2">
                                     <input type="text" class="form-control input-lg" placeholder="[[[Enter Location detail]]]" id="Location" name="Location" value="@Model.Location">
 
                                 </div>
 
                                 <div class="form-group">
-                                    <label>[[[Price]]]</label>
-                                    <div class="row">
+                                    <h5>[[[Price]]]</h5>
+                                    <div class="row ml-5">
                                         <div class="col-xs-6 range-from"><input type="number" class="form-control" placeholder="[[[From]]]" id="PriceFrom" name="PriceFrom" value="@Model.PriceFrom"></div>
                                         <div class="col-xs-6 range-to"><input type="number" class="form-control" placeholder="[[[To]]]" id="PriceTo" name="PriceTo" value="@Model.PriceTo"></div>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label>[[[Search Text]]]</label>
+                                    <h5>[[[Search Text]]]</h5>
                                     <input type="search" class="form-control" placeholder="[[[Search text]]]" id="SearchText" name="SearchText" value="@Model.SearchText">
                                 </div>
 
@@ -102,13 +128,12 @@
 
                         </div>
                         <div class="panel-footer">
-                            <button type="submit" class="btn btn-sm btn-primary" href="">[[[Apply]]]</button>
+                            <button type="submit" class="btn btn-success btn-lg w-100 " href="">[[[Apply]]]</button>
                         </div>
                     </form>
                 </div>
             </div>
-            <div class="col-md-9 section-title">
-
+            <div class="col-md-9 section-title mt-5">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="">
@@ -129,19 +154,23 @@
                 </div>
 
                 <div class="row m-b-10">
-                    @switch (Model.SortView)
-                    {
-                        case BeYourMarket.Model.Enum.Enum_SortView.Grid:
-                        default:
-                            @Html.Partial("~/Views/Listing/_ListingGrid.cshtml", Model)
-                            break;
-                        case BeYourMarket.Model.Enum.Enum_SortView.List:
-                            @Html.Partial("~/Views/Listing/_ListingGridList.cshtml", Model)
-                            break;
-                        case BeYourMarket.Model.Enum.Enum_SortView.Map:
-                            break;
+                    <div class="container-fluid body-content">
+                        @switch (Model.SortView)
+                        {
+                            case BeYourMarket.Model.Enum.Enum_SortView.Grid:
+                            default:
 
-                    }
+                                @Html.Partial("~/Views/Listing/_ListingGrid.cshtml", Model)
+                                break;
+
+                            case BeYourMarket.Model.Enum.Enum_SortView.List:
+                                @Html.Partial("~/Views/Listing/_ListingGridList.cshtml", Model)
+                                break;
+                            case BeYourMarket.Model.Enum.Enum_SortView.Map:
+                                break;
+
+                        }
+                    </div>
                 </div>
 
                 <div class="panel-header bdr-b">
@@ -167,7 +196,7 @@
     </div>
 </div>
 @section Scripts {
- 
+
     <script>
 
         $(function () {

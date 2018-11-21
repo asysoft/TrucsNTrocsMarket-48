@@ -88,8 +88,12 @@ namespace BeYourMarket.Web.Controllers
             return View(model);
         }
 
-        public async Task<ActionResult> Search(SearchListingModel model)
+        public async Task<ActionResult> Search(SearchListingModel model, int displayNone = 0)
         {
+            // ASY : pour ne rien afficher , et laisser affiner la recherche
+            if (displayNone == 1)
+                model.CategoryID = -1;
+
             await GetSearchResult(model);
 
             return View("~/Views/Listing/Listings.cshtml", model);
@@ -98,8 +102,8 @@ namespace BeYourMarket.Web.Controllers
         // ASY : Recherche par zone sur click sur la carte
         public async Task<ActionResult> SearchByLocationRefZone(SearchListingModel model, string zoneName)
         {
-            LocationRef refZone = (LocationRef) CacheHelper.LocationsRef.Where(y => y.Name == zoneName).FirstOrDefault() ;
-            List< LocationRef> lstZone = CacheHelper.LocationsRef.Where(x => x.Parent == refZone.ID).ToList();
+            LocationRef refZone = (LocationRef)CacheHelper.LocationsRef.Where(y => y.Name == zoneName).FirstOrDefault();
+            List<LocationRef> lstZone = CacheHelper.LocationsRef.Where(x => x.Parent == refZone.ID).ToList();
 
             model.LocationRefIDsSearch = string.Empty;
             foreach (LocationRef loc in lstZone)
@@ -115,7 +119,7 @@ namespace BeYourMarket.Web.Controllers
             IEnumerable<Listing> items = null;
 
              // Category
-            if ( (model.CategoryID != 0) || !String.IsNullOrEmpty(model.CategoryIDsSearch)  )
+            if ( (model.CategoryID > 0) || !String.IsNullOrEmpty(model.CategoryIDsSearch)  )
             {
                 // Recherche multi critegere
                 if (!String.IsNullOrEmpty(model.CategoryIDsSearch))
@@ -133,8 +137,9 @@ namespace BeYourMarket.Web.Controllers
                 }
                 else // Recherche mono critegere
                 {
-                    items = await _listingService.Query(x => x.CategoryID == model.CategoryID)
-                        .Include(x => x.ListingPictures)
+                    // attention seulement si on est sur un parent
+                    items = await _listingService.Query( x => x.CategoryID == model.CategoryID || (  x.Category.Parent == model.CategoryID) )
+                         .Include(x => x.ListingPictures)
                         .Include(x => x.Category)
                         .Include(x => x.ListingType)
                         .Include(x => x.AspNetUser)
@@ -185,8 +190,8 @@ namespace BeYourMarket.Web.Controllers
                         .SelectAsync();
             }
 
-            // Latest
-            if (items == null)
+            // Latest (if not refin search)
+            if ( (items == null) && (model.CategoryID != -1) )
             {
                 items = await _listingService.Query().OrderBy(x => x.OrderByDescending(y => y.Created))
                     .Include(x => x.ListingPictures)
@@ -197,54 +202,66 @@ namespace BeYourMarket.Web.Controllers
                     .SelectAsync();
             }
 
-            // Filter items by Listing Type
-            if (model.ListingTypeID != null)
-                items = items.Where(x => model.ListingTypeID.Contains(x.ListingTypeID));
-
-            // par liste de locationRef
-            if ((model.LocationRefID != 0) || !String.IsNullOrEmpty(model.LocationRefIDsSearch))
-            {
-                // Recherche multi critegere
-                if (!String.IsNullOrEmpty(model.LocationRefIDsSearch))
-                {
-                    List<string> idsCat = model.LocationRefIDsSearch.Split(';').ToList();
-                    items = items.Where(x => idsCat.Contains(x.LocationRefID.ToString() ) ); 
-                }
-                else // Recherche mono critegere
-                {
-                    items = items.Where(x => x.LocationRefID == model.LocationRefID );
-                }
-
-            }
-
-            // Location
-            if (!string.IsNullOrEmpty(model.Location))
-            {
-                items = items.Where(x => !string.IsNullOrEmpty(x.Location) && x.Location.IndexOf(model.Location, StringComparison.OrdinalIgnoreCase) != -1);
-            }
-
-            // Picture
-            if (model.PhotoOnly)
-                items = items.Where(x => x.ListingPictures.Count > 0);
-
-            /// Price
-            if (model.PriceFrom.HasValue)
-                items = items.Where(x => x.Price >= model.PriceFrom.Value);
-
-            if (model.PriceTo.HasValue)
-                items = items.Where(x => x.Price <= model.PriceTo.Value);
-
-            // Show active and enabled only
             var itemsModelList = new List<ListingItemModel>();
-            foreach (var item in items.Where(x => x.Active && x.Enabled).OrderByDescending(x => x.Created))
+            if (items != null)
             {
-                itemsModelList.Add(new ListingItemModel()
+
+                // Filter items by Listing Type
+                if (model.ListingTypeID != null)
+                    items = items.Where(x => model.ListingTypeID.Contains(x.ListingTypeID));
+
+                // par liste de locationRef
+                if ((model.LocationRefID != 0) || !String.IsNullOrEmpty(model.LocationRefIDsSearch))
                 {
-                    ListingCurrent = item,
-                    UrlPicture = item.ListingPictures.Count == 0 ? ImageHelper.GetListingImagePath(0) : ImageHelper.GetListingImagePath(item.ListingPictures.OrderBy(x => x.Ordering).FirstOrDefault().PictureID)
-                });
+                    // Recherche multi critegere
+                    if (!String.IsNullOrEmpty(model.LocationRefIDsSearch))
+                    {
+                        List<string> idsCat = model.LocationRefIDsSearch.Split(';').ToList();
+                        items = items.Where(x => idsCat.Contains(x.LocationRefID.ToString()));
+                    }
+                    else // Recherche mono critegere
+                    {
+                        items = items.Where(x => x.LocationRefID == model.LocationRefID);
+                    }
+
+                }
+
+                // Location
+                if (!string.IsNullOrEmpty(model.Location))
+                {
+                    items = items.Where(x => !string.IsNullOrEmpty(x.Location) && x.Location.IndexOf(model.Location, StringComparison.OrdinalIgnoreCase) != -1);
+                }
+
+                // Picture
+                if (model.PhotoOnly)
+                    items = items.Where(x => x.ListingPictures.Count > 0);
+
+                /// Price
+                if (model.PriceFrom.HasValue)
+                    items = items.Where(x => x.Price >= model.PriceFrom.Value);
+
+                if (model.PriceTo.HasValue)
+                    items = items.Where(x => x.Price <= model.PriceTo.Value);
+
+                // Show active and enabled only
+                
+                foreach (var item in items.Where(x => x.Active && x.Enabled).OrderByDescending(x => x.Created))
+                {
+                    itemsModelList.Add(new ListingItemModel()
+                    {
+                        ListingCurrent = item,
+                        UrlPicture = item.ListingPictures.Count == 0 ? ImageHelper.GetListingImagePath(0) : ImageHelper.GetListingImagePath(item.ListingPictures.OrderBy(x => x.Ordering).FirstOrDefault().PictureID)
+                    });
+                }
+
             }
-            var breadCrumb = GetParents(model.CategoryID).Reverse().ToList();
+
+            // attention avec -1 : fait planter => convertie en 0 a l interieur
+            int modCategoryID = model.CategoryID;
+            if (model.CategoryID == -1)
+                modCategoryID = 0;
+
+            var breadCrumb = GetParents(modCategoryID).Reverse().ToList();
 
             model.BreadCrumb = breadCrumb;
             model.Categories = CacheHelper.Categories;
@@ -254,6 +271,7 @@ namespace BeYourMarket.Web.Controllers
             model.Listings = itemsModelList;
             model.ListingsPageList = itemsModelList.ToPagedList(model.PageNumber, model.PageSize);
             model.Grid = new ListingModelGrid(model.ListingsPageList.AsQueryable());
+            
         }
 
         IEnumerable<Category> GetParents(int categoryId)

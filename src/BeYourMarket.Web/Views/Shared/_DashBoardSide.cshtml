@@ -6,7 +6,7 @@
 }
 
 <div class=" col-md-3">
-    <ul class="nav nav-pills nav-stacked">
+    <ul class="nav nav-pills flex-column">
         <li class="@( Model == "dashboard" ? "active" : null )"><a href="@Url.Action("Index", "Manage")"><i class="fa fa-th-list"></i> [[[Listings]]]</a></li>
         <li class="@( Model == "messages" ? "active" : null )"><a href="@Url.Action("Messages", "Manage")"><i class="fa fa-envelope"></i> [[[Messages]]]</a></li>
 

@@ -48,6 +48,7 @@ namespace BeYourMarket.Web.Utilities
             }
             else
             {
+               // return ImageVersion(string.Format("~/images/profile/{0}.jpg", "Avatar_Defaut") ); 
                 return "http://www.gravatar.com/avatar/?d=mm";
             }
         }

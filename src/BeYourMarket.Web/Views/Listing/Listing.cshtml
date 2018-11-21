@@ -11,9 +11,17 @@
 @section Styles {
     <link href="~/css/formstone/lightbox.css" rel="stylesheet" />
     <link href="~/js/timepicker/bootstrap-datepicker.min.css" rel="stylesheet" />
+
+    <style>
+        .nav-tabs > li > a {
+            /* adjust padding for height*/
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
+    </style>
 }
 
-<div class="body-content">
+<div class="body-content"  style="background-color:#EAF4D3">
 
     <div class="main-section">
 
@@ -283,7 +291,7 @@
                                     <a class="a2a_button_linkedin"></a>
                                 </div>
 
-                                <script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+                                @*<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>*@
                             </div>
                         </div>
                     </div>
@@ -373,29 +381,16 @@
     }
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgB8z009mHSrPLaJUobfgmI1gTlk1aqyc&libraries=places&callback=initMap" async defer></script>
-    @*<script type="text/javascript">
-        $(function () {
-            $("#btnShowMap").click(function () {
-                $("#dialog").dialog({
-                    modal: true,
-                    title: "Google Map of Iskon Temple Ahmedabad",
-                    width: 650,
-                    hright: 500,
-                    buttons: {
-                        Close: function () {
-                            $(this).dialog('close');
-                        }
-                    },
-                    open: function () {
-                        var mapOptions = {
-                            center: new google.maps.LatLng(23.02715, 72.50852),
-                            zoom: 15,
-                            mapTypeId: google.maps.MapTypeId.ROADMAP
-                        }
-                        var map = new google.maps.Map($("#div_googlemap")[0], mapOptions);
-                    }
-                });
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+                localStorage.setItem('activeTab', $(e.target).attr('href'));
             });
+            var activeTab = localStorage.getItem('activeTab');
+            if (activeTab) {
+                $('#mainTab a[href="' + activeTab + '"]').tab('show');
+            }
         });
-    </script>*@
+    </script>
 }

@@ -40,7 +40,7 @@
                            columns.Add(x => x.ListingCurrent.Description).Titled("[[[Description]]]").RenderValueAs(x => x.ListingCurrent.Description.PrefixString());
                            columns.Add(x => x.ListingCurrent.PriceFormatted).Titled("[[[Price]]]").Format("{0:N2}");
 
-                           columns.Add(x => x.ListingCurrent.Location).Titled("[[[Location]]]");
+                           columns.Add(x => x.ListingCurrent.LocationRef.Name ).Titled("[[[Ville]]]");
                            columns.Add(x => x.ListingCurrent.Created).RenderValueAs(x => x.ListingCurrent.Created.ToShortDateString()).Titled("[[[Created]]]");
                        }).Sortable().Filterable().Selectable(false)
 </div>

@@ -26,7 +26,7 @@
             </a>
         </li>
 
-        foreach (var item in categories)
+        @*foreach (var item in categories.Where(p => p.Item.Parent == 0) )
         {
             <li class="treeview">
                 <a href="@Url.Action("Search", "Home", new { CategoryID = item.Item.ID })">
@@ -37,10 +37,26 @@
                     }
                 </a>
 
-                @DisplayTree(item.Children, true)
+                @DisplayTree(item.Children, false)
             </li>
+        }*@
+
+        foreach (var item in categories)
+        {
+        <li class="treeview">
+            <a href="@Url.Action("Search", "Home", new { CategoryID = item.Item.ID })">
+                <span>@item.Item.Name</span>
+                @if (item.Children.Count() > 0)
+                {
+                    <i class="mdi-navigation-expand-more pull-right"></i>
+                }
+            </a>
+
+            @DisplayTree(item.Children, true)
+        </li>
         }
-    }
+
+}
 }
 
 <section class="sidebar">
@@ -51,10 +67,15 @@
                 <button type="submit" name="search" class="btn btn-sm btn-flat"><i class="mdi-action-search "></i></button>
             </span>
         </div>
+        @*<a class="text-blue" href="@Html.ActionLink("[[[Refine Search]]]", "Search", "Home", new { displayNone = 1, area = string.Empty }, htmlAttributes: new { id = "SearchLink"})">*@
+            <a class="text-blue" href="@Url.Action("Search", "Home", new { displayNone = 1 })">
+                <span>[[[Refine Search]]]</span>
+            </a>
+
     </form>
     <ul class="sidebar-menu">
         @if (!User.Identity.IsAuthenticated)
-            {
+        {
             <li class="hidden-lg hidden-md">
                 <a href="@Url.Action("Login", "Account")">
                     <span>[[[Log in]]]</span>
@@ -70,30 +91,30 @@
                     <span>[[[New listing]]]</span>
                 </a>
             </li>
-            }
-            else
-            {            
-            <li class="">                
+        }
+        else
+        {
+            <li class="">
                 <a href="@Url.Action("Dashboard", "Manage", new { Area = "" })">
                     <i class="fa fa-dashboard"></i> <span>[[[Dashboard]]]</span>
                 </a>
             </li>
 
-            <li class="hidden-lg hidden-md">                
+            <li class="hidden-lg hidden-md">
                 <a href="@Url.Action("ListingUpdate", "Listing")">
                     <span>[[[New listing]]]</span>
                 </a>
             </li>
 
-                if (User.IsInRole("Administrator"))
-                {
+            if (User.IsInRole("Administrator"))
+            {
                 <li>
                     <a target="_blank" href="@Url.Action("Index", "Manage", new {Area ="Admin" })">
                         <i class="fa fa-desktop"></i> <span>[[[Admin Panel]]]</span>
                     </a>
                 </li>
-                }
             }
+        }
 
         <li class="divider"><i class="fa fa-th-list"></i> [[[Categories]]]</li>
 
@@ -101,11 +122,11 @@
 
         <li class="divider"></li>
         @foreach (var contentPage in Model.ContentPages)
-            {
+        {
             <li class="@(Html.IsActiveMenuItem("ContentPage", "Home", contentPage.Slug) ? "active" : "")">
                 <a href="@Url.Action("ContentPage", "Home", new { id = contentPage.Slug })"><i class="fa fa-file"></i> @contentPage.Title</a>
             </li>
-            }
+        }
 
         <li class="@(Html.IsActiveMenuItem("Contact","Home") ? "active" : "")">
             <a href="@Url.Action("Contact", "Home")"><i class="fa fa-envelope"></i> [[[Contact us]]]</a>

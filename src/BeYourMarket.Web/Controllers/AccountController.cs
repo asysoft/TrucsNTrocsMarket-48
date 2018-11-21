@@ -179,6 +179,21 @@ namespace BeYourMarket.Web.Controllers
                     return View(model);
             }
         }
+                    
+        //
+        // GET: /Account/Register
+        //[AllowAnonymous]
+        //[HttpGet]
+        //public ActionResult RegisterChooseShow()
+        //{
+        //    return PartialView("RegisterChoosePopUp");
+        //}
+
+        //[HttpPost]
+        //public ActionResult RegisterChooseAction()
+        //{
+        //    return RedirectToAction("Register");
+        //}
 
         //
         // GET: /Account/Register

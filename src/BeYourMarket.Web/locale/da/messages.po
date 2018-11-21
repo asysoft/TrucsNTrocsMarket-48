@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-11-06 22:57+00:00\n"
-"PO-Revision-Date: 2018-11-06 22:57+00:00\n"
+"POT-Creation-Date: 2018-11-21 01:02+00:00\n"
+"PO-Revision-Date: 2018-11-21 01:02+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,13 +12,13 @@ msgstr ""
 msgid "\", \"(((\").Replace(\""
 msgstr ""
 
-#: Views\Listing\Listing.cshtml:269
+#: Views\Listing\Listing.cshtml:277
 #: Views\Listing\Profile.cshtml:25
 #: Views\Listing\Review.cshtml:36
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:269
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:277
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Profile.cshtml:25
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Review.cshtml:36
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:269
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:277
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Profile.cshtml:25
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Review.cshtml:36
 msgid "{0:N0} reviews"
@@ -118,12 +118,12 @@ msgstr "Tilføj ny side"
 msgid "Admin"
 msgstr "Admin"
 
-#: Views\Shared\_LoginPartial.cshtml:68
-#: Views\Shared\_NavigationSide.cshtml:92
-#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_LoginPartial.cshtml:68
-#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_NavigationSide.cshtml:92
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_LoginPartial.cshtml:68
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_NavigationSide.cshtml:92
+#: Views\Shared\_LoginPartial.cshtml:69
+#: Views\Shared\_NavigationSide.cshtml:113
+#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_LoginPartial.cshtml:69
+#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_NavigationSide.cshtml:113
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_LoginPartial.cshtml:69
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_NavigationSide.cshtml:113
 msgid "Admin Panel"
 msgstr "Admin panel"
 
@@ -139,9 +139,15 @@ msgstr "Administrator email"
 msgid "Administrator"
 msgstr "Administrator"
 
-#: Views\Account\Register.cshtml:26
-#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:26
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:26
+#: Views\Account\Register.cshtml:180
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:128
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:128
+msgid "Adress"
+msgstr ""
+
+#: Views\Account\Register.cshtml:107
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:55
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:55
 msgid "Agreement"
 msgstr "Aftale"
 
@@ -175,9 +181,9 @@ msgstr "Alle kategorier"
 msgid "Allow Listing Review"
 msgstr ""
 
-#: Views\Account\Register.cshtml:69
-#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:69
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:69
+#: Views\Account\Register.cshtml:205
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:153
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:153
 msgid "Already a member?"
 msgstr "Allerede medlem?"
 
@@ -205,9 +211,9 @@ msgstr "Der opstod en fejl"
 msgid "Appearance"
 msgstr "Udseende"
 
-#: Views\Listing\Listings.cshtml:105
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:105
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:105
+#: Views\Listing\Listings.cshtml:131
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:110
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:110
 msgid "Apply"
 msgstr "Tilføj"
 
@@ -290,11 +296,11 @@ msgstr "Label"
 #: Areas\Admin\Views\Payment\Order.cshtml:25
 #: Areas\Admin\Views\Payment\Order.cshtml:29
 #: Areas\Admin\Views\Payment\PaymentSetting.cshtml:46
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:141
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:142
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Review.cshtml:74
 #: obj\Debug\AspnetCompileMerge\Source\Views\Payment\Orders.cshtml:26
 #: obj\Debug\AspnetCompileMerge\Source\Views\Payment\Orders.cshtml:30
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:141
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:142
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Review.cshtml:74
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Payment\Orders.cshtml:26
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Payment\Orders.cshtml:30
@@ -360,11 +366,11 @@ msgstr "Annulleret"
 msgid "Cancelled!"
 msgstr "Annulleret"
 
-#: Views\Shared\_NavigationSide.cshtml:98
+#: Views\Shared\_NavigationSide.cshtml:119
 #: Areas\Admin\Views\Listing\Categories.cshtml:8
 #: Areas\Admin\Views\Listing\Categories.cshtml:37
-#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_NavigationSide.cshtml:98
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_NavigationSide.cshtml:98
+#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_NavigationSide.cshtml:119
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_NavigationSide.cshtml:119
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\Listing\Categories.cshtml:8
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\Listing\Categories.cshtml:37
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Listing\Categories.cshtml:8
@@ -376,8 +382,8 @@ msgstr "Kategorier"
 msgid "Categories by Groups"
 msgstr ""
 
-#: Views\Listing\Listing.cshtml:140
-#: Views\Listing\Listings.cshtml:51
+#: Views\Listing\Listing.cshtml:148
+#: Views\Listing\Listings.cshtml:77
 #: Views\Listing\ListingUpdate.cshtml:38
 #: Views\Listing\_ListingGridList.cshtml:35
 #: Areas\Admin\Views\Listing\CategoryUpdate.cshtml:4
@@ -387,12 +393,12 @@ msgstr ""
 #: Areas\Admin\Views\Listing\Listings.cshtml:65
 #: Areas\Admin\Views\Listing\ListingUpdate.cshtml:31
 #: Areas\Admin\Views\Manage\Dashboard.cshtml:67
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:140
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:51
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:148
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:56
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:38
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\_ListingGridList.cshtml:35
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:140
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:51
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:148
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:56
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:38
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\_ListingGridList.cshtml:35
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\Listing\CategoryUpdate.cshtml:4
@@ -457,21 +463,27 @@ msgstr "Skift adgangskode"
 msgid "Choose Category..."
 msgstr "Vælg kategori..."
 
-#: Controllers\jsTree3Controller.cs:136
+#: Controllers\jsTree3Controller.cs:151
 msgid "Cities by Zones"
 msgstr ""
 
-#: Views\Account\Register.cshtml:33
+#: Views\Account\Register.cshtml:156
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:104
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:104
+msgid "Civility"
+msgstr ""
+
+#: Views\Account\Register.cshtml:114
 #: Views\Listing\_ListingContactModal.cshtml:29
 #: Views\Listing\_ListingContactModal.cshtml:41
 #: Views\Listing\_ListingReviewModal.cshtml:29
 #: Views\Listing\_ListingReviewModal.cshtml:43
-#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:33
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:62
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\_ListingContactModal.cshtml:29
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\_ListingContactModal.cshtml:41
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\_ListingReviewModal.cshtml:29
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\_ListingReviewModal.cshtml:43
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:33
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:62
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\_ListingContactModal.cshtml:29
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\_ListingContactModal.cshtml:41
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\_ListingReviewModal.cshtml:29
@@ -488,6 +500,42 @@ msgstr "Kode"
 #: Plugins\Plugin.Widget.Disqus\Views\Index.cshtml:6
 #: C:\ASY_DVP\TrucsNTrocsWeb\TrucsNTrocsMarket\src\Plugins\Plugin.Widget.Disqus\bin\Views\Index.cshtml:6
 msgid "Comments"
+msgstr ""
+
+#: Views\Account\Register.cshtml:168
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:116
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:116
+msgid "Company"
+msgstr ""
+
+#: Views\Account\Register.cshtml:181
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:129
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:129
+msgid "Company Adress"
+msgstr ""
+
+#: Views\Account\Register.cshtml:169
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:117
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:117
+msgid "Company Name"
+msgstr ""
+
+#: Views\Account\Register.cshtml:189
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:137
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:137
+msgid "Company Phone"
+msgstr ""
+
+#: Views\Account\Register.cshtml:173
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:121
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:121
+msgid "Company SIRET number"
+msgstr ""
+
+#: Views\Account\Register.cshtml:185
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:133
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:133
+msgid "Company Town or Zip Code"
 msgstr ""
 
 #: Areas\Admin\Views\Plugin\Plugins.cshtml:43
@@ -524,18 +572,18 @@ msgstr "Bekræft ny adgangskode"
 msgid "Confirm password"
 msgstr "Bekræft adgangskode"
 
-#: Views\Account\Register.cshtml:54
-#: Views\Account\Register.cshtml:55
+#: Views\Account\Register.cshtml:146
+#: Views\Account\Register.cshtml:147
 #: Views\Listing\ListingUpdate.cshtml:135
 #: Views\Listing\ListingUpdate.cshtml:136
-#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:54
-#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:55
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:134
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:94
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:95
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:135
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:54
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:55
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:134
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:136
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:94
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:95
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:135
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:136
 msgid "Confirm Password"
 msgstr "Bekræft adgangskode"
 
@@ -566,22 +614,22 @@ msgid "Connnect to stripe successfully!"
 msgstr "Du er nu forbundet til Stripe"
 
 #: Views\Home\Contact.cshtml:4
-#: Views\Listing\Listing.cshtml:66
-#: Views\Listing\Listing.cshtml:237
-#: Views\Listing\Listing.cshtml:240
-#: Views\Listing\Listing.cshtml:273
+#: Views\Listing\Listing.cshtml:74
+#: Views\Listing\Listing.cshtml:245
+#: Views\Listing\Listing.cshtml:248
+#: Views\Listing\Listing.cshtml:281
 #: Views\Listing\_ListingContactModal.cshtml:8
 #: obj\Debug\AspnetCompileMerge\Source\Views\Home\Contact.cshtml:4
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:66
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:237
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:240
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:273
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:74
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:245
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:248
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:281
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\_ListingContactModal.cshtml:8
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Home\Contact.cshtml:4
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:66
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:237
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:240
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:273
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:74
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:245
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:248
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:281
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\_ListingContactModal.cshtml:8
 msgid "Contact"
 msgstr "Kontakt"
@@ -598,14 +646,14 @@ msgstr "Kontakt email"
 msgid "Contact Name"
 msgstr "Kontaktnavn"
 
-#: Views\Listing\Listing.cshtml:231
-#: Views\Listing\Listing.cshtml:231
+#: Views\Listing\Listing.cshtml:239
+#: Views\Listing\Listing.cshtml:239
 #: Views\Listing\_ListingContactModal.cshtml:17
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:231
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:231
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:239
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:239
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\_ListingContactModal.cshtml:17
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:231
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:231
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:239
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:239
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\_ListingContactModal.cshtml:17
 msgid "Contact number (Click to show)"
 msgstr "Telefonnr. (Klik for at vise)"
@@ -617,11 +665,11 @@ msgid "Contact number (Double click to show)"
 msgstr ""
 
 #: Views\Home\Contact.cshtml:16
-#: Views\Shared\_NavigationSide.cshtml:111
+#: Views\Shared\_NavigationSide.cshtml:132
 #: obj\Debug\AspnetCompileMerge\Source\Views\Home\Contact.cshtml:16
-#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_NavigationSide.cshtml:111
+#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_NavigationSide.cshtml:132
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Home\Contact.cshtml:16
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_NavigationSide.cshtml:111
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_NavigationSide.cshtml:132
 msgid "Contact us"
 msgstr "Kontakt os"
 
@@ -661,15 +709,15 @@ msgstr "Forsidebillede"
 msgid "Create"
 msgstr "Opret"
 
-#: Views\Account\Register.cshtml:12
-#: Views\Shared\_LoginPartial.cshtml:82
-#: Views\Shared\_NavigationSide.cshtml:65
-#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:12
-#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_LoginPartial.cshtml:82
-#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_NavigationSide.cshtml:65
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:12
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_LoginPartial.cshtml:82
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_NavigationSide.cshtml:65
+#: Views\Account\Register.cshtml:93
+#: Views\Shared\_LoginPartial.cshtml:83
+#: Views\Shared\_NavigationSide.cshtml:86
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:41
+#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_LoginPartial.cshtml:83
+#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_NavigationSide.cshtml:86
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:41
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_LoginPartial.cshtml:83
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_NavigationSide.cshtml:86
 msgid "Create an account"
 msgstr "Opret konto"
 
@@ -762,16 +810,16 @@ msgid "Custom Javascript"
 msgstr "Brugerdefineret Javascript"
 
 #: Views\Manage\Dashboard.cshtml:4
-#: Views\Shared\_LoginPartial.cshtml:62
-#: Views\Shared\_NavigationSide.cshtml:78
+#: Views\Shared\_LoginPartial.cshtml:63
+#: Views\Shared\_NavigationSide.cshtml:99
 #: Areas\Admin\Views\Manage\Dashboard.cshtml:3
 #: Areas\Admin\Views\Shared\_NavigationSide.cshtml:76
 #: obj\Debug\AspnetCompileMerge\Source\Views\Manage\Dashboard.cshtml:4
-#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_LoginPartial.cshtml:62
-#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_NavigationSide.cshtml:78
+#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_LoginPartial.cshtml:63
+#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_NavigationSide.cshtml:99
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Manage\Dashboard.cshtml:4
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_LoginPartial.cshtml:62
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_NavigationSide.cshtml:78
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_LoginPartial.cshtml:63
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_NavigationSide.cshtml:99
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\Dashboard.cshtml:3
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\Shared\_NavigationSide.cshtml:76
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Manage\Dashboard.cshtml:3
@@ -815,9 +863,9 @@ msgstr "Brugernavn til database"
 msgid "Date Format"
 msgstr ""
 
-#: Views\Listing\Listing.cshtml:184
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:184
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:184
+#: Views\Listing\Listing.cshtml:192
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:192
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:192
 msgid "Date Posted"
 msgstr "Dato oprettet"
 
@@ -855,7 +903,7 @@ msgstr "Slet"
 msgid "Deleted!"
 msgstr "Slettet"
 
-#: Views\Listing\Listing.cshtml:55
+#: Views\Listing\Listing.cshtml:63
 #: Views\Listing\ListingUpdate.cshtml:54
 #: Views\Listing\_ListingGridList.cshtml:40
 #: Views\Payment\Orders.cshtml:128
@@ -867,11 +915,11 @@ msgstr "Slettet"
 #: Areas\Admin\Views\Manage\Settings.cshtml:28
 #: Areas\Admin\Views\Payment\Order.cshtml:106
 #: Areas\Admin\Views\Plugin\Plugins.cshtml:99
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:55
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:63
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:54
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\_ListingGridList.cshtml:40
 #: obj\Debug\AspnetCompileMerge\Source\Views\Payment\Orders.cshtml:128
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:55
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:63
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:54
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\_ListingGridList.cshtml:40
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Payment\Orders.cshtml:128
@@ -946,7 +994,7 @@ msgstr ""
 msgid "e.g. Per day"
 msgstr ""
 
-#: Views\Listing\Listing.cshtml:36
+#: Views\Listing\Listing.cshtml:44
 #: Views\Manage\Dashboard.cshtml:47
 #: Areas\Admin\Views\ContentPage\ContentPages.cshtml:15
 #: Areas\Admin\Views\Listing\Categories.cshtml:21
@@ -955,9 +1003,9 @@ msgstr ""
 #: Areas\Admin\Views\Listing\ListingTypes.cshtml:15
 #: Areas\Admin\Views\Manage\EmailTemplates.cshtml:15
 #: Areas\Admin\Views\Manage\Users.cshtml:57
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:36
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:44
 #: obj\Debug\AspnetCompileMerge\Source\Views\Manage\Dashboard.cshtml:47
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:36
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:44
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Manage\Dashboard.cshtml:47
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\ContentPage\ContentPages.cshtml:15
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\Listing\Categories.cshtml:21
@@ -981,13 +1029,13 @@ msgstr "Redigér"
 #: Models\AccountViewModels.cs:69
 #: Models\AccountViewModels.cs:94
 #: Models\AccountViewModels.cs:115
-#: Views\Account\Register.cshtml:46
+#: Views\Account\Register.cshtml:138
 #: Areas\Admin\Views\Manage\Settings.cshtml:49
 #: Areas\Admin\Views\Manage\Settings.cshtml:51
 #: Areas\Admin\Views\Manage\Users.cshtml:39
 #: Areas\Admin\Views\Manage\UserUpdate.cshtml:56
-#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:46
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:46
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:86
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:86
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\Settings.cshtml:49
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\Settings.cshtml:51
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\Users.cshtml:39
@@ -1001,8 +1049,8 @@ msgstr "Email"
 
 #: Views\Listing\ListingUpdate.cshtml:125
 #: Areas\Admin\Views\Manage\SettingsEmail.cshtml:18
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:124
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:124
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:125
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:125
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\SettingsEmail.cshtml:18
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Manage\SettingsEmail.cshtml:18
 msgid "Email Address"
@@ -1095,16 +1143,16 @@ msgstr "Aktivér"
 msgid "Enabled"
 msgstr "Aktivéret"
 
-#: Views\Account\Register.cshtml:47
+#: Views\Account\Register.cshtml:139
 #: Areas\Admin\Views\Install\Index.cshtml:29
-#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:47
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:47
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:87
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:87
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\Install\Index.cshtml:29
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Install\Index.cshtml:29
 msgid "Enter email"
 msgstr "Indtast email"
 
-#: Views\Account\Login.cshtml:24
+#: Views\Account\Login.cshtml:103
 #: Views\Home\Contact.cshtml:25
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Login.cshtml:24
 #: obj\Debug\AspnetCompileMerge\Source\Views\Home\Contact.cshtml:25
@@ -1114,8 +1162,8 @@ msgid "Enter Email"
 msgstr "Indtast email"
 
 #: Views\Listing\ListingUpdate.cshtml:126
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:125
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:125
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:126
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:126
 msgid "Enter Email Address"
 msgstr "Indtast email-adresse"
 
@@ -1125,18 +1173,18 @@ msgstr "Indtast email-adresse"
 msgid "Enter Location"
 msgstr ""
 
-#: Views\Listing\Listings.cshtml:80
+#: Views\Listing\Listings.cshtml:106
 #: Views\Listing\ListingUpdate.cshtml:97
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:80
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:85
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:97
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:80
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:85
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:97
 msgid "Enter Location detail"
 msgstr ""
 
 #: Views\Listing\ListingUpdate.cshtml:118
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:117
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:117
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:118
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:118
 msgid "Enter Phone Number"
 msgstr "Indtast telefonnr."
 
@@ -1154,6 +1202,12 @@ msgstr "Indtast titel"
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Manage\VerifyPhoneNumber.cshtml:12
 msgid "Enter verification code"
 msgstr "Indtast kontrolkode"
+
+#: Views\Account\Register.cshtml:157
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:105
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:105
+msgid "Enter your Civility"
+msgstr ""
 
 #: Areas\Admin\Views\Design\CodeStyle.cshtml:24
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\Design\CodeStyle.cshtml:24
@@ -1186,8 +1240,8 @@ msgid "Enter your email."
 msgstr "Indtast email"
 
 #: Views\Listing\ListingUpdate.cshtml:114
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:113
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:113
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:114
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:114
 msgid "Enter Your Full Name"
 msgstr "Fulde navn"
 
@@ -1259,14 +1313,23 @@ msgid "Female"
 msgstr "Kvinde"
 
 #: Models\AccountViewModels.cs:83
+#: Views\Account\Register.cshtml:164
 #: Views\Manage\UserProfile.cshtml:43
 #: Areas\Admin\Views\Manage\UserUpdate.cshtml:30
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:112
 #: obj\Debug\AspnetCompileMerge\Source\Views\Manage\UserProfile.cshtml:43
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:112
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Manage\UserProfile.cshtml:43
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\UserUpdate.cshtml:30
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Manage\UserUpdate.cshtml:30
 msgid "First Name"
 msgstr "Fornavn"
+
+#: Views\Account\Register.cshtml:165
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:113
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:113
+msgid "First Name of the Owner"
+msgstr ""
 
 #: Views\Account\ForgotPasswordConfirmation.cshtml:2
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\ForgotPasswordConfirmation.cshtml:2
@@ -1275,7 +1338,7 @@ msgid "Forgot Password Confirmation"
 msgstr "Glemt at bekræfte adgangskode"
 
 #: Views\Account\ForgotPassword.cshtml:3
-#: Views\Account\Login.cshtml:41
+#: Views\Account\Login.cshtml:120
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\ForgotPassword.cshtml:3
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Login.cshtml:41
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\ForgotPassword.cshtml:3
@@ -1284,13 +1347,13 @@ msgid "Forgot your password?"
 msgstr "Har du glemt din adgangskode?"
 
 #: Controllers\PaymentController.cs:322
-#: Views\Listing\Listings.cshtml:87
+#: Views\Listing\Listings.cshtml:113
 #: Views\Listing\_ListingPayment.cshtml:25
 #: Views\Payment\Payment.cshtml:44
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:87
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:92
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\_ListingPayment.cshtml:25
 #: obj\Debug\AspnetCompileMerge\Source\Views\Payment\Payment.cshtml:44
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:87
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:92
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\_ListingPayment.cshtml:25
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Payment\Payment.cshtml:44
 msgid "From"
@@ -1312,8 +1375,8 @@ msgid "Frontend"
 msgstr "Frontend"
 
 #: Views\Listing\ListingUpdate.cshtml:113
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:112
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:112
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:113
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:113
 msgid "Full Name"
 msgstr "Fulde navn"
 
@@ -1323,9 +1386,9 @@ msgstr "Fulde navn"
 msgid "General Settings"
 msgstr "Generelle indstillinger"
 
-#: Views\Listing\Listings.cshtml:118
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:118
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:118
+#: Views\Listing\Listings.cshtml:143
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:123
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:123
 msgid "Grid"
 msgstr "Gitter"
 
@@ -1383,7 +1446,7 @@ msgstr "Her kan du administrere alle plugins. For at tilføje/udvikle et plugin 
 msgid "Here you can view all the transactions. Transactions is supported only when payment plugin is installed and payment method is configured."
 msgstr "Her kan du se alle transaktioner. Transaktioner understøttes kun, hvis betalings-plugin er installeret og der er opsat en betalingsmetode."
 
-#: Controllers\AccountController.cs:247
+#: Controllers\AccountController.cs:262
 msgid "Hi, Welcome to {0}! I am happy to assist you if you has any questions."
 msgstr ""
 
@@ -1393,9 +1456,9 @@ msgstr ""
 msgid "Host"
 msgstr "Vært"
 
-#: Views\Account\Register.cshtml:61
-#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:61
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:61
+#: Views\Account\Register.cshtml:201
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:149
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:149
 msgid "I accept the"
 msgstr "Jeg accepterer"
 
@@ -1461,19 +1524,19 @@ msgstr "IP"
 msgid "Javascript Code Editor"
 msgstr "Javascript kode editor"
 
-#: Views\Account\Register.cshtml:64
-#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:64
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:64
+#: Views\Account\Register.cshtml:204
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:152
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:152
 msgid "Join"
 msgstr "Opret"
 
-#: Views\Listing\Listing.cshtml:264
+#: Views\Listing\Listing.cshtml:272
 #: Views\Listing\Profile.cshtml:28
 #: Views\Listing\Review.cshtml:33
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:264
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:272
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Profile.cshtml:28
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Review.cshtml:33
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:264
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:272
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Profile.cshtml:28
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Review.cshtml:33
 msgid "Joined since"
@@ -1504,14 +1567,23 @@ msgid "Last Access IP"
 msgstr "Sidste registrerede IP"
 
 #: Models\AccountViewModels.cs:86
+#: Views\Account\Register.cshtml:160
 #: Views\Manage\UserProfile.cshtml:49
 #: Areas\Admin\Views\Manage\UserUpdate.cshtml:37
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:108
 #: obj\Debug\AspnetCompileMerge\Source\Views\Manage\UserProfile.cshtml:49
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:108
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Manage\UserProfile.cshtml:49
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\UserUpdate.cshtml:37
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Manage\UserUpdate.cshtml:37
 msgid "Last Name"
 msgstr "Efternavn"
+
+#: Views\Account\Register.cshtml:161
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:109
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:109
+msgid "Last Name of the Owner"
+msgstr ""
 
 #: Areas\Admin\Views\ContentPage\ContentPages.cshtml:50
 #: Areas\Admin\Views\Listing\ListingUpdate.cshtml:122
@@ -1525,21 +1597,21 @@ msgstr "Efternavn"
 msgid "Last Updated"
 msgstr "Senest opdateret"
 
-#: Views\Home\Index.cshtml:159
-#: obj\Debug\AspnetCompileMerge\Source\Views\Home\Index.cshtml:159
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Home\Index.cshtml:159
+#: Views\Home\Index.cshtml:176
+#: obj\Debug\AspnetCompileMerge\Source\Views\Home\Index.cshtml:169
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Home\Index.cshtml:169
 msgid "Latest Listings"
 msgstr "Seneste annoncer"
 
-#: Views\Account\Login.cshtml:34
+#: Views\Account\Login.cshtml:113
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Login.cshtml:34
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Login.cshtml:34
 msgid "Let me in"
 msgstr "Luk mig ind"
 
-#: Views\Listing\Listings.cshtml:119
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:119
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:119
+#: Views\Listing\Listings.cshtml:144
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:124
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:124
 msgid "List"
 msgstr "Liste"
 
@@ -1557,18 +1629,18 @@ msgstr ""
 msgid "Listing review is not allowed!"
 msgstr ""
 
-#: Views\Listing\Listing.cshtml:159
-#: Views\Listing\Listings.cshtml:60
+#: Views\Listing\Listing.cshtml:167
+#: Views\Listing\Listings.cshtml:86
 #: Views\Shared\_ListingTypes.cshtml:6
 #: Areas\Admin\Views\Listing\CategoryUpdate.cshtml:44
 #: Areas\Admin\Views\Listing\Listings.cshtml:66
 #: Areas\Admin\Views\Listing\ListingTypeUpdate.cshtml:16
 #: Areas\Admin\Views\Shared\_ListingTypes.cshtml:5
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:159
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:60
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:167
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:65
 #: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_ListingTypes.cshtml:6
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:159
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:60
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:167
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:65
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_ListingTypes.cshtml:6
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\Listing\CategoryUpdate.cshtml:44
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\Listing\Listings.cshtml:66
@@ -1615,7 +1687,7 @@ msgid "Listing Update"
 msgstr "Opdatér annonce"
 
 #: Views\Listing\Listings.cshtml:9
-#: Views\Listing\Listings.cshtml:126
+#: Views\Listing\Listings.cshtml:151
 #: Views\Listing\Profile.cshtml:43
 #: Views\Shared\_DashBoardSide.cshtml:10
 #: Areas\Admin\Views\Listing\CustomFields.cshtml:10
@@ -1625,11 +1697,11 @@ msgstr "Opdatér annonce"
 #: Areas\Admin\Views\Manage\Dashboard.cshtml:76
 #: Areas\Admin\Views\Shared\_NavigationSide.cshtml:80
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:9
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:126
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:131
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Profile.cshtml:43
 #: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_DashBoardSide.cshtml:10
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:9
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:126
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:131
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Profile.cshtml:43
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_DashBoardSide.cshtml:10
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\Listing\CustomFields.cshtml:10
@@ -1653,23 +1725,20 @@ msgstr "Annoncer"
 msgid "Listings by category"
 msgstr "Annoncer efter kategori"
 
-#: Views\Listing\Listing.cshtml:167
-#: Views\Listing\Listings.cshtml:74
+#: Views\Listing\Listing.cshtml:175
+#: Views\Listing\Listings.cshtml:100
 #: Views\Listing\ListingUpdate.cshtml:89
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:167
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:74
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:175
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:79
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:89
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:167
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:74
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:175
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:79
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:89
 msgid "Localization"
 msgstr ""
 
-#: Views\Listing\_ListingGridList.cshtml:43
 #: Areas\Admin\Views\Listing\ListingUpdate.cshtml:170
 #: Areas\Admin\Views\Listing\ListingUpdate.cshtml:172
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\_ListingGridList.cshtml:43
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\_ListingGridList.cshtml:43
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\Listing\ListingUpdate.cshtml:170
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\Listing\ListingUpdate.cshtml:172
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Listing\ListingUpdate.cshtml:170
@@ -1677,9 +1746,9 @@ msgstr ""
 msgid "Location"
 msgstr "Område"
 
-#: Views\Listing\Listing.cshtml:176
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:176
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:176
+#: Views\Listing\Listing.cshtml:184
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:184
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:184
 msgid "Location detail"
 msgstr ""
 
@@ -1695,12 +1764,12 @@ msgstr "Udelukket"
 msgid "Locked Out."
 msgstr "Udelukket."
 
-#: Views\Shared\_LoginPartial.cshtml:85
-#: Views\Shared\_NavigationSide.cshtml:60
-#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_LoginPartial.cshtml:85
-#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_NavigationSide.cshtml:60
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_LoginPartial.cshtml:85
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_NavigationSide.cshtml:60
+#: Views\Shared\_LoginPartial.cshtml:86
+#: Views\Shared\_NavigationSide.cshtml:81
+#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_LoginPartial.cshtml:86
+#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_NavigationSide.cshtml:81
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_LoginPartial.cshtml:86
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_NavigationSide.cshtml:81
 msgid "Log in"
 msgstr "Log ind"
 
@@ -1710,22 +1779,22 @@ msgstr "Log ind"
 msgid "Log in using your {0} account"
 msgstr "Log ind med din {0} konto"
 
-#: Views\Shared\_LoginPartial.cshtml:71
+#: Views\Shared\_LoginPartial.cshtml:72
 #: Areas\Admin\Views\Shared\_NavigationTop.cshtml:30
-#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_LoginPartial.cshtml:71
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_LoginPartial.cshtml:71
+#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_LoginPartial.cshtml:72
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_LoginPartial.cshtml:72
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\Shared\_NavigationTop.cshtml:30
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Shared\_NavigationTop.cshtml:30
 msgid "Log off"
 msgstr "Log ud"
 
 #: Views\Account\Login.cshtml:5
-#: Views\Account\Register.cshtml:69
+#: Views\Account\Register.cshtml:205
 #: Areas\Admin\Views\Install\Index.cshtml:77
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Login.cshtml:5
-#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:69
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:153
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Login.cshtml:5
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:69
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:153
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\Install\Index.cshtml:77
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Install\Index.cshtml:77
 msgid "Login"
@@ -1743,7 +1812,7 @@ msgstr "Login fejl"
 msgid "Login here"
 msgstr ""
 
-#: Views\Account\Login.cshtml:13
+#: Views\Account\Login.cshtml:92
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Login.cshtml:13
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Login.cshtml:13
 msgid "Login to your account"
@@ -1754,6 +1823,18 @@ msgstr "Log ind på din konto"
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Design\Appearance.cshtml:22
 msgid "Logo"
 msgstr "Logo"
+
+#: Views\Account\Register.cshtml:176
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:124
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:124
+msgid "Main Category"
+msgstr ""
+
+#: Views\Account\Register.cshtml:177
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:125
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:125
+msgid "Main professional activity"
+msgstr ""
 
 #: Views\Manage\UserProfile.cshtml:66
 #: Areas\Admin\Views\Manage\UserUpdate.cshtml:47
@@ -1809,15 +1890,15 @@ msgstr "Administrér plugins"
 msgid "Manage Users"
 msgstr "Administrér brugere"
 
-#: Views\Listing\Listing.cshtml:217
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:217
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:217
+#: Views\Listing\Listing.cshtml:225
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:225
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:225
 msgid "Map"
 msgstr "Kort"
 
-#: Views\Listing\Listing.cshtml:58
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:58
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:58
+#: Views\Listing\Listing.cshtml:66
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:66
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:66
 msgid "Maps"
 msgstr ""
 
@@ -1865,19 +1946,19 @@ msgstr "Besked..."
 #: Views\Manage\Messages.cshtml:7
 #: Views\Manage\Messages.cshtml:26
 #: Views\Shared\_DashBoardSide.cshtml:11
-#: Views\Shared\_LoginPartial.cshtml:23
+#: Views\Shared\_LoginPartial.cshtml:24
 #: obj\Debug\AspnetCompileMerge\Source\Views\Manage\Message.cshtml:5
 #: obj\Debug\AspnetCompileMerge\Source\Views\Manage\Message.cshtml:21
 #: obj\Debug\AspnetCompileMerge\Source\Views\Manage\Messages.cshtml:7
 #: obj\Debug\AspnetCompileMerge\Source\Views\Manage\Messages.cshtml:26
 #: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_DashBoardSide.cshtml:11
-#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_LoginPartial.cshtml:23
+#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_LoginPartial.cshtml:24
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Manage\Message.cshtml:5
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Manage\Message.cshtml:21
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Manage\Messages.cshtml:7
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Manage\Messages.cshtml:26
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_DashBoardSide.cshtml:11
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_LoginPartial.cshtml:23
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_LoginPartial.cshtml:24
 msgid "Messages"
 msgstr ""
 
@@ -1921,14 +2002,14 @@ msgid "Name"
 msgstr "Navn"
 
 #: Views\Manage\Dashboard.cshtml:28
-#: Views\Shared\_NavigationSide.cshtml:70
-#: Views\Shared\_NavigationSide.cshtml:84
+#: Views\Shared\_NavigationSide.cshtml:91
+#: Views\Shared\_NavigationSide.cshtml:105
 #: obj\Debug\AspnetCompileMerge\Source\Views\Manage\Dashboard.cshtml:28
-#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_NavigationSide.cshtml:70
-#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_NavigationSide.cshtml:84
+#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_NavigationSide.cshtml:91
+#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_NavigationSide.cshtml:105
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Manage\Dashboard.cshtml:28
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_NavigationSide.cshtml:70
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_NavigationSide.cshtml:84
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_NavigationSide.cshtml:91
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_NavigationSide.cshtml:105
 msgid "New listing"
 msgstr ""
 
@@ -1949,9 +2030,9 @@ msgstr "Ny adgangskode"
 msgid "New Password"
 msgstr ""
 
-#: Views\Listing\Listing.cshtml:110
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:110
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:110
+#: Views\Listing\Listing.cshtml:118
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:118
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:118
 msgid "Next"
 msgstr "Næste"
 
@@ -1987,15 +2068,15 @@ msgstr "Nej"
 msgid "No, cancel please!"
 msgstr "Nej, annullér"
 
-#: Views\Home\Index.cshtml:113
-#: obj\Debug\AspnetCompileMerge\Source\Views\Home\Index.cshtml:113
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Home\Index.cshtml:113
+#: Views\Home\Index.cshtml:131
+#: obj\Debug\AspnetCompileMerge\Source\Views\Home\Index.cshtml:123
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Home\Index.cshtml:123
 msgid "Number of Listing actually on site: "
 msgstr ""
 
-#: Views\Listing\Listings.cshtml:98
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:98
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:98
+#: Views\Listing\Listings.cshtml:124
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:103
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:103
 msgid "Only show listings with photos"
 msgstr "Vis kun annoncer med billeder"
 
@@ -2088,9 +2169,9 @@ msgstr "Ordrer"
 msgid "Other Info"
 msgstr "Yderligere info"
 
-#: Views\Listing\Listings.cshtml:151
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:151
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:151
+#: Views\Listing\Listings.cshtml:180
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:160
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:160
 msgid "Page {0} of {1}"
 msgstr "Side {0} af {1}"
 
@@ -2109,9 +2190,9 @@ msgstr "Betalt"
 #: Models\AccountViewModels.cs:58
 #: Models\AccountViewModels.cs:75
 #: Models\AccountViewModels.cs:100
-#: Views\Account\Login.cshtml:28
-#: Views\Account\Register.cshtml:50
-#: Views\Account\Register.cshtml:51
+#: Views\Account\Login.cshtml:107
+#: Views\Account\Register.cshtml:142
+#: Views\Account\Register.cshtml:143
 #: Views\Listing\ListingUpdate.cshtml:131
 #: Views\Listing\ListingUpdate.cshtml:132
 #: Views\Manage\Index.cshtml:13
@@ -2119,16 +2200,16 @@ msgstr "Betalt"
 #: Areas\Admin\Views\Install\Index.cshtml:33
 #: Areas\Admin\Views\Install\Index.cshtml:82
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Login.cshtml:28
-#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:50
-#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:51
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:130
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:90
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:91
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:131
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:132
 #: obj\Debug\AspnetCompileMerge\Source\Views\Manage\Index.cshtml:13
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Login.cshtml:28
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:50
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:51
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:130
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:90
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:91
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:131
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:132
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Manage\Index.cshtml:13
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\Install\Index.cshtml:32
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\Install\Index.cshtml:33
@@ -2206,16 +2287,28 @@ msgstr "Udbetalingsoplysninger"
 msgid "Pending"
 msgstr "Afventer"
 
+#: Views\Account\Register.cshtml:128
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:76
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:76
+msgid "Personal"
+msgstr ""
+
+#: Views\Account\Register.cshtml:188
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:136
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:136
+msgid "Phone"
+msgstr ""
+
 #: Models\ManageViewModels.cs:65
 #: Views\Listing\ListingUpdate.cshtml:117
 #: Views\Manage\AddPhoneNumber.cshtml:3
 #: Views\Manage\UserProfile.cshtml:56
 #: Areas\Admin\Views\Manage\Users.cshtml:41
 #: Areas\Admin\Views\Manage\UserUpdate.cshtml:73
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:116
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:117
 #: obj\Debug\AspnetCompileMerge\Source\Views\Manage\AddPhoneNumber.cshtml:3
 #: obj\Debug\AspnetCompileMerge\Source\Views\Manage\UserProfile.cshtml:56
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:116
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:117
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Manage\AddPhoneNumber.cshtml:3
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Manage\UserProfile.cshtml:56
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\Users.cshtml:41
@@ -2240,9 +2333,9 @@ msgstr "Telefonnr. er bekræftet"
 msgid "Picture"
 msgstr "Billede"
 
-#: Views\Listing\Listing.cshtml:82
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:82
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:82
+#: Views\Listing\Listing.cshtml:90
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:90
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:90
 msgid "Pictures"
 msgstr ""
 
@@ -2303,14 +2396,14 @@ msgstr "Port"
 msgid "Premium"
 msgstr "Premium"
 
-#: Views\Listing\Listing.cshtml:106
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:106
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:106
+#: Views\Listing\Listing.cshtml:114
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:114
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:114
 msgid "Previous"
 msgstr "Tilbage"
 
-#: Views\Listing\Listing.cshtml:150
-#: Views\Listing\Listings.cshtml:85
+#: Views\Listing\Listing.cshtml:158
+#: Views\Listing\Listings.cshtml:111
 #: Views\Listing\ListingUpdate.cshtml:61
 #: Views\Listing\ListingUpdate.cshtml:63
 #: Views\Listing\_ListingGridList.cshtml:41
@@ -2318,15 +2411,15 @@ msgstr "Tilbage"
 #: Views\Payment\Payment.cshtml:63
 #: Areas\Admin\Views\Listing\ListingUpdate.cshtml:94
 #: Areas\Admin\Views\Payment\Order.cshtml:104
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:150
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:85
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:158
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:90
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:61
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:63
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\_ListingGridList.cshtml:41
 #: obj\Debug\AspnetCompileMerge\Source\Views\Payment\Orders.cshtml:125
 #: obj\Debug\AspnetCompileMerge\Source\Views\Payment\Payment.cshtml:63
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:150
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:85
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:158
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:90
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:61
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:63
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\_ListingGridList.cshtml:41
@@ -2353,6 +2446,12 @@ msgstr ""
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Listing\ListingTypeUpdate.cshtml:57
 msgid "Price Unit Label"
 msgstr "Prisenhed"
+
+#: Views\Account\Register.cshtml:131
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:79
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:79
+msgid "Professional"
+msgstr ""
 
 #: Views\Listing\Profile.cshtml:7
 #: Views\Manage\UserProfile.cshtml:3
@@ -2391,17 +2490,17 @@ msgid "Publish a listing (it's 100% free)"
 msgstr "Opret en annonce (Det er 100% gratis)"
 
 #: Views\Listing\ListingUpdate.cshtml:141
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:140
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:140
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:141
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:141
 msgid "Publish Listing"
 msgstr "Opret annonce"
 
-#: Views\Shared\_Layout.cshtml:75
-#: Views\Shared\_LoginPartial.cshtml:63
-#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_Layout.cshtml:75
-#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_LoginPartial.cshtml:63
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_Layout.cshtml:75
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_LoginPartial.cshtml:63
+#: Views\Shared\_Layout.cshtml:72
+#: Views\Shared\_LoginPartial.cshtml:64
+#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_Layout.cshtml:73
+#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_LoginPartial.cshtml:64
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_Layout.cshtml:73
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_LoginPartial.cshtml:64
 msgid "Publish new listing"
 msgstr "Opret annonce"
 
@@ -2415,8 +2514,8 @@ msgid "Published"
 msgstr "Oprettet"
 
 #: Views\Listing\ListingUpdate.cshtml:111
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:110
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:110
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:111
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:111
 msgid "Publisher's Info"
 msgstr "Annoncørinfo"
 
@@ -2435,19 +2534,25 @@ msgstr "Antal"
 msgid "Receiver"
 msgstr "Modtager"
 
-#: Views\Listing\Listings.cshtml:45
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:45
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:45
+#: Views\Listing\Listings.cshtml:70
+#: Views\Shared\_NavigationSide.cshtml:70
+#: Views\Shared\_NavigationSide.cshtml:72
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:49
+#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_NavigationSide.cshtml:70
+#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_NavigationSide.cshtml:72
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:49
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_NavigationSide.cshtml:70
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_NavigationSide.cshtml:72
 msgid "Refine Search"
 msgstr "Justér søgning"
 
-#: Views\Account\Register.cshtml:3
-#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:3
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:3
+#: Views\Account\Register.cshtml:4
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:4
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:4
 msgid "Register"
 msgstr "Registrér"
 
-#: Views\Account\Login.cshtml:39
+#: Views\Account\Login.cshtml:118
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Login.cshtml:39
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Login.cshtml:39
 msgid "Register as a new user"
@@ -2467,7 +2572,7 @@ msgstr "Oprettet fra IP"
 
 # Models\AccountViewModels.cs:61
 #: Models\AccountViewModels.cs:61
-#: Views\Account\Login.cshtml:32
+#: Views\Account\Login.cshtml:111
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Login.cshtml:32
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Login.cshtml:32
 #, Models\AccountViewModels.cs:61
@@ -2492,6 +2597,12 @@ msgstr ""
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Listing\CustomFieldUpdate.cshtml:58
 msgid "Required"
 msgstr "Påkrævet"
+
+#: Views\Account\Register.cshtml:153
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:101
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:101
+msgid "Required fields for professional accounts"
+msgstr ""
 
 #: Views\Account\ResetPassword.cshtml:42
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\ResetPassword.cshtml:42
@@ -2532,17 +2643,17 @@ msgstr ""
 msgid "Review"
 msgstr ""
 
-#: Views\Listing\Listing.cshtml:62
+#: Views\Listing\Listing.cshtml:70
 #: Views\Listing\Review.cshtml:5
-#: Views\Listing\_ListingCard.cshtml:26
+#: Views\Listing\_ListingCard.cshtml:27
 #: Views\Listing\_ListingReview.cshtml:11
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:62
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:70
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Review.cshtml:5
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\_ListingCard.cshtml:26
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\_ListingCard.cshtml:27
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\_ListingReview.cshtml:11
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:62
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:70
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Review.cshtml:5
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\_ListingCard.cshtml:26
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\_ListingCard.cshtml:27
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\_ListingReview.cshtml:11
 msgid "Reviews"
 msgstr ""
@@ -2598,21 +2709,21 @@ msgstr ""
 msgid "Save"
 msgstr "Gem"
 
-#: Views\Home\Index.cshtml:103
+#: Views\Home\Index.cshtml:116
 #: Views\Manage\Dashboard.cshtml:24
 #: Views\Manage\Messages.cshtml:34
-#: obj\Debug\AspnetCompileMerge\Source\Views\Home\Index.cshtml:103
+#: obj\Debug\AspnetCompileMerge\Source\Views\Home\Index.cshtml:113
 #: obj\Debug\AspnetCompileMerge\Source\Views\Manage\Dashboard.cshtml:24
 #: obj\Debug\AspnetCompileMerge\Source\Views\Manage\Messages.cshtml:34
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Home\Index.cshtml:103
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Home\Index.cshtml:113
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Manage\Dashboard.cshtml:24
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Manage\Messages.cshtml:34
 msgid "Search"
 msgstr "Søg"
 
-#: Views\Shared\_Layout.cshtml:63
-#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_Layout.cshtml:63
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_Layout.cshtml:63
+#: Views\Shared\_Layout.cshtml:64
+#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_Layout.cshtml:65
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_Layout.cshtml:65
 msgid "Search for..."
 msgstr "Søg..."
 
@@ -2622,15 +2733,15 @@ msgstr "Søg..."
 msgid "Search PlaceHolder"
 msgstr "Pladsholdertekst for søg"
 
-#: Views\Listing\Listings.cshtml:94
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:94
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:94
+#: Views\Listing\Listings.cshtml:120
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:99
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:99
 msgid "Search text"
 msgstr ""
 
-#: Views\Listing\Listings.cshtml:93
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:93
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:93
+#: Views\Listing\Listings.cshtml:119
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:98
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:98
 msgid "Search Text"
 msgstr "Søgetekst"
 
@@ -2655,15 +2766,15 @@ msgstr ""
 msgid "Searchable"
 msgstr "Søgbar"
 
-#: Views\Home\Index.cshtml:159
-#: obj\Debug\AspnetCompileMerge\Source\Views\Home\Index.cshtml:159
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Home\Index.cshtml:159
+#: Views\Home\Index.cshtml:176
+#: obj\Debug\AspnetCompileMerge\Source\Views\Home\Index.cshtml:169
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Home\Index.cshtml:169
 msgid "See All Listings"
 msgstr "Se alle annoncer"
 
-#: Views\Shared\_LoginPartial.cshtml:49
-#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_LoginPartial.cshtml:49
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_LoginPartial.cshtml:49
+#: Views\Shared\_LoginPartial.cshtml:50
+#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_LoginPartial.cshtml:50
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_LoginPartial.cshtml:50
 msgid "See all messages"
 msgstr ""
 
@@ -2725,9 +2836,9 @@ msgstr "Server domæne/IP"
 msgid "Settings"
 msgstr "Indstillinger"
 
-#: Views\Listing\Listing.cshtml:278
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:278
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:278
+#: Views\Listing\Listing.cshtml:286
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:286
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:286
 msgid "Share"
 msgstr "Del"
 
@@ -2750,8 +2861,8 @@ msgid "Show Email"
 msgstr "Vis email"
 
 #: Views\Listing\ListingUpdate.cshtml:121
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:120
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:120
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:121
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:121
 msgid "Show Phone"
 msgstr "Vis telefonnr."
 
@@ -2788,6 +2899,12 @@ msgstr ""
 #, fuzzy
 msgid "Signup Text"
 msgstr "Signup tekst"
+
+#: Views\Account\Register.cshtml:172
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:120
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:120
+msgid "Siret"
+msgstr ""
 
 #: Areas\Admin\Views\Manage\Settings.cshtml:35
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\Settings.cshtml:35
@@ -2872,9 +2989,9 @@ msgstr "Succes"
 msgid "SystemName"
 msgstr "Systemnavn"
 
-#: Views\Account\Register.cshtml:61
-#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:61
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:61
+#: Views\Account\Register.cshtml:201
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:149
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:149
 msgid "Terms & Conditions"
 msgstr "Vilkår og betingelser"
 
@@ -2999,9 +3116,9 @@ msgstr "Tema"
 msgid "There are no items to display."
 msgstr "Der er ingen emner at vise."
 
-#: Views\Shared\_LoginPartial.cshtml:44
-#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_LoginPartial.cshtml:44
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_LoginPartial.cshtml:44
+#: Views\Shared\_LoginPartial.cshtml:45
+#: obj\Debug\AspnetCompileMerge\Source\Views\Shared\_LoginPartial.cshtml:45
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Shared\_LoginPartial.cshtml:45
 msgid "There are no new messages"
 msgstr ""
 
@@ -3080,13 +3197,13 @@ msgid "Title"
 msgstr "Titel"
 
 #: Controllers\PaymentController.cs:322
-#: Views\Listing\Listings.cshtml:88
+#: Views\Listing\Listings.cshtml:114
 #: Views\Listing\_ListingPayment.cshtml:28
 #: Views\Payment\Payment.cshtml:51
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:88
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:93
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\_ListingPayment.cshtml:28
 #: obj\Debug\AspnetCompileMerge\Source\Views\Payment\Payment.cshtml:51
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:88
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:93
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\_ListingPayment.cshtml:28
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Payment\Payment.cshtml:51
 msgid "To"
@@ -3109,6 +3226,12 @@ msgstr "For at opsætte betaling skal du konfigurere et betalingsplugin."
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Payment\Payment.cshtml:49
 msgid "To Date"
 msgstr "Til dato"
+
+#: Views\Account\Register.cshtml:184
+#: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:132
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:132
+msgid "Town or Zip Code"
+msgstr ""
 
 #: Areas\Admin\Views\Payment\PaymentSetting.cshtml:30
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\Payment\PaymentSetting.cshtml:30
@@ -3292,18 +3415,18 @@ msgstr "Bekræft telefonnr."
 msgid "Version"
 msgstr "Version"
 
-#: Views\Listing\Listing.cshtml:232
+#: Views\Listing\Listing.cshtml:240
 #: Views\Listing\_ListingContactModal.cshtml:18
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:232
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:240
 #: obj\Debug\AspnetCompileMerge\Source\Views\Listing\_ListingContactModal.cshtml:18
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:232
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:240
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\_ListingContactModal.cshtml:18
 msgid "View User's other listings"
 msgstr "Se andre annoncer fra denne bruger"
 
-#: Views\Listing\Listing.cshtml:267
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:267
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:267
+#: Views\Listing\Listing.cshtml:275
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:275
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:275
 msgid "View user's profile and other listings"
 msgstr ""
 
@@ -3313,11 +3436,17 @@ msgstr ""
 msgid "View Your Profile"
 msgstr "Se profil"
 
-#: Views\Listing\Listing.cshtml:192
-#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:192
-#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:192
+#: Views\Listing\Listing.cshtml:200
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:200
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:200
 msgid "Views"
 msgstr "Besøgende"
+
+#: Views\Listing\_ListingGridList.cshtml:43
+#: obj\Debug\AspnetCompileMerge\Source\Views\Listing\_ListingGridList.cshtml:43
+#: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Listing\_ListingGridList.cshtml:43
+msgid "Ville"
+msgstr ""
 
 #: Areas\Admin\Views\Manage\Dashboard.cshtml:8
 #: obj\Debug\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\Dashboard.cshtml:8
@@ -3325,7 +3454,7 @@ msgstr "Besøgende"
 msgid "Welcome to {0} Admin Panel!"
 msgstr "Velkommen til {0} Admin panel"
 
-#: Controllers\AccountController.cs:246
+#: Controllers\AccountController.cs:261
 msgid "Welcome to {0}!"
 msgstr ""
 
@@ -3451,8 +3580,86 @@ msgstr ""
 msgid "Your password has been reset."
 msgstr "Din adgangskode er blevet nulstillet"
 
+#~ msgid " Personal"
+#~ msgstr ""
+
+#~ msgid " Professional"
+#~ msgstr ""
+
+#~ msgid "Account Individual or Professional"
+#~ msgstr ""
+
 #~ msgid "Administration"
 #~ msgstr "Administration"
+
+#~ msgid "CompanyAdress"
+#~ msgstr ""
+
+#~ msgid "CompanyMainCategory"
+#~ msgstr ""
+
+#~ msgid "CompanyName"
+#~ msgstr ""
+
+#~ msgid "CompanyOwnerFirstName"
+#~ msgstr ""
+
+#~ msgid "CompanyOwnerLastName"
+#~ msgstr ""
+
+#~ msgid "CompanyPhone"
+#~ msgstr ""
+
+#~ msgid "CompanySiret"
+#~ msgstr ""
+
+#~ msgid "CompanyTownZip"
+#~ msgstr ""
+
+#~ msgid "Enter the Company Owner First Name"
+#~ msgstr ""
+
+#~ msgid "Enter the Company Owner Last Name"
+#~ msgstr ""
+
+#~ msgid "Enter your Company Adress"
+#~ msgstr ""
+
+#~ msgid "Enter your Company Name"
+#~ msgstr ""
+
+#~ msgid "Enter your Company Phone"
+#~ msgstr ""
+
+#~ msgid "Enter your Company SIRET"
+#~ msgstr ""
+
+#~ msgid "Enter your Company Town or Zip Code"
+#~ msgstr ""
+
+#~ msgid "Enter your Main professional Category"
+#~ msgstr ""
+
+#~ msgid "FirstName"
+#~ msgstr ""
+
+#~ msgid "Individual Account"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Individual Account</button>\n"
+#~ "                        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">[[[Professional Account</button>\n"
+#~ "                        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">[[[Close"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Individual Account</button>\n"
+#~ "                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">[[[Professional Account</button>\n"
+#~ "                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">[[[Close"
+#~ msgstr ""
+
+#~ msgid "LastName"
+#~ msgstr ""
 
 #~ msgid "Listing ID"
 #~ msgstr "Annonce ID"
@@ -3460,6 +3667,37 @@ msgstr "Din adgangskode er blevet nulstillet"
 #~ msgid "Number of Listing actually on site: {0}"
 #~ msgstr ""
 
+#~ msgid "Particulier"
+#~ msgstr ""
+
+#~ msgid "Personal Account"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Personal Account]]\n"
+#~ "                                </label>\n"
+#~ "                                <label class=\"btn btn-primary\">\n"
+#~ "                                    <input type=\"radio\" name=\"options\" id=\"option2\" autocomplete=\"off\">  [[[Professional Account]] \n"
+#~ "                                </label>\n"
+#~ "                                <label class=\"btn btn-primary\">\n"
+#~ "                                    <input type=\"radio\" name=\"options\" id=\"option3\" autocomplete=\"off\"> Radio 3\n"
+#~ "                                </label>\n"
+#~ "                            </div>\n"
+#~ "                            <div id=\"dGeneral\">\n"
+#~ "                                <div id=\"dGauche\">\n"
+#~ "                                    <div class=\"form-group\">\n"
+#~ "                                        <label for=\"Email\">[[[Email"
+#~ msgstr ""
+
+#~ msgid "Professional Account"
+#~ msgstr ""
+
+#~ msgid "Professionnel"
+#~ msgstr ""
+
 #~ msgid "Thanks, have a lovely day."
 #~ msgstr "Tak. Vi ønsker dig en fantastisk day."
+
+#~ msgid "Whitch kind of account do you want to create : Choose Individual or Professional"
+#~ msgstr ""
 
