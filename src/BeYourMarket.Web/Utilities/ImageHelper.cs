@@ -88,6 +88,38 @@ namespace BeYourMarket.Web.Utilities
             }
         }
 
+        /// <summary>
+        /// ecupere le nombre max de pub pour une section (gauche, droite haut)
+        /// Soit en fixe soien comptant le nb de fichier commencant par pubName ?
+        /// </summary>
+        /// <param name="pubName"></param>
+        /// <returns></returns>
+        public static int GetMaxNbforPub(string pubName)
+        {
+            int nb = 3;
+            switch (pubName)
+            {
+                case "pub_Index_Haut_800x200_Img":
+                case "pub_Index_Gauche_250x350_Img":
+                case "pub_Index_Droite_250x350_Img":
+                    nb = 3;
+                    break;
+
+                case "pub_Listings_Haut_800x200_Img":
+                case "pub_Listings_Gauche_250x350_Img":
+                case "pub_Listings_Droite_250x350_Img":
+                    nb = 3;
+                    break;
+
+                case "pub_Register_Haut_800x200_Img1":
+                case "pub_Register_Gauche_250x350_Img":
+                case "pub_Register_Droite_250x350_Img":
+                    nb = 3;
+                    break;
+            }
+
+            return nb;
+        }
 
     }
 }

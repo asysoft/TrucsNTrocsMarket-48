@@ -39,14 +39,14 @@
         var settings = CacheHelper.Settings;
 
         <ol class="breadcrumb mrg-t">
-            <li><a href="@Url.Action("Index", "Home")">@settings.Name</a></li>
+            <li class="active m-r-5" ><a href="@Url.Action("Index", "Home")">@settings.Name  &raquo; </a></li>
 
             @for (int i = 0; i < Model.BreadCrumb.Count - 1; i++)
             {
-                <li><a href="@Url.Action("Search", "Home", new { CategoryID = Model.Categories[i].ID })">@Model.BreadCrumb[i].Name</a></li>
+                <li class="m-l-5" ><a href="@Url.Action("Search", "Home", new { CategoryID = Model.Categories[i].ID })">@Model.BreadCrumb[i].Name  &raquo; </a></li>
             }
 
-            <li class="active">@Model.BreadCrumb.Last().Name</li>
+            <li class="active m-l-10"> @Model.BreadCrumb.Last().Name</li>
         </ol>
     }
 }
@@ -58,9 +58,13 @@
         <div class="row">
             <div id="divLogoHautGauche" style="background-image: url(@ImageHelper.GetCommunityImagePath("LogoTnTcom_150x184", "png"));"></div>
             <div id="divPubHaut">
-                <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Haut_800x200_Img1")" style="display: block;" pubHaut />
-                <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Haut_800x200_Img2")" style="display: none;" pubHaut />
-                <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Haut_800x200_Img3")" style="display: none;" pubHaut />
+                <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Listings_Haut_800x200_Img1","jpg",true)" style="display: block;" pubHaut />
+                @{
+                    for (int iH = 2; iH <= @ImageHelper.GetMaxNbforPub("pub_Listings_Haut_800x200_Img"); iH++)
+                    {
+                        <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Listings_Haut_800x200_Img" + iH)" style="display: none;" pubHaut />
+                    }
+                }
             </div>
             <div class="col-md-3">
 
@@ -76,8 +80,8 @@
                                 <div class="form-group">
                                     <h5>[[[Category]]]</h5>
                                 </div>
-                                <div class="form-body" style="border-style:groove;overflow-y: auto; height: 240px;">
-                                    <div id="jstreeCateg">  </div>
+                                <div class="form-body" style="border-style:groove;overflow-y: auto; ">
+                                    <div id="jstreeCateg">  </div>                       
                                     <input type="hidden" id="CategoryIDhidd" name="CategoryIDsSearch" value="@Model.CategoryIDsSearch" />
                                 </div>
 
@@ -98,7 +102,7 @@
                                 </div>
 
                                 <h5>[[[Localization]]]</h5>
-                                <div class="form-body" style="border-style:groove;overflow-y: auto; height: 270px;">
+                                <div class="form-body" style="border-style:groove;overflow-y: auto;">
                                     <div id="jstreeLoc"> </div>
                                     <input type="hidden" id="LocationRefIDhidd" name="LocationRefIDsSearch" value="@Model.LocationRefIDsSearch" />
                                 </div>

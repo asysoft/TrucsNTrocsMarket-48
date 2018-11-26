@@ -3,10 +3,10 @@
 <div class="card" >
     <div class="card-image align-items-center">
         <a href="@Url.Action("Listing", "Listing", new { id = Model.ListingCurrent.ID })">
-            <img alt="@Model.ListingCurrent.Title" src="@Model.UrlPicture"  style="margin-top: 40px;" >
+            <img alt="@Model.ListingCurrent.Title" src="@Model.UrlPicture"  style="margin-top: 60px;" >
             @if (Model.ListingCurrent.Price.HasValue)
             {
-                <span class="card-img-label h-auto" style="border-radius: 10px 10px 10px;border: 2px solid green; color:darkgreen;font-weight:bold; margin : 1px auto 10px 10px">@Html.DisplayFor(x => Model.ListingCurrent.PriceFormatted)</span>
+                <span class="card-img-label h-auto" style="border-radius: 10px 10px 10px;border: 2px solid green; color:darkgreen;font-weight:bold; margin : 10px auto 10px 10px">@Html.DisplayFor(x => Model.ListingCurrent.PriceFormatted)</span>
             }
         </a>
     </div>

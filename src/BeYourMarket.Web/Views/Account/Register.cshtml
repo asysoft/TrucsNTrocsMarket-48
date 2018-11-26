@@ -71,20 +71,32 @@
         <div id="divLogoHautGauche" style="background-image: url(@ImageHelper.GetCommunityImagePath("LogoTnTcom_150x184", "png"));"></div>
         <div id="divPubRegisterHaut">
             <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Haut_800x200_Img1")" style="display: block;" pubHaut />
-            <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Haut_800x200_Img2")" style="display: none;" pubHaut />
-            <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Haut_800x200_Img3")" style="display: none;" pubHaut />
+            @{
+                for (int iH = 2; iH <= @ImageHelper.GetMaxNbforPub("pub_Register_Haut_800x200_Img"); iH++)
+                {
+                    <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Haut_800x200_Img" + iH)" style="display: none;" pubHaut />
+                }
+            }
 
         </div>
         <div id="divPubRegisterGauche">
             <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Gauche_250x350_Img1")" style="display: block;" pubgauche />
-            <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Gauche_250x350_Img2")" style="display: none;" pubgauche />
-            <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Gauche_250x350_Img3")" style="display: none;" pubgauche />
+            @{
+                for (int iG = 2; iG <= @ImageHelper.GetMaxNbforPub("pub_Register_Gauche_250x350_Img"); iG++)
+                {
+                    <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Gauche_250x350_Img" + iG)" style="display: none;" pubgauche />
+                }
+            }
 
         </div>
         <div id="divPubRegisterDroite">
             <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Droite_250x350_Img1")" style="display: block;" pubdroite />
-            <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Droite_250x350_Img2")" style="display: none;" pubdroite />
-            <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Droite_250x350_Img3")" style="display: none;" pubdroite />
+            @{
+                for (int iD = 2; iD <= @ImageHelper.GetMaxNbforPub("pub_Register_Droite_250x350_Img"); iD++)
+                {
+                    <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Droite_250x350_Img" + iD)" style="display: none;" pubdroite />
+                }
+            }
         </div>
         <div class="mx-auto col-md-6">
 
@@ -152,9 +164,13 @@
                                 <h5>
                                     [[[Required fields for professional accounts]]]
                                 </h5>
-                                <div class="form-group">
+                                <div class="form-group m-t-10">
                                     <label for="Civility">[[[Civility]]] <span class="text-red">*</span></label>
-                                    <input type="text" name="Civility" id="Civility" class="form-control input-lg" placeholder="[[[Enter your Civility]]]" data-rule-required="true" data-rule-civility="true">
+                                    <input type="radio" name="Civility" id="CivilityMr" data-rule-required="true" data-rule-civility="true">
+                                    <label for="CivilityMr">Mr</label>
+                                    <input type="radio" name="Civility" id="CivilityMme" data-rule-required="true" data-rule-civility="true">
+                                    <label for="CivilityMr">Mme</label>
+
                                 </div>
                                 <div class="form-group">
                                     <label for="LastName">[[[Last Name]]] <span class="text-red">*</span></label>

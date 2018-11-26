@@ -45,6 +45,7 @@ namespace BeYourMarket.Web
                       "~/js/ripples/css/ripples.min.css")
                 .Include("~/css/material-design-icons.min.css", new CssRewriteUrlTransformWrapper())
                 .Include("~/css/font-awesome/css/font-awesome.css", new CssRewriteUrlTransformWrapper()));
+
         }
     }
     

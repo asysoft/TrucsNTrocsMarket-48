@@ -668,6 +668,7 @@
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\TnTutils\jquery.rwdImageMaps.js" />
     <Content Include="Scripts\TnTutils\jquery.rwdImageMaps.min.js" />
+    <Content Include="Scripts\TnTutils\JsTreeTnT.js" />
     <Content Include="Scripts\TnTutils\modalDlgRegister.js" />
     <Content Include="Scripts\TnTutils\pubDefil.js" />
     <Content Include="Scripts\umd\popper-utils.js" />

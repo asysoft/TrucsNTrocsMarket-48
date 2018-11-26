@@ -2,7 +2,6 @@
 @model BeYourMarket.Web.Models.SearchListingModel
 
 @{
-    /**/
 
     ViewBag.Title = CacheHelper.Settings.Name;
     var imagePath = ImageHelper.GetCommunityImagePath("cover");
@@ -13,12 +12,12 @@
         bgCss = string.Format(@"background: linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.15)),url(""{0}""); background-size: cover;", imagePath);
     }
 
-    var mapUrl = ImageHelper.GetCommunityImagePath("map","png");
-    
+    var mapUrl = ImageHelper.GetCommunityImagePath("map", "png");
+
 }
 
 @section Styles {
-<style>
+    <style>
         .marginauto {
             margin: -5px auto 10px;
             display: block;
@@ -42,98 +41,91 @@
             height: 650px;
             margin-top: 20px;
             margin-left: 80px;
-            background-repeat: no-repeat ;
+            background-repeat: no-repeat;
         }
 
         #divdroite {
             float: left;
             margin-left: 1px;
             margin-top: 10px;
-
             width: 15%;
             word-wrap: break-word;
         }
 
         #zonesMap {
-           float: left;
-           position: absolute;
-           left: 350px;
-           top: 0px;
-           z-index: 1000;
-           padding: 5px;
-           color: #FFFFFF;
-           font-weight: bold;
-           font-size: 13px;
+            float: left;
+            position: absolute;
+            left: 350px;
+            top: 0px;
+            z-index: 1000;
+            padding: 5px;
+            /*color: #FFFFFF;*/
+            font-weight: bold;
+            font-size: 13px;
         }
 
-         #divLogoHautGauche {
-            float : left;
+        #divLogoHautGauche {
+            float: left;
             margin-left: 10px;
             margin-top: 10px;
             width: 150px;
             height: 184px;
-            
         }
 
         #idNbAnnonces {
             margin-left: 10px;
             margin-top: 20px;
-            color : #4472c4;
+            color: #4472c4;
             word-wrap: break-word;
         }
 
-         #divPubGauche{
+        #divPubGauche {
             margin-left: 10px;
             margin-top: 80px;
             width: 250px;
             height: 350px;
         }
 
-        #divPubdroite{
-            margin-left: 10px;
+        #divPubdroite {
+            margin-left: 1px;
             margin-top: 150px;
             width: 250px;
             height: 350px;
         }
 
-        #divPubHaut{
+        #divPubHaut {
             margin-left: 200px;
             margin-top: 10px;
-            width : 800px;
+            width: 800px;
             height: 200px;
         }
-
-</style>
+    </style>
 }
-
-
-@*<div class="landing-bg jumbotron text-center" style="@bgCss">
-        <div class=" container" style="margin: 0 auto; max-width: 60em">
-            <h1>@CacheHelper.Settings.Slogan</h1>
-            <p class="lead">@CacheHelper.Settings.Description</p>
-            <form method="get" action="@Url.Action("Search", "Home")">
-                <p><input type="text" class="form-control input-lg" placeholder="@CacheHelper.Settings.SearchPlaceHolder" id="SearchText" name="SearchText"></p>
-                <p><button type="submit" class="btn btn-primary btn-lg"><i class="mdi-action-search"></i> [[[Search]]]</button></p>
-            </form>
-        </div>
-    </div>*@
 
 <div id="divglobal" style="background-color:#EAF4D3 ; background-repeat: no-repeat ;">
     <div id="divLogoHautGauche" style="background-image: url(@ImageHelper.GetCommunityImagePath("LogoTnTcom_150x184", "png"));"></div>
     <div id="divPubHaut">
         <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Index_Haut_800x200_Img1")" style="display: block;" pubHaut />
-        <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Index_Haut_800x200_Img2")" style="display: none;" pubHaut />
-        <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Index_Haut_800x200_Img3")" style="display: none;" pubHaut />
+        @{
+            for (int iH = 2; iH <= @ImageHelper.GetMaxNbforPub("pub_Index_Haut_800x200_Img"); iH++)
+            {
+                <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Index_Haut_800x200_Img" + iH)" style="display: none;" pubHaut />
+            }
+        }
 
     </div>
     <div id="divgauche">
-        <div id="idNbAnnonces" >
-            <p style="font-size: 16px;">[[[Number of Listing actually on site: ]]] <strong>@Model.Listings.Count()</strong> </p>
+        <div id="idNbAnnonces">
+            <p style="color: #4472c4; font-size: 16px;" >[[[Number of Listing actually on site: ]]] <strong>@Model.Listings.Count()</strong> </p>
         </div>
-        <div id="divPubGauche" >
+        <div id="divPubGauche">
             <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Index_Gauche_250x350_Img1")" style="display: block;" pubgauche />
-            <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Index_Gauche_250x350_Img2")" style="display: none;" pubgauche />
-            <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Index_Gauche_250x350_Img3")" style="display: none;" pubgauche />
+            @{
+                for (int iG = 2; iG <= @ImageHelper.GetMaxNbforPub("pub_Index_Gauche_250x350_Img"); iG++)
+                {
+                    <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Index_Gauche_250x350_Img" + iG)" style="display: none;" pubgauche />
+                }
+            }
 
         </div>
     </div>
@@ -164,71 +156,73 @@
     <div id="divdroite">
         <div id="divPubdroite" style="height:60%">
             <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Index_Droite_250x350_Img1")" style="display: none;" pubdroite />
-            <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Index_Droite_250x350_Img2")" style="display: none;" pubdroite />
-            <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Index_Droite_250x350_Img3")" style="display: none;" pubdroite />
-
-        </div>
-    </div>
-</div>
-    <div class="container-fluid body-content" style="background-color:#EAF4D3">
-        <div class="row">
-            <div class="col-md-12 section-title">
-                <h4>[[[Latest Listings]]] <a class="btn btn-default btn-sm pull-right" href="@Url.Action("Search","Home")">[[[See All Listings]]] &raquo;</a></h4>
-            </div>
-        </div>
-
-        <div class="row">
-
-            @foreach (var item in Model.ListingsPageList.Take(8))
-            {
-                <div class="card-deck col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                    @Html.Partial("~/Views/Listing/_ListingCard.cshtml", item)
-                </div>
+            @{
+                for (int iD = 2; iD <= @ImageHelper.GetMaxNbforPub("pub_Index_Droite_250x350_Img"); iD++)
+                {
+                    <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Index_Droite_250x350_Img"+ iD)" style="display: none;" pubdroite />
+                }
             }
         </div>
     </div>
+</div>
+<div class="container-fluid body-content" style="background-color:#EAF4D3">
+    <div class="row">
+        <div class="col-md-12 section-title">
+            <h4>[[[Latest Listings]]] <a class="btn btn-default btn-sm pull-right" href="@Url.Action("Search","Home")">[[[See All Listings]]] &raquo;</a></h4>
+        </div>
+    </div>
 
-    @section Scripts {
+    <div class="row">
+
+        @foreach (var item in Model.ListingsPageList.Take(8))
+        {
+            <div class="card-deck col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                @Html.Partial("~/Views/Listing/_ListingCard.cshtml", item)
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
     <script type="text/javascript">
-            $(function () {
-                $('.map').maphilight();
-            });
+        $(function () {
+            $('.map').maphilight();
+        });
 
 
-            $("#idMap").on("click", function (e) {
-                e.preventDefault();
-                var el = document.getElementById(e.target.className);
-                if (el != null && el.style != null) {
-                    el.style.color = 'red';
-                    el.click();
-                }
+        $("#idMap").on("click", function (e) {
+            e.preventDefault();
+            var el = document.getElementById(e.target.className);
+            if (el != null && el.style != null) {
+                el.style.color = 'red';
+                el.click();
+            }
 
-            });
+        });
 
-            $("#idMap").on("mouseover", function (e) {
-                e.preventDefault();
-                //alert(e.target.className);
-                var el = document.getElementById(e.target.className);
-                if (el != null && el.style != null)
-                    el.style.color = 'darkgreen';
-            });
+        $("#idMap").on("mouseover", function (e) {
+            e.preventDefault();
+            //alert(e.target.className);
+            var el = document.getElementById(e.target.className);
+            if (el != null && el.style != null)
+                el.style.color = 'darkgreen';
+        });
 
-            $("#idMap").on("mouseout", function (e) {
-                e.preventDefault();
-                //alert(e.target.className);
-                var el = document.getElementById(e.target.className);
-                if (el != null && el.style != null)
-                    el.style.color = '#4472c4' ;
+        $("#idMap").on("mouseout", function (e) {
+            e.preventDefault();
+            //alert(e.target.className);
+            var el = document.getElementById(e.target.className);
+            if (el != null && el.style != null)
+                el.style.color = '#4472c4';
         });
 
     </script>
-    <script>
+    <script type="text/javascript">
         $(document).ready(function (e) {
             $('img[usemap]').rwdImageMaps();
         });
 
     </script>
 
-   
 
     }

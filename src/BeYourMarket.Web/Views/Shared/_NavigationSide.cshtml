@@ -3,61 +3,7 @@
     Layout = null;
 }
 
-@helper DisplayTree(IEnumerable<BeYourMarket.Web.Extensions.TreeItem<BeYourMarket.Model.Models.Category>> categories, bool child = false)
-{
-    if (child)
-    {
-        <ul class="treeview-menu">
-            @foreach (var item in categories)
-            {
-                <li class="treeview">
-                    <a href="@Url.Action("Search", "Home", new { CategoryID = item.Item.ID })">
-                        <span>@item.Item.Name</span>
-                    </a>
-                </li>
-            }
-        </ul>
-    }
-    else
-    {
-        <li class="treeview">
-            <a href="@Url.Action("Search", "Home")">
-                <span>[[[All Categories]]]</span>
-            </a>
-        </li>
 
-        @*foreach (var item in categories.Where(p => p.Item.Parent == 0) )
-        {
-            <li class="treeview">
-                <a href="@Url.Action("Search", "Home", new { CategoryID = item.Item.ID })">
-                    <span>@item.Item.Name</span>
-                    @if (item.Children.Count() > 0)
-                    {
-                        <i class="mdi-navigation-expand-more pull-right"></i>
-                    }
-                </a>
-
-                @DisplayTree(item.Children, false)
-            </li>
-        }*@
-
-        foreach (var item in categories)
-        {
-        <li class="treeview">
-            <a href="@Url.Action("Search", "Home", new { CategoryID = item.Item.ID })">
-                <span>@item.Item.Name</span>
-                @if (item.Children.Count() > 0)
-                {
-                    <i class="mdi-navigation-expand-more pull-right"></i>
-                }
-            </a>
-
-            @DisplayTree(item.Children, true)
-        </li>
-        }
-
-}
-}
 
 <section class="sidebar">
     <form method="get" action="@Url.Action("Search", "Home")" class="user-panel form-rounded hidden-lg hidden-md">
@@ -67,10 +13,9 @@
                 <button type="submit" name="search" class="btn btn-sm btn-flat"><i class="mdi-action-search "></i></button>
             </span>
         </div>
-        @*<a class="text-blue" href="@Html.ActionLink("[[[Refine Search]]]", "Search", "Home", new { displayNone = 1, area = string.Empty }, htmlAttributes: new { id = "SearchLink"})">*@
-            <a class="text-blue" href="@Url.Action("Search", "Home", new { displayNone = 1 })">
-                <span>[[[Refine Search]]]</span>
-            </a>
+        <a class="m-l-10" style="color: #4472c4"  href="@Url.Action("Search", "Home", new { displayNone = 1 })">
+            <span>   [[[Refine Search]]]</span>
+        </a>
 
     </form>
     <ul class="sidebar-menu">
@@ -117,8 +62,8 @@
         }
 
         <li class="divider"><i class="fa fa-th-list"></i> [[[Categories]]]</li>
-
-        @DisplayTree(Model.CategoryTree)
+        <li id="jstreeCategNav">  </li>
+        @*@DisplayTree(Model.CategoryTree)*@
 
         <li class="divider"></li>
         @foreach (var contentPage in Model.ContentPages)
@@ -137,4 +82,5 @@
             </footer>
         </li>
     </ul>
+
 </section>

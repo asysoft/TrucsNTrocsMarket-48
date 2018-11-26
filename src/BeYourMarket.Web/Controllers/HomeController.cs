@@ -114,6 +114,16 @@ namespace BeYourMarket.Web.Controllers
             return View("~/Views/Listing/Listings.cshtml", model);
         }
 
+        public async Task<ActionResult> SearchByCategID(string id)
+        {
+            SearchListingModel model = new SearchListingModel();
+             model.CategoryID = int.Parse(id);
+
+            await GetSearchResult(model);
+
+            return View("~/Views/Listing/Listings.cshtml", model);
+        }
+
         private async Task GetSearchResult(SearchListingModel model)
         {
             IEnumerable<Listing> items = null;

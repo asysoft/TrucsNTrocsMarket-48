@@ -1,4 +1,4 @@
-﻿ 
+﻿
     IH = 0;
     var ArrayImagesH = document.querySelectorAll("img[pubHaut]");
     ImaxH = ArrayImagesH.length - 1;
@@ -49,4 +49,4 @@ function suivanteD() {
     ArrayImagesD[IDr].style.display = "block";
     setTimeout(suivanteD, 3000);
 }
-     
+
