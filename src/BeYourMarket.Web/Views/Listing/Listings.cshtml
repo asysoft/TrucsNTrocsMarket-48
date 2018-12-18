@@ -66,20 +66,16 @@
                     }
                 }
             </div>
-            <div class="col-md-3">
-
+            <div class="col-md-4">
                 <div class="search-widget panel panel-default mt-5">
                     <form method="get" action="@Url.Action("Search", "Home", new { })">
                         <div class="panel-heading mt-2">
                             <h4>[[[Refine Search]]]</h4>
 
                         </div>
-                        <div class="panel-body">
+                        <div class="panel-body mt-4">
                             <fieldset>
 
-                                <div class="form-group">
-                                    <h5>[[[Category]]]</h5>
-                                </div>
                                 <div class="form-body" style="border-style:groove;overflow-y: auto; ">
                                     <div id="jstreeCateg">  </div>                       
                                     <input type="hidden" id="CategoryIDhidd" name="CategoryIDsSearch" value="@Model.CategoryIDsSearch" />
@@ -137,7 +133,7 @@
                     </form>
                 </div>
             </div>
-            <div class="col-md-9 section-title mt-5">
+            <div class="col-md-8 section-title mt-5">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="">

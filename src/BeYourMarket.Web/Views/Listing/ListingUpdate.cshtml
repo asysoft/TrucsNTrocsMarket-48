@@ -155,14 +155,12 @@
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgB8z009mHSrPLaJUobfgmI1gTlk1aqyc&libraries=places&callback=initMap" async defer></script>
 
-
-
     <script src="~/Scripts/fileinput.min.js"></script>
     @Html.Partial("_LocalizationFileInput")
 
     <script>
-        @{
-            var preview = new System.Text.StringBuilder();
+         @{
+           var preview = new System.Text.StringBuilder();
             var previewDelete = new System.Text.StringBuilder();
 
             foreach (var picture in Model.Pictures)

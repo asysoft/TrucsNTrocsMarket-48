@@ -14,6 +14,13 @@ using BeYourMarket.Service;
 using BeYourMarket.Service.Models;
 using i18n;
 using BeYourMarket.Model.Enum;
+using BeYourMarket.Model.Models;
+using System.Collections.Generic;
+using Repository.Pattern.UnitOfWork;
+using ImageProcessor.Imaging.Formats;
+using System.Drawing;
+using ImageProcessor;
+using System.IO;
 
 namespace BeYourMarket.Web.Controllers
 {
@@ -21,10 +28,15 @@ namespace BeYourMarket.Web.Controllers
     public class AccountController : Controller
     {
         #region Fields
+
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         private ApplicationRoleManager _roleManager;
         private readonly IEmailTemplateService _emailTemplateService;
+        private readonly IAspNetUserCategoriesService _userCategoriesService;
+        private readonly IAspNetUserImgFileService _aspNetUserImgFileService;
+        private readonly IPictureService _pictureService;
+        private readonly IUnitOfWorkAsync _unitOfWorkAsync;
         #endregion
 
         #region Properties
@@ -66,9 +78,18 @@ namespace BeYourMarket.Web.Controllers
         #endregion
 
         #region Constructor
-        public AccountController(IEmailTemplateService emailTemplateService)
+        public AccountController(IUnitOfWorkAsync unitOfWorkAsync, 
+                                IEmailTemplateService emailTemplateService, 
+                                IAspNetUserCategoriesService UserCategoriesService,
+                                IAspNetUserImgFileService AspNetUserImgFileService,
+                                IPictureService pictureService
+                                )
         {
+            _unitOfWorkAsync = unitOfWorkAsync;
             _emailTemplateService = emailTemplateService;
+            _userCategoriesService = UserCategoriesService;
+            _aspNetUserImgFileService = AspNetUserImgFileService;
+            _pictureService = pictureService;
         }
         #endregion
 
@@ -121,11 +142,15 @@ namespace BeYourMarket.Web.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    if (string.IsNullOrEmpty(returnUrl))
-                    {
-                        return RedirectToAction("Index", "Manage");
-                    }
-                    return RedirectToLocal(returnUrl);
+                    // ASY : centralie la redirection dans RedirectToLocal
+                    // ? dans quel cas Url n est pas null ou est null?
+                    //if (string.IsNullOrEmpty(returnUrl))
+                    //{
+                    //    return RedirectToAction("Index", "Manage");
+                    //}
+                    //return RedirectToLocal(returnUrl);
+                    return RedirectToUserTypeEnv(model.Email);
+
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -180,20 +205,6 @@ namespace BeYourMarket.Web.Controllers
             }
         }
                     
-        //
-        // GET: /Account/Register
-        //[AllowAnonymous]
-        //[HttpGet]
-        //public ActionResult RegisterChooseShow()
-        //{
-        //    return PartialView("RegisterChoosePopUp");
-        //}
-
-        //[HttpPost]
-        //public ActionResult RegisterChooseAction()
-        //{
-        //    return RedirectToAction("Register");
-        //}
 
         //
         // GET: /Account/Register
@@ -202,23 +213,33 @@ namespace BeYourMarket.Web.Controllers
         {
             return View();
         }
+        
 
         //
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        //public async Task<ActionResult> Register(RegisterViewModel model)
+        // pour les pros recuperer logo  
+        public async Task<ActionResult> Register(RegisterViewModel model, FormCollection form , IEnumerable<HttpPostedFileBase> files)
         {
             if (ModelState.IsValid)
             {
+                //
+                model.ImgFiles = files;
                 var result = await RegisterAccount(model);
                 
                 // Add errors
                 AddErrors(result);
 
                 if (result.Succeeded)
-                    return RedirectToAction("Index", "Manage");                
+                {
+                    // ASY : redirige vers l env de l user
+                    //return RedirectToAction("Index", "Manage");
+                    return RedirectToUserTypeEnv(model.Email);
+                }
+
             }
 
             // If we got this far, something failed, redisplay form
@@ -226,13 +247,25 @@ namespace BeYourMarket.Web.Controllers
         }
 
         public async Task<IdentityResult> RegisterAccount(RegisterViewModel model)
-        {                        
+        {
             var user = new ApplicationUser
             {
                 UserName = model.Email,
                 Email = model.Email,
                 FirstName = model.FirstName,
                 LastName = model.LastName,
+
+                UserType = model.UserType,
+
+                // Specific aux Pros
+                Gender = model.Gender,
+                ProCompany = model.ProCompany,
+                ProSiret = model.ProSiret,
+                //ProCategoryID = model.ProCategoryID,
+                ProAdress = model.ProAdress,
+                ProTownZip = model.ProTownZip,
+                ProPhone = model.ProPhone,
+
                 RegisterDate = DateTime.Now,
                 RegisterIP = System.Web.HttpContext.Current.Request.GetVisitorIP(),
                 LastAccessDate = DateTime.Now,
@@ -242,6 +275,77 @@ namespace BeYourMarket.Web.Controllers
             var result = await UserManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
+                // Creation des categories du pro et affectation au role Pro
+                if (model.UserType == Enum_UserType.Professional)
+                {
+                    List<string> idsSel = new List<string>();
+                    if (model.ProCategoryIDs != null)
+                        idsSel = model.ProCategoryIDs.Split(';').ToList();
+
+                    foreach (string catId in idsSel)
+                    {
+                        _userCategoriesService.Insert(new AspNetUserCategory()
+                        {
+                            AspNetUserId = user.Id,
+                            CategoryID = int.Parse(catId),
+                            //Created = DateTime.Now,
+                            ObjectState = Repository.Pattern.Infrastructure.ObjectState.Added
+                        });
+                    }
+
+                    // Affecte au role Pro
+                    var roleAdded = UserManager.AddToRole(user.Id, Enum_UserType.Professional.ToString());
+
+                    // Sauvegarde le logo
+                    int PictureLogoOrder = 0;
+
+                    if (model.ImgFiles != null && model.ImgFiles.Count() > 0)
+                    {
+                        foreach (HttpPostedFileBase file in model.ImgFiles)
+                        {
+                            if ((file != null) && (file.ContentLength > 0) && !string.IsNullOrEmpty(file.FileName))
+                            {
+                                // Picture picture and get id
+                                var picture = new Picture();
+
+                                picture.MimeType = "image/jpeg";
+                                var mimeType = MimeMapping.GetMimeMapping(file.FileName);
+                                picture.MimeType = mimeType;
+
+                                _pictureService.Insert(picture);
+                                await _unitOfWorkAsync.SaveChangesAsync();
+
+                                // Format is automatically detected though can be changed.
+                                ISupportedImageFormat format = new JpegFormat { Quality = 90 };
+                                Size size = new Size(200, 200);
+
+                                //https://naimhamadi.wordpress.com/2014/06/25/processing-images-in-c-easily-using-imageprocessor/
+                                // Initialize the ImageFactory using the overload to preserve EXIF metadata.
+                                using (ImageFactory imageFactory = new ImageFactory(preserveExifData: true))
+                                {
+                                    var path = Path.Combine(Server.MapPath("~/Images/Profile/Prologos"), string.Format("{0}.{1}", picture.ID.ToString("00000000"), "jpg"));
+
+                                    // Load, resize, set the format and quality and save an image.
+                                    imageFactory.Load(file.InputStream)
+                                                .Resize(size)
+                                                .Format(format)
+                                                .Save(path);
+                                }
+
+                                var itemPicture = new AspNetUserImgFile();
+                                itemPicture.AspNetUserId = user.Id;
+                                itemPicture.PictureID = picture.ID;
+                                itemPicture.Ordering = PictureLogoOrder;
+
+                                _aspNetUserImgFileService.Insert(itemPicture);
+
+                            }
+                        }
+                    }
+
+                }
+
+                // connection de l utilisateur
                 await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                 // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
@@ -583,10 +687,46 @@ namespace BeYourMarket.Web.Controllers
 
         private ActionResult RedirectToLocal(string returnUrl)
         {
+
             if (Url.IsLocalUrl(returnUrl))
             {
                 return Redirect(returnUrl);
             }
+            return RedirectToAction("Index", "Home");
+
+        }
+
+        /// <summary>
+        /// ASY :  redirige dans l environnement de l utilisateur
+        /// a voir le cas des login externe
+        /// </summary>
+        /// <param name="currentUserId"></param>
+        /// <returns></returns>
+        private ActionResult RedirectToUserTypeEnv(string userEMail)
+        {
+            var currentUsr = UserManager.FindByName(userEMail);
+
+            if (currentUsr != null)
+            {
+                var roleAdministrator = RoleManager.FindByName(Enum_UserType.Administrator.ToString());
+                var isAdministrator = currentUsr.Roles.Any(x => x.RoleId == roleAdministrator.Id);
+                if (isAdministrator)
+                    return RedirectToAction("Index", "Home");
+
+                // Pro
+                var rolePro = RoleManager.FindByName(Enum_UserType.Professional.ToString());
+                var isPro = currentUsr.Roles.Any(x => x.RoleId == rolePro.Id);
+                //if (isPro)
+                //    return RedirectToAction("Index", "Professional", new { proUserID = currentUsr.Id } );
+                if (isPro)
+                    return RedirectToAction("Index", "UserPro", new { area = "Pro" });
+
+                // Autres roles , backoff
+
+
+            }
+
+            // Sinon Par defaut, les particuliers
             return RedirectToAction("Index", "Home");
         }
 

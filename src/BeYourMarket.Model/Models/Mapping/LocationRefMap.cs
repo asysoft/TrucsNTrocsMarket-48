@@ -34,11 +34,6 @@ namespace BeYourMarket.Model.Models.Mapping
             this.Property(t => t.Enabled).HasColumnName("Enabled");
             this.Property(t => t.Ordering).HasColumnName("Ordering");
 
-            // Relationships
-            //this.HasRequired(t => t.Listing)
-            //    .WithMany(t => t.)
-            //    .HasForeignKey(d => d.LocationRefID).WillCascadeOnDelete();
-
         }
     }
 

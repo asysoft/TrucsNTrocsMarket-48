@@ -1,5 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BeYourMarket.Model.Models
 {
@@ -18,14 +21,21 @@ namespace BeYourMarket.Model.Models
             this.ListingReviewsUserFrom = new List<ListingReview>();
             this.ListingReviewsUserTo = new List<ListingReview>();
             this.AspNetRoles = new List<AspNetRole>();
+
+            this.AspNetUserCategories = new List<AspNetUserCategory>();
+            this.AspNetUserImgFiles = new List<AspNetUserImgFile>();
+
+            // Valeur parr defaut en base
+            UserType =0;
         }
 
         public string Id { get; set; }
+
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public System.DateTime RegisterDate { get; set; }
         public string RegisterIP { get; set; }
-        public System.DateTime LastAccessDate { get; set; }
+        public System.DateTime LastAccessDate {  get; set; }
         public string LastAccessIP { get; set; }
         public Nullable<System.DateTime> DateOfBirth { get; set; }
         public bool AcceptEmail { get; set; }
@@ -44,6 +54,18 @@ namespace BeYourMarket.Model.Models
         public string UserName { get; set; }
         public bool Disabled { get; set; }
         public double Rating { get; set; }
+
+        // Permet de savoir le type de compte a a creation ( par defaut : normal, sinon Pro)
+        [DefaultValue(0)]
+        public int UserType { get; set; }
+
+        public string ProCompany { get; set; }
+        public string ProSiret { get; set; }
+        public string ProAdress { get; set; }
+        public string ProTownZip { get; set; }
+        public string ProPhone { get; set; }
+        public string ProSiteWeb { get; set; }
+        
         public virtual ICollection<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual ICollection<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual ICollection<Listing> Listings { get; set; }
@@ -55,5 +77,10 @@ namespace BeYourMarket.Model.Models
         public virtual ICollection<ListingReview> ListingReviewsUserFrom { get; set; }
         public virtual ICollection<ListingReview> ListingReviewsUserTo { get; set; }
         public virtual ICollection<AspNetRole> AspNetRoles { get; set; }
+
+        // pour les pro : relation avec la (ou les?) categ du pro
+        public virtual ICollection<AspNetUserCategory> AspNetUserCategories { get; set; }
+        public virtual ICollection<AspNetUserImgFile> AspNetUserImgFiles { get; set; }
+        
     }
 }

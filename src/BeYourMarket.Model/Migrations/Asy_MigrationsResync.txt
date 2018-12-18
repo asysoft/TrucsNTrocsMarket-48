@@ -1,0 +1,14 @@
+?????????
+Effacer tout
+faire une Add-migration initial
+
+supprimer tout, sauf les tables NON cree !
+
+update-database
+
+LANCER l appli 2 fois
+(Elle doit recreer les tables manquantes) ???????????
+
+en prod :
+livrer le fichier migration avec seulement les tables et champs  changé ??????
+lancer l appli

@@ -46,13 +46,14 @@ namespace BeYourMarket.Web.App_Start
                 .RegisterType<IRepositoryAsync<CategoryStat>, Repository<CategoryStat>>()
                 .RegisterType<IRepositoryAsync<AspNetUser>, Repository<AspNetUser>>()
                 .RegisterType<IRepositoryAsync<AspNetRole>, Repository<AspNetRole>>()
+
                 .RegisterType<IRepositoryAsync<ListingType>, Repository<ListingType>>()
                 .RegisterType<IRepositoryAsync<CategoryListingType>, Repository<CategoryListingType>>()
                 .RegisterType<IRepositoryAsync<Message>, Repository<Message>>()
                 .RegisterType<IRepositoryAsync<MessageParticipant>, Repository<MessageParticipant>>()
                 .RegisterType<IRepositoryAsync<MessageReadState>, Repository<MessageReadState>>()
                 .RegisterType<IRepositoryAsync<MessageThread>, Repository<MessageThread>>()
-                .RegisterType<IRepositoryAsync<LocationRef>, Repository<LocationRef>>()
+                .RegisterType<IRepositoryAsync<LocationRef>, Repository<LocationRef>>()                
 
                 .RegisterType<ISettingService, SettingService>()
                 .RegisterType<ICategoryService, CategoryService>()
@@ -74,6 +75,16 @@ namespace BeYourMarket.Web.App_Start
                 .RegisterType<ILocationRefService, LocationRefService>()
                 .RegisterType<IListingReviewService, ListingReviewService>()
                 .RegisterType<ICategoryListingTypeService, CategoryListingTypeService>()
+
+                .RegisterType<IRepositoryAsync<AspNetUserCategory>, Repository<AspNetUserCategory>>()
+                .RegisterType<IAspNetUserCategoriesService, AspNetUserCategoriesService>()
+
+                .RegisterType<IRepositoryAsync<AspNetUserImgFile>, Repository<AspNetUserImgFile>>()
+                .RegisterType<IAspNetUserImgFileService, AspNetUserImgFileService>()
+
+                .RegisterType<IRepositoryAsync<PrepaidCard>, Repository<PrepaidCard>>()
+                .RegisterType<IPrepaidCardService, PrepaidCardService>()                
+
                 .RegisterType<IMessageService, MessageService>()
                 .RegisterType<IMessageParticipantService, MessageParticipantService>()
                 .RegisterType<IMessageReadStateService, MessageReadStateService>()

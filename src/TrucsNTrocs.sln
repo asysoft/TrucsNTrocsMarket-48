@@ -38,7 +38,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeYourMarket.Test", "Tests\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.Widget.Disqus", "Plugins\Plugin.Widget.Disqus\Plugin.Widget.Disqus.csproj", "{99862F14-2E6E-4092-B8E0-3D746DCB1A07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TnTTickets.Lib", "TnTTickets.Lib\TnTTickets.Lib.csproj", "{82509352-9129-488C-B3C9-06037B5C6E00}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TnTPrepaidCard.Lib", "TnTTickets.Lib\TnTPrepaidCard.Lib.csproj", "{82509352-9129-488C-B3C9-06037B5C6E00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

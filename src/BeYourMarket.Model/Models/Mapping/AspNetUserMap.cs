@@ -48,6 +48,16 @@ namespace BeYourMarket.Model.Models.Mapping
             this.Property(t => t.UserName).HasColumnName("UserName");
             this.Property(t => t.Disabled).HasColumnName("Disabled");
             this.Property(t => t.Rating).HasColumnName("Rating");
+            
+            this.Property(t => t.UserType).HasColumnName("UserType");
+
+            this.Property(t => t.ProCompany).HasColumnName("ProCompany");
+            this.Property(t => t.ProSiret).HasColumnName("ProSiret");
+            this.Property(t => t.ProAdress).HasColumnName("ProAdress");
+            this.Property(t => t.ProTownZip).HasColumnName("ProTownZip");
+            this.Property(t => t.ProPhone).HasColumnName("ProPhone");
+            this.Property(t => t.ProSiteWeb).HasColumnName("ProSiteWeb");
+
         }
     }
 }

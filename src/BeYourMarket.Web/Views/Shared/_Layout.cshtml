@@ -23,22 +23,19 @@
 
     <link href="@Url.Content(themeCss)" rel="stylesheet" />
 
-    @RenderSection("styles", required: false)
-
     <link href="~/Content/custom.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="~/Content/jstree/themes/default-dark/style.min.css" />
 
-    @Html.DoAction(HookName.Head)
+    @RenderSection("styles", required: false)
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @Html.DoAction(HookName.Head)
 
 </head>
 
 <body>
     <div class="wrapper row-offcanvas row-offcanvas-left">
-        <aside class="left-section sidebar-offcanvas @(Convert.ToBoolean(ViewBag.SideCollapse) ? "collapse-left" : "")" >
+        <aside class="left-section sidebar-offcanvas @(Convert.ToBoolean(ViewBag.SideCollapse) ? "collapse-left" : "")">
             <header class="header hidden-xs">
                 <a href="@Url.Action("Index", "Home")" class="logo h-25 p-0" style="font-size: 22px">
                     <span>Trucs N Trocs.com</span>
@@ -63,7 +60,7 @@
                             <img src="@ImageHelper.GetCommunityImagePath("favicon", "jpg")" alt="@settings.Name" class="m-r-5"><span class="small">@settings.Name</span>
                         </a>*@
 
-                    <form method="get" action="@Url.Action("Search", "Home")" class="navbar-nav ml-4">
+                    <form method="get" action="@Url.Action("Search", "Home")" class="navbar-nav hidden-xs ml-4">
                         <input type="text" class="form-control trans input-lg" name="SearchText" id="SearchText" placeholder="[[[Search for...]]]">
                         <button type="submit" class="btn trans btn-lg ">
                             <i class="mdi-action-search"></i>
@@ -72,7 +69,16 @@
 
                     @Html.Action("LanguageSelector", "Home")
 
-                    <a class="btn navbar-btn btn-default hidden-sm hidden-xs navbar-right ml-4" href="@Url.Action("ListingUpdate", "Listing", new { id = string.Empty })"><i class="mdi-content-add-circle-outline"></i> [[[Publish new listing]]]</a>
+                    @if (User.IsInRole("Professional"))
+                    {
+                        <a class="btn navbar-btn btn-default hidden-sm hidden-xs navbar-right ml-4" href="@Url.Action("Index", "UserPro", new { Area = "Pro" })">
+                            <span class="font-weight-bold text-warning">[[[My Shop]]]</span>
+                        </a>
+                    }
+                    else
+                    {
+                        <a class="btn navbar-btn btn-default hidden-sm hidden-xs navbar-right ml-4" href="@Url.Action("ListingUpdate", "Listing", new { id = string.Empty })"><i class="mdi-content-add-circle-outline"></i> [[[Publish new listing]]]</a>
+                    }
 
                     <div class="hidden-xs navbar-nav ml-auto ">
                         @Html.Partial("_LoginPartial")
@@ -87,9 +93,13 @@
         </aside>
     </div>
 
-    @RenderSection("scripts", required: false)
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
 
     @Scripts.Render("~/bundles/js")
+
+    @RenderSection("scripts", required: false)
 
     <!-- Include Theme JS -->
     <script src="@Url.Content(themeJs)" type="text/javascript"></script>

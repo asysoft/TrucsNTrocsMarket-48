@@ -15,6 +15,7 @@ namespace BeYourMarket.Service
         ContentPages,
         EmailTemplates,
         Statistics,
-        LocationsRef
+        LocationsRef,
+        AspNetUserCategories
     }
 }

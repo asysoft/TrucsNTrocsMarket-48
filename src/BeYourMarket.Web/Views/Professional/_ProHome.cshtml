@@ -1,0 +1,84 @@
+﻿
+@model BeYourMarket.Web.Models.ProShopModel
+
+
+@section Styles {
+
+    <link href="~/Content/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet" />
+    <link href="~/Content/jsTree/themes/default/style.min.css" rel="stylesheet" />
+}
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="text-center">
+            @Html.DisplayFor(m => m.UserPro.ProCompany, new { @class = "form-control" })
+        </h4>
+
+        <hr />
+        <div class="text-center">
+            <img class="rounded" alt="Cinque Terre" style="width: 100%" src="@Model.Pictures.First().Url" />
+        </div>
+        <hr />
+
+        <div class="mark">
+            @Html.DisplayFor(m => m.UserPro.ProTownZip, new { @class = "form-control" })
+        </div>
+        <div class="mark">
+            <label class="" for="ProPhone">[[[Professional Phone]]] : </label>
+            @Html.DisplayFor(m => m.UserPro.ProPhone, new { @class = "form-control" })
+        </div>
+
+        <div class="mark">
+            <label class="" for="UserName">[[[Company Email]]] : </label>
+            @Html.DisplayFor(m => m.UserPro.Email, new { @class = "form-control" })
+        </div>
+        <div class="mark">
+            <label for="ProSiteWeb">[[[Web Site]]] : </label>
+            @Html.DisplayFor(m => m.UserPro.ProSiteWeb, new { @class = "form-control" })
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ./ Main Content -->
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+         @{
+             var preview = new System.Text.StringBuilder();
+             var previewDelete = new System.Text.StringBuilder();
+
+             foreach (var picture in Model.Pictures)
+             {
+                 preview.AppendFormat(@"'<img src=""{0}"" class=""file-preview-image"">',", picture.Url);
+                 previewDelete.AppendFormat(@"{{url: '{0}',key: {1} }},", Url.Action("ListingProLogoDelete", "Professional", new { id = picture.ID }), picture.ID);
+
+             }
+
+        }
+
+        var $input = $("#files");
+
+        $input.fileinput({
+            uploadAsync: false,
+            showCaption: false,
+            showRemove: false,
+            showUpload: false,
+            maxFileCount: 5,
+            overwriteInitial: false,
+            initialPreview: [
+                    @Html.Raw(preview.ToString())
+            ],
+            initialPreviewConfig: [
+                @Html.Raw(previewDelete.ToString())
+            ],
+            maxFileSize: 10000,
+            browseClass: "btn btn-primary",
+            allowedFileTypes: ["image"],
+            language: '@Context.GetPrincipalAppLanguageForRequest().ToString()'
+        });
+    </script>
+
+}
+

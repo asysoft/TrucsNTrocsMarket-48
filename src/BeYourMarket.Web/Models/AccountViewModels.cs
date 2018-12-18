@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using BeYourMarket.Model.Enum;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web;
 
 namespace BeYourMarket.Web.Models
 {
@@ -64,6 +66,12 @@ namespace BeYourMarket.Web.Models
 
     public class RegisterViewModel
     {
+        public RegisterViewModel()
+        {
+            //ImgFiles = new List<PictureModel>();
+            ImgFiles = new List<HttpPostedFileBase>();
+        }
+
         [Required]
         [EmailAddress]
         [Display(Name = "[[[Email]]]")]
@@ -85,6 +93,34 @@ namespace BeYourMarket.Web.Models
         
         [Display(Name = "[[[Last Name]]]")]
         public string LastName { get; set; }
+
+        // Permet de savoir le type de compte a a creation ( par defaut : normal, sinon Pro)
+        public Enum_UserType UserType { get; set; }
+
+        [Display(Name = "[[[Gender]]")]
+        public string Gender { get; set; }
+
+        [Display(Name = "[[[Company Name]]")]
+        public string ProCompany { get; set; }
+
+        [Display(Name = "[[[Siret]]")]
+        public string ProSiret { get; set; }
+
+        [Display(Name = "[[[Adress]]")]
+        public string ProAdress { get; set; }
+
+        [Display(Name = "[[[Town Or Zip]]")]
+        public string ProTownZip { get; set; }
+
+        [Display(Name = "[[[Company Phone]]")]
+        public string ProPhone { get; set; }
+
+        // liste des categ du pro separe  par un; 
+        public string ProCategoryIDs { get; set; }
+
+        // pour les Pro Uniquement, logo en indice 0 et autres ( pubs ? best of products ?...)
+        public IEnumerable<HttpPostedFileBase> ImgFiles { get; set; }
+
     }
 
     public class ResetPasswordViewModel

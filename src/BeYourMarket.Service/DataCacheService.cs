@@ -76,6 +76,11 @@ namespace BeYourMarket.Service
             get { return _container.Resolve<IAspNetUserService>(); }
         }
 
+        private IAspNetUserCategoriesService AspNetUserCategoryService
+        {
+            get { return _container.Resolve<IAspNetUserCategoriesService>(); }
+        }
+
         private IUnityContainer _container;
 
         private object _lock = new object();
@@ -85,7 +90,6 @@ namespace BeYourMarket.Service
             _container = container;
 
             MainCache = new MemoryCache("MainCache");
-
             GetCachedItem(CacheKeys.Settings);
             GetCachedItem(CacheKeys.SettingDictionary);
             GetCachedItem(CacheKeys.Categories);
@@ -94,6 +98,11 @@ namespace BeYourMarket.Service
             GetCachedItem(CacheKeys.Statistics);
 
             GetCachedItem(CacheKeys.LocationsRef);
+
+
+           // GetCachedItem(CacheKeys.AspNetUserCategories);
+
+
         }
 
         public void UpdateCache(CacheKeys CacheKeyName, object CacheItem, int priority = (int)CacheItemPriority.NotRemovable)
@@ -122,9 +131,7 @@ namespace BeYourMarket.Service
                         case CacheKeys.Settings:
                             var setting = SettingService.Queryable().FirstOrDefault();
 
-                            // ASY : test null
-                            //if(setting != null)
-                                UpdateCache(CacheKeys.Settings, setting);
+                            UpdateCache(CacheKeys.Settings, setting);
 
                             break;
                         case CacheKeys.SettingDictionary:
@@ -143,6 +150,12 @@ namespace BeYourMarket.Service
                             var LocationsRef = LocationRefService.Queryable().OrderBy(x => x.Name).ToList();
                             UpdateCache(CacheKeys.LocationsRef, LocationsRef); 
                             break;
+
+                        case CacheKeys.AspNetUserCategories:
+                            var AspNetUserCategories = AspNetUserCategoryService.Queryable().OrderBy(x => x.CategoryID).ToList();
+                            UpdateCache(CacheKeys.AspNetUserCategories, AspNetUserCategories);
+                            break;
+
                         case CacheKeys.ContentPages:
                             var contentPages = ContentPageService.Queryable().Where(x => x.Published).OrderBy(x => x.Ordering).ToList();
                             UpdateCache(CacheKeys.ContentPages, contentPages);

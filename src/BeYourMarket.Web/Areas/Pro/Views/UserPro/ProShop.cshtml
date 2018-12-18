@@ -1,0 +1,124 @@
+﻿
+@model BeYourMarket.Web.Models.ProShopModel
+
+@using PagedList.Mvc
+@using BeYourMarket.Web.Extensions;
+
+@{
+    ViewBag.Title = "ProShop";
+}
+
+
+@section Styles {
+
+    <link href="~/Content/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet" />
+    <link href="~/Content/jsTree/themes/default/style.min.css" rel="stylesheet" />
+}
+
+<div class="container-fluid" style="background-color:#EAF4D3">
+    <div style="background-color:#EAF4D3">
+        <div class="mrg-tb">
+            <div class="row">
+                <div class="col-md-4 mt-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="text-center">
+                                @Html.DisplayFor(m => m.UserPro.ProCompany, new { @class = "form-control" })
+                            </h4>
+
+                            <hr />
+                            @if (@Model.Pictures.Count > 0)
+                            {
+                                <div class="text-center">
+                                    <img class="img-fluid" style="width: 80%; height: auto" src="@Model.Pictures.First().Url" />
+                                </div>
+                                <hr />
+                            }
+
+                            <div class="mark">
+                                @Html.DisplayFor(m => m.UserPro.ProTownZip, new { @class = "form-control" })
+                            </div>
+                            <div class="mark">
+                                <label class="" for="ProPhone">[[[Professional Phone]]] : </label>
+                                @Html.DisplayFor(m => m.UserPro.ProPhone, new { @class = "form-control" })
+                            </div>
+
+                            <div class="mark">
+                                <label class="" for="UserName">[[[Company Email]]] : </label>
+                                @Html.DisplayFor(m => m.UserPro.Email, new { @class = "form-control" })
+                            </div>
+                            <div class="mark">
+                                <label for="ProSiteWeb">[[[Web Site]]] : </label>
+                                @Html.DisplayFor(m => m.UserPro.ProSiteWeb, new { @class = "form-control" })
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 section-title ">
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="form-inline pull-right">
+                                    <div class="form-group">
+                                        <div class="btn-group" role="group" aria-label="Sort View">
+                                            <a class="btn btn-primary" href="@Request.UrlReplace("SortView", BeYourMarket.Model.Enum.Enum_SortView.Grid.ToString())"><i class="fa fa-th"></i> [[[Grid]]]</a>
+                                            <a class="btn btn-primary" href="@Request.UrlReplace("SortView", BeYourMarket.Model.Enum.Enum_SortView.List.ToString())"><i class="fa fa-th-list"></i> [[[List]]]</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            <div class="font-weight-bold text-warning">
+                                <h4>
+                                    <i class="font-weight-bold text-warning fa fa-shopping-cart">  [[[Items in Shop]]]</i>
+                                </h4>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row m-b-10">
+                        <div class="container-fluid body-content">
+                            @switch (Model.ListingsSearch.SortView)
+                            {
+                                case BeYourMarket.Model.Enum.Enum_SortView.Grid:
+                                default:
+
+                                    @Html.Partial("~/Views/Listing/_ListingGrid.cshtml", Model.ListingsSearch)
+                                    break;
+
+                                case BeYourMarket.Model.Enum.Enum_SortView.List:
+                                    @Html.Partial("~/Views/Listing/_ListingGridList.cshtml", Model.ListingsSearch)
+                                    break;
+                                case BeYourMarket.Model.Enum.Enum_SortView.Map:
+                                    break;
+
+                            }
+                        </div>
+                    </div>
+                    <div class="card-header bdr-b">
+                        <div class="container-fluid">
+                            <div class=" col-md-12">
+                                <h5 class="pull-left mrg-t">
+                                    @string.Format("[[[Page {0} of {1}]]]", Model.ListingsSearch.ListingsPageList.PageCount < Model.ListingsSearch.PageNumber ? 0 : Model.ListingsSearch.PageNumber, Model.ListingsSearch.ListingsPageList.PageCount)
+                                </h5>
+                                @Html.PagedListPager(Model.ListingsSearch.ListingsPageList, (page) => { return Request.UrlReplace("PageNumber", page.ToString()); },
+                                new PagedListRenderOptions
+                                     {
+                                         ContainerDivClasses = new List<string>(new string[] { "pull-right" }),
+                                         DisplayPageCountAndCurrentLocation = false,
+                                         MaximumPageNumbersToDisplay = 5,
+                                         DisplayEllipsesWhenNotShowingAllPageNumbers = false
+                                     })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- ./ Main Content -->
+
+

@@ -42,5 +42,9 @@ namespace BeYourMarket.Web.Models
         public List<PictureModel> Pictures { get; set; }
 
         public CustomFieldListingModel CustomFields { get; set; }
+
+        // pour les Pro Uniquement, logo en indice 0 et autres ( pubs ? best of products ?...)
+        //public List<PictureModel> ImgLogoFiles { get; set; }
+
     }
 }

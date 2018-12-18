@@ -297,16 +297,16 @@ namespace BeYourMarket.Web.Controllers
         [ChildActionOnly]
         public ActionResult NavigationSide()
         {
-            var rootId = 0;
+            //var rootId = 0;
             var categories = CacheHelper.Categories.ToList();
 
-            var categoryTree = categories.OrderBy(x => x.Parent).ThenBy(x => x.Ordering).ToList().GenerateTree(x => x.ID, x => x.Parent, rootId);
+        //    var categoryTree = categories.OrderBy(x => x.Parent).ThenBy(x => x.Ordering).ToList().GenerateTree(x => x.ID, x => x.Parent, rootId);
 
             var contentPages = CacheHelper.ContentPages.Where(x => x.Published).OrderBy(x => x.Ordering);
 
             var model = new NavigationSideModel()
             {
-                CategoryTree = categoryTree,
+         //       CategoryTree = categoryTree,
                 ContentPages = contentPages
             };
 

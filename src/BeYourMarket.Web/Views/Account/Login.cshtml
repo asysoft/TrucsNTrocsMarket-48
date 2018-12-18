@@ -6,130 +6,88 @@
 }
 
 @section Styles {
-    <style>
-        #dGeneral {
-            overflow: auto;
-            background-color: #EAF4D3;
-        }
 
-        /*#dPart {
-            margin-top: 5px;
-            font-size: 14px;
-        }*/
-
-        #dPro {
-            display: none;
-
-        }
-
-        #idBtnType {
-            margin-top: 10px;
-            margin-bottom: 10px;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-        }
-
-        #divLogoHautGauche {
-            float : left;
-            margin-left: 10px;
-            margin-top: 0px;
-            width: 150px;
-            height: 184px;
-        }
-
-        #divPubRegisterHaut{
-            margin-left: 200px;
-            margin-top: 10px;
-            width : 800px;
-            height: 200px;
-        }
-
-        #divPubRegisterGauche {
-            float : left;
-            margin-left: 1px;
-            margin-top: 150px;
-            width: 250px;
-            height: 350px;
-        }
-
-        #divPubRegisterDroite {
-            float : right;
-            margin-left: 1px
-            margin-right: 15px;
-            margin-top: 150px;
-            width: 250px;
-            height: 350px;
-        }
-    </style>
 }
 
 
 
-<div class="main-section">
-    <div class="container" style="background-color:#EAF4D3">
-        <div id="divLogoHautGauche" style="background-image: url(@ImageHelper.GetCommunityImagePath("LogoTnTcom_150x184", "png"));"></div>
-        <div id="divPubRegisterHaut">
-            <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Haut_800x200_Img1"))" style="display: block;" pubHaut />
-            @{
-                for (int iH = 2; iH <= @ImageHelper.GetMaxNbforPub("pub_Register_Haut_800x200_Img"); iH++)
-                {
-                    <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Haut_800x200_Img" + iH)" style="display: none;" pubHaut />
-                }
-            }
-
-        </div>
-        <div id="divPubRegisterGauche">
-            <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Gauche_250x350_Img1"))" style="display: block;" pubgauche />
-            @{
-                for (int iG = 2; iG <= @ImageHelper.GetMaxNbforPub("pub_Register_Gauche_250x350_Img"); iG++)
-                {
-                    <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Gauche_250x350_Img" + iG)" style="display: none;" pubgauche />
-                }
-            }
-
-        </div>
-        <div id="divPubRegisterDroite">
-            <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Droite_250x350_Img1"))" style="display: block;" pubdroite />
-            @{
-                for (int iD = 2; iD <= @ImageHelper.GetMaxNbforPub("pub_Register_Droite_250x350_Img"); iD++)
-                {
-                    <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Droite_250x350_Img" + iD)" style="display: none;" pubdroite />
-                }
-            }
-        </div>
-        <div class="mx-auto col-md-6 ">
-            <div class="panel panel-default mrg-t">
-                <div class="panel-body bdr-b panel-header" style="text-align:center;">
-                    <h4>[[[Login to your account]]]</h4>
-                </div>
-
-                <div class="panel-body">
-                    @using (Html.BeginForm("Login", "Account", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form", id = "loginForm" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-                        <div class="form-group">
-                            <label for="Email">@Html.LabelFor(m => m.Email) <span class="text-red">*</span></label>
-                            <input class="form-control input-lg" id="Email" name="Email" placeholder="[[[Enter Email]]]" type="text" value="" data-rule-email="email" data-rule-required="true">
-                        </div>
-                        <div class="form-group">
-                            <label for="Password">@Html.LabelFor(m => m.Password) <span class="text-red">*</span></label>
-                            <input class="form-control input-lg" id="Password" name="Password" placeholder="[[[Password]]]" type="password" data-rule-required="true">
-                        </div>
-                        <div class="form-group">
-                            <input type="checkbox" id="RememberMe" name="RememberMe" value="true" />
-                            <label for="RememberMe">[[[Remember me?]]]</label>
-                        </div>
-                        <button type="submit" class="btn btn-success btn-lg w-100 ">[[[Let me in]]]</button>
+<div class="main-section" style="background-color:#EAF4D3">
+    <div class="container" >
+        <div class="row mt-1">
+            <div class="col-md-2">
+                <div class="card" id="divLogoHautGauche"></div>
+                    <img src="@ImageHelper.GetCommunityImagePath("LogoTnTcom_150x184", "png"))" style="display: block;"  />
+            </div>
+            <div class="col-md-9">
+                <div class="card " id="divPubRegisterHaut">
+                    <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Haut_800x200_Img1"))" style="display: block;" pubHaut />
+                    @{
+                        for (int iH = 2; iH <= @ImageHelper.GetMaxNbforPub("pub_Register_Haut_800x200_Img"); iH++)
+                        {
+                            <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Haut_800x200_Img" + iH)" style="display: none;" pubHaut />
+                        }
                     }
 
                 </div>
-                <div class="panel-footer ">
-                    @Html.ActionLink("[[[Register as a new user]]]", "Register")
-                    <br />
-                    @Html.ActionLink("[[[Forgot your password?]]]", "ForgotPassword")
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-3">
+                <div class="card " id="divPubRegisterGauche">
+                    <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Gauche_250x350_Img1"))" style="display: block;" pubgauche />
+                    @{
+                        for (int iG = 2; iG <= @ImageHelper.GetMaxNbforPub("pub_Register_Gauche_250x350_Img"); iG++)
+                        {
+                            <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Gauche_250x350_Img" + iG)" style="display: none;" pubgauche />
+                        }
+                    }
+
+                </div>
+            </div>
+            <div class="col-md-6 mx-auto">
+                <div class="card border border-success mrg-t ">
+                    <div class="card-header bdr-b text-center">
+                        <h4>[[[Login to your account]]]</h4>
+                    </div>
+
+                    <div class="card-body">
+                        @using (Html.BeginForm("Login", "Account", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { area = "", role = "form", id = "loginForm" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                            <div class="form-group">
+                                <label for="Email">@Html.LabelFor(m => m.Email) <span class="text-red">*</span></label>
+                                <input class="form-control input-lg" id="Email" name="Email" placeholder="[[[Enter Email]]]" type="text" value="" data-rule-email="email" data-rule-required="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="Password">@Html.LabelFor(m => m.Password) <span class="text-red">*</span></label>
+                                <input class="form-control input-lg" id="Password" name="Password" placeholder="[[[Password]]]" type="password" data-rule-required="true">
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" id="RememberMe" name="RememberMe" value="true" />
+                                <label for="RememberMe">[[[Remember me?]]]</label>
+                            </div>
+                            <button type="submit" class="btn btn-success btn-lg w-100 ">[[[Let me in]]]</button>
+                        }
+
+                    </div>
+                    <div class="card-footer ">
+                        @Html.ActionLink("[[[Register as a new user]]]", "Register")
+                        <br />
+                        @Html.ActionLink("[[[Forgot your password?]]]", "ForgotPassword")
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card" id="divPubRegisterDroite">
+                    <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Droite_250x350_Img1"))" style="display: block;" pubdroite />
+                    @{
+                        for (int iD = 2; iD <= @ImageHelper.GetMaxNbforPub("pub_Register_Droite_250x350_Img"); iD++)
+                        {
+                            <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Droite_250x350_Img" + iD)" style="display: none;" pubdroite />
+                        }
+                    }
                 </div>
             </div>
         </div>

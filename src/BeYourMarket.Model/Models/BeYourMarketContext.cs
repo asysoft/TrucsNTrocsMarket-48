@@ -3,6 +3,9 @@ using System.Data.Entity.Infrastructure;
 using BeYourMarket.Model.Models.Mapping;
 using BeYourMarket.Core.Migrations;
 using BeYourMarket.Core;
+using System.Data.Entity.ModelConfiguration.Conventions;
+using System.ComponentModel;
+using System.Linq;
 
 namespace BeYourMarket.Model.Models
 {
@@ -55,8 +58,15 @@ namespace BeYourMarket.Model.Models
         public DbSet<StripeTransaction> StripeTransactions { get; set; }
         public DbSet<LocationRef> LocationsRef { get; set; }
 
+        public DbSet<AspNetUserCategory> AspNetUserCategories { get; set; }
+        public DbSet<AspNetUserImgFile> AspNetUserImgFiles { get; set; }
+
+        public DbSet<PrepaidCard> PrepaidCards { get; set; }
+        
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+
             modelBuilder.Conventions.Remove<System.Data.Entity.ModelConfiguration.Conventions.OneToManyCascadeDeleteConvention>();
             modelBuilder.Configurations.Add(new AspNetRoleMap());
             modelBuilder.Configurations.Add(new AspNetUserClaimMap());
@@ -87,6 +97,10 @@ namespace BeYourMarket.Model.Models
             modelBuilder.Configurations.Add(new StripeTransactionMap());
             modelBuilder.Configurations.Add(new LocationRefMap());
 
+            modelBuilder.Configurations.Add(new AspNetUserCategoryMap()); 
+            modelBuilder.Configurations.Add(new AspNetUserImgFileMap());
+
+            modelBuilder.Configurations.Add(new PrepaidCardMap());
         }
     }
 }

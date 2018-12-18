@@ -37,9 +37,8 @@ namespace BeYourMarket.Model.Models
 
         public string Location { get; set; }
 
-        //public virtual LocationRef LocationRefID { get; set; }
         public int LocationRefID { get; set; }
-        // Pour faire du Lazy Loading
+        // Pour la cle etrangere
         public virtual LocationRef LocationRef { get; set; }
 
         public Nullable<double> Latitude { get; set; }

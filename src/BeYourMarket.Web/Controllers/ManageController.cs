@@ -48,6 +48,9 @@ namespace BeYourMarket.Web.Controllers
         private readonly IMessageParticipantService _messageParticipantService;
         private readonly IMessageReadStateService _messageReadStateService;
 
+        // ASY : pour les Pro , manipuler leur categories
+        private readonly IAspNetUserCategoriesService _userCategoriesService;
+
         private readonly DataCacheService _dataCacheService;
         private readonly SqlDbService _sqlDbService;
 

@@ -22,7 +22,9 @@ namespace BeYourMarket.Web.Models
         public List<LocationRef> LocationsRef { get; set; }
         public string Location { get; set; }
         public string LocationRefIDsSearch { get; set; }
-        
+
+        public string ProUserID { get; set; }
+
         public bool PhotoOnly { get; set; }
 
         public double? PriceFrom { get; set; }

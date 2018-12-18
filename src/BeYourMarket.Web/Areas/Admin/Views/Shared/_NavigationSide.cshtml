@@ -8,23 +8,23 @@
 
 @helper DisplayGroupAttribute(string menu)
 {
-    var groupDashboard = new string[] {
+var groupDashboard = new string[] {
             "dashboard",
             "index"
         };
 
-    var groupSettings = new string[] {
+var groupSettings = new string[] {
             "settings",
             "settingsemail",
             "emailtemplates",
             "settingslanguage",
         };
 
-    var groupUsers = new string[] {
+var groupUsers = new string[] {
             "users"
         };
 
-    var groupListings = new string[] {
+var groupListings = new string[] {
             "listings",
             "listingupdate",
             "listingtypes",
@@ -34,38 +34,46 @@
             "customfieldupdate"
         };
 
-    var groupDesign = new string[] {
+var groupDesign = new string[] {
             "appearance",
             "codestyle",
-            "codescript"            
+            "codescript"
         };
 
-    var groupPages = new string[] {
+var groupPages = new string[] {
             "contentpages",
             "contentpageupdate"
         };
 
-    var groupPayments = new string[] {
+var groupPayments = new string[] {
             "paymentsetting",
             "order",
             "transaction"
         };
 
-    var groupPlugins = new string[] {
+var groupPlugins = new string[] {
             "plugins"
         };
 
-    var groupDictionary = new Dictionary<string, string[]>();
-    groupDictionary.Add("dashboard", groupDashboard);
-    groupDictionary.Add("settings", groupSettings);
-    groupDictionary.Add("users", groupUsers);
-    groupDictionary.Add("listings", groupListings);
-    groupDictionary.Add("design", groupDesign);
-    groupDictionary.Add("contentpages", groupPages);
-    groupDictionary.Add("payments", groupPayments);
-    groupDictionary.Add("plugins", groupPlugins);
+var groupPrepaidCards = new string[] {
+            "View Cards",
+            "Generate Cards",
+            "Follow Cars"
+        };
 
-    var attribute = groupDictionary[menu].Contains(ViewContext.RouteData.Values["action"].ToString().ToLowerInvariant()) ? "active" : null;
+var groupDictionary = new Dictionary<string, string[]>();
+groupDictionary.Add("dashboard", groupDashboard);
+groupDictionary.Add("settings", groupSettings);
+groupDictionary.Add("users", groupUsers);
+groupDictionary.Add("listings", groupListings);
+groupDictionary.Add("design", groupDesign);
+groupDictionary.Add("contentpages", groupPages);
+groupDictionary.Add("payments", groupPayments);
+groupDictionary.Add("plugins", groupPlugins);
+groupDictionary.Add("PrepaidCards", groupPrepaidCards);
+
+
+var attribute = groupDictionary[menu].Contains(ViewContext.RouteData.Values["action"].ToString().ToLowerInvariant()) ? "active" : null;
 
     @attribute
 }
@@ -129,7 +137,7 @@
         </li>
 
         <li class="has-submenu @DisplayGroupAttribute("users")">
-            <a href="@Url.Action("Users", "Manage", new { area = "Admin" })"><i class="fa fa-user"></i> <span class="nav-label">[[[Manage Users]]]</span></a>            
+            <a href="@Url.Action("Users", "Manage", new { area = "Admin" })"><i class="fa fa-user"></i> <span class="nav-label">[[[Manage Users]]]</span></a>
         </li>
 
         <li class="has-submenu @DisplayGroupAttribute("contentpages")">
@@ -149,7 +157,16 @@
             <ul class="list-unstyled">
                 <li class="@DisplayAttribute("plugins")">
                     <a href="@Url.Action("Plugins", "Plugin", new { area = "Admin", id = "" })">[[[Manage Plugins]]]</a>
-                </li>                
+                </li>
+            </ul>
+        </li>
+
+        <li class="has-submenu @DisplayGroupAttribute("PrepaidCards")">
+            <a href="#"><i class="fa fa-paint-brush"></i> <span class="nav-label">[[[Prepaid Cards]]]</span></a>
+            <ul class="list-unstyled">
+                <li class="@DisplayAttribute("View Cards")"><a href="@Url.Action("ViewCards", "PrepaidCard", new { area = "Admin" } )">[[[View Cards]]]</a></li>
+                <li class="@DisplayAttribute("Generate Cards")"><a href="@Url.Action("Index", "PrepaidCard", new { area = "Admin" })">[[[Generate Cards]]]</a></li>
+                <li class="@DisplayAttribute("Follow Cars")"><a href="@Url.Action("FollowCars", "PrepaidCard" , new { area = "Admin" })">[[[Follow Cars]]]</a></li>
             </ul>
         </li>
 

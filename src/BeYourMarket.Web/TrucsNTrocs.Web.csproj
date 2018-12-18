@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BeYourMarket.Web</RootNamespace>
     <AssemblyName>BeYourMarket.Web</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -188,36 +188,30 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Optimization.React, Version=3.4.0.0, Culture=neutral, PublicKeyToken=9aed67b161f7db78, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Web.Optimization.React.3.4.1\lib\net40\System.Web.Optimization.React.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
@@ -316,11 +310,15 @@
     <Compile Include="Areas\Admin\Controllers\PaymentController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageController.cs" />
     <Compile Include="Areas\Admin\Controllers\HookController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PrepaidCardController.cs" />
     <Compile Include="Areas\Admin\Models\Grids\PluginsGrid.cs" />
     <Compile Include="Areas\Admin\Models\Grids\EmailTemplatesGrid.cs" />
     <Compile Include="Areas\Admin\Models\InstallModel.cs" />
     <Compile Include="Areas\Admin\Models\LanguageSettingModel.cs" />
     <Compile Include="Areas\Admin\Models\PaymentSettingModel.cs" />
+    <Compile Include="Areas\Pro\Controllers\HookController.cs" />
+    <Compile Include="Areas\Pro\Controllers\UserProController.cs" />
+    <Compile Include="Areas\Pro\ProAreaRegistration.cs" />
     <Compile Include="Binders\TrimModelBinder.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -330,6 +328,7 @@
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\HookController.cs" />
+    <Compile Include="Controllers\ProfessionalController.cs" />
     <Compile Include="Extensions\ExtensionMethods.cs" />
     <Compile Include="Extensions\HtmlExtensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -365,6 +364,7 @@
     <Compile Include="Models\ListingModel.cs" />
     <Compile Include="Models\ListingUpdateModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ProShopModel.cs" />
     <Compile Include="Models\SearchListingModel.cs" />
     <Compile Include="Models\SortViewModel.cs" />
     <Compile Include="Models\TextFileModel.cs" />
@@ -443,6 +443,7 @@
     <Content Include="Images\Community\logo.png" />
     <Content Include="Images\Community\LogoTnTcom_150x184.png" />
     <Content Include="Images\Community\map.png" />
+    <Content Include="Images\Community\Pro_Star.jpg" />
     <Content Include="Images\Community\Pubs\pub_Index_Droite_250x350_Img1.jpg" />
     <Content Include="Images\Community\Pubs\pub_Index_Droite_250x350_Img2.jpg" />
     <Content Include="Images\Community\Pubs\pub_Index_Droite_250x350_Img3.jpg" />
@@ -562,6 +563,8 @@
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
     <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\fileinput.js" />
+    <Content Include="Scripts\fileinput.min.js" />
     <Content Include="Scripts\fileinput_locale_bg.js" />
     <Content Include="Scripts\fileinput_locale_da.js" />
     <Content Include="Scripts\fileinput_locale_el.js" />
@@ -574,6 +577,7 @@
     <Content Include="Scripts\globalize\number.js" />
     <Content Include="Scripts\globalize\plural.js" />
     <Content Include="Scripts\globalize\relative-time.js" />
+    <Content Include="Scripts\globalize\unit.js" />
     <Content Include="Scripts\gridmvc.lang.da.js" />
     <Content Include="Scripts\esm\popper.min.js.map" />
     <Content Include="Scripts\esm\popper.js.map" />
@@ -594,15 +598,30 @@
     <Content Include="Content\bootstrap-fileinput\scss\themes\explorer-fas\theme.scss" />
     <Content Include="Content\bootstrap-fileinput\scss\fileinput.scss" />
     <Content Include="Content\bootstrap-fileinput\scss\fileinput-rtl.scss" />
-    <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
-    <Content Include="Scripts\jquery-3.0.0.js" />
-    <Content Include="Scripts\jquery-3.0.0.min.js" />
-    <Content Include="Scripts\jquery-3.0.0.slim.js" />
-    <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
+    <Content Include="Areas\Pro\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Pro\Views\web.config" />
+    <Content Include="Areas\Pro\Views\UserPro\ProShop.cshtml" />
+    <Content Include="Areas\Pro\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Pro\Views\Shared\_NavigationSide.cshtml" />
+    <Content Include="Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml" />
+    <Content Include="Areas\Admin\Views\PrepaidCard\ViewCards.cshtml" />
+    <Content Include="Areas\Admin\Views\PrepaidCard\GenerateNewCards.cshtml" />
+    <Content Include="Areas\Pro\Views\UserPro\ProIdentity.cshtml" />
+    <Content Include="Areas\Pro\Views\UserPro\ProListingUpdate.cshtml" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\jquery.maphilight.js" />
     <Content Include="Scripts\jquery.maphilight.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.globalize.js" />
     <Content Include="Scripts\jquery.validate.globalize.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\jstree.js" />
     <Content Include="Scripts\jstree.min.js" />
     <Content Include="Areas\Admin\Views\Plugin\Plugins.cshtml" />
@@ -669,7 +688,6 @@
     <Content Include="Scripts\TnTutils\jquery.rwdImageMaps.js" />
     <Content Include="Scripts\TnTutils\jquery.rwdImageMaps.min.js" />
     <Content Include="Scripts\TnTutils\JsTreeTnT.js" />
-    <Content Include="Scripts\TnTutils\modalDlgRegister.js" />
     <Content Include="Scripts\TnTutils\pubDefil.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
@@ -701,10 +719,11 @@
       <IsTransformFile>True</IsTransformFile>
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Properties\SlowCheetah\SlowCheetah.Transforms.targets" />
+    <Content Include="Properties\SlowCheetah\SlowCheetah.Transforms.targets">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Shared\_LocalizationJQueryValidation.cshtml" />
     <Content Include="Views\Shared\_LocalizationDatePicker.cshtml" />
-    <Content Include="Scripts\jquery.validate.globalize.min.js.map" />
     <Content Include="Scripts\cldr\main\da\ca-generic.json" />
     <Content Include="Scripts\cldr\main\da\ca-gregorian.json" />
     <Content Include="Scripts\cldr\main\da\currencies.json" />
@@ -754,8 +773,6 @@
     <Content Include="Views\jsTree3\Demo.cshtml" />
     <Content Include="Views\jsTree3\AJAXDemo.cshtml" />
     <Content Include="Views\Account\RegisterChoosePopUp.cshtml" />
-    <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
-    <Content Include="Scripts\jquery-3.0.0.min.map" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
@@ -765,6 +782,14 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Professional\_ProIdentity.cshtml" />
+    <Content Include="Views\Professional\_ProListings.cshtml" />
+    <Content Include="Views\Professional\_ProListingUpdate.cshtml" />
+    <Content Include="Views\Professional\_ProHome.cshtml" />
+    <Content Include="Views\Professional\_ProIdentityUpdate.cshtml" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Views\Professional\Index.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
@@ -1402,8 +1427,6 @@
     <Content Include="js\timepicker\bootstrap-datepicker.min.css" />
     <Content Include="js\timepicker\bootstrap-timepicker.min.css" />
     <Content Include="js\timepicker\bootstrap-timepicker.min.js" />
-    <Content Include="Scripts\fileinput.js" />
-    <Content Include="Scripts\fileinput.min.js" />
     <Content Include="Scripts\fileinput_locale_cz.js" />
     <Content Include="Scripts\fileinput_locale_de.js" />
     <Content Include="Scripts\fileinput_locale_es.js" />
@@ -1513,11 +1536,6 @@
     <Content Include="js\formstone\upload.js" />
     <Content Include="js\nestable\jquery.nestable.css" />
     <Content Include="js\nestable\jquery.nestable.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\jquery.validation.bootstrap.js" />
     <Content Include="Scripts\localization\messages_ar.js" />
     <Content Include="Scripts\localization\messages_bg.js" />
@@ -1626,10 +1644,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Pro\Models\" />
     <Folder Include="fileman\tmp\" />
     <Folder Include="fileman\Uploads\Documents\" />
     <Folder Include="fileman\Uploads\FLV\" />
     <Folder Include="Images\Listing\" />
+    <Folder Include="Images\Profile\Prologos\" />
     <Folder Include="Plugins\bin\" />
   </ItemGroup>
   <ItemGroup>
@@ -1661,6 +1681,10 @@
     <ProjectReference Include="..\Frameworks\Service.Pattern\Service.Pattern.csproj">
       <Project>{86f86650-ee3c-4372-8fec-40c2fe015022}</Project>
       <Name>Service.Pattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TnTTickets.Lib\TnTPrepaidCard.Lib.csproj">
+      <Project>{82509352-9129-488c-b3c9-06037b5c6e00}</Project>
+      <Name>TnTPrepaidCard.Lib</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

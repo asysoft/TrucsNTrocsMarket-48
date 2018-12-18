@@ -1,0 +1,110 @@
+﻿
+@model BeYourMarket.Web.Models.NavigationSideModel
+@using BeYourMarket.Web.Utilities
+
+@{
+    Layout = null;
+}
+
+<section class="sidebar">
+    <form method="get" action="@Url.Action("Search", "Home")" class="user-panel form-rounded hidden-lg hidden-md">
+        <div class="input-group">
+            <input type="text" id="SearchTextNav" name="SearchText" class="form-control input-sm" placeholder="Search Text" />
+            <span class="input-group-btn">
+                <button type="submit" name="search" class="btn btn-sm btn-flat"><i class="mdi-action-search "></i></button>
+            </span>
+        </div>
+        <a class="m-l-10" style="color: #4472c4" href="@Url.Action("Search", "Home", new { displayNone = 1 })">
+            <span>   [[[Refine Search]]]</span>
+        </a>
+
+    </form>
+    <ul class="sidebar-menu" >
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <li class="hidden-lg hidden-md text-center">
+                <a href="@Url.Action("Login", "Account")">
+                    <span>[[[Log in]]]</span>
+                </a>
+            </li>
+            
+
+            <li class="hidden-lg hidden-md">
+                <a href="@Url.Action("Register", "Account")">
+                    <span>[[[Create an account]]]</span>
+                </a>
+            </li>
+            <li class="hidden-lg hidden-md">
+                <a href="@Url.Action("ListingUpdate", "Listing")">
+                    <span>[[[New listing]]]</span>
+                </a>
+            </li>
+        }
+        else
+        {
+            <li class="">
+                <a href="@Url.Action("Dashboard", "Manage", new { Area = "" })">
+                    <i class="fa fa-dashboard"></i> <span>[[[Dashboard]]]</span>
+                </a>
+            </li>
+
+            if (User.IsInRole("Professional"))
+            {
+            <li class="divider">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <img class="mx-auto d-block" src="@ImageHelper.GetCommunityImagePath("Pro_Star")">
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+                <li class="hidden-lg hidden-md">
+                    <a href="@Url.Action("Index", "UserPro")">
+                        <span class="font-weight-bold text-warning">[[[My Shop]]]</span>
+                    </a>
+                </li>
+                <li class="hidden-lg hidden-md">
+                    <a href="@Url.Action("ProIdentity", "UserPro", new { area = "Pro" })">
+                        <span class="font-weight-bold text-warning">[[[View Company Details]]]</span>
+                    </a>
+                </li>
+                <li class="hidden-lg hidden-md">
+                    <a href="@Url.Action("ProListingUpdate", "UserPro", new { area = "Pro" })">
+                        <span class="font-weight-bold text-warning">[[[Add new article]]]</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="hidden-lg hidden-md">
+                    <a href="@Url.Action("Index", "Home", new { area ="" })">
+                        <span>[[[Return to Home page]]]</span>
+                    </a>
+                </li>
+            }
+
+
+            if (User.IsInRole("Administrator"))
+            {
+                <li>
+                    <a target="_blank" href="@Url.Action("Index", "Manage", new {Area ="Admin" })">
+                        <i class="fa fa-desktop"></i> <span>[[[Admin Panel]]]</span>
+                    </a>
+                </li>
+            }
+        }
+
+        @*<li class="divider"><i class="fa fa-th-list"></i> [[[Categories]]]</li>
+            <li id="jstreeCategNav">  </li>*@
+
+        <li>
+            <footer class="copyright">
+                &copy; @DateTime.Now.Year - <a href="http://TrucnTrocs.com">TrucsNTrocs.com</a>
+            </footer>
+        </li>
+    </ul>
+
+</section>

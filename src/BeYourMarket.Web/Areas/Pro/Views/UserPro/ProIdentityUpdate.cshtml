@@ -1,0 +1,200 @@
+﻿@model BeYourMarket.Web.Models.ProShopModel
+
+
+@section Styles {
+    <link href="~/Content/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet" />
+    <link href="~/Content/jsTree/themes/default/style.min.css" rel="stylesheet" />
+
+}
+
+<div class="container-fluid" style="background-color:#EAF4D3">
+    <div class="mx-auto col-md-6">
+        <div class="card">
+            @*@using (Html.BeginForm("ProIdentityUpdate", "UserPro", FormMethod.Post, new { area = "Pro", role = "form", id = "formProUpd", enctype = "multipart/form-data" }))
+            {*@
+             <form action="@Url.Action("ProIdentityUpdate", "UserPro", new { area = "Pro" })" id="proUpdateForm" method="post" role="form" enctype="multipart/form-data">
+
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="card-header">
+                    [[[Company Infos]]]
+                    @*<a class="btn btn-success btn-sm pull-right" href="@Url.Action("UserPro", "Professional")">[[[Validate]]]</a>*@
+                    <button class="btn btn-primary  btn-sm pull-right" type="submit"><i class="fa fa-save"></i> [[[Validate]]]</button>
+
+                </div>
+                <div class="card-body">
+                    <div class="container">
+                        <fieldset>
+                            @*<div class="form-group">
+                                <div class="custom-file ">
+                                    <input type="file" class="custom-file-input text-center" id="files">
+                                    <label for="files">[[[Choose your Logo]]]</label>
+                                </div>
+
+                            </div>*@
+
+                            <div class="form-group">
+                                <div class="target  text-center">
+                                    <input type="file" id="files" name="files" class="file-loading" data-preview-file-type="img">
+                                    <label for="files">[[[Choose your Logo]]]</label>
+                                </div>
+                            </div>
+
+                        </fieldset>
+
+                        <hr />
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="mark">[[[Company name]]]</label>
+                                @Html.TextBoxFor(m => m.UserPro.ProCompany, new { @class = "form-control" })
+                            </div>
+
+                            <div class="form-group">
+                                <label class="mark">[[[Siret Number]]] : </label>
+                                @Html.TextBoxFor(m => m.UserPro.ProSiret, new { @class = "form-control" })
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="mark" for="ProAdress">[[[Adress]]]</label>
+                                @Html.TextBoxFor(m => m.UserPro.ProAdress, new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                <label class="mark" for="ProTownZip">[[[City]]]</label>
+                                @Html.TextBoxFor(m => m.UserPro.ProTownZip, new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                <label class="mark" for="ProPhone">[[[Company Phone]]] : </label>
+                                @Html.TextBoxFor(m => m.UserPro.ProPhone, new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                <label class="mark" for="Email">[[[Company Email]]] : </label>
+                                @Html.TextBoxFor(m => m.UserPro.Email, new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                <label class="mark" for="ProSiteWeb">[[[Web Site]]]</label>
+                                @Html.TextBoxFor(m => m.UserPro.ProSiteWeb, new { @class = "form-control" })
+                            </div>
+                        </fieldset>
+                        <hr />
+                        <fieldset>
+                            <legend>[[[Company Contact]]]</legend>
+                            <div class="form-group text-center">
+                                <label class="mark fa fa-male">
+                                    [[[Male]]]
+                                    <input type="radio" name="Gender" enabled="true" id="GenderUpd" value="M" @(Model.UserPro.Gender == "M" ? "checked" : "") />
+                                </label>
+                                <label class="mark fa fa-female">
+                                    [[[Female]]]
+                                    <input type="radio" name="Gender" enabled="true" id="GenderUpd" value="F" @(Model.UserPro.Gender == "F" ? "checked" : "") />
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="mark" for="FirstName">[[[First Name]]] : </label>
+                                @Html.TextBoxFor(m => m.UserPro.FirstName, new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                <label class="mark" for="LastName">[[[Last Name]]] : </label>
+                                @Html.TextBoxFor(m => m.UserPro.LastName, new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                <label class="mark" for="PhoneNumber">[[[Phone Number]]] : </label>
+                                @Html.TextBoxFor(m => m.UserPro.PhoneNumber, new { @class = "form-control" })
+                            </div>
+                        </fieldset>
+                        <hr />
+                    </div>
+                    <div class="form-group" style="border-style:groove;overflow-y: auto; height:240px">
+                        <div id="jstreeCategUpd">  </div>
+                        <input type="hidden" id="CategoryIDhiddUpd" name="ProCategoryIDs" value="ProCategoryIDs" />
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!-- ./ Main Content -->
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/fileinput.min.js"></script>
+    @Html.Partial("_LocalizationFileInput")
+    <script src="~/js/colorpicker/js/bootstrap-colorpicker.min.js"></script>
+
+    <script>
+        var $input = $("#files");
+
+        $input.fileinput({
+            uploadAsync: false,
+            showCaption: false,
+            showRemove: false,
+            showUpload: false,
+            maxFileCount: 1,
+            overwriteInitial: true,
+            maxImageWidth: 200,
+            maxImageHeight: 200,
+            resizeImage: true,
+            resizePreference: 'width',
+            initialPreview: [
+                @*'<img src="@Model.Pictures.First().Url" >'*@
+                '<img src="@Model.Pictures.First().Url" class="file-preview-image mt-2 ">'
+            ],
+            initialPreviewConfig: [
+                    { url: "@Url.Action("deleteProLogo", "UserPro", new { area= "Pro"})", key: "logo" }
+            ],
+            maxFileSize: 10000,
+            browseClass: "btn btn-default",
+            allowedFileTypes: ["image"]
+        });
+
+
+    </script>
+    <script>
+        $(function () {
+
+            var CategID;
+            $('#jstreeCategUpd').jstree({
+                'core': {
+                    "multiple": false,
+                    "check_callback": false,
+                    'data': {
+                        'url': '/jsTree3/GetJsTree3CategData/',
+                        "data": function (node) { return { id: CategID }; },
+                        'dataType': 'json',
+                    },
+                    "themes": {
+                        "responsive": true,
+                        "variant": 'larg',
+                        "stripes": false,
+                        "icons": false,
+                        "ellipsis": false,
+                        "dots": false
+                    },
+                    "checkbox": {
+                        "visible": true,
+                        "two_state": false
+                    }
+                },
+                "plugins": ["checkbox"]
+            });
+
+            $('#jstreeCategUpd').on("changed.jstree", function (e, data) {
+                if (data != null && data.selected != null && data.selected.length > 0) {
+                    document.getElementById('CategoryIDhiddUpd').value = data.selected.join(";");
+                }
+                else
+                    document.getElementById('CategoryIDhiddUpd').value = null;
+            });
+
+        });
+
+    </script>
+
+}

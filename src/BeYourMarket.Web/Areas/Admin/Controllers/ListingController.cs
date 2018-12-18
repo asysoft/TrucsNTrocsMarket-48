@@ -32,6 +32,8 @@ using BeYourMarket.Core.Web;
 namespace BeYourMarket.Web.Areas.Admin.Controllers
 {
     [Authorize(Roles = "Administrator")]
+    [Authorize(Roles = "BackOffAdmin")]
+    [Authorize(Roles = "BackOffListings")]
     public class ListingController : Controller
     {
         #region Fields

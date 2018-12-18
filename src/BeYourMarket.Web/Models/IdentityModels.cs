@@ -6,6 +6,8 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using BeYourMarket.Model.Enum;
+using System.ComponentModel.DataAnnotations;
 
 namespace BeYourMarket.Web.Models
 {
@@ -44,9 +46,31 @@ namespace BeYourMarket.Web.Models
         public int LeadSourceID { get; set; }
 
         public double Rating { get; set; }
+        
+        // Permet de savoir le type de compte a a creation ( par defaut : normal, sinon Pro)
+        public Enum_UserType UserType { get; set; }
+
+        public string ProCompany { get; set; }
+        public string ProSiret { get; set; }
+        public string ProAdress { get; set; }
+        public string ProTownZip { get; set; }
+        public string ProPhone { get; set; }
+        public string ProSiteWeb { get; set; }
 
         [NotMapped]
         public bool RoleAdministrator { get; set; }
+
+        [NotMapped]
+        public bool RoleProfessional { get; set; }
+
+        [NotMapped]
+        public bool RoleBackOffAdmin { get; set; }
+
+        [NotMapped]
+        public bool RoleBackOffPubs { get; set; }
+
+        [NotMapped]
+        public bool RoleBackOffListings { get; set; }        
 
         [NotMapped]
         public string FullName

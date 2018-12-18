@@ -45,11 +45,28 @@
                 </a>
             </li>
 
-            <li class="hidden-lg hidden-md">
-                <a href="@Url.Action("ListingUpdate", "Listing")">
-                    <span>[[[New listing]]]</span>
-                </a>
-            </li>
+            if (User.IsInRole("Professional"))
+            {
+                <li class="hidden-lg hidden-md">
+                    <a href="@Url.Action("Index", "UserPro", new { Area = "Pro" })">
+                        <span class="font-weight-bold text-warning">[[[My Shop]]]</span>
+                    </a>
+                </li>
+                <li class="hidden-lg hidden-md">
+                    <a href="@Url.Action("ProIdentityUpdate", "UserPro", new { Area = "Pro" })">
+                        <span class="font-weight-bold text-warning">[[[Update Profile]]]</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="hidden-lg hidden-md">
+                    <a href="@Url.Action("ListingUpdate", "Listing")">
+                        <span>[[[New listing]]]</span>
+                    </a>
+                </li>
+            }
+
 
             if (User.IsInRole("Administrator"))
             {

@@ -28,6 +28,7 @@ namespace BeYourMarket.Model.Models.Mapping
             this.Property(t => t.Parent).HasColumnName("Parent");
             this.Property(t => t.Enabled).HasColumnName("Enabled");
             this.Property(t => t.Ordering).HasColumnName("Ordering");
+
         }
     }
 }

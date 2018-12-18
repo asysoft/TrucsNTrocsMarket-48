@@ -39,6 +39,19 @@ namespace BeYourMarket.Web.Utilities
             }
         }
 
+        public static string GetUserPrologoImagePath(int id)
+        {
+            var filePath = string.Format("~/images/Profile/ProLogos/{0}.jpg", id.ToString(fileFormat));
+            if (File.Exists(HostingEnvironment.MapPath(filePath)))
+            {
+                return ImageVersion(filePath);
+            }
+            else
+            {
+                return "http://placehold.it/500x300";
+            }
+        }
+
         public static string GetUserProfileImagePath(string name)
         {
             var filePath = string.Format("~/images/profile/{0}.jpg", name);

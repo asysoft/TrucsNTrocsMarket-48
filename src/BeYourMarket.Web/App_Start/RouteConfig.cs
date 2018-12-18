@@ -35,6 +35,14 @@ namespace BeYourMarket.Web
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] { "BeYourMarket.Web.Controllers" }
             );
+
+            routes.MapRoute(
+                name: "Pro",
+                url: "Pro/{controller}/{action}/{id}",
+                defaults: new { controller = "UserPro", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "BeYourMarket.Web.Areas.Pro.Controllers" }
+                );
+
         }
     }
 }

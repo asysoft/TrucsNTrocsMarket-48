@@ -64,4 +64,9 @@ asy / TnT2018
 
 SQLExpress2012
 sa /sadev2018
+
+--------------- compte MAIL
+http://webmail.trucsntrocs.com
+user : contact@trucsntrocs.com
+pwd : TnTmail@2018
 		

@@ -33,7 +33,7 @@
                     @Html.Partial("_UserMessage")
 
                     <div class="col-md-8 col-xs-12">
-                        <div class="section panel-header">
+                        <div class="section card-header">
                             <div class="col-md-12">
                                 <h3>
                                     @Model.ListingCurrent.Title
@@ -58,7 +58,7 @@
 
                         </div>
 
-                        <div class="panel-header bdr-b container-fluid">
+                        <div class="card-header bdr-b container-fluid">
                             <ul class="nav nav-tabs" role="tablist" id="mainTab">
                                 <li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab"><i class="fa fa-info"></i>[[[Description]]]</a></li>
                                 @if (Model.ListingCurrent.Latitude.HasValue && Model.ListingCurrent.Longitude.HasValue)
@@ -78,7 +78,7 @@
 
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane fade active in" id="description">
-                                <div class="panel panel-default bdr-t-none">
+                                <div class="card bdr-t-none">
                                     <div class="panel-body">
                                         <p>
                                             @Model.ListingCurrent.Description
@@ -86,10 +86,10 @@
                                     </div>
 
                                     <!---Pictures-->
-                                    <div class="panel-heading bdr-t">
+                                    <div class="card-header bdr-t">
                                         <i class="fa fa-picture-o"></i> [[[Pictures]]]
                                     </div>
-                                    <div class="panel-body">
+                                    <div class="card-block">
                                         @if (Model.Pictures.Count > 0)
                                         {
                                             <div id="carousel-gallery" class="carousel slide" data-ride="carousel">

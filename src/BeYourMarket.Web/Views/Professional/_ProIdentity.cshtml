@@ -1,0 +1,203 @@
+﻿@model BeYourMarket.Web.Models.ProShopModel
+
+
+@section Styles {
+
+    <link href="~/Content/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet" />
+    <link href="~/Content/jsTree/themes/default/style.min.css" rel="stylesheet" />
+}
+
+<div class="card">
+    <div class="card-header">
+        [[[Company Infos]]]
+        @if (User.IsInRole("Professional"))
+        {
+            @*<a class="btn btn-success btn-sm pull-right" href="@Url.Action("ProIdentityUpdate", "Professional")">[[[Edit Your Infos]]]</a>*@
+            @*<a class="btn btn-primary" href="@Url.Action("ProIdentityUpdate", "Professional", new { area = "" })"><i class="fa fa-edit"></i> [[[Edit]]]</a>*@
+            <a id="btnEdit" class="btn btn-primary" href=""><i class="fa fa-edit"></i> [[[Edit]]]</a>
+
+            @*<a class="btn btn-primary" href=" @{ Html.RenderAction("ProIdentityUpdate", "Professional"); } " ><i class="fa fa-edit"></i> [[[Edit]]]</a>*@
+
+        }
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col col-md-4">
+                <div class="align-bottom">
+                    <img class="rounded" alt="Cinque Terre" style="width: 100%" src="@Model.Pictures.First().Url" />
+                </div>
+            </div>
+            <div class="col col-md-8">
+                <h4 class="text-center">
+                    @Html.DisplayFor(m => m.UserPro.ProCompany, new { @class = "form-control" })
+                </h4>
+                <div class="mark">
+                    <label>[[[Siret Number]]] : </label>
+                    @Html.DisplayFor(m => m.UserPro.ProSiret, new { @class = "form-control" })
+                </div>
+
+            </div>
+        </div>
+
+        <hr />
+        <fieldset>
+            <div class="mark">
+                <label class="" for="ProAdress">[[[Adress]]] : </label>
+                @Html.DisplayFor(m => m.UserPro.ProAdress, new { @class = "form-control" })
+            </div>
+            <div class="mark">
+                <label class="" for="ProTownZip">[[[City]]] : </label>
+                @Html.DisplayFor(m => m.UserPro.ProTownZip, new { @class = "form-control" })
+            </div>
+            <div class="mark">
+                <label class="" for="ProPhone">[[[Professional Phone]]] : </label>
+                @Html.DisplayFor(m => m.UserPro.ProPhone, new { @class = "form-control" })
+            </div>
+            <div class="mark">
+                <label class="" for="Email">[[[Company Email]]] : </label>
+                @Html.DisplayFor(m => m.UserPro.Email, new { @class = "form-control" })
+            </div>
+        </fieldset>
+            <hr />
+            <h5>
+                [[[Company Contact]]]
+            </h5>
+            <div class="mark text-center">
+                <label class="cr-styled">
+                    <input type="radio" name="Gender" enabled="false" id="Gender" value="M" @(Model.UserPro.Gender == "M" ? "checked" : "") @(Model.UserPro.Gender == "F" ? "disabled" : "") />
+                    @Html.RadioButtonFor(m => m.UserPro.Gender, Model.UserPro.Gender, new { id = "M" })
+                    <i class="fa"></i> [[[Male]]]
+                </label> <i class="fa fa-male"></i>
+                <label class="cr-styled">
+                    <input type="radio" name="Gender" enabled="false" id="Gender" value="F" @(Model.UserPro.Gender == "F" ? "checked" : "") @(Model.UserPro.Gender == "M" ? "disabled" : "") /> <i class="fa"></i> [[[Female]]]
+                </label> <i class="fa fa-female"></i>
+            </div>
+
+            <div class="mark">
+                <label class="" for="FirstName">[[[First Name]]] : </label>
+                @Html.DisplayFor(m => m.UserPro.FirstName, new { @class = "form-control" })
+            </div>
+            <div class="mark">
+                <label class="" for="LastName">[[[Last Name]]] : </label>
+                @Html.DisplayFor(m => m.UserPro.LastName, new { @class = "form-control" })
+            </div>
+            <div class="mark">
+                <label class="" for="PhoneNumber">[[[Phone Number]]] : </label>
+                @Html.DisplayFor(m => m.UserPro.PhoneNumber, new { @class = "form-control" })
+            </div>
+
+            <hr />
+            <h5>
+                [[[Category]]]
+            </h5>
+            @*<div class="mark" style="border-style:groove;overflow-y: auto; height:240px">
+                <div id="jstreeCateg">  </div>
+                <input type="hidden" id="CategoryIDhidd" name="ProCategoryIDs" value="ProCategoryIDs" />
+            </div>*@
+        </div>
+
+        <div class="card-footer">
+
+        </div>
+    </div>
+
+
+    <!-- ./ Main Content -->
+    @section Scripts {
+        @*@Scripts.Render("~/bundles/jqueryval")*@
+        <script>
+         @{
+             var preview = new System.Text.StringBuilder();
+             var previewDelete = new System.Text.StringBuilder();
+
+             foreach (var picture in Model.Pictures)
+             {
+                 preview.AppendFormat(@"'<img src=""{0}"" class=""file-preview-image"">',", picture.Url);
+                 previewDelete.AppendFormat(@"{{url: '{0}',key: {1} }},", Url.Action("ListingProLogoDelete", "Professional", new { id = picture.ID }), picture.ID);
+
+             }
+
+        }
+
+        var $input = $("#files");
+
+        $input.fileinput({
+            uploadAsync: false,
+            showCaption: false,
+            showRemove: false,
+            showUpload: false,
+            maxFileCount: 5,
+            overwriteInitial: false,
+            initialPreview: [
+                    @Html.Raw(preview.ToString())
+            ],
+            initialPreviewConfig: [
+                @Html.Raw(previewDelete.ToString())
+            ],
+            maxFileSize: 10000,
+            browseClass: "btn btn-success",
+            allowedFileTypes: ["image"],
+            language: '@Context.GetPrincipalAppLanguageForRequest().ToString()'
+            });
+
+
+            $("#btnEdit").click(function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "Professional/ProIdentityUpdate/",
+                    data: {
+                        id: $(this).val(), // < note use of 'this' here
+                       
+                    },
+                    success: function (result) {
+                        //$('#ProDiv2').html(result);
+                        alert(data);
+                    },
+                    error: function (result) {
+                        alert('error');
+                    }
+                });
+            });
+
+        </script>
+        <script>
+                $(function () {
+                    var CategID;
+                    $('#jstreeCateg').jstree({
+                        'core': {
+                            "multiple": false,
+                            "check_callback": false,
+                            'data': {
+                                'url': '/jsTree3/GetJsTree3CategData/',
+                                "data": function (node) { return { id: CategID }; },
+                                'dataType': 'json',
+                            },
+                            "themes": {
+                                "responsive": true,
+                                "variant": 'larg',
+                                "stripes": false,
+                                "icons": false,
+                                "ellipsis": false,
+                                "dots": false
+                            },
+                            "checkbox": {
+                                "visible": true,
+                                "two_state": false
+                            }
+                        },
+                        "plugins": ["checkbox"]
+                    });
+
+                    $('#jstreeCateg').on("changed.jstree", function (e, data) {
+                        if (data != null && data.selected != null && data.selected.length > 0) {
+                            document.getElementById('CategoryIDhidd').value = data.selected.join(";");
+                        }
+                        else
+                            document.getElementById('CategoryIDhidd').value = null;
+                    });
+
+                });
+
+            </script>
+    }
