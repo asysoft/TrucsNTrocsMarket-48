@@ -12,6 +12,7 @@ namespace BeYourMarket.Model.Models
         public LocationRef()
         {
             this.Listings = new List<Listing>();
+            this.UsersAddInfos = new HashSet<UsersAddInfo>();
         }
 
         public int ID { get; set; }
@@ -23,6 +24,7 @@ namespace BeYourMarket.Model.Models
         public int Ordering { get; set; }
 
         public virtual ICollection<Listing> Listings { get; set; }
+        public virtual ICollection<UsersAddInfo> UsersAddInfos { get; set; }
     }
 
 }

@@ -1,3 +1,4 @@
+using BeYourMarket.Model.Enum;
 using System;
 using System.Collections.Generic;
 
@@ -14,6 +15,8 @@ namespace BeYourMarket.Model.Models
 
             this.Orders = new List<Order>();
             this.MessageThreads = new List<MessageThread>();
+
+            this.OwnerUserType = Enum_UserType.Normal;
         }
 
         public int ID { get; set; }
@@ -24,9 +27,12 @@ namespace BeYourMarket.Model.Models
         public string UserID { get; set; }
         public Nullable<double> Price { get; set; }
         public string Currency { get; set; }
+
         public string ContactName { get; set; }
         public string ContactEmail { get; set; }
         public string ContactPhone { get; set; }
+        public Enum_UserType OwnerUserType { get; set; }
+
         public bool ShowPhone { get; set; }
         public bool Active { get; set; }
         public bool Enabled { get; set; }

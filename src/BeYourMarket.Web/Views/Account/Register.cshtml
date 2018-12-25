@@ -11,10 +11,6 @@
     <link href="~/Content/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet" />
     <link href="~/Content/jsTree/themes/default/style.min.css" rel="stylesheet" />
 
-    <style>       
-
-
-    </style>
 }
 
 
@@ -53,7 +49,7 @@
                 </div>
             </div>
             <div class="col-md-6 mx-auto ">
-                <div class="card mrg-t  border border-success mrg-t">
+                <div class="card border border-success mrg-t">
                     <div class="card-header bdr-b" style="text-align:center;">
                         <h4>[[[Create an account]]]</h4>
                         <p>
@@ -123,67 +119,74 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="mark" for="ProCompany">[[[Company]]] <span class="text-red">*</span></label>
-                                        <input type="text" name="ProCompany" id="ProCompany" class="form-control input-lg" placeholder="[[[Company Name]]]" data-rule-required="true">
+                                        <input type="text" name="ProCompany" id="ProCompany" class="form-control input-lg" placeholder="[[[Company Name]]]" >
                                     </div>
                                     <div class="form-group">
                                         <label class="mark" for="ProSiret">[[[Siret]]] <span class="text-red">*</span></label>
-                                        <input type="text" name="ProSiret" id="ProSiret" class="form-control input-lg" placeholder="[[[Company SIRET number]]]" data-rule-required="true">
+                                        <input type="text" name="ProSiret" id="ProSiret" class="form-control input-lg" placeholder="[[[Company SIRET number]]]" >
                                     </div>
-                                    <div class="form-group">
-                                        <label class="mark" for="ProCompany">[[[Professional Phone]]] <span class="text-red">*</span></label>
-                                        <input type="text" name="ProPhone" id="ProPhone" class="form-control input-lg" placeholder="[[[Professional phone nimber]]]" data-rule-required="true">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="mark" for="ProAdress">[[[Adress]]] <span class="text-red">*</span></label>
-                                        <input type="text" name="ProAdress" id="ProAdress" class="form-control input-lg" placeholder="[[[Company Adress]]]" data-rule-required="true">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="ProTownZip">[[[City]]] <span class="text-red">*</span></label>
-                                        <input type="text" name="ProTownZip" id="ProTownZip" class="form-control input-lg" placeholder="[[[Company Town or Zip Code]]]" data-rule-required="true">
-                                    </div>
+                                    <fieldset>
+                                        <label>[[[Category]]]</label>
+                                        <div class="form-group" style="border-style:groove;overflow-y: auto; height: 270px;">
+                                            <div id="jstreeCateg">  </div>
+                                            <input type="hidden" id="CategoryIDhidd" name="ProCategoryIDs" value="ProCategoryIDs" />
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>[[[Localization]]]</legend>
+                                        <div class="form-group">
+                                            <label class="mark" for="ProAdress">[[[Adress]]] <span class="text-red">*</span></label>
+                                            <input type="text" name="ProAdress" id="ProAdress" class="form-control input-lg" placeholder="[[[Company Adress]]]" >
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="ProTownZip">[[[City]]] <span class="text-red">*</span></label>
+                                            <input type="text" name="ProTownZip" id="ProTownZip" class="form-control input-lg" placeholder="[[[Company Town or Zip Code]]]" >
+                                        </div>
+                                        <div class="form-body" style="border-style:groove;overflow-y: auto; height: 270px;">
+                                            <div id="jstreeLoc"> </div>
+                                            <input type="hidden" id="LocationRefIDhidd" name="ProLocationRefID" value="ProLocationRefID" />
+                                        </div>
+
+                                    </fieldset>
+
                                     <div class="form-group">
                                         <label class="mark" for="ProPhone">[[[Phone]]] <span class="text-red">*</span></label>
-                                        <input type="text" name="ProPhone" id="ProPhone" class="form-control input-lg" placeholder="[[[Company Phone]]]" data-rule-required="true">
+                                        <input type="text" name="ProPhone" id="ProPhone" class="form-control input-lg" placeholder="[[[Company Phone]]]"  >
                                     </div>
                                     <div class="form-group">
-                                        <label class="mark" class="mark" for="Email">[[[Company Email]]] : </label>
-                                        <input type="text" name="Email" id="Email" class="form-control input-lg" placeholder="[[[Company Email]]]" data-rule-required="true">
+                                        <label class="mark" for="ProEmail">[[[Company Email]]] : </label>
+                                        <input type="text" name="ProEmail" id="ProEmail" class="form-control input-lg" placeholder="[[[Company Email]]]"  >
                                     </div>
                                     <div class="form-group">
                                         <label class="mark" for="ProSiteWeb">[[[Web Site]]] <span class="text-red">*</span></label>
-                                        <input type="text" name="ProSiteWeb" id="ProSiteWeb" class="form-control input-lg" placeholder="[[[Web Site]]]" data-rule-required="true">
+                                        <input type="text" name="ProSiteWeb" id="ProSiteWeb" class="form-control input-lg" placeholder="[[[Web Site]]]"  >
                                     </div>
                                     <fieldset>
                                         <legend>[[[Company Contact]]]</legend>
-                                        <div class="form-group text-center">
+                                        <div class="form-group">
                                             <label class="mark fa fa-male">
                                                 [[[Male]]]
-                                                <input type="radio" name="Gender" enabled="true" id="GenderUpd" value="M" checked />
+                                                <input type="radio" name="Gender" enabled="true" id="GenderM" value="M" checked />
                                             </label>
                                             <label class="mark fa fa-female">
                                                 [[[Female]]]
-                                                <input type="radio" name="Gender" enabled="true" id="GenderUpd" value="F"   />
+                                                <input type="radio" name="Gender" enabled="true" id="GenderF" value="F" />
                                             </label>
                                         </div>
                                         <div class="form-group">
                                             <label class="mark" for="LastName">[[[Last Name]]] <span class="text-red">*</span></label>
-                                            <input type="text" name="LastName" id="LastName" class="form-control input-lg" placeholder="[[[Last Name of the Owner]]]" data-rule-required="true">
+                                            <input type="text" name="LastName" id="LastName" class="form-control input-lg" placeholder="[[[Last Name of the Owner]]]"  >
                                         </div>
                                         <div class="form-group">
                                             <label class="mark" for="FirstName">[[[First Name]]] <span class="text-red">*</span></label>
-                                            <input type="text" name="FirstName" id="FirstName" class="form-control input-lg" placeholder="[[[First Name of the Owner]]]" data-rule-required="true">
+                                            <input type="text" name="FirstName" id="FirstName" class="form-control input-lg" placeholder="[[[First Name of the Owner]]]"  >
                                         </div>
                                         <div class="form-group">
                                             <label class="mark" for="PhoneNumber">[[[Phone Number]]] : </label>
-                                            <input type="text" name="PhoneNumber" id="PhoneNumber" class="form-control input-lg" placeholder="[[[First Name Phone Number of the Owner]]]" data-rule-required="true">
+                                            <input type="text" name="PhoneNumber" id="PhoneNumber" class="form-control input-lg" placeholder="[[[Phone Number of the Owner]]]" >
                                         </div>
                                     </fieldset>
 
-                                    <label>[[[Category]]]</label>
-                                    <div class="form-group" style="border-style:groove;overflow-y: auto; ">
-                                        <div id="jstreeCateg">  </div>
-                                        <input type="hidden" id="CategoryIDhidd" name="ProCategoryIDs" value="ProCategoryIDs" />
-                                    </div>
                                 </div>
                             </div>
 
@@ -283,7 +286,7 @@
             var CategID;
             $('#jstreeCateg').jstree({
                 'core': {
-                    "multiple": false,
+                    "multiple": true,
                     "check_callback": false,
                     'data': {
                         'url': '/jsTree3/GetJsTree3CategData/',
@@ -316,4 +319,44 @@
 
         });
     </script>
+    <script>
+        $(function () {
+            $('#jstreeLoc').jstree({
+                'core': {
+                    "multiple": false,
+                    "check_callback": false,
+                    'data': {
+                        'url': '/jsTree3/GetJsTree3LocData/',
+                        "data": function (node) { return { id:  null }; },
+                        'dataType': 'json',
+                    },
+                    "themes": {
+                        "responsive": true,
+                        "variant": 'larg',
+                        "stripes": false,
+                        "icons": false,
+                        "ellipsis": false,
+                        "dots": false
+                    },
+                    "checkbox": {
+                        "visible": true,
+                        "two_state": false
+                    }
+                },
+                "plugins": [ "checkbox"]
+            });
+
+            $('#jstreeLoc').on("changed.jstree", function (e, data) {
+                if (data != null && data.selected != null && data.selected.length > 0) {
+                    document.getElementById('LocationRefIDhidd').value = data.selected[0];
+
+                    //initMap();
+
+                }
+            });
+
+        });
+    </script>
+
+
 }

@@ -76,14 +76,17 @@ namespace BeYourMarket.Web.App_Start
                 .RegisterType<IListingReviewService, ListingReviewService>()
                 .RegisterType<ICategoryListingTypeService, CategoryListingTypeService>()
 
-                .RegisterType<IRepositoryAsync<AspNetUserCategory>, Repository<AspNetUserCategory>>()
+                .RegisterType<IRepositoryAsync<UserCategory>, Repository<UserCategory>>()
                 .RegisterType<IAspNetUserCategoriesService, AspNetUserCategoriesService>()
 
-                .RegisterType<IRepositoryAsync<AspNetUserImgFile>, Repository<AspNetUserImgFile>>()
+                .RegisterType<IRepositoryAsync<UserImgFile>, Repository<UserImgFile>>()
                 .RegisterType<IAspNetUserImgFileService, AspNetUserImgFileService>()
 
                 .RegisterType<IRepositoryAsync<PrepaidCard>, Repository<PrepaidCard>>()
-                .RegisterType<IPrepaidCardService, PrepaidCardService>()                
+                .RegisterType<IPrepaidCardService, PrepaidCardService>()
+
+                .RegisterType<IRepositoryAsync<UsersAddInfo>, Repository<UsersAddInfo>>()
+                .RegisterType<IUsersAddInfoService, UsersAddInfoService>()
 
                 .RegisterType<IMessageService, MessageService>()
                 .RegisterType<IMessageParticipantService, MessageParticipantService>()

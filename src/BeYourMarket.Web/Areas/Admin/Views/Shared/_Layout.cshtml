@@ -1,7 +1,14 @@
-﻿@using Microsoft.Practices.Unity;
+﻿@using BeYourMarket.Service;
+@using BeYourMarket.Web.Utilities
+@using BeYourMarket.Web.Extensions
+@using BeYourMarket.Core
+
+@using Microsoft.Practices.Unity
 @using Microsoft.Practices.Unity.Configuration;
 
 @{
+    /**/
+
     var settings = CacheHelper.Settings;
 }
 
@@ -24,11 +31,11 @@
     <link href="~/js/ripples/css/ripples.min.css" rel="stylesheet" />
 
     <!--Icon-fonts css-->
-    <link href="~/css/font-awesome/css/font-awesome.css" rel="stylesheet" />        
+    <link href="~/css/font-awesome/css/font-awesome.css" rel="stylesheet" />
 
     <!-- Custom styles for this template -->
-    <link href="~/css/admin/style.css" rel="stylesheet" />    
-    <link href="~/css/admin/style-responsive.css" rel="stylesheet" />    
+    <link href="~/css/admin/style.css" rel="stylesheet" />
+    <link href="~/css/admin/style-responsive.css" rel="stylesheet" />
 
     @RenderSection("styles", required: false)
 </head>
@@ -61,7 +68,7 @@
 
     <script src="~/js/sweet-alert/sweetalert.min.js"></script>
     <script src="~/js/ripples/js/ripples.min.js"></script>
-    <script src="~/js/ripples/js/ripples.init.js"></script>    
+    <script src="~/js/ripples/js/ripples.init.js"></script>
     <script src="~/js/nicescroll/jquery.nicescroll.min.js"></script>
 
     <script src="~/js/admin/app.js"></script>

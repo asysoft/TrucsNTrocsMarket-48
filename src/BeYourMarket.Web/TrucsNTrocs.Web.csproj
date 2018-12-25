@@ -328,7 +328,6 @@
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\HookController.cs" />
-    <Compile Include="Controllers\ProfessionalController.cs" />
     <Compile Include="Extensions\ExtensionMethods.cs" />
     <Compile Include="Extensions\HtmlExtensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -438,12 +437,12 @@
     <Content Include="css\admin\bootstrap-reset.css" />
     <Content Include="Areas\Admin\Views\Shared\_CategoryCustomFields.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_LanguageSelector.cshtml" />
-    <Content Include="Images\Community\BandeauVert.png" />
     <Content Include="Images\Community\home-button-icon.jpg" />
     <Content Include="Images\Community\logo.png" />
     <Content Include="Images\Community\LogoTnTcom_150x184.png" />
     <Content Include="Images\Community\map.png" />
-    <Content Include="Images\Community\Pro_Star.jpg" />
+    <Content Include="Images\Community\Pro_Star.png" />
+    <Content Include="Images\Community\Pro_Star_Petit.png" />
     <Content Include="Images\Community\Pubs\pub_Index_Droite_250x350_Img1.jpg" />
     <Content Include="Images\Community\Pubs\pub_Index_Droite_250x350_Img2.jpg" />
     <Content Include="Images\Community\Pubs\pub_Index_Droite_250x350_Img3.jpg" />
@@ -608,6 +607,11 @@
     <Content Include="Areas\Admin\Views\PrepaidCard\GenerateNewCards.cshtml" />
     <Content Include="Areas\Pro\Views\UserPro\ProIdentity.cshtml" />
     <Content Include="Areas\Pro\Views\UserPro\ProListingUpdate.cshtml" />
+    <Content Include="Areas\Pro\Views\UserPro\ProListingView.cshtml" />
+    <Content Include="packages - Copier.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Properties\PublishProfiles\FolderProfileRelease.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -782,14 +786,8 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Professional\_ProIdentity.cshtml" />
-    <Content Include="Views\Professional\_ProListings.cshtml" />
-    <Content Include="Views\Professional\_ProListingUpdate.cshtml" />
-    <Content Include="Views\Professional\_ProHome.cshtml" />
-    <Content Include="Views\Professional\_ProIdentityUpdate.cshtml" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
-    <Content Include="Views\Professional\Index.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
@@ -1681,6 +1679,14 @@
     <ProjectReference Include="..\Frameworks\Service.Pattern\Service.Pattern.csproj">
       <Project>{86f86650-ee3c-4372-8fec-40c2fe015022}</Project>
       <Name>Service.Pattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Plugins\Plugin.Payment.Stripe\Plugin.Payment.Stripe.csproj">
+      <Project>{f7b87ce6-b494-47ad-bb0c-be11a290bdc3}</Project>
+      <Name>Plugin.Payment.Stripe</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Plugins\Plugin.Widget.Disqus\Plugin.Widget.Disqus.csproj">
+      <Project>{99862f14-2e6e-4092-b8e0-3d746dcb1a07}</Project>
+      <Name>Plugin.Widget.Disqus</Name>
     </ProjectReference>
     <ProjectReference Include="..\TnTTickets.Lib\TnTPrepaidCard.Lib.csproj">
       <Project>{82509352-9129-488c-b3c9-06037b5c6e00}</Project>

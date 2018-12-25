@@ -10,93 +10,109 @@
 <div class="container-fluid" style="background-color:#EAF4D3">
     <div class="mx-auto col-md-8">
         <div class="card">
-            <div class="card-header">
-                [[[Company Infos]]]
+            <div class="card-header text-center">
+                <label class="display-4">[[[Company Infos]]]</label>
+                @*Faut que soit sont annonce aussi, pas a celle d un autre PRO !*@
                 @if (User.IsInRole("Professional"))
                 {
-                     <a id="btnEdit" class="btn btn-primary pull-right" href="@Url.Action("ProIdentityUpdate", "UserPro", new { area = "Pro" })"><i class="fa fa-edit"></i> [[[Edit]]]</a>
+                    <a id="btnEdit" class="btn btn-primary pull-right" href="@Url.Action("ProIdentityUpdate", "UserPro", new { area = "Pro" })"><i class="fa fa-edit"></i> [[[Update]]]</a>
                 }
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col col-md-4">
                         <div class="align-bottom">
-                            <img class="img-fluid"  style="width: 100%; height: auto" src="@Model.Pictures.First().Url" />
+                            <img class="img-fluid" style="width: 100%; height: auto" src="@Model.Pictures.First().Url" />
                         </div>
                     </div>
-                    <div class="col col-md-8 align-self-center">
-                        <h4 class="text-center">
-                            @Html.DisplayFor(m => m.UserPro.ProCompany, new { @class = "form-control" })
-                        </h4>
-                        <div class="mark">
-                            <label>[[[Siret Number]]] : </label>
-                            @Html.DisplayFor(m => m.UserPro.ProSiret, new { @class = "form-control" })
+                    <div class="col col-md-7 align-self-center">
+                        <h3 class="font-weight-bold display-4 text-center">
+                            @Html.DisplayFor(m => m.UserAddInf.ProCompany, new { @class = "form-control" })
+                        </h3>
+                        <div class="form-group">
+                            <div class="mark">
+                                <label class="" for="ProAdress">[[[Adress]]] : </label>
+                                @Html.DisplayFor(m => m.UserAddInf.ProAdress, new { @class = "form-control" })
+                            </div>
+                            <div class="mark">
+                                <label class="" for="ProTownZip">[[[City]]] : </label>
+                                @Html.DisplayFor(m => m.UserAddInf.ProTownZip, new { @class = "form-control" })
+                            </div>
+                            <div class="mark">
+                                <label>[[[Siret Number]]] : </label>
+                                @Html.DisplayFor(m => m.UserAddInf.ProSiret, new { @class = "form-control" })
+                            </div>
+                            <div class="mark">
+                                <label class="" for="ProPhone">[[[Professional Phone]]] : </label>
+                                @Html.DisplayFor(m => m.UserAddInf.ProPhone, new { @class = "form-control" })
+                            </div>
+                            <div class="mark">
+                                <label class="" for="Email">[[[Company Email]]] : </label>
+                                @Html.DisplayFor(m => m.UserAddInf.ProEmail, new { @class = "form-control" })
+                            </div>
+                            <div class="mark">
+                                <label for="ProSiteWeb">[[[Web Site]]] : </label>
+                                @Html.DisplayFor(m => m.UserAddInf.ProSiteWeb, new { @class = "form-control" })
+                            </div>
                         </div>
-
                     </div>
-                </div>
-
-                <hr />
-                <fieldset>
-                    <div class="mark">
-                        <label class="" for="ProAdress">[[[Adress]]] : </label>
-                        @Html.DisplayFor(m => m.UserPro.ProAdress, new { @class = "form-control" })
-                    </div>
-                    <div class="mark">
-                        <label class="" for="ProTownZip">[[[City]]] : </label>
-                        @Html.DisplayFor(m => m.UserPro.ProTownZip, new { @class = "form-control" })
-                    </div>
-                    <div class="mark">
-                        <label class="" for="ProPhone">[[[Professional Phone]]] : </label>
-                        @Html.DisplayFor(m => m.UserPro.ProPhone, new { @class = "form-control" })
-                    </div>
-                    <div class="mark">
-                        <label class="" for="Email">[[[Company Email]]] : </label>
-                        @Html.DisplayFor(m => m.UserPro.Email, new { @class = "form-control" })
-                    </div>
-                    <div class="mark">
-                        <label for="ProSiteWeb">[[[Web Site]]] : </label>
-                        @Html.DisplayFor(m => m.UserPro.ProSiteWeb, new { @class = "form-control" })
-                    </div>
-                </fieldset>
-                <hr />
-                <h5>
-                    [[[Company Contact]]]
-                </h5>
-                <div class="mark text-center">
-                    <label class="mark">
-                        <input type="radio" name="Gender"   id="GenderM" value="M" @(Model.UserPro.Gender == "M" ? "checked" : "") @(Model.UserPro.Gender == "F" ? "disabled" : "") />
-                        <i class="fa"></i> [[[Male]]]
-                    </label> <i class="fa fa-male"></i>
-                    <label class="mark">
-                        <input type="radio" name="Gender"  id="GenderF" value="F" @(Model.UserPro.Gender == "F" ? "checked" : "") @(Model.UserPro.Gender == "M" ? "disabled" : "") /> <i class="fa"></i> [[[Female]]]
-                    </label> <i class="fa fa-female"></i>
-                </div>
-
-                <div class="mark">
-                    <label for="FirstName">[[[First Name]]] : </label>
-                    @Html.DisplayFor(m => m.UserPro.FirstName, new { @class = "form-control" })
-                </div>
-                <div class="mark">
-                    <label for="LastName">[[[Last Name]]] : </label>
-                    @Html.DisplayFor(m => m.UserPro.LastName, new { @class = "form-control" })
-                </div>
-                <div class="mark">
-                    <label for="PhoneNumber">[[[Phone Number]]] : </label>
-                    @Html.DisplayFor(m => m.UserPro.PhoneNumber, new { @class = "form-control" })
                 </div>
                 <hr />
-                <h5>
-                    [[[Category]]]
-                </h5>
-                <div class="mark" style="border-style:groove;overflow-y: auto; height:240px">
-                        <div id="jstreeCateg">  </div>
-                        <input type="hidden" id="CategoryIDhidd" name="ProCategoryIDs" value="ProCategoryIDs" />
+                <div class="row">
+                    <div class="col col-md-7 ">
+                        <div>
+                            <h5>
+                                [[[Company Contact]]]
+                            </h5>
+                            <div class="mark ">
+                                <label class="mark">
+                                    <input type="radio" name="Gender" id="GenderM" value="M" @(Model.UserPro.Gender == "M" ? "checked" : "") @(Model.UserPro.Gender == "F" ? "disabled" : "") />
+                                    <i class="fa"></i> [[[Male]]]
+                                </label> <i class="fa fa-male"></i>
+                                <label class="mark">
+                                    <input type="radio" name="Gender" id="GenderF" value="F" @(Model.UserPro.Gender == "F" ? "checked" : "") @(Model.UserPro.Gender == "M" ? "disabled" : "") /> <i class="fa"></i> [[[Female]]]
+                                </label> <i class="fa fa-female"></i>
+                            </div>
+                            <div class="mark">
+                                <label for="FirstName">[[[First Name]]] : </label>
+                                @Html.DisplayFor(m => m.UserPro.FirstName, new { @class = "form-control" })
+                            </div>
+                            <div class="mark">
+                                <label for="LastName">[[[Last Name]]] : </label>
+                                @Html.DisplayFor(m => m.UserPro.LastName, new { @class = "form-control" })
+                            </div>
+                            <div class="mark">
+                                <label for="PhoneNumber">[[[Phone Number]]] : </label>
+                                @Html.DisplayFor(m => m.UserPro.PhoneNumber, new { @class = "form-control" })
+                            </div>
+                        </div>
                     </div>
+                    <div class="col col-md-4">
+                        <div>
+                            <h5>[[[Categories]]] </h5>
+                            <div class="shadow-lg p-3  bg-white rounded">
+                                <div class="card border border-info mark font-weight-bold">
+                                    @Html.DisplayFor(m => m.CategoriesText, new { @class = "form-control" })
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <h5>[[[Where to find us?]]]</h5>
+                    <div class="form-group">
+                        <input type="hidden" id="LocSelectedName" name="LocSelectedName" value="" />
+                        <input type="hidden" id="LocationRefIDhidd" name="LocationRefID" value="@Model.UserAddInf.LocationRefID" />
+                        <input type="hidden" id="Longitude" name="Longitude" value="@Model.UserAddInf.ProLongitude" />
+                        <input type="hidden" id="Latitude" name="Latitude" value="@Model.UserAddInf.ProLatitude" />
+                        
+                    </div>
+                    <div style="width:100%" id="map-canvas"></div>
+                </div>
             </div>
-
             <div class="card-footer">
-
             </div>
         </div>
     </div>
@@ -105,43 +121,288 @@
 <!-- ./ Main Content -->
 @section Scripts {
     @*@Scripts.Render("~/bundles/jqueryval")*@
-
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgB8z009mHSrPLaJUobfgmI1gTlk1aqyc&libraries=places&callback=initMap" async defer></script>
     <script>
-        $(function () {
-            var CategID;
-            $('#jstreeCateg').jstree({
-                'core': {
-                    "multiple": false,
-                    "check_callback": false,
-                    'data': {
-                        'url': '/jsTree3/GetJsTree3CategData/',
-                        "data": function (node) { return { id: CategID }; },
-                        'dataType': 'json',
-                    },
-                    "themes": {
-                        "responsive": true,
-                        "variant": 'larg',
-                        "stripes": false,
-                        "icons": false,
-                        "ellipsis": false,
-                        "dots": false
-                    },
-                    "checkbox": {
-                        "visible": true,
-                        "two_state": false
-                    }
-                },
-                "plugins": ["checkbox"]
+        //https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete
+        //https://developers.google.com/maps/documentation/javascript/examples/geocoding-reverse
+        function initMap() {
+            var isDraggable = $(document).width() > 480 ? true : false; // If document (your website) is wider than 480px, isDraggable = true, else isDraggable = false
+
+            var mapOptions = {
+                draggable: isDraggable,
+                scrollwheel: false, // Prevent users to start zooming the map when scrolling down the page
+                zoom: 13,
+                center: new google.maps.LatLng(-20.1608912, 57.50122220000003),
+            };
+
+            @{ var hasLatLng = @Model.UserAddInf.ProLatitude.HasValue && @Model.UserAddInf.ProLongitude.HasValue; }
+            var hasLatLng = @hasLatLng.ToString().ToLowerInvariant();
+
+            @if (hasLatLng){
+                <text>
+            mapOptions = {
+                center: new google.maps.LatLng(@Model.UserAddInf.ProLatitude.Value.ToString(System.Globalization.CultureInfo.InvariantCulture), @Model.UserAddInf.ProLongitude.Value.ToString(System.Globalization.CultureInfo.InvariantCulture)),
+                zoom: 12
+            };
+            </text>
+            };
+
+            var map = new google.maps.Map(document.getElementById('map-canvas'),  mapOptions);
+
+            @if (hasLatLng){
+                <text>
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(@Model.UserAddInf.ProLatitude.Value.ToString(System.Globalization.CultureInfo.InvariantCulture), @Model.UserAddInf.ProLongitude.Value.ToString(System.Globalization.CultureInfo.InvariantCulture)),
+                map: map
             });
 
-            $('#jstreeCateg').on("changed.jstree", function (e, data) {
-                if (data != null && data.selected != null && data.selected.length > 0) {
-                    document.getElementById('CategoryIDhidd').value = data.selected.join(";");
+            marker.setVisible(true);
+            </text>
+            }
+
+            geocoder = new google.maps.Geocoder();
+
+            var input = (document.getElementById('LocSelectedName'));
+            input.value = "@Model.UserAddInf.ProAdress , " + "@Model.UserAddInf.ProTownZip , " + ', ile Maurice';
+
+            // Try HTML5 geolocation
+            @*if (@Model.ListingItem.ID == 0){
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function (position) {
+                        var pos = new google.maps.LatLng(position.coords.latitude,
+                                                         position.coords.longitude);
+
+                        geocoder.geocode({ 'latLng': pos }, function (results, status) {
+                            if (status == google.maps.GeocoderStatus.OK) {
+                                if (results[1]) {
+                                    map.setZoom(14);
+                                    map.setCenter(pos);
+
+                                    marker = new google.maps.Marker({
+                                        position: pos,
+                                        map: map,
+                                        content: results[1].formatted_address
+                                    });
+                                    infowindow.setContent(results[1].formatted_address);
+                                    infowindow.open(map, marker);
+
+                                    $('#LocSelectedName').val(results[1].formatted_address);
+
+                                    alert(results[1].formatted_address);
+
+                                    $('#Latitude').val(pos.lat());
+                                    $('#Longitude').val(pos.lng());
+
+                                } else {
+                                    alert('No results found');
+                                }
+                            } else {
+                                alert('Geocoder failed due to: ' + status);
+                            }
+                        });
+                    }, function () {
+                        handleNoGeolocation(true);
+                    });
+                } else {
+                    // Browser doesn't support Geolocation
+                    handleNoGeolocation(false);
                 }
-                else
-                    document.getElementById('CategoryIDhidd').value = null;
+            }*@
+
+            var options = {
+                types: ['(cities)'],
+                componentRestrictions: { country: 'mu' }
+            };
+            var autocomplete = new google.maps.places.Autocomplete(input);
+            autocomplete.bindTo('bounds', map);
+
+            // ASY : Set the data fields to return when the user selects a place.
+            autocomplete.setFields(  ['address_components', 'geometry', 'icon', 'name']);
+
+            // ASY : try
+            //var service = new google.maps.places.AutocompleteService();
+            //var txtLoc = document.getElementById('LocSelectedName').value;
+            //service.getQueryPredictions({ input: txtLoc }, displaySuggestions);
+
+            var autoCompleService = new google.maps.places.AutocompleteService();
+            var placesService = new google.maps.places.PlacesService(map);
+            var infowindow = new google.maps.InfoWindow();
+            var marker = new google.maps.Marker({
+                map: map,
+                anchorPoint: new google.maps.Point(0, -29)
             });
 
-        });
+            // ASY
+            var callbackSetMaps = function (predictions, status) {
+                if (status != google.maps.places.PlacesServiceStatus.OK) {
+                    alert(status);
+                    return;
+                }
+
+                predictions.forEach(function (prediction) {
+                    //var li = document.createElement('li');
+                    //li.appendChild(document.createTextNode(prediction.description));
+                    //document.getElementById('LocSelectedName').appendChild(li);
+
+                    getPlaceDetails(prediction.place_id);
+
+                });
+            };
+
+            // Get place details
+            function getPlaceDetails(placeId) {
+                var request = {
+                    placeId: placeId
+                };
+
+                placesService.getDetails(request, function (place, status) {
+
+                    if (status === google.maps.places.PlacesServiceStatus.OK) {
+
+                        if (!place.geometry) {
+                            window.alert("Autocomplete's returned place contains no geometry");
+                            window.alert("No details available for input: '" + place.name + "'");
+                            return;
+                        }
+
+                        // Set lat/long
+                        $('#Latitude').val(place.geometry.location.lat());
+                        $('#Longitude').val(place.geometry.location.lng());
+
+                        //window.alert("Latitude : '" + document.getElementById('Latitude').value + "'");
+                        //window.alert("Longitude : '" + document.getElementById('Longitude').value + "'");
+
+                        // If the place has a geometry, then present it on a map.
+                        if (place.geometry.viewport) {
+                            map.fitBounds(place.geometry.viewport);
+                        } else {
+                            map.setCenter(place.geometry.location);
+                            map.setZoom(12);
+                        }
+                        marker.setIcon(({
+                            url: place.icon,
+                            size: new google.maps.Size(71, 71),
+                            origin: new google.maps.Point(0, 0),
+                            anchor: new google.maps.Point(17, 34),
+                            scaledSize: new google.maps.Size(35, 35)
+                        }));
+                        marker.setPosition(place.geometry.location);
+                        marker.setVisible(true);
+
+                        var address = '';
+                        if (place.address_components) {
+                            address = [
+                                (place.address_components[0] && place.address_components[0].short_name || ''),
+                                (place.address_components[1] && place.address_components[1].short_name || ''),
+                                (place.address_components[2] && place.address_components[2].short_name || '')
+                            ].join(' ');
+                        }
+
+                        infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
+                        infowindow.open(map, marker);
+
+                    }
+                });
+            }
+
+            //google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            autocomplete.addListener('place_changed', function () {
+                infowindow.close();
+                marker.setVisible(false);
+                var place = autocomplete.getPlace();
+
+                if (!place ) {
+
+                    //perform request. limit results to Maurice
+                    //var txtLoc = document.getElementById('LocSelectedName').value;
+                    var request = {
+                        input: document.getElementById('LocSelectedName').value ,
+                        types: ['establishment', 'geocode'],
+                        componentRestrictions: { country: 'mu' },
+                    };
+                    autoCompleService.getPlacePredictions(request, callbackSetMaps);
+                    return;
+                }
+               // window.alert("ASY Debug ---- autocomplete.getPlace() : '" + place.name + "'");
+
+                if (!place.geometry) {
+                    window.alert("Autocomplete's returned place contains no geometry");
+                    window.alert("No details available for input: '" + place.name + "'");
+                    return;
+                }
+
+                // Set lat/long
+                $('#Latitude').val(place.geometry.location.lat());
+                $('#Longitude').val(place.geometry.location.lng());
+
+                //window.alert("Latitude : '" + document.getElementById('Latitude').value + "'");
+                //window.alert("Longitude : '" + document.getElementById('Longitude').value + "'");
+
+                // If the place has a geometry, then present it on a map.
+                if (place.geometry.viewport) {
+                    map.fitBounds(place.geometry.viewport);
+                } else {
+                    map.setCenter(place.geometry.location);
+                    map.setZoom(12);
+                }
+                marker.setIcon(({
+                    url: place.icon,
+                    size: new google.maps.Size(71, 71),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(17, 34),
+                    scaledSize: new google.maps.Size(35, 35)
+                }));
+                marker.setPosition(place.geometry.location);
+                marker.setVisible(true);
+
+                var address = '';
+                if (place.address_components) {
+                    address = [
+                      (place.address_components[0] && place.address_components[0].short_name || ''),
+                      (place.address_components[1] && place.address_components[1].short_name || ''),
+                      (place.address_components[2] && place.address_components[2].short_name || '')
+                    ].join(' ');
+                }
+
+                infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
+                infowindow.open(map, marker);
+            });
+
+            // ASY : force fire event
+          //  autocomplete.place_changed();
+           google.maps.event.trigger(autocomplete, 'place_changed');
+
+            google.maps.event.addDomListener(input, 'keydown', function (e) {
+                if (e.keyCode == 13) {
+                    if (e.preventDefault) {
+                        e.preventDefault();
+                    }
+                    else {
+                        // Since the google event handler framework does not handle
+                        e.cancelBubble = true;
+                        e.returnValue = false;
+                    }
+                }
+            });
+
+        }
+
+        function handleNoGeolocation(errorFlag) {
+            if (errorFlag) {
+                var content = 'Error: The Geolocation service failed.';
+            } else {
+                var content = 'Error: Your browser doesn\'t support geolocation.';
+            }
+
+            var options = {
+                map: map,
+                position: new google.maps.LatLng(60, 105),
+                content: content
+            };
+
+            var infowindow = new google.maps.InfoWindow(options);
+            map.setCenter(options.position);
+        }
     </script>
+
 }

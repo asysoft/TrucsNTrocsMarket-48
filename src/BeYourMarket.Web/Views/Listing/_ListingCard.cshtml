@@ -1,34 +1,60 @@
 ﻿@model BeYourMarket.Web.Models.ListingItemModel
 
-<div class="card" >
-    <div class="card-image align-items-center">
-        <a href="@Url.Action("Listing", "Listing", new { id = Model.ListingCurrent.ID })">
-            <img alt="@Model.ListingCurrent.Title" src="@Model.UrlPicture"  style="margin-top: 60px;" >
-            @if (Model.ListingCurrent.Price.HasValue)
-            {
-                <span class="card-img-label h-auto" style="border-radius: 10px 10px 10px;border: 2px solid green; color:darkgreen;font-weight:bold; margin : 10px auto 10px 10px">@Html.DisplayFor(x => Model.ListingCurrent.PriceFormatted)</span>
-            }
-        </a>
-    </div>
-    
-    
-    <div class="card-content">
-        <a href="@Url.Action("Profile", "Listing", new { id = Model.ListingCurrent.UserID })">
-            <img class="thumb-md img-profile-card img-circle" src="@BeYourMarket.Web.Utilities.ImageHelper.GetUserProfileImagePath(Model.ListingCurrent.UserID)" />
-        </a>
+<div class="card m-2">
+    <div class="card-header ">
+        <div class="container">
+            <div class="row d-flex " style="height:55px">
+                <div class="col col-md-12 align-content-center">
+                    @if (Model.ListingCurrent.Price.HasValue)
+                    {
+                        <div class="">
+                            <span class="card-img-label border border-dark rounded-top font-weight-bold " style="border: 2px solid green;color:darkgreen">
+                                @Html.DisplayFor(x => Model.ListingCurrent.PriceFormatted)
+                            </span>
+                        </div>
+                    }
+                    @if (Model.ListingCurrent.OwnerUserType == Enum_UserType.Professional)
+                    {
+                        <i class="fa fa-star"></i>
+                        <div class="pull-right" style="margin-left:-10px">
+                            <img src="@ImageHelper.GetCommunityImagePath("Pro_Star_Petit", "png")">
 
-        <a href="@Url.Action("Listing", "Listing", new { id = Model.ListingCurrent.ID })">
-            <h5 class="card-title mt-3">@Model.ListingCurrent.Title</h5>
+                        </div>
+                    }
+                </div>
 
-            <p class="truncate">
-                @Html.Raw(Model.ListingCurrent.Description)
-            </p>
-            <p>
-                <span class="score @Model.ListingCurrent.RatingClass text-sm"></span> @Model.ListingCurrent.ListingReviews.Count [[[Reviews]]]
-            </p>
-        </a>
+            </div>
+        </div>
     </div>
-    <div class="card-action">
-        <a href="@Url.Action("Listing", "Listing", new { id = Model.ListingCurrent.ID })"><i class="fa fa-map-marker"></i> @Model.ListingCurrent.LocationRef.Name - @Model.ListingCurrent.LocationRef.Description - @Model.ListingCurrent.Location</a>
+
+    <div class="card-body">
+        <div class="align-content-center">
+            <a href="@Url.Action("RedirectListingDetails", "Home", new { area="" , listingId = Model.ListingCurrent.ID, ownerUserType = @Model.ListingCurrent.OwnerUserType })">
+                <img class="card-img-top" alt="@Model.ListingCurrent.Title" src="@Model.UrlPicture">
+            </a>            
+
+            @*<div class="card-action">
+            <a href="@Url.Action("Listing", "Listing", new { id = Model.ListingCurrent.ID })"><i class="fa fa-map-marker"></i> @Model.ListingCurrent.LocationRef.Name - @Model.ListingCurrent.LocationRef.Description - @Model.ListingCurrent.Location</a>
+             </div>*@
+        </div>
+        <div>
+            <a href="@Url.Action("@strAction", "@strControlleur", new { area="@strArea" ,  id = Model.ListingCurrent.ID })">
+                <img class="user-thumb pull-right" src="@BeYourMarket.Web.Utilities.ImageHelper.GetUserProfileImagePath(Model.ListingCurrent.UserID)" />
+            </a>
+
+            <a href="@Url.Action("@strAction", "@strControlleur", new { area="@strArea" ,  id = Model.ListingCurrent.ID })">
+                <h5 class="card-title mt-3">@Model.ListingCurrent.Title</h5>
+
+                <p class="truncate">
+                    @Html.Raw(Model.ListingCurrent.Description)
+                </p>
+                <p>
+                    <span class="score @Model.ListingCurrent.RatingClass text-sm"></span> @Model.ListingCurrent.ListingReviews.Count [[[Reviews]]]
+                </p>
+            </a>
+        </div>
     </div>
+
 </div>
+
+

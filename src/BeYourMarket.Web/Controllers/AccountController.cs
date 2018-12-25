@@ -36,6 +36,9 @@ namespace BeYourMarket.Web.Controllers
         private readonly IAspNetUserCategoriesService _userCategoriesService;
         private readonly IAspNetUserImgFileService _aspNetUserImgFileService;
         private readonly IPictureService _pictureService;
+
+        private IUsersAddInfoService _usersAddInfoService;
+
         private readonly IUnitOfWorkAsync _unitOfWorkAsync;
         #endregion
 
@@ -82,7 +85,8 @@ namespace BeYourMarket.Web.Controllers
                                 IEmailTemplateService emailTemplateService, 
                                 IAspNetUserCategoriesService UserCategoriesService,
                                 IAspNetUserImgFileService AspNetUserImgFileService,
-                                IPictureService pictureService
+                                IPictureService pictureService,
+                                IUsersAddInfoService UsersAddInfoService
                                 )
         {
             _unitOfWorkAsync = unitOfWorkAsync;
@@ -90,7 +94,9 @@ namespace BeYourMarket.Web.Controllers
             _userCategoriesService = UserCategoriesService;
             _aspNetUserImgFileService = AspNetUserImgFileService;
             _pictureService = pictureService;
-        }
+
+            _usersAddInfoService = UsersAddInfoService;
+    }
         #endregion
 
         #region Methods
@@ -250,21 +256,14 @@ namespace BeYourMarket.Web.Controllers
         {
             var user = new ApplicationUser
             {
+                Gender = model.Gender,
                 UserName = model.Email,
                 Email = model.Email,
                 FirstName = model.FirstName,
                 LastName = model.LastName,
+                PhoneNumber = model.PhoneNumber,
 
                 UserType = model.UserType,
-
-                // Specific aux Pros
-                Gender = model.Gender,
-                ProCompany = model.ProCompany,
-                ProSiret = model.ProSiret,
-                //ProCategoryID = model.ProCategoryID,
-                ProAdress = model.ProAdress,
-                ProTownZip = model.ProTownZip,
-                ProPhone = model.ProPhone,
 
                 RegisterDate = DateTime.Now,
                 RegisterIP = System.Web.HttpContext.Current.Request.GetVisitorIP(),
@@ -275,16 +274,34 @@ namespace BeYourMarket.Web.Controllers
             var result = await UserManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
-                // Creation des categories du pro et affectation au role Pro
+                // Creation des categories du pro, des infos complementaires et affectation au role Pro
                 if (model.UserType == Enum_UserType.Professional)
                 {
+                    // infos compl
+                    // Specific aux Pros  
+                    UsersAddInfo usrAddInf = new UsersAddInfo();
+                    usrAddInf.UserID = user.Id;
+                    usrAddInf.ProCompany = model.ProCompany;
+                    usrAddInf.ProSiret = model.ProSiret;
+                    usrAddInf.ProAdress = model.ProAdress;
+                    usrAddInf.ProTownZip = model.ProTownZip;
+                    usrAddInf.ProPhone = model.ProPhone;
+                    usrAddInf.ProSiteWeb = model.ProSiteWeb;
+                    usrAddInf.ProEmail = model.ProEmail;
+                    usrAddInf.LocationRefID = model.ProLocationRefID;
+                    usrAddInf.ProLatitude = model.ProLatitude;
+                    usrAddInf.ProLongitude = model.ProLongitude;
+
+                    _usersAddInfoService.Insert(usrAddInf);
+
+                    //  categories
                     List<string> idsSel = new List<string>();
                     if (model.ProCategoryIDs != null)
                         idsSel = model.ProCategoryIDs.Split(';').ToList();
 
                     foreach (string catId in idsSel)
                     {
-                        _userCategoriesService.Insert(new AspNetUserCategory()
+                        _userCategoriesService.Insert(new UserCategory()
                         {
                             AspNetUserId = user.Id,
                             CategoryID = int.Parse(catId),
@@ -332,7 +349,7 @@ namespace BeYourMarket.Web.Controllers
                                                 .Save(path);
                                 }
 
-                                var itemPicture = new AspNetUserImgFile();
+                                var itemPicture = new UserImgFile();
                                 itemPicture.AspNetUserId = user.Id;
                                 itemPicture.PictureID = picture.ID;
                                 itemPicture.Ordering = PictureLogoOrder;

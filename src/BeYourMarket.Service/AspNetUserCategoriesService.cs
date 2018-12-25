@@ -10,14 +10,14 @@ using System.Threading.Tasks;
 namespace BeYourMarket.Service
 {
 
-    public interface IAspNetUserCategoriesService : IService<AspNetUserCategory>
+    public interface IAspNetUserCategoriesService : IService<UserCategory>
     {
 
     }
 
-    public class AspNetUserCategoriesService : Service<AspNetUserCategory>, IAspNetUserCategoriesService
+    public class AspNetUserCategoriesService : Service<UserCategory>, IAspNetUserCategoriesService
     {
-        public AspNetUserCategoriesService(IRepositoryAsync<AspNetUserCategory> repository)
+        public AspNetUserCategoriesService(IRepositoryAsync<UserCategory> repository)
             : base(repository)
         {
         }

@@ -33,6 +33,9 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
+        private IAspNetUserService _aspNetUserService;
+        private IUsersAddInfoService _usersAddInfoService;
+
         private readonly IListingService _listingService;
         private readonly IListingStatService _ListingStatservice;
         private readonly IListingPictureService _listingPictureservice;
@@ -44,6 +47,7 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
 
         private readonly IPictureService _pictureService;
         private readonly IAspNetUserImgFileService _aspNetUserImgFileService;
+        private readonly IAspNetUserCategoriesService _aspNetUserCategoriesService;
 
         private readonly DataCacheService _dataCacheService;
         private readonly SqlDbService _sqlDbService;
@@ -79,9 +83,13 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
         #region Contructors
         public UserProController(
                            IUnitOfWorkAsync unitOfWorkAsync,
+                            IAspNetUserService AspNetUserService,
+                            IUsersAddInfoService UsersAddInfoService,
+                            
                            IPictureService pictureService,
                            IAspNetUserImgFileService AspNetUserImgFileService,
-                            IListingService listingService,
+                           IAspNetUserCategoriesService AspNetUserCategoriesService,
+                           IListingService listingService,
                            IListingPictureService listingPictureservice,
                            IOrderService orderService,
                            ICustomFieldService customFieldService,
@@ -95,9 +103,13 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
                            SqlDbService sqlDbService
             )
         {
+           
+            _aspNetUserService = AspNetUserService;
+            _usersAddInfoService = UsersAddInfoService;
 
             _pictureService = pictureService;
             _aspNetUserImgFileService = AspNetUserImgFileService;
+            _aspNetUserCategoriesService = AspNetUserCategoriesService;
             _listingService = listingService;
             _listingReviewService = listingReviewService;
             _pictureService = pictureService;
@@ -124,7 +136,7 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
 
             // charge les annonces du pro         
             model.ListingsSearch = await GetCurrentProListingsResult(model.UserPro.Id);
-
+        
             // test : set le datatokens pour le findview de razor pour trouver le _layout
             //if (!this.ControllerContext.RouteData.DataTokens.ContainsKey("area"))
             //    this.ControllerContext.RouteData.DataTokens.Add("area", "Pro");
@@ -132,7 +144,7 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
             return View("~/Areas/Pro/Views/UserPro/ProShop.cshtml", model);
 
         }
-   
+
         private async Task<SearchListingModel> GetCurrentProListingsResult(string userId)
         {
             var model = new SearchListingModel();
@@ -144,9 +156,9 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
 
             // Prend toutes les annonces du Pro
             // ! pour tests prends tout
-            // items = await _listingService.Query(x => x.AspNetUser.Id == model.ProUserID)
-            items =  await _listingService.Query(x => x.AspNetUser.Id != null)
-                    .Include(x => x.ListingPictures)
+            items = await _listingService.Query(x => x.AspNetUser.Id == model.ProUserID)
+                   //items = await _listingService.Query(x => x.AspNetUser.Id != null)
+                   .Include(x => x.ListingPictures)
                     .Include(x => x.Category)
                     .Include(x => x.ListingType)
                     .Include(x => x.AspNetUser)
@@ -199,11 +211,11 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        
+
         public async Task<ActionResult> ProIdentityUpdate(int? id)
         {
             var model = await LoadUserProInfosAndLogo();
-                   
+
             return View(model);
         }
 
@@ -216,30 +228,50 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
         /// <returns></returns>
         [HttpPost]
         [AllowAnonymous]
-        public async Task<ActionResult> ProIdentityUpdate(ProShopModel model, FormCollection form, IEnumerable<HttpPostedFileBase> files)
+        public ActionResult ProIdentityUpdate(ProShopModel model, FormCollection form, IEnumerable<HttpPostedFileBase> files)
         {
-
-            var userId = User.Identity.GetUserId();
-            var user = await UserManager.FindByIdAsync(userId);
-            model.UserPro.Id = user.Id;
-
+             var userId = User.Identity.GetUserId();
+            //var user = await UserManager.FindByIdAsync(userId);
+            model.UserPro.Id = userId;
+            
             try
             {
+                // Met a jour les infos additionel de l user pro
+                UsersAddInfo addInf = new UsersAddInfo();
+                addInf.ProCompany = form["UserAddInf.ProCompany"];
+                addInf.ProSiret = form["UserAddInf.ProSiret"];
+                addInf.ProAdress = form["UserAddInf.ProAdress"];
+                addInf.ProTownZip = form["UserAddInf.ProTownZip"];
+                addInf.ProPhone = form["UserAddInf.ProPhone"];
+                addInf.ProSiteWeb = form["UserAddInf.ProSiteWeb"];
+                addInf.ProEmail = form["UserAddInf.ProEmail"];
 
-            // met a jour en base lee champs modifiablle du profil (voir pour le pwd)
-            var result = UpdateProApplicationUser(model.UserPro);
+                if ( ! string.IsNullOrEmpty(form["Latitude"]))
+                    addInf.ProLatitude = Double.Parse(form["Latitude"].Replace(',', '.'), CultureInfo.InvariantCulture); ;
+                if (!string.IsNullOrEmpty(form["Longitude"]))
+                    addInf.ProLongitude = Double.Parse(form["Longitude"].Replace(',', '.'), CultureInfo.InvariantCulture);
+                int locRefID = 0;
+                if (int.TryParse(form["LocationRefID"], out locRefID))
+                    addInf.LocationRefID = locRefID;
 
-            // met a jour le logo ,  Charge le logo
-            var pictures = _aspNetUserImgFileService.Query(x => x.AspNetUserId == userId).Select();
-            var picturesModel = pictures.Select(x =>
-                new PictureModel()
-                {
-                    ID = x.PictureID,
-                    Url = ImageHelper.GetUserPrologoImagePath(x.PictureID),
-                    Ordering = x.Ordering
-                }).OrderBy(x => x.Ordering).ToList();
+                // met a jour en base le champs modifiablle du profil (voir pour le pwd)
+                UpdateProApplicationUser(model.UserPro, addInf);
 
-            model.Pictures = await checkAndsaveLogo(picturesModel, files);
+                // met a jour les categories
+                UpdateUserCategories(userId,model.CategoryIDs);
+
+
+                // met a jour le logo ,  Charge le logo
+                var pictures = _aspNetUserImgFileService.Query(x => x.AspNetUserId == userId).Select();
+                var picturesModel = pictures.Select(x =>
+                    new PictureModel()
+                    {
+                        ID = x.PictureID,
+                        Url = ImageHelper.GetUserPrologoImagePath(x.PictureID),
+                        Ordering = x.Ordering
+                    }).OrderBy(x => x.Ordering).ToList();
+
+                model.Pictures = checkAndsaveLogo(picturesModel, files);
             }
             catch (Exception ex)
             {
@@ -249,11 +281,9 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
 
 
             return RedirectToAction("ProIdentity", "UserPro");
-            //return View(model);
-
         }
 
-        // chzrge l App User de Identity et le logo
+        // charge l App User de Identity et le logo
         public async Task<ProShopModel> LoadUserProInfosAndLogo()
         {
             var userInfos = new ProShopModel();
@@ -265,6 +295,9 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
             // valeur par defaut , sinon la vue pete en cas de pb d enregistrement
             if (string.IsNullOrEmpty(userInfos.UserPro.Gender))
                 userInfos.UserPro.Gender = "M";
+
+            // donnee additionel du Pro
+            userInfos.UserAddInf = GetUserAdditionalInfos(userId);
 
             // Charge le logo
             var pictures = _aspNetUserImgFileService.Query(x => x.AspNetUserId == userId).Select();
@@ -279,56 +312,204 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
             // si pas de logo defini, insere au moins 1 image pour l affichage 
             userInfos.Pictures = picturesModel;
             if (userInfos.Pictures.Count == 0)
-                userInfos.Pictures.Add(new PictureModel(){
+                userInfos.Pictures.Add(new PictureModel() {
                     ID = 0,
                     Url = ImageHelper.GetUserPrologoImagePath(0),
-                    Ordering = 0 
+                    Ordering = 0
                 });
+
+            // Ajoute les categories de la société ( texte, separe par ","  pour affichages, les ids sont dans table  )
+            CategResult categs = getMainCategoriesText(userId); ;
+            userInfos.CategoriesText = categs.listNames;
+            userInfos.CategoryIDs = categs.listIds;
 
             return userInfos;
 
         }
 
-        public async Task<IdentityResult> UpdateProApplicationUser(ApplicationUser user)
+        /// <summary>
+        /// Recupere les infos additionelle concernant le Pro
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        private UsersAddInfo GetUserAdditionalInfos(string userId)
+        {
+            UsersAddInfo addInf = new UsersAddInfo();
+            addInf = _usersAddInfoService.Query(x => x.UserID == userId)
+                .Include(x => x.LocationRef)
+                .Select().FirstOrDefault();
+
+            return addInf;
+        }
+
+        /// <summary>
+        /// struct pour transmettre le resultat
+        /// </summary>
+        public struct CategResult
+        {
+            public string listNames;
+            public string listIds;
+
+            public CategResult (string names , string ids)
+            {
+                listNames = names;
+                listIds = ids;
+
+            }
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public CategResult getMainCategoriesText(string userId)
+        {
+            string res = string.Empty;
+            string categsId = string.Empty;
+            List<string> categsTxt;
+            CategResult Procategs = new CategResult(string.Empty, string.Empty) ;
+
+            var userCategs = _aspNetUserCategoriesService.Query(x => x.AspNetUserId == userId)
+                 .Include(c => c.Category)
+                 .Select()
+                 .OrderBy(y => y.CategoryID) ;
+           
+            if (userCategs != null)
+            {
+                // concat les noms
+                categsTxt = userCategs.Select(x => x.Category.Name).ToList();
+                Procategs.listNames = String.Join(", ", categsTxt.ToArray());
+
+                //concat les ids categsId, sauf les id de parent sinon jsTree select tout les enfants (meme ceux decoché)                
+                var query = userCategs.Where(x => x.Category.Parent != 0).ToList() ;
+                categsTxt = query.Select(x => x.Category.ID.ToString()).ToList();
+
+               // categsTxt = userCategs.Select(x => x.Category.ID.ToString()).ToList();
+                Procategs.listIds = String.Join(";", categsTxt.ToArray());
+            }
+            return Procategs;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="categoryIDs"></param>
+        private void UpdateUserCategories(string userId, string categoryIDs)
+        {
+            var vals = _aspNetUserCategoriesService.Query(x => x.AspNetUserId == userId).Select();
+            try
+            {
+
+                List<string> oldCategs = new List<string>(vals.Select(x => x.CategoryID.ToString()));
+                List<string> newCategs = categoryIDs.Split(new char[] { ';' }).OrderBy(x => int.Parse(x)).ToList() ;
+
+                // efface ceux qui ont été enlevé
+                foreach (string id in oldCategs)
+                    if (!newCategs.Contains(id))
+                    {
+                        //var toDel = _aspNetUserCategoriesService.Query(x => x.AspNetUserId == userId && x.CategoryID == int.Parse(id)).Select();
+                        _aspNetUserCategoriesService.DeleteAsync(userId, int.Parse(id));
+                    }
+
+                // ajoute les parents manquants, car jstree ne les mets pas en cas multiselect et qu'on decoche 1 ou plusieurs
+                List<string> parsToAdd = new List<string>();
+                foreach (string id in newCategs)
+                {
+                    var el = CacheHelper.Categories.Where(x => x.ID == int.Parse(id)).FirstOrDefault();
+                    // ajoute le parents des enfants, attention ne pas traité un parent deja dans la liste
+                    if (el.Parent!= 0 && !parsToAdd.Contains(el.Parent.ToString()) && !newCategs.Contains(el.Parent.ToString()) )
+                         parsToAdd.Add(el.Parent.ToString());
+                }
+                if (parsToAdd.Count() > 0)
+                    newCategs.InsertRange(0, parsToAdd);
+
+                // cré ceux qui n existe pas
+                foreach (string id in newCategs)
+                    if (!oldCategs.Contains(id))
+                    {
+                        _aspNetUserCategoriesService.Insert(new UserCategory()
+                        {
+                            ObjectState = Repository.Pattern.Infrastructure.ObjectState.Added,
+                            AspNetUserId = userId,
+                            CategoryID = int.Parse(id)
+                        });
+                    }
+
+                // enregistre en base
+                int res = _unitOfWorkAsync.SaveChanges();
+            }
+            catch(Exception ex)
+            {
+                throw;
+            }
+
+        }
+
+        public void UpdateProApplicationUser(ApplicationUser user, UsersAddInfo addInf)
         {
             // Create user if there is no user id
-            var existingUser = await UserManager.FindByIdAsync(user.Id);
+            //ApplicationUser existingUser = UserManager.FindById(user.Id);
 
+            var existingUserObj = _aspNetUserService.Query(x => x.Id == user.Id);
+            var existingUser = existingUserObj.Select().FirstOrDefault();
             if (existingUser != null)
-            {
+            {                
+                existingUser.ObjectState = Repository.Pattern.Infrastructure.ObjectState.Modified;
                 existingUser.PhoneNumber = user.PhoneNumber;
                 existingUser.FirstName = user.FirstName;
                 existingUser.LastName = user.LastName;
                 existingUser.Gender = user.Gender;
 
-                existingUser.ProCompany = user.ProCompany;
-                existingUser.ProSiret = user.ProSiret;
-                existingUser.ProAdress = user.ProAdress;
-                existingUser.ProTownZip = user.ProTownZip;
-                existingUser.ProPhone = user.ProPhone;
-                existingUser.Email = user.Email;
-                existingUser.ProSiteWeb = user.ProSiteWeb;
-
                 existingUser.LastAccessDate = DateTime.Now;
                 existingUser.LastAccessIP = System.Web.HttpContext.Current.Request.GetVisitorIP();
-
             }
 
             try
             {
-                 UserManager.Update(existingUser);
-                await _unitOfWorkAsync.SaveChangesAsync();
+                _aspNetUserService.Update(existingUser);
+                //UserManager.UpdateAsync(existingUser);
+                // SAUVEGARDE
+                //_unitOfWorkAsync.SaveChanges();
+
+
+                var currAddInf = _usersAddInfoService.Query(x => x.UserID == user.Id)
+                    .Include(x=> x.LocationRef).Select().FirstOrDefault();
+                if (currAddInf == null)  // normallement n arrive pas : on defini toujours des users infos au register
+                    _usersAddInfoService.Insert(addInf);
+                else
+                {                  
+                    currAddInf.ProCompany = addInf.ProCompany;
+                    currAddInf.ProSiret = addInf.ProSiret;
+                    currAddInf.ProAdress = addInf.ProAdress;
+                    currAddInf.ProTownZip = addInf.ProTownZip;
+                    currAddInf.ProPhone = addInf.ProPhone;
+                    currAddInf.ProSiteWeb = addInf.ProSiteWeb;
+                    currAddInf.ProEmail = addInf.ProEmail;
+
+                    currAddInf.ProLatitude = addInf.ProLatitude;
+                    currAddInf.ProLongitude = addInf.ProLongitude ;
+
+                    currAddInf.LocationRefID = addInf.LocationRefID;
+
+                    _usersAddInfoService.Update(currAddInf);
+                }
+
+                // SAUVEGARDE
+                _unitOfWorkAsync.SaveChanges();
+
             }
             catch (Exception ex)
             {
 
                 throw;
             }
-            return new IdentityResult();
-
+    
         }
 
-        private async Task<List<PictureModel>> checkAndsaveLogo(List<PictureModel> oldPiclogos, IEnumerable<HttpPostedFileBase> NewFileLogos)
+        private  List<PictureModel> checkAndsaveLogo(List<PictureModel> oldPiclogos, IEnumerable<HttpPostedFileBase> NewFileLogos)
         {
             var userId = User.Identity.GetUserId();
             List<PictureModel> logos = new List<PictureModel>();
@@ -343,7 +524,7 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
                     {
                         // efface l ancien logo, le fichier et l association en base
                         if (oldPiclogos.Count > 0)
-                            await deleteProLogo(oldPiclogos.First().ID);
+                             deleteProLogo(oldPiclogos.First().ID);
 
                         // Picture picture and get id
                         picture = new Picture();
@@ -353,7 +534,7 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
                         picture.MimeType = mimeType;
 
                         _pictureService.Insert(picture);
-                        await _unitOfWorkAsync.SaveChangesAsync();
+                         _unitOfWorkAsync.SaveChangesAsync();
 
                         // Format is automatically detected though can be changed.
                         ISupportedImageFormat format = new JpegFormat { Quality = 90 };
@@ -372,13 +553,13 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
                                         .Save(path);
                         }
 
-                        var itemPicture = new AspNetUserImgFile();
+                        var itemPicture = new UserImgFile();
                         itemPicture.AspNetUserId = userId;
                         itemPicture.PictureID = picture.ID;
                         itemPicture.Ordering = PictureLogoOrder;
 
                         _aspNetUserImgFileService.Insert(itemPicture);
-                        await _unitOfWorkAsync.SaveChangesAsync();
+                         _unitOfWorkAsync.SaveChangesAsync();
                     }
                 }
             }
@@ -397,7 +578,7 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
 
         }
         
-        public async Task<ActionResult> deleteProLogo(int id)
+        public ActionResult deleteProLogo(int id)
         {
             try
             {
@@ -407,9 +588,9 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
                 var itemPicture = _aspNetUserImgFileService.Query(x => x.PictureID == id).Select().FirstOrDefault();
 
                 if (itemPicture != null)
-                    await _aspNetUserImgFileService.DeleteAsync(itemPicture.AspNetUserId, itemPicture.PictureID);
+                     _aspNetUserImgFileService.DeleteAsync(itemPicture.AspNetUserId, itemPicture.PictureID);
 
-                await _unitOfWorkAsync.SaveChangesAsync();
+                 _unitOfWorkAsync.SaveChangesAsync();
 
                 var path = Path.Combine(Server.MapPath("~/Images/Profile/Prologos"), string.Format("{0}.{1}", id.ToString("00000000"), "jpg"));
 
@@ -425,8 +606,7 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
             }
         }
 
-        [AllowAnonymous]
-        public async Task<ActionResult> GetProListingInfos(int id)
+        public async Task<ActionResult> ProListingView(int id)
         {
             var itemQuery = await _listingService.Query(x => x.ID == id)
                 .Include(x => x.Category)
@@ -506,7 +686,104 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
 
             await _unitOfWorkAsync.SaveChangesAsync();
 
-            return View("~/Views/Listing/Listing.cshtml", itemModel);
+            // charge les annonces du pro        
+            ProListingViewModel modelLst = new ProListingViewModel();
+            modelLst.ListingItem = itemModel;
+            modelLst.ListingsSearch = await GetCurrentProListingsResult(itemModel.User.Id);            
+
+            return View(modelLst);
+            //return View("~/Views/Listing/Listing.cshtml", itemModel);
+        }
+
+        public async Task<ActionResult> ProListingView_old(int? id)
+        {
+
+            if (CacheHelper.Categories.Count == 0)
+            {
+                TempData[TempDataKeys.UserMessageAlertState] = "bg-danger";
+                TempData[TempDataKeys.UserMessage] = "[[[There are not categories available yet.]]]";
+            }
+
+            Listing listing;
+
+            var userId = User.Identity.GetUserId();
+            var user = await UserManager.FindByIdAsync(userId);
+
+            var model = new ListingUpdateModel()
+            {
+                Categories = CacheHelper.Categories
+            };
+
+            // ASY : a voir fait 2 fois
+            model.LocationsRef = CacheHelper.LocationsRef;
+
+            if (id.HasValue)
+            {
+                // return unauthorized if not authenticated
+                if (!User.Identity.IsAuthenticated)
+                    return new HttpUnauthorizedResult();
+
+                if (await NotMeListing(id.Value))
+                    return new HttpUnauthorizedResult();
+
+                listing = await _listingService.FindAsync(id);
+
+                if (listing == null)
+                    return new HttpNotFoundResult();
+
+                // Pictures TODOOOOOOOOOOOOOOOOOOOOOOOOOO
+                var pictures = await _listingPictureservice.Query(x => x.ListingID == id).SelectAsync();
+
+                var picturesModel = pictures.Select(x =>
+                    new PictureModel()
+                    {
+                        ID = x.PictureID,
+                        Url = ImageHelper.GetListingImagePath(x.PictureID),
+                        ListingID = x.ListingID,
+                        Ordering = x.Ordering
+                    }).OrderBy(x => x.Ordering).ToList();
+
+                model.Pictures = picturesModel;
+            }
+            else
+            {
+                listing = new Listing()
+                {
+                    CategoryID = CacheHelper.Categories.Any() ? CacheHelper.Categories.FirstOrDefault().ID : 0,
+                    LocationRefID = CacheHelper.LocationsRef.Any() ? CacheHelper.LocationsRef.FirstOrDefault().ID : 0,
+                    Created = new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day),
+                    LastUpdated = new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day),
+                    Expiration = new DateTime(DateTime.Now.Date.Year + 50, DateTime.Now.Date.Month, DateTime.Now.Date.Day),
+                    Enabled = true,
+                    Active = true,
+                };
+
+                if (User.Identity.IsAuthenticated)
+                {
+                    listing.ContactEmail = user.Email;
+                    listing.ContactName = string.Format("{0} {1}", user.FirstName, user.LastName);
+                    listing.ContactPhone = user.PhoneNumber;
+                    listing.OwnerUserType = Enum_UserType.Professional;
+                }
+            }
+
+            // charge les donnée du Pro
+            ProShopModel modelPro = await LoadUserProInfosAndLogo();
+
+            // AS : populate loc ref et Latitude et longitude avec celles du Pro
+            listing.Latitude = modelPro.UserAddInf.ProLatitude;
+            listing.Longitude = modelPro.UserAddInf.ProLongitude;
+            listing.LocationRefID = modelPro.UserAddInf.LocationRefID;
+            listing.LocationRef = CacheHelper.LocationsRef.Where(m => m.ID == listing.LocationRefID).FirstOrDefault();
+
+            listing.UserID = User.Identity.GetUserId();
+
+            // Populate model with listing
+            await PopulateListingUpdateModel(listing, model);
+
+            modelPro.currListing = model;
+
+            return View();
         }
 
         public async Task<ActionResult> ProListingUpdate(int? id)
@@ -544,7 +821,7 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
                 if (listing == null)
                     return new HttpNotFoundResult();
 
-                // Pictures
+                // Pictures TODOOOOOOOOOOOOOOOOOOOOOOOOOO
                 var pictures = await _listingPictureservice.Query(x => x.ListingID == id).SelectAsync();
 
                 var picturesModel = pictures.Select(x =>
@@ -576,23 +853,30 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
                     listing.ContactEmail = user.Email;
                     listing.ContactName = string.Format("{0} {1}", user.FirstName, user.LastName);
                     listing.ContactPhone = user.PhoneNumber;
+                    listing.OwnerUserType = Enum_UserType.Professional;
                 }
             }
 
-            // AS : populate loc ref
+            // charge les donnée du Pro
+            ProShopModel modelPro = await LoadUserProInfosAndLogo();
+
+            // AS : populate loc ref et Latitude et longitude avec celles du Pro
+            listing.Latitude = modelPro.UserAddInf.ProLatitude;
+            listing.Longitude = modelPro.UserAddInf.ProLongitude;
+            listing.LocationRefID = modelPro.UserAddInf.LocationRefID;
             listing.LocationRef = CacheHelper.LocationsRef.Where(m => m.ID == listing.LocationRefID).FirstOrDefault();
+
+            listing.UserID = User.Identity.GetUserId();
 
             // Populate model with listing
             await PopulateListingUpdateModel(listing, model);
 
-            //return View("~/Views/Listing/ListingUpdate.cshtml", model);
+            modelPro.currListing = model;
 
-
-            return View();
+            return View(modelPro);
         }
 
         [HttpPost]
-        [AllowAnonymous]
         public async Task<ActionResult> ProListingUpdate(Listing listing, FormCollection form, IEnumerable<HttpPostedFileBase> files)
         {
             if (CacheHelper.Categories.Count == 0)
@@ -678,8 +962,8 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
             }
 
             // ASY : set la lat lng, en insert ou en update depuis la collection form
-            listing.Latitude = Double.Parse(form["Latitude"].Replace(',', '.'), CultureInfo.InvariantCulture); ;
-            listing.Longitude = Double.Parse(form["Longitude"].Replace(',', '.'), CultureInfo.InvariantCulture);
+            //listing.Latitude = Double.Parse(form["Latitude"].Replace(',', '.'), CultureInfo.InvariantCulture); ;
+            //listing.Longitude = Double.Parse(form["Longitude"].Replace(',', '.'), CultureInfo.InvariantCulture);
 
             if (listing.ID == 0)
             {
@@ -691,8 +975,13 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
                 listing.Currency = CacheHelper.Settings.Currency;
                 listing.Created = DateTime.Now;
 
-                // AS : populate loc ref
+                // AS : populate loc ref et Latitude et longitude avec celles du Pro
+                //listing.Latitude = modelPro.UserAddInf.ProLatitude;
+                //listing.Longitude = modelPro.UserAddInf.ProLongitude;
+                //listing.LocationRefID = modelPro.UserAddInf.LocationRefID;
                 listing.LocationRef = CacheHelper.LocationsRef.Where(m => m.ID == listing.LocationRefID).FirstOrDefault();
+
+                listing.OwnerUserType = Enum_UserType.Professional;
 
                 updateCount = true;
                 _listingService.Insert(listing);
@@ -712,6 +1001,7 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
                 listingExisting.ContactEmail = listing.ContactEmail;
                 listingExisting.ContactName = listing.ContactName;
                 listingExisting.ContactPhone = listing.ContactPhone;
+                listingExisting.OwnerUserType = listing.OwnerUserType;
 
                 listingExisting.Latitude = listing.Latitude;
                 listingExisting.Longitude = listing.Longitude;
@@ -828,7 +1118,8 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
             }
 
             TempData[TempDataKeys.UserMessage] = "[[[Listing is updated!]]]";
-            return RedirectToAction("Listing", new { id = listing.ID });
+            return RedirectToAction("Index", new { area= "Pro" });
+            //return RedirectToAction("Listing", new { id = listing.ID });
         }
 
         private async Task<ListingUpdateModel> PopulateListingUpdateModel(Listing listing, ListingUpdateModel model)

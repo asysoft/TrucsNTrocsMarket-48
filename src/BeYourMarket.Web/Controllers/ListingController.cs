@@ -246,6 +246,7 @@ namespace BeYourMarket.Web.Controllers
                     listing.ContactEmail = user.Email;
                     listing.ContactName = string.Format("{0} {1}", user.FirstName, user.LastName);
                     listing.ContactPhone = user.PhoneNumber;
+                    listing.OwnerUserType = Enum_UserType.Normal;                    
                 }
             }
 
@@ -501,6 +502,7 @@ namespace BeYourMarket.Web.Controllers
                 listingExisting.ContactEmail = listing.ContactEmail;
                 listingExisting.ContactName = listing.ContactName;
                 listingExisting.ContactPhone = listing.ContactPhone;
+                listingExisting.OwnerUserType = listing.OwnerUserType;
 
                 listingExisting.Latitude = listing.Latitude;
                 listingExisting.Longitude = listing.Longitude;

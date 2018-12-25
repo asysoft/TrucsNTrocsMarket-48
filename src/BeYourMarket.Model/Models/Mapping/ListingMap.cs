@@ -54,6 +54,8 @@ namespace BeYourMarket.Model.Models.Mapping
             this.Property(t => t.ContactName).HasColumnName("ContactName");
             this.Property(t => t.ContactEmail).HasColumnName("ContactEmail");
             this.Property(t => t.ContactPhone).HasColumnName("ContactPhone");
+            this.Property(t => t.OwnerUserType).HasColumnName("OwnerUserType");
+            
             this.Property(t => t.ShowPhone).HasColumnName("ShowPhone");
             this.Property(t => t.Active).HasColumnName("Active");
             this.Property(t => t.Enabled).HasColumnName("Enabled");

@@ -6,7 +6,7 @@
     var userId = User.Identity.GetUserId();
     var messages = MessageHelper.GetUnReadMessages(userId);
 
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-nav ml-auto p-2" }))
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-nav ml-auto p-2", area="" }))
     {
         @Html.AntiForgeryToken()
 <ul class="nav navbar-nav top-menu ">
@@ -69,7 +69,7 @@
                 <li><a target="_blank" href="@Url.Action("Index", "Manage", new {Area ="Admin" })">[[[Admin Panel]]]</a></li>
                 <li class="divider"></li>
             }
-            <li><a href="javascript:document.getElementById('logoutForm').submit()">[[[Log off]]]</a></li>
+            <li><a href="javascript:document.getElementById(' ').submit()">[[[Log off]]]</a></li>
         </ul>
     </li>
 

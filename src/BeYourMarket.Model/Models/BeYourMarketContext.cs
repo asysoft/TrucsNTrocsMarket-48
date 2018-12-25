@@ -58,11 +58,11 @@ namespace BeYourMarket.Model.Models
         public DbSet<StripeTransaction> StripeTransactions { get; set; }
         public DbSet<LocationRef> LocationsRef { get; set; }
 
-        public DbSet<AspNetUserCategory> AspNetUserCategories { get; set; }
-        public DbSet<AspNetUserImgFile> AspNetUserImgFiles { get; set; }
+        public DbSet<UserCategory> UserCategories { get; set; }
+        public DbSet<UserImgFile> UserImgFiles { get; set; }       
+        public DbSet<UsersAddInfo> UsersAddInfos { get; set; }
 
         public DbSet<PrepaidCard> PrepaidCards { get; set; }
-        
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -97,8 +97,9 @@ namespace BeYourMarket.Model.Models
             modelBuilder.Configurations.Add(new StripeTransactionMap());
             modelBuilder.Configurations.Add(new LocationRefMap());
 
-            modelBuilder.Configurations.Add(new AspNetUserCategoryMap()); 
-            modelBuilder.Configurations.Add(new AspNetUserImgFileMap());
+            modelBuilder.Configurations.Add(new UserCategoryMap()); 
+            modelBuilder.Configurations.Add(new UserImgFileMap());         
+            modelBuilder.Configurations.Add(new UsersAddInfoMap());
 
             modelBuilder.Configurations.Add(new PrepaidCardMap());
         }

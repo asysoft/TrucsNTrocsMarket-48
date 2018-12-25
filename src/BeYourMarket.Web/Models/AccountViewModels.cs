@@ -94,6 +94,9 @@ namespace BeYourMarket.Web.Models
         [Display(Name = "[[[Last Name]]]")]
         public string LastName { get; set; }
 
+        [Display(Name = "[[[Phone Number]]")]
+        public string PhoneNumber { get; set; }
+
         // Permet de savoir le type de compte a a creation ( par defaut : normal, sinon Pro)
         public Enum_UserType UserType { get; set; }
 
@@ -117,6 +120,21 @@ namespace BeYourMarket.Web.Models
 
         // liste des categ du pro separe  par un; 
         public string ProCategoryIDs { get; set; }
+
+        [Display(Name = "[[[Company Web Site]]")]
+        public string ProSiteWeb { get; set; }
+
+        [Display(Name = "[[[Company Email]]")]
+        public string ProEmail { get; set; }
+
+        [Display(Name = "[[[Location ID]]")]
+        public int ProLocationRefID { get; set; }
+
+        [Display(Name = "[[[Latitude]]")]
+        public double? ProLatitude { get; set; }
+
+        [Display(Name = "[[[Longitude]]")]
+        public double? ProLongitude { get; set; }
 
         // pour les Pro Uniquement, logo en indice 0 et autres ( pubs ? best of products ?...)
         public IEnumerable<HttpPostedFileBase> ImgFiles { get; set; }

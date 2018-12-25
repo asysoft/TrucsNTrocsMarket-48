@@ -22,11 +22,13 @@ namespace BeYourMarket.Model.Models
             this.ListingReviewsUserTo = new List<ListingReview>();
             this.AspNetRoles = new List<AspNetRole>();
 
-            this.AspNetUserCategories = new List<AspNetUserCategory>();
-            this.AspNetUserImgFiles = new List<AspNetUserImgFile>();
+            this.AspNetUserCategories = new List<UserCategory>();
+            this.AspNetUserImgFiles = new List<UserImgFile>();
 
-            // Valeur parr defaut en base
-            UserType =0;
+            this.UsersAddInfos = new HashSet<UsersAddInfo>();
+ 
+        // Valeur parr defaut en base
+        UserType =0;
         }
 
         public string Id { get; set; }
@@ -59,13 +61,6 @@ namespace BeYourMarket.Model.Models
         [DefaultValue(0)]
         public int UserType { get; set; }
 
-        public string ProCompany { get; set; }
-        public string ProSiret { get; set; }
-        public string ProAdress { get; set; }
-        public string ProTownZip { get; set; }
-        public string ProPhone { get; set; }
-        public string ProSiteWeb { get; set; }
-        
         public virtual ICollection<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual ICollection<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual ICollection<Listing> Listings { get; set; }
@@ -79,8 +74,10 @@ namespace BeYourMarket.Model.Models
         public virtual ICollection<AspNetRole> AspNetRoles { get; set; }
 
         // pour les pro : relation avec la (ou les?) categ du pro
-        public virtual ICollection<AspNetUserCategory> AspNetUserCategories { get; set; }
-        public virtual ICollection<AspNetUserImgFile> AspNetUserImgFiles { get; set; }
-        
+        public virtual ICollection<UserCategory> AspNetUserCategories { get; set; }
+        public virtual ICollection<UserImgFile> AspNetUserImgFiles { get; set; }
+
+        public virtual ICollection<UsersAddInfo> UsersAddInfos { get; set; }       
+
     }
 }

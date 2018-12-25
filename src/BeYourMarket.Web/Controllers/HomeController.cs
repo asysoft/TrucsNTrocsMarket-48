@@ -13,6 +13,7 @@ using PagedList;
 using BeYourMarket.Web.Models.Grids;
 using i18n;
 using i18n.Helpers;
+using BeYourMarket.Model.Enum;
 
 namespace BeYourMarket.Web.Controllers
 {
@@ -313,6 +314,15 @@ namespace BeYourMarket.Web.Controllers
             return View("_NavigationSide", model);
         }
 
+        public ActionResult RedirectListingDetails(int listingId, Enum_UserType ownerUserType)
+        {
+            if (ownerUserType == Enum_UserType.Professional)
+                return RedirectToAction("ProListingView", "UserPro", new { area= "Pro", id= listingId });
+            else
+                return RedirectToAction("Listing", "Listing", new { area = "", id = listingId });
+
+        }
+            
         [ChildActionOnly]
         public ActionResult LanguageSelector()
         {
@@ -377,16 +387,16 @@ namespace BeYourMarket.Web.Controllers
         }
         #endregion
 
-        public ActionResult TreeView()
-        {
-            //var db = new context();
-            var rootId = 0;
-            var locationsRef = CacheHelper.LocationsRef.ToList();
+        //public ActionResult TreeView()
+        //{
+        //    //var db = new context();
+        //    var rootId = 0;
+        //    var locationsRef = CacheHelper.LocationsRef.ToList();
 
-            var locationsRefTree = locationsRef.OrderBy(x => x.Parent).ThenBy(x => x.Ordering).ToList().GenerateTree(x => x.ID, x => x.Parent, rootId);
+        //    var locationsRefTree = locationsRef.OrderBy(x => x.Parent).ThenBy(x => x.Ordering).ToList().GenerateTree(x => x.ID, x => x.Parent, rootId);
 
-            return View(locationsRefTree.ToList());
-        }
+        //    return View(locationsRefTree.ToList());
+        //}
 
     }
 }

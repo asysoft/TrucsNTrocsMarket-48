@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace BeYourMarket.Model.Models
 {
-    public partial class AspNetUserCategory : Repository.Pattern.Ef6.Entity
+    public partial class UserImgFile : Repository.Pattern.Ef6.Entity
     {
+
         [Key]
         [Column(Order = 0)]
         [ForeignKey("AspNetUser")]
@@ -17,11 +18,12 @@ namespace BeYourMarket.Model.Models
 
         [Key]
         [Column(Order = 1)]
-        [ForeignKey("Category")]
-        public int CategoryID { get; set; }
+        [ForeignKey("Picture")]
+        public int PictureID { get; set; }
+
+        public int Ordering { get; set; }
 
         public virtual AspNetUser AspNetUser { get; set; }
-        public virtual Category Category { get; set; }
+        public virtual Picture Picture { get; set; }
     }
-
 }

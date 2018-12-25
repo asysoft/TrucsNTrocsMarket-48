@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 namespace BeYourMarket.Service
 {
 
-    public interface IAspNetUserImgFileService : IService<AspNetUserImgFile>
+    public interface IAspNetUserImgFileService : IService<UserImgFile>
     {
     }
 
-    public class AspNetUserImgFileService : Service<AspNetUserImgFile>, IAspNetUserImgFileService
+    public class AspNetUserImgFileService : Service<UserImgFile>, IAspNetUserImgFileService
     {
-        public AspNetUserImgFileService(IRepositoryAsync<AspNetUserImgFile> repository)
+        public AspNetUserImgFileService(IRepositoryAsync<UserImgFile> repository)
             : base(repository)
         {
         }

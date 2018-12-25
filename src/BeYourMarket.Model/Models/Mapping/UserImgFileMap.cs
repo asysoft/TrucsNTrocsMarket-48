@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 namespace BeYourMarket.Model.Models.Mapping
 {
 
-    public class AspNetUserImgFileMap : EntityTypeConfiguration<AspNetUserImgFile>
+    public class UserImgFileMap : EntityTypeConfiguration<UserImgFile>
     {
-        public AspNetUserImgFileMap()
+        public UserImgFileMap()
         {
             // Primary Key
             this.HasKey(t => new { t.AspNetUserId, t.PictureID });
 
             // Properties
             // Table & Column Mappings
-            this.ToTable("AspNetUserImgFiles");
+            this.ToTable("UserImgFiles");
             this.Property(t => t.AspNetUserId).HasColumnName("AspNetUserId");
             this.Property(t => t.PictureID).HasColumnName("PictureID");
             this.Property(t => t.Ordering).HasColumnName("Ordering");

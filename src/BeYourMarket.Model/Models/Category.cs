@@ -12,7 +12,7 @@ namespace BeYourMarket.Model.Models
             this.Listings = new List<Listing>();
             this.MetaCategories = new List<MetaCategory>();
 
-            this.AspNetUserCategories = new List<AspNetUserCategory>();
+            this.AspNetUserCategories = new List<UserCategory>();
             //this.AspNetUsers = new List<AspNetUser>();
         }
 
@@ -28,7 +28,7 @@ namespace BeYourMarket.Model.Models
         public virtual ICollection<MetaCategory> MetaCategories { get; set; }
 
         // pour les pro : relation avec la (ou les?) categ du pro
-        public virtual ICollection<AspNetUserCategory> AspNetUserCategories { get; set; }
+        public virtual ICollection<UserCategory> AspNetUserCategories { get; set; }
         //public virtual ICollection<AspNetUser> AspNetUsers { get; set; }
     }
 }

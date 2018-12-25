@@ -62,15 +62,28 @@ namespace jsTree3.Controllers
         }
 
 
-        public JsonResult GetJsTree3CategData(string id, string ids = null)
+        public JsonResult GetJsTree3CategData(string id, string ids = null, string idsProDisPlay = null)
         {
-            List<string> idsSel = new List<string>();
+
+            // le js l'appel au chargement des main view qui utilise le jstree dans des sous view
+            //if (id == null && ids == null && idsProDisPlay == null)
+            //    return Json("", JsonRequestBehavior.AllowGet);       
+
+        List<string> idsSel = new List<string>();
             if (ids != null)
                 idsSel = ids.Split(';').ToList();
             else if (id != null)
                 idsSel.Add(id);
 
             List<Category> categories = CacheHelper.Categories;
+
+            // si Pro on n'affiche que les categories du Pro, pour le listing a traiter
+            List<string> idsProCategs = null;
+            if (! string.IsNullOrEmpty(idsProDisPlay))
+            {
+                idsProCategs = new List<string>();
+                idsProCategs = idsProDisPlay.Split(';').ToList();
+            }
 
             var root = new JsTree3Node() // Create our root node and ensure it is opened
             {
@@ -119,13 +132,27 @@ namespace jsTree3.Controllers
                     
                     nodeChild.state = new State(bOpened, false, bSelected);
                     nodeChild.text = child.Name;
-                    node.children.Add(nodeChild);
+
+                    // affiche que les categ du Pro disponibles pour le listing
+                    // pour les particuliers on affiche toutes les categ
+                    if (idsProCategs == null)
+                        node.children.Add(nodeChild);
+                    else
+                        if (idsProCategs.Contains(child.ID.ToString()))
+                        node.children.Add(nodeChild);
 
                     bSelected = false;
                     bOpened = false;
                 }
 
-                children.Add(node);
+                // affiche que les categ du Pro disponibles pour le listing
+                // pour les particuliers on affiche toutes les categ
+                // ajoute le node parent s'il a des fils
+                if( idsProCategs == null )
+                    children.Add(node);
+                else
+                    if(node.children.Count > 0 ||  idsProCategs.Contains(par.ID.ToString()) )
+                        children.Add(node);
             }
 
             // Add the sturcture to the root nodes children property
