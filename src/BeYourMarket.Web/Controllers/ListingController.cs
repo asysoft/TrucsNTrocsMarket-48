@@ -22,6 +22,7 @@ using RestSharp;
 using BeYourMarket.Core.Web;
 using BeYourMarket.Service.Models;
 using Microsoft.Practices.Unity;
+using Unity;
 using BeYourMarket.Web.Extensions;
 using System.Globalization;
 

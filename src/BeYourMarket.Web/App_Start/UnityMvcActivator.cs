@@ -1,10 +1,14 @@
 using System.Linq;
 using System.Web.Mvc;
-using Microsoft.Practices.Unity.Mvc;
+using Microsoft.Practices.Unity;
 using BeYourMarket.Core;
 using System.Reflection;
 using System;
 using BeYourMarket.Core.Plugins;
+
+using Unity.ServiceLocation;
+using CommonServiceLocator;
+using Unity.Mvc5;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(BeYourMarket.Web.App_Start.UnityWebActivator), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethod(typeof(BeYourMarket.Web.App_Start.UnityWebActivator), "Shutdown")]
@@ -18,11 +22,19 @@ namespace BeYourMarket.Web.App_Start
         public static void Start()
         {
             var container = ContainerManager.GetConfiguredContainer();
-            UnityConfig.RegisterTypes(container);
+            //UnityConfig.RegisterTypes(container);
+            //ASY : unity 5
+            UnityConfig.RegisterComponents(container);                           // <----- Add this line
 
-            FilterProviders.Providers.Remove(FilterProviders.Providers.OfType<FilterAttributeFilterProvider>().First());
-            FilterProviders.Providers.Add(new UnityFilterAttributeFilterProvider(container));
+            // ASY ??? ajoute qq chose
+            UnityServiceLocator locator = new UnityServiceLocator(container);
+            ServiceLocator.SetLocatorProvider(() => locator);
 
+            // ASY : avec unity 5 mvc5 : qu est ce qu'o en fait
+            //FilterProviders.Providers.Remove(FilterProviders.Providers.OfType<FilterAttributeFilterProvider>().First());
+            //FilterProviders.Providers.Add(new UnityFilterAttributeFilterProvider(container));
+
+            //
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
 
             var assemblies = AppDomain.CurrentDomain.GetAssemblies();
@@ -45,7 +57,7 @@ namespace BeYourMarket.Web.App_Start
             }
             catch (ReflectionTypeLoadException ex)
             {
-            //  http://stackoverflow.com/questions/1091853/error-message-unable-to-load-one-or-more-of-the-requested-types-retrieve-the-l
+                //  http://stackoverflow.com/questions/1091853/error-message-unable-to-load-one-or-more-of-the-requested-types-retrieve-the-l
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
                 foreach (Exception exSub in ex.LoaderExceptions)
                 {

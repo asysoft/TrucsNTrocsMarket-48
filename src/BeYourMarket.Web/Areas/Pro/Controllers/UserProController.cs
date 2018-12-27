@@ -22,6 +22,7 @@ using Microsoft.AspNet.Identity.Owin;
 using PagedList;
 using Repository.Pattern.UnitOfWork;
 using Microsoft.Practices.Unity;
+using Unity;
 using BeYourMarket.Web.Extensions;
 
 namespace BeYourMarket.Web.Areas.Pro.Controllers

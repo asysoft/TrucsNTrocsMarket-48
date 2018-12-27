@@ -27,6 +27,7 @@ using BeYourMarket.Core.Controllers;
 using BeYourMarket.Service.Models;
 using BeYourMarket.Web.Extensions;
 using i18n;
+using Unity;
 
 namespace BeYourMarket.Web.Controllers
 {

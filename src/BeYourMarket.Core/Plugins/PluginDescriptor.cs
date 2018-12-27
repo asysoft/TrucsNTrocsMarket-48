@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Practices.Unity;
+using Unity;
 
 namespace BeYourMarket.Core.Plugins
 {

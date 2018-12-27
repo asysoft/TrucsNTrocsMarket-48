@@ -16,6 +16,8 @@ using System.Threading;
 using System.Globalization;
 using BeYourMarket.Service;
 using Microsoft.Practices.Unity;
+using Unity;
+
 
 namespace BeYourMarket.Web
 {
@@ -98,6 +100,7 @@ namespace BeYourMarket.Web
 
             if (ConnectionStringHelper.IsDatabaseInstalled())
             {
+
                 var dbContext = Core.ContainerManager.GetConfiguredContainer()
                     .Resolve<Repository.Pattern.DataContext.IDataContextAsync>() as Model.Models.BeYourMarketContext;
 

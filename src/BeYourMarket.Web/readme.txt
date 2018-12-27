@@ -1,13 +1,9 @@
-﻿To complete the installation of System.Web.Optimization.React, you need to create one or more
-bundles containing your JSX files:
+﻿Thank you for installing i18n.
 
-// In BundleConfig.cs
-bundles.Add(new BabelBundle("~/bundles/main").Include(
-    // Add your JSX files here
-    "~/Content/HelloWorld.react.jsx",
-    "~/Content/AnythingElse.react.jsx",
-    // You can include regular JavaScript files in the bundle too
-    "~/Content/ajax.js",
-));
+Please refer to the following URL for instructions on enabling i18n in your project:
 
-Please refer to http://reactjs.net/ for more details, usage examples and sample code.
+https://github.com/turquoiseowl/i18n/tree/master#project-configuration
+
+Information on this current release is available here:
+
+https://github.com/turquoiseowl/i18n/tree/master#release-history

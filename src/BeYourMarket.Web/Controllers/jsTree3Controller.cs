@@ -69,7 +69,7 @@ namespace jsTree3.Controllers
             //if (id == null && ids == null && idsProDisPlay == null)
             //    return Json("", JsonRequestBehavior.AllowGet);       
 
-        List<string> idsSel = new List<string>();
+            List<string> idsSel = new List<string>();
             if (ids != null)
                 idsSel = ids.Split(';').ToList();
             else if (id != null)
@@ -79,7 +79,7 @@ namespace jsTree3.Controllers
 
             // si Pro on n'affiche que les categories du Pro, pour le listing a traiter
             List<string> idsProCategs = null;
-            if (! string.IsNullOrEmpty(idsProDisPlay))
+            if (!string.IsNullOrEmpty(idsProDisPlay))
             {
                 idsProCategs = new List<string>();
                 idsProCategs = idsProDisPlay.Split(';').ToList();
@@ -88,7 +88,7 @@ namespace jsTree3.Controllers
             var root = new JsTree3Node() // Create our root node and ensure it is opened
             {
                 id = Guid.NewGuid().ToString(),
-                text = "[[[Categories by Groups]]]", 
+                text = "[[[Categories by Groups]]]",
                 state = new State(true, false, false)
             };
 
@@ -123,13 +123,13 @@ namespace jsTree3.Controllers
                 {
                     var nodeChild = JsTree3Node.NewNode(child.ID.ToString());
 
-                    if (bcheckAllChilds || (idsSel.Contains( child.ID.ToString() ) ) )
+                    if (bcheckAllChilds || (idsSel.Contains(child.ID.ToString())))
                     {
                         bSelected = true;
                         bOpened = true;
                         node.state.opened = true;
                     }
-                    
+
                     nodeChild.state = new State(bOpened, false, bSelected);
                     nodeChild.text = child.Name;
 
@@ -148,11 +148,11 @@ namespace jsTree3.Controllers
                 // affiche que les categ du Pro disponibles pour le listing
                 // pour les particuliers on affiche toutes les categ
                 // ajoute le node parent s'il a des fils
-                if( idsProCategs == null )
+                if (idsProCategs == null)
                     children.Add(node);
                 else
-                    if(node.children.Count > 0 ||  idsProCategs.Contains(par.ID.ToString()) )
-                        children.Add(node);
+                    if (node.children.Count > 0 || idsProCategs.Contains(par.ID.ToString()))
+                    children.Add(node);
             }
 
             // Add the sturcture to the root nodes children property
@@ -175,23 +175,23 @@ namespace jsTree3.Controllers
             var root = new JsTree3Node() // Create our root node and ensure it is opened
             {
                 id = Guid.NewGuid().ToString(),
-                text = "[[[Cities by Zones]]]",  
+                text = "[[[Cities by Zones]]]",
                 state = new State(true, false, false)
             };
-            
+
             // Create a basic structure of nodes
             var children = new List<JsTree3Node>();
             bool bSelected = false;
             bool bOpened = false;
             //for (int i = 0; i < locationsRef.Count; i++)
-            foreach (LocationRef par in locationsRef.Where(x => x.Parent ==0).OrderBy(y => y.ID ) )
+            foreach (LocationRef par in locationsRef.Where(x => x.Parent == 0).OrderBy(y => y.ID))
             {
                 var node = JsTree3Node.NewNode(par.ID.ToString());
                 bSelected = false;
                 node.state = new State(false, false, bSelected);
                 node.text = par.Name + " : " + par.Description;
                 //node.icon = 
-                foreach (LocationRef child in locationsRef.Where(x => x.Parent == par.ID)  )
+                foreach (LocationRef child in locationsRef.Where(x => x.Parent == par.ID))
                 {
                     var nodeChild = JsTree3Node.NewNode(child.ID.ToString());
                     if (idsSel.Contains(child.ID.ToString()))
@@ -213,7 +213,7 @@ namespace jsTree3.Controllers
 
             // Add the sturcture to the root nodes children property
             root.children = children;
-            
+
             // Return the object as JSON
             return Json(root, JsonRequestBehavior.AllowGet);
         }

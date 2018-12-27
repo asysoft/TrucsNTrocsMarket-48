@@ -19,8 +19,10 @@ using Plugin.Payment.Stripe.Models.Grids;
 using Plugin.Payment.Services;
 using Plugin.Payment.Stripe.Data;
 using Microsoft.Practices.Unity;
+using Unity;
 using BeYourMarket.Service.Models;
 using i18n;
+using Unity.Attributes;
 
 namespace Plugin.Payment.Stripe.Controllers
 {
@@ -82,15 +84,19 @@ namespace Plugin.Payment.Stripe.Controllers
                 return new HttpNotFoundResult();
 
             //https://stripe.com/docs/checkout
-            var charge = new StripeChargeCreateOptions();
+            //ASY
+            //var charge = new StripeChargeCreateOptions();
+            var charge = new ChargeCreateOptions();
 
             // always set these properties
             charge.Amount = order.PriceInCents;
             charge.Currency = CacheHelper.Settings.Currency;
-            charge.Source = new StripeSourceOptions()
-            {
-                TokenId = stripeToken
-            };
+            
+            //ASY : https://github.com/stripe/stripe-dotnet/issues/1362
+            //charge.Source = new SourceOptions()
+            //{
+            //    .
+            //};
 
             // set booking fee
             var bookingFee = (int)Math.Round(CacheHelper.Settings.TransactionFeePercent * order.PriceInCents);
@@ -100,9 +106,10 @@ namespace Plugin.Payment.Stripe.Controllers
             charge.ApplicationFee = bookingFee;
             charge.Capture = false;
             charge.Description = order.Description;
-            charge.Destination = stripeConnect.stripe_user_id;
-            var chargeService = new StripeChargeService(CacheHelper.GetSettingDictionary("StripeApiKey").Value);
-            StripeCharge stripeCharge = chargeService.Create(charge);
+            // ASY
+            //charge.Destination = stripeConnect.stripe_user_id;    
+            //var chargeService = new StripeChargeService(CacheHelper.GetSettingDictionary("StripeApiKey").Value);
+            //StripeCharge stripeCharge = chargeService.Create(charge);
 
             // Update order status
             order.Status = (int)Enum_OrderStatus.Pending;
@@ -113,13 +120,13 @@ namespace Plugin.Payment.Stripe.Controllers
             var transaction = new StripeTransaction()
             {
                 OrderID = id,
-                ChargeID = stripeCharge.Id,
+                //ChargeID = stripeCharge.Id,
                 StripeEmail = stripeEmail,
                 StripeToken = stripeToken,
                 Created = DateTime.Now,
                 LastUpdated = DateTime.Now,
-                FailureCode = stripeCharge.FailureCode,
-                FailureMessage = stripeCharge.FailureMessage,
+                //FailureCode = stripeCharge.FailureCode,
+                //FailureMessage = stripeCharge.FailureMessage,
                 ObjectState = Repository.Pattern.Infrastructure.ObjectState.Added
             };
 
@@ -131,35 +138,37 @@ namespace Plugin.Payment.Stripe.Controllers
             ClearCache();
 
             // Payment succeeded
-            if (string.IsNullOrEmpty(stripeCharge.FailureCode))
-            {
-                // Send message to the user
-                var message = new MessageSendModel()
-                {
-                    UserFrom = order.UserReceiver,
-                    UserTo = order.UserProvider,
-                    Subject = order.Listing.Title,
-                    ListingID = order.ListingID,
-                    Body = HttpContext.ParseAndTranslate(string.Format(
-                    "[[[Order Requested - %0 - Total Price %1 %2. <a href=\"%3\">See Details</a>|||{0}|||{1}|||{2}|||{3}]]]",
-                    order.Description,
-                    order.Price,
-                    order.Currency,
-                    Url.Action("Orders", "Payment")))
-                };
+            //if (string.IsNullOrEmpty(stripeCharge.FailureCode))
+            //{
+            //    // Send message to the user
+            //    var message = new MessageSendModel()
+            //    {
+            //        UserFrom = order.UserReceiver,
+            //        UserTo = order.UserProvider,
+            //        Subject = order.Listing.Title,
+            //        ListingID = order.ListingID,
+            //        Body = HttpContext.ParseAndTranslate(string.Format(
+            //        "[[[Order Requested - %0 - Total Price %1 %2. <a href=\"%3\">See Details</a>|||{0}|||{1}|||{2}|||{3}]]]",
+            //        order.Description,
+            //        order.Price,
+            //        order.Currency,
+            //        Url.Action("Orders", "Payment")))
+            //    };
 
-                await MessageHelper.SendMessage(message);
+            //    await MessageHelper.SendMessage(message);
 
-                TempData[TempDataKeys.UserMessage] = "[[[Thanks for your order! You payment will not be charged until the provider accepted your request.]]]";
-                return RedirectToAction("Orders", "Payment");
-            }
-            else
-            {
-                TempData[TempDataKeys.UserMessageAlertState] = "bg-danger";
-                TempData[TempDataKeys.UserMessage] = stripeCharge.FailureMessage;
+            //    TempData[TempDataKeys.UserMessage] = "[[[Thanks for your order! You payment will not be charged until the provider accepted your request.]]]";
+            //    return RedirectToAction("Orders", "Payment");
+            //}
+            //else
+            //{
+            //    TempData[TempDataKeys.UserMessageAlertState] = "bg-danger";
+            //    TempData[TempDataKeys.UserMessage] = stripeCharge.FailureMessage;
 
-                return RedirectToAction("Payment");
-            }
+            //    return RedirectToAction("Payment");
+            //}
+            // ASY : a la place du dessus qui compile pas
+            return new HttpNotFoundResult();
         }
 
         private void ClearCache()
@@ -287,8 +296,8 @@ namespace Plugin.Payment.Stripe.Controllers
                 _transactionService.Update(transaction);
 
                 // Capture payment
-                var chargeService = new StripeChargeService(CacheHelper.GetSettingDictionary(StripePlugin.SettingStripeApiKey).Value);
-                StripeCharge stripeCharge = chargeService.Capture(transaction.ChargeID);
+                //var chargeService = new StripeChargeService(CacheHelper.GetSettingDictionary(StripePlugin.SettingStripeApiKey).Value);
+                //StripeCharge stripeCharge = chargeService.Capture(transaction.ChargeID);
             }
 
             _unitOfWorkAsync.SaveChanges();

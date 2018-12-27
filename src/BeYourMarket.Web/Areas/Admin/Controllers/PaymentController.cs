@@ -31,6 +31,7 @@ using BeYourMarket.Core.Plugins;
 using BeYourMarket.Core.Controllers;
 using BeYourMarket.Core;
 using Microsoft.Practices.Unity;
+using Unity;
 
 namespace BeYourMarket.Web.Areas.Admin.Controllers
 {
