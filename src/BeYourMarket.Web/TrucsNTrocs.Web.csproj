@@ -563,6 +563,7 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap_modif.js" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
     <Content Include="Scripts\ckeditor\ckeditor.js" />
     <Content Include="Scripts\ckeditor\config.js" />
@@ -854,9 +855,6 @@
     <Content Include="Areas\Pro\Views\UserPro\ProIdentity.cshtml" />
     <Content Include="Areas\Pro\Views\UserPro\ProListingUpdate.cshtml" />
     <Content Include="Areas\Pro\Views\UserPro\ProListingView.cshtml" />
-    <Content Include="packages - Copier.config">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Content\themes\default\Thumbs.db" />
     <Content Include="Content\themes\default-dark\Thumbs.db" />
     <Content Include="Scripts\locales\ar.js" />
@@ -897,6 +895,7 @@
     <Content Include="Scripts\locales\th.js" />
     <Content Include="Scripts\locales\tr.js" />
     <Content Include="Scripts\locales\uk.js" />
+    <Content Include="Scripts\locales\uz.js" />
     <Content Include="Scripts\locales\vi.js" />
     <Content Include="Scripts\locales\zh-TW.js" />
     <Content Include="Scripts\locales\zh.js" />
@@ -914,6 +913,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\TnTutils\GoogleMapsGeocode.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
@@ -931,10 +931,7 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
-    <Content Include="Scripts\bootstrap.min.js.map" />
-    <Content Include="Scripts\bootstrap.js.map" />
-    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
-    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Views\Emails\_ViewStart.cshtml" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-reboot.min.css.map" />
@@ -946,10 +943,14 @@
     <Content Include="Content\bootstrap-fileinput\scss\themes\explorer-fas\theme.scss" />
     <Content Include="Content\bootstrap-fileinput\scss\fileinput.scss" />
     <Content Include="Content\bootstrap-fileinput\scss\fileinput-rtl.scss" />
-    <Content Include="Views\Emails\_ViewStart.cshtml" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfileDebugNet452.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfileReleaseNet452.pubxml" />
+    <None Include="Properties\PublishProfiles\FTP_TntRelease.pubxml" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />

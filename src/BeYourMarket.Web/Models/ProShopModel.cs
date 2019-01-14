@@ -30,15 +30,19 @@ namespace BeYourMarket.Web.Models
         }
     }
 
+    /// <summary>
+    /// outes les infos du listing et du Pro associé
+    /// </summary>
     public class ProListingViewModel
     {
         public SearchListingModel ListingsSearch;
         public ListingItemModel ListingItem;
-
+        public ProShopModel ProInfos;
         public ProListingViewModel()
         {
             ListingsSearch = new SearchListingModel();
             ListingItem = new ListingItemModel();
+            ProInfos = new ProShopModel();
         }
     }
 

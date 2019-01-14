@@ -131,16 +131,29 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
         // GET: Pro/UserPro
         public async Task<ActionResult> Index()
         {
+            var userId = User.Identity.GetUserId();
+            return  await ShowProShopByID(userId);
+
+            //// chzrge l App User de Identity et le logo
+            //var model = new ProShopModel();
+            //model = await LoadUserProInfosAndLogo();
+
+            //// charge les annonces du pro         
+            //model.ListingsSearch = await GetCurrentProListingsResult(model.UserPro.Id);
+        
+            //return View("~/Areas/Pro/Views/UserPro/ProShop.cshtml", model);
+
+        }
+
+        // GET: Pro/UserPro
+        public async Task<ActionResult> ShowProShopByID(string userID)
+        {
             // chzrge l App User de Identity et le logo
             var model = new ProShopModel();
-            model = await LoadUserProInfosAndLogo();
+            model = await LoadUserProInfosAndLogoByID(userID);
 
             // charge les annonces du pro         
             model.ListingsSearch = await GetCurrentProListingsResult(model.UserPro.Id);
-        
-            // test : set le datatokens pour le findview de razor pour trouver le _layout
-            //if (!this.ControllerContext.RouteData.DataTokens.ContainsKey("area"))
-            //    this.ControllerContext.RouteData.DataTokens.Add("area", "Pro");
 
             return View("~/Areas/Pro/Views/UserPro/ProShop.cshtml", model);
 
@@ -202,8 +215,14 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
         public async Task<ActionResult> ProIdentity(ProShopModel model)
         {
             model = await LoadUserProInfosAndLogo();
-
             return View(model);
+        }
+
+        [AllowAnonymous]
+        public async Task<ActionResult> ShowProIdentityByID(string userId)
+        {
+            var model = await LoadUserProInfosAndLogoByID(userId);
+            return View("~/Areas/Pro/Views/UserPro/ProIdentity.cshtml", model);
         }
 
         [AllowAnonymous]
@@ -219,7 +238,7 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
 
             return View(model);
         }
-
+        
         /// <summary>
         /// Mise a jour et sauvegarde du model
         /// </summary>
@@ -247,12 +266,12 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
                 addInf.ProSiteWeb = form["UserAddInf.ProSiteWeb"];
                 addInf.ProEmail = form["UserAddInf.ProEmail"];
 
-                if ( ! string.IsNullOrEmpty(form["Latitude"]))
-                    addInf.ProLatitude = Double.Parse(form["Latitude"].Replace(',', '.'), CultureInfo.InvariantCulture); ;
-                if (!string.IsNullOrEmpty(form["Longitude"]))
-                    addInf.ProLongitude = Double.Parse(form["Longitude"].Replace(',', '.'), CultureInfo.InvariantCulture);
+                if ( ! string.IsNullOrEmpty(form["UserAddInf.Latitude"]))
+                    addInf.ProLatitude = Double.Parse(form["UserAddInf.Latitude"].Replace(',', '.'), CultureInfo.InvariantCulture); 
+                if (!string.IsNullOrEmpty(form["UserAddInf.Longitude"]))
+                    addInf.ProLongitude = Double.Parse(form["UserAddInf.Longitude"].Replace(',', '.'), CultureInfo.InvariantCulture);
                 int locRefID = 0;
-                if (int.TryParse(form["LocationRefID"], out locRefID))
+                if (int.TryParse(form["UserAddInf.LocationRefID"], out locRefID))
                     addInf.LocationRefID = locRefID;
 
                 // met a jour en base le champs modifiablle du profil (voir pour le pwd)
@@ -284,7 +303,10 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
             return RedirectToAction("ProIdentity", "UserPro");
         }
 
-        // charge l App User de Identity et le logo
+        /// <summary>
+        /// charge l App User de Identity et le logo , pour un PRO deja connecté
+        /// </summary>
+        /// <returns></returns>
         public async Task<ProShopModel> LoadUserProInfosAndLogo()
         {
             var userInfos = new ProShopModel();
@@ -327,6 +349,55 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
             return userInfos;
 
         }
+
+        /// <summary>
+        /// charge l App User de Identity et le logo , pour un avoir les infos du listing d'un Pro
+        /// ( pas forcemment connecté)
+        /// </summary>
+        /// <returns></returns>
+        public async Task<ProShopModel> LoadUserProInfosAndLogoByID(string userId)
+        {
+            var userInfos = new ProShopModel();
+
+            var user = UserManager.FindByIdAsync(userId);
+            userInfos.UserPro = await user;
+
+            // valeur par defaut , sinon la vue pete en cas de pb d enregistrement
+            if (string.IsNullOrEmpty(userInfos.UserPro.Gender))
+                userInfos.UserPro.Gender = "M";
+
+            // donnee additionel du Pro
+            userInfos.UserAddInf = GetUserAdditionalInfos(userId);
+
+            // Charge le logo
+            var pictures = _aspNetUserImgFileService.Query(x => x.AspNetUserId == userId).Select();
+            var picturesModel = pictures.Select(x =>
+                new PictureModel()
+                {
+                    ID = x.PictureID,
+                    Url = ImageHelper.GetUserPrologoImagePath(x.PictureID),
+                    Ordering = x.Ordering
+                }).OrderBy(x => x.Ordering).ToList();
+
+            // si pas de logo defini, insere au moins 1 image pour l affichage 
+            userInfos.Pictures = picturesModel;
+            if (userInfos.Pictures.Count == 0)
+                userInfos.Pictures.Add(new PictureModel()
+                {
+                    ID = 0,
+                    Url = ImageHelper.GetUserPrologoImagePath(0),
+                    Ordering = 0
+                });
+
+            // Ajoute les categories de la société ( texte, separe par ","  pour affichages, les ids sont dans table  )
+            CategResult categs = getMainCategoriesText(userId); ;
+            userInfos.CategoriesText = categs.listNames;
+            userInfos.CategoryIDs = categs.listIds;
+
+            return userInfos;
+
+        }
+
 
         /// <summary>
         /// Recupere les infos additionelle concernant le Pro
@@ -690,7 +761,9 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
             // charge les annonces du pro        
             ProListingViewModel modelLst = new ProListingViewModel();
             modelLst.ListingItem = itemModel;
-            modelLst.ListingsSearch = await GetCurrentProListingsResult(itemModel.User.Id);            
+            modelLst.ListingsSearch = await GetCurrentProListingsResult(itemModel.User.Id);
+
+            modelLst.ProInfos = await LoadUserProInfosAndLogoByID(itemModel.User.Id);
 
             return View(modelLst);
             //return View("~/Views/Listing/Listing.cshtml", itemModel);

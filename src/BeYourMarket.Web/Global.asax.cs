@@ -25,6 +25,10 @@ namespace BeYourMarket.Web
     {
         protected void Application_Start()
         {
+            // Change from the default of 'en'.
+            i18n.LocalizedApplication.Current.DefaultLanguage = "fr";
+           // i18n.LocalizedApplication.Current.DefaultLanguage = BeYourMarket.Web.Utilities.LanguageHelper.DefaultCulture;
+
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
@@ -42,7 +46,8 @@ namespace BeYourMarket.Web
             i18n.LocalizedApplication.Current.PermanentRedirects = false;
 
             // Change the URL localization scheme from Scheme1.
-            i18n.UrlLocalizer.UrlLocalizationScheme = i18n.UrlLocalizationScheme.Scheme1;
+            //i18n.UrlLocalizer.UrlLocalizationScheme = i18n.UrlLocalizationScheme.Scheme1;
+            i18n.UrlLocalizer.UrlLocalizationScheme = i18n.UrlLocalizationScheme.Scheme2;
 
             // Filter certain URLs from being 'localized'.
             i18n.UrlLocalizer.OutgoingUrlFilters += delegate (string url, Uri currentRequestUrl)
@@ -59,7 +64,19 @@ namespace BeYourMarket.Web
                 return true;
             };
 
-            i18n.LocalizedApplication.Current.DefaultLanguage = BeYourMarket.Web.Utilities.LanguageHelper.DefaultCulture;
+            // Extend (+=) or override (=) the default handler for Set-PAL event.
+            // The default handler applies the setting to both the CurrentCulture and CurrentUICulture
+            // settings of the thread, as shown below.
+            //i18n.LocalizedApplication.Current.SetPrincipalAppLanguageForRequestHandlers = delegate (System.Web.HttpContextBase context, ILanguageTag langtag)
+            //{
+            //    // Do own stuff with the language tag.
+            //    // The default handler does the following:
+            //    if (langtag != null)
+            //    {
+            //        Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture = langtag.GetCultureInfo();
+            //    }
+            //};
+
 
             // Use theme razor if database is installed
             if (ConnectionStringHelper.IsDatabaseInstalled())
@@ -104,7 +121,9 @@ namespace BeYourMarket.Web
                 var dbContext = Core.ContainerManager.GetConfiguredContainer()
                     .Resolve<Repository.Pattern.DataContext.IDataContextAsync>() as Model.Models.BeYourMarketContext;
 
-                var language = Context.GetPrincipalAppLanguageForRequest().GetLanguage();
+                // ASY : pourquoi le prendre du context? en par def
+                //var language = Context.GetPrincipalAppLanguageForRequest().GetLanguage();
+                var language = BeYourMarket.Web.Utilities.LanguageHelper.DefaultCulture;
 
                 // Set date time format only if the database is ready
                 //if (dbContext.Database.Exists())

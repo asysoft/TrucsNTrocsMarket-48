@@ -3,27 +3,31 @@
 <div class="card m-2">
     <div class="card-header ">
         <div class="container">
-            <div class="row d-flex " style="height:55px">
+            <div class="row d-flex " style="height:50px">
                 <div class="col col-md-12 align-content-center">
-                    @if (Model.ListingCurrent.Price.HasValue)
-                    {
-                        <div class="">
-                            <span class="card-img-label border border-dark rounded-top font-weight-bold " style="border: 2px solid green;color:darkgreen">
-                                @Html.DisplayFor(x => Model.ListingCurrent.PriceFormatted)
-                            </span>
-                        </div>
-                    }
-                    @if (Model.ListingCurrent.OwnerUserType == Enum_UserType.Professional)
-                    {
-                        <i class="fa fa-star"></i>
-                        <div class="pull-right" style="margin-left:-10px">
-                            <img src="@ImageHelper.GetCommunityImagePath("Pro_Star_Petit", "png")">
+                    
+                        @if (Model.ListingCurrent.Price.HasValue)
+                        {
+                        <div class="card-img-label border border-dark rounded-top font-weight-bold d-inline-block" style="border: 2px solid green;color:darkgreen; font-size:14px;">
+                            @Html.DisplayFor(x => Model.ListingCurrent.PriceFormatted)
 
+                            @*<span class="card-img-label border border-dark rounded-top font-weight-bold " style="border: 2px solid green;color:darkgreen">
+            @Html.DisplayFor(x => Model.ListingCurrent.PriceFormatted)
+        </span>*@
+                            @if (Model.ListingCurrent.OwnerUserType == Enum_UserType.Professional)
+                            {
+                                @*<i class="fa fa-star"></i>*@
+                                <div class="pull-right w-25">
+                                    <img src="@ImageHelper.GetCommunityImagePath("Pro_Star_Petit", "png")">
+
+                                </div>
+                            }
                         </div>
-                    }
+                        }
+
+                    </div>
+
                 </div>
-
-            </div>
         </div>
     </div>
 
@@ -39,7 +43,7 @@
         </div>
         <div>
             <a href="@Url.Action("@strAction", "@strControlleur", new { area="@strArea" ,  id = Model.ListingCurrent.ID })">
-                <img class="user-thumb pull-right" src="@BeYourMarket.Web.Utilities.ImageHelper.GetUserProfileImagePath(Model.ListingCurrent.UserID)" />
+                <img class="avatar rounded-circle thumb-md pull-right" src="@BeYourMarket.Web.Utilities.ImageHelper.GetUserProfileImagePath(Model.ListingCurrent.UserID)" />
             </a>
 
             <a href="@Url.Action("@strAction", "@strControlleur", new { area="@strArea" ,  id = Model.ListingCurrent.ID })">

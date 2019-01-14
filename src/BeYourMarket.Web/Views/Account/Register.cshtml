@@ -15,15 +15,14 @@
 
 
 <!-- Start Main Content -->
-<div class=" main-section">
-    <div class="container-fluid" style="background-color:#EAF4D3">
+<div class=" main-section" style="background-color:#EAF4D3">
+    <div class="container" style="background-color:#EAF4D3">
         <div class="row mt-1">
-            <div class="col-md-2">
-                <div class="card" id="divLogoHautGauche"></div>
+            <div class="col-md-2  d-none d-md-inline">
                 <img src="@ImageHelper.GetCommunityImagePath("LogoTnTcom_150x184", "png"))" style="display: block;" />
             </div>
             <div class="col-md-9">
-                <div class="card " id="divPubRegisterHaut">
+                <div class="card border-success" id="divPubRegisterHaut">
                     <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Haut_800x200_Img1"))" style="display: block;" pubHaut />
                     @{
                         for (int iH = 2; iH <= @ImageHelper.GetMaxNbforPub("pub_Register_Haut_800x200_Img"); iH++)
@@ -118,12 +117,16 @@
                                         <label for="files">[[[Choose your Logo]]]</label>
                                     </div>
                                     <div class="form-group">
+                                        <label class="mark" for="ProCompany">[[[Card Number]]] <span class="text-red">*</span></label>
+                                        <input type="text" name="ProCCardNumber" id="ProCardNumber" class="form-control input-lg" placeholder="[[[Card Number]]]">
+                                    </div>
+                                    <div class="form-group">
                                         <label class="mark" for="ProCompany">[[[Company]]] <span class="text-red">*</span></label>
-                                        <input type="text" name="ProCompany" id="ProCompany" class="form-control input-lg" placeholder="[[[Company Name]]]" >
+                                        <input type="text" name="ProCompany" id="ProCompany" class="form-control input-lg" placeholder="[[[Company Name]]]">
                                     </div>
                                     <div class="form-group">
                                         <label class="mark" for="ProSiret">[[[Siret]]] <span class="text-red">*</span></label>
-                                        <input type="text" name="ProSiret" id="ProSiret" class="form-control input-lg" placeholder="[[[Company SIRET number]]]" >
+                                        <input type="text" name="ProSiret" id="ProSiret" class="form-control input-lg" placeholder="[[[Company SIRET number]]]">
                                     </div>
                                     <fieldset>
                                         <label>[[[Category]]]</label>
@@ -136,30 +139,35 @@
                                         <legend>[[[Localization]]]</legend>
                                         <div class="form-group">
                                             <label class="mark" for="ProAdress">[[[Adress]]] <span class="text-red">*</span></label>
-                                            <input type="text" name="ProAdress" id="ProAdress" class="form-control input-lg" placeholder="[[[Company Adress]]]" >
+                                            <input type="text" name="ProAdress" id="ProAdress" class="form-control input-lg" placeholder="[[[Company Adress]]]">
                                         </div>
                                         <div class="form-group">
                                             <label for="ProTownZip">[[[City]]] <span class="text-red">*</span></label>
-                                            <input type="text" name="ProTownZip" id="ProTownZip" class="form-control input-lg" placeholder="[[[Company Town or Zip Code]]]" >
+                                            <input type="text" name="ProTownZip" id="ProTownZip" class="form-control input-lg" placeholder="[[[Company Town or Zip Code]]]">
                                         </div>
                                         <div class="form-body" style="border-style:groove;overflow-y: auto; height: 270px;">
                                             <div id="jstreeLoc"> </div>
-                                            <input type="hidden" id="LocationRefIDhidd" name="ProLocationRefID" value="ProLocationRefID" />
-                                        </div>
 
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="hidden" id="LocSelectedName" name="LocSelectedName" value="" />
+                                            <input type="hidden" id="LocationRefIDhidd" name="ProLocationRefID" value="ProLocationRefID" />
+                                            <input type="hidden" id="Longitude" name="ProLongitude" value="" />
+                                            <input type="hidden" id="Latitude" name="ProLatitude" value="" />
+                                        </div>
                                     </fieldset>
 
                                     <div class="form-group">
-                                        <label class="mark" for="ProPhone">[[[Phone]]] <span class="text-red">*</span></label>
-                                        <input type="text" name="ProPhone" id="ProPhone" class="form-control input-lg" placeholder="[[[Company Phone]]]"  >
+                                        <label class="mark" for="ProPhone">[[[Phone]]]</label>
+                                        <input type="text" name="ProPhone" id="ProPhone" class="form-control input-lg" placeholder="[[[Company Phone]]]">
                                     </div>
                                     <div class="form-group">
-                                        <label class="mark" for="ProEmail">[[[Company Email]]] : </label>
-                                        <input type="text" name="ProEmail" id="ProEmail" class="form-control input-lg" placeholder="[[[Company Email]]]"  >
+                                        <label class="mark" for="ProEmail">[[[Company Email]]]</label>
+                                        <input type="text" name="ProEmail" id="ProEmail" class="form-control input-lg" placeholder="[[[Company Email]]]">
                                     </div>
                                     <div class="form-group">
-                                        <label class="mark" for="ProSiteWeb">[[[Web Site]]] <span class="text-red">*</span></label>
-                                        <input type="text" name="ProSiteWeb" id="ProSiteWeb" class="form-control input-lg" placeholder="[[[Web Site]]]"  >
+                                        <label class="mark" for="ProSiteWeb">[[[Web Site]]]</label>
+                                        <input type="text" name="ProSiteWeb" id="ProSiteWeb" class="form-control input-lg" placeholder="[[[Web Site]]]">
                                     </div>
                                     <fieldset>
                                         <legend>[[[Company Contact]]]</legend>
@@ -175,15 +183,15 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="mark" for="LastName">[[[Last Name]]] <span class="text-red">*</span></label>
-                                            <input type="text" name="LastName" id="LastName" class="form-control input-lg" placeholder="[[[Last Name of the Owner]]]"  >
+                                            <input type="text" name="LastName" id="LastName" class="form-control input-lg" placeholder="[[[Last Name of the Owner]]]">
                                         </div>
                                         <div class="form-group">
                                             <label class="mark" for="FirstName">[[[First Name]]] <span class="text-red">*</span></label>
-                                            <input type="text" name="FirstName" id="FirstName" class="form-control input-lg" placeholder="[[[First Name of the Owner]]]"  >
+                                            <input type="text" name="FirstName" id="FirstName" class="form-control input-lg" placeholder="[[[First Name of the Owner]]]">
                                         </div>
                                         <div class="form-group">
                                             <label class="mark" for="PhoneNumber">[[[Phone Number]]] : </label>
-                                            <input type="text" name="PhoneNumber" id="PhoneNumber" class="form-control input-lg" placeholder="[[[Phone Number of the Owner]]]" >
+                                            <input type="text" name="PhoneNumber" id="PhoneNumber" class="form-control input-lg" placeholder="[[[Phone Number of the Owner]]]">
                                         </div>
                                     </fieldset>
 
@@ -194,7 +202,7 @@
                             {
                                 <div class="form-group">
                                     <input type="checkbox" id="Accept" name="Accept" value="true" data-rule-required="true" />
-                                    <label for="Accept">[[[I accept the]]] <a id="agreementModal" data-toggle="modal" data-target="#agreementModal">[[[Terms & Conditions]]]</a></label>
+                                    <label for="Accept">[[[I accept the]]] <a id="agreementModal" data-toggle="modal" data-target="#agreementModal" class="text-blue font-weight-bold"> [[[Terms & Conditions]]]</a></label>
                                 </div>
                             }
                             <input type="submit" class="btn btn-success btn-lg w-100 " value="[[[Join]]]">
@@ -224,9 +232,16 @@
 <!-- ./ Main Content -->
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgB8z009mHSrPLaJUobfgmI1gTlk1aqyc&libraries=places"></script>
 
     <script src="~/Scripts/fileinput.min.js"></script>
     @Html.Partial("_LocalizationFileInput")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            initializeMapLatLong();
+        });
+    </script>
 
     <script>
         @{
@@ -240,7 +255,7 @@
             //    previewDelete.AppendFormat(@"{{url: '{0}',key: {1} }},", Url.Action("ListingPhotoDelete", "Listing", new { id = Model.ImgFiles[0].ID }), Model.ImgFiles[0].ID);
 
             //}
-        }
+        };
 
         var $input = $("#files");
 
@@ -268,6 +283,7 @@
             maxFileSize: 10000,
             browseClass: "btn btn-primary",
             allowedFileTypes: ["image"],
+            dropZoneTitle : "[[[Please select your logo...]]]",
             language: '@Context.GetPrincipalAppLanguageForRequest().ToString()'
         });
     </script>
@@ -327,7 +343,7 @@
                     "check_callback": false,
                     'data': {
                         'url': '/jsTree3/GetJsTree3LocData/',
-                        "data": function (node) { return { id:  null }; },
+                        "data": function (node) { return { id: null }; },
                         'dataType': 'json',
                     },
                     "themes": {
@@ -343,14 +359,23 @@
                         "two_state": false
                     }
                 },
-                "plugins": [ "checkbox"]
+                "plugins": ["checkbox"]
             });
 
             $('#jstreeLoc').on("changed.jstree", function (e, data) {
                 if (data != null && data.selected != null && data.selected.length > 0) {
                     document.getElementById('LocationRefIDhidd').value = data.selected[0];
 
-                    //initMap();
+                    // Recupere le ou les texte selectionne
+                    var i, j, r = [];
+                    for (i = 0, j = data.selected.length; i < j; i++) {
+                        r.push(data.instance.get_node(data.selected[i]).text);
+                    }
+
+                    var sel = r.join(' ') + ', ile Maurice';
+                    document.getElementById('LocSelectedName').value = sel;
+
+                    codeAddress(sel);
 
                 }
             });

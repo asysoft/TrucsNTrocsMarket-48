@@ -50,3 +50,24 @@ function suivanteD() {
     setTimeout(suivanteD, 3000);
 }
 
+function ShowHidePub() {
+    var pg = document.getElementById("divPubIndexGauche");
+    var pd = document.getElementById("divPubIndexDroite");
+
+    //if (pg.style.display == 'none' || pg.style.display == '') {
+    //    pg.style.display = 'block';
+    //} else if (pg.style.display == 'block') {
+    //    pg.style.display = 'none';
+    //}
+
+    if (pg.style.display == '') {
+        pg.style.display = 'none';
+    } else if (pg.style.display == 'none') {
+        pg.style.display = '';
+    }
+    if (pd.style.display == '') {
+        pd.style.display = 'none';
+    } else if (pd.style.display == 'none') {
+        pd.style.display = '';
+    }
+}

@@ -63,30 +63,30 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-
-
-                    <form method="get" action="@Url.Action("Search", "Home",  new { area ="" } )" class="navbar-nav hidden-xs ml-4">
-                        <input type="text" class="form-control trans input-lg" name="SearchText" id="SearchText" placeholder="[[[Search for...]]]">
+                    <form method="get" action="@Url.Action("Search", "Home", new { area = "" })" class="navbar navbar-expand-lg d-none d-md-flex p-2 trans ml-2">
+                        <input type="text" class="form-control" name="SearchText" id="SearchText" placeholder="[[[Search for...]]]">
                         <button type="submit" class="btn trans btn-lg ">
                             <i class="mdi-action-search"></i>
                         </button>
                     </form>
 
-                    @Html.Action("LanguageSelector", "Home", new { area = "" })
+                    <div class="d-none d-md-flex p-5">
+                        @Html.Action("LanguageSelector", "Home", new { Area = "" })
+                    </div>
 
                     @if (User.IsInRole("Professional"))
                     {
-                        <a class="btn navbar-btn btn-default hidden-sm hidden-xs navbar-right ml-4" href="@Url.Action("Index", "UserPro", new { area ="Pro" })">
-                            <span class="text-warning">[[[My Shop]]]</span>
+                        <a class="btn navbar-btn btn-primary" href="@Url.Action("Index", "UserPro", new { area ="Pro" })">
+                            <span class="font-weight-bold text-warning">[[[The Shop]]]</span>
                         </a>
                     }
                     else
                     {
-                        <a class="btn navbar-btn btn-default hidden-sm hidden-xs navbar-right ml-4" href="@Url.Action("ListingUpdate", "Listing", new { id = string.Empty, area = "" })"><i class="mdi-content-add-circle-outline"></i> [[[Publish new listing]]]</a>
+                        <a class="btn navbar-btn btn-primary" href="@Url.Action("ListingUpdate", "Listing", new { id = string.Empty, area = "" })"><i class="mdi-content-add-circle-outline"></i> [[[Publish new listing]]]</a>
                     }
 
-                    <div class="hidden-xs navbar-nav ml-auto ">
-                        @Html.Partial("_LoginPartial")
+                    <div class="d-none d-md-flex p-4 navbar-nav ml-auto ">
+                        @Html.Action("LoginPartial", "Home", new { area = "" })
                     </div>
 
                 </nav>
@@ -113,5 +113,7 @@
     <script src="~/Scripts/TnTutils/jquery.rwdImageMaps.js" type="text/javascript"></script>
     <script src="~/Scripts/TnTutils/pubDefil.js" type="text/javascript"></script>
     <script src="~/Scripts/TnTutils/jsTreeTnT.js" type="text/javascript"></script>
+    
+    
 </body>
 </html>

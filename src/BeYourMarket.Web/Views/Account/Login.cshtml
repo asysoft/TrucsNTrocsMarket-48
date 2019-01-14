@@ -14,12 +14,11 @@
 <div class="main-section" style="background-color:#EAF4D3">
     <div class="container" >
         <div class="row mt-1">
-            <div class="col-md-2">
-                <div class="card" id="divLogoHautGauche"></div>
-                    <img src="@ImageHelper.GetCommunityImagePath("LogoTnTcom_150x184", "png"))" style="display: block;"  />
+            <div class="col-md-2  d-none d-md-inline">
+                <img src="@ImageHelper.GetCommunityImagePath("LogoTnTcom_150x184", "png"))" style="display: block;"  />
             </div>
             <div class="col-md-9">
-                <div class="card " id="divPubRegisterHaut">
+                <div class="card border-success" id="divPubRegisterHaut">
                     <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Haut_800x200_Img1"))" style="display: block;" pubHaut />
                     @{
                         for (int iH = 2; iH <= @ImageHelper.GetMaxNbforPub("pub_Register_Haut_800x200_Img"); iH++)

@@ -6,13 +6,13 @@
 @using BeYourMarket.Web.Utilities
 @using BeYourMarket.Service
 @using Microsoft.AspNet.Identity
-@using BeYourMarket.Web.Extensions  ;
+@using BeYourMarket.Web.Extensions  
 
 
 @{
     /**/
 
-    ViewBag.Title = "Pro Shop";
+    ViewBag.Title = "TnT";
 }
 
 
@@ -22,24 +22,24 @@
     <link href="~/Content/jsTree/themes/default/style.min.css" rel="stylesheet" />
 }
 
-<div class="container-fluid" style="background-color:#EAF4D3">
-        <div class="row" style="background-color:#EAF4D3" >
-            <div class="col-md-7">
+    <div class="container-fluid" style="background-color:#EAF4D3">
+        <div class="row" style="background-color:#EAF4D3">
+            <div class="col-md-6">
                 <div class="card">
                     <div class="container-fluid">
                         <div class="row">
                             @Html.Partial("_UserMessage")
 
-                            <div class="col-md-12">
-                                <div class="section card-header">
-                                    <div class="col-md-12">
+                            <div class="col-xs-12 col-md-12">
+                                <div class="card ">
+                                    <div class="card-header">
                                         <h3>
                                             @Model.ListingItem.ListingCurrent.Title
                                             <span class="score @Model.ListingItem.ListingCurrent.RatingClass text-md"></span>
                                             <!-- Show edit button if administrator or the user who create the listing -->
                                             @if (Model.ListingItem.ListingCurrent.UserID == User.Identity.GetUserId() || User.IsInRole("Administrator"))
                                             {
-                                                <a class="btn btn-primary" href="@Url.Action("ProListingUpdate", "UserPro", new { id = Model.ListingItem.ListingCurrent.ID, area = "Pro" })"><i class="fa fa-edit"></i> [[[Edit]]]</a>
+                                                <a class="btn btn-primary" href="@Url.Action("ListingUpdate", "Listing", new { id = Model.ListingItem.ListingCurrent.ID, area = "" })"><i class="fa fa-edit"></i> [[[Edit]]]</a>
                                             }
                                         </h3>
 
@@ -53,186 +53,166 @@
                                             @Model.ListingItem.ListingCurrent.LocationRef.Name - @Model.ListingItem.ListingCurrent.LocationRef.Description - @Model.ListingItem.ListingCurrent.Location
                                         </p>
                                     </div>
-                                </div>
-                                <div class="card-header bdr-b container-fluid">
-                                    <ul class="nav nav-tabs" id="mainTab">
-                                        <li class="nav-item">
-                                        <a class="nav-link active" href="#description" aria-controls="description" data-toggle="tab"><i class="fa fa-info"></i>[[[Description]]]</a>
-                                        </li>
-                                        @if (Model.ListingItem.ListingCurrent.Latitude.HasValue && Model.ListingItem.ListingCurrent.Longitude.HasValue)
-                                        {
-                                            <li  class="nav-item">
-                                                <a class="nav-link" data-toggle="tab" href="#map-canvas"><i class="fa fa-map-marker"></i>[[[Maps]]]</a></li>
-                                        }
 
-                                        <li  class="nav-item" >
-                                            <a class="nav-link" data-toggle="tab" href="#reviewList"><i class="fa fa-star"></i>[[[Reviews]]]</a>
-                                        </li>
+                                    <hr />
+                                    <div class="card-block fa fa-info-circle">
+                                        <h5>
 
-                                        <li  class="nav-item" >
-                                            <a class="nav-link" id="contactModal" data-toggle="modal" data-target="#contactModal"><i class="fa fa-envelope"></i>[[[Contact]]]</a>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                                <div class="tab-content">
-                                    <div class="tab-pane active container" id="description">
-                                        <div class="card bdr-t-none">
-                                            <div class="panel-body">
-                                                <p>
-                                                    @Model.ListingItem.ListingCurrent.Description
-                                                </p>
-                                            </div>
-
-                                            <!---Pictures-->
-                                            <div class="card-header bdr-t">
-                                                <i class="fa fa-picture-o"></i> [[[Pictures]]]
-                                            </div>
-                                            <div class="card-block">
-                                                @if (Model.ListingItem.Pictures.Count > 0)
-                                                {
-                                                    <div id="carousel-gallery" class="carousel slide" data-ride="carousel">
-                                                        <ol class="carousel-indicators">
-                                                            @for (int i = 0; i < Model.ListingItem.Pictures.Count; i++)
-                                                            {
-                                                                <li data-target="#carousel-gallery" data-slide-to="@i"></li>
-                                                            }
-                                                        </ol>
-
-                                                        <div class="carousel-inner" role="listbox">
-                                                            @for (int i = 0; i < Model.ListingItem.Pictures.Count; i++)
-                                                            {
-                                                                <div class="item @(i == 0 ? "active" : "")">
-                                                                    <img style=" margin-left: auto; margin-right: auto;" alt="" src="@Model.ListingItem.Pictures[i].Url" data-holder-rendered="true">
-                                                                </div>
-                                                            }
-                                                        </div>
-
-                                                        <a class="left carousel-control" href="#carousel-gallery" role="button" data-slide="prev">
-                                                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                                            <span class="sr-only">[[[Previous]]]</span>
-                                                        </a>
-                                                        <a class="right carousel-control" href="#carousel-gallery" role="button" data-slide="next">
-                                                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                                            <span class="sr-only">[[[Next]]]</span>
-                                                        </a>
-
-                                                    </div>
-
-                                                    <div class="panel-body">
-                                                        <div class="row">
-                                                            @foreach (var thumbnail in Model.ListingItem.Pictures)
-                                                            {
-                                                                <div class="col-xs-6 col-md-2">
-                                                                    <a href="@thumbnail.Url" class="boxer" title="" data-gallery="gallery" data-lightbox-gallery="photo_gallery">
-                                                                        <img alt="Thumbnail" src="@thumbnail.Url" style=" width: 100%; display: block;">
-                                                                    </a>
-                                                                </div>
-                                                            }
-                                                        </div>
-
-                                                    </div>
-                                                }
-                                                else
-                                                {
-                                                    <img style="width: 100%" src="@BeYourMarket.Web.Utilities.ImageHelper.GetListingImagePath(0)" />
-                                                }
-                                            </div>
-                                            <!---Pictures-->
-
-                                            <table class="table">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            [[[Category]]]
-                                                        </td>
-                                                        <td>
-                                                            <a href="@Url.Action("Search", "Home", new { categoryId = Model.ListingItem.ListingCurrent.CategoryID })">@Model.ListingItem.ListingCurrent.Category.Name</a>
-                                                        </td>
-                                                    </tr>
-                                                    @if (Model.ListingItem.ListingCurrent.Price.HasValue)
-                                                    {
-                                                        <tr>
-                                                            <td>
-                                                                [[[Price]]]
-                                                            </td>
-                                                            <td>
-                                                                @Html.DisplayFor(x => Model.ListingItem.ListingCurrent.PriceFormatted)
-                                                            </td>
-                                                        </tr>
-                                                    }
-                                                    <tr>
-                                                        <td>
-                                                            [[[Listing Type]]]
-                                                        </td>
-                                                        <td>
-                                                            @Model.ListingItem.ListingCurrent.ListingType.Name
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            [[[Localization]]]
-                                                        </td>
-                                                        <td>
-                                                            @Model.ListingItem.ListingCurrent.LocationRef.Name - @Model.ListingItem.ListingCurrent.LocationRef.Description
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                    <tr>
-                                                        <td>
-                                                            [[[Location detail]]]
-                                                        </td>
-                                                        <td>
-                                                            @Html.DisplayFor(x => Model.ListingItem.ListingCurrent.Location)
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            [[[Date Posted]]]
-                                                        </td>
-                                                        <td>
-                                                            @Model.ListingItem.ListingCurrent.Created.ToShortDateString()
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            [[[Views]]]
-                                                        </td>
-                                                        <td>
-                                                            @Model.ListingItem.ListingCurrent.ListingStats.FirstOrDefault().CountView
-                                                        </td>
-                                                    </tr>
-
-                                                    @foreach (var item in Model.ListingItem.ListingCurrent.ListingMetas)
-                                                    {
-                                                        <tr>
-                                                            <td>
-                                                                @item.MetaField.Name
-                                                            </td>
-                                                            <td>
-                                                                @item.Value
-                                                            </td>
-                                                        </tr>
-                                                    }
-                                                </tbody>
-                                            </table>
-
-                                        </div>
+                                            @Model.ListingItem.ListingCurrent.Description
+                                        </h5>
                                     </div>
+                                    <hr />
+                                    <div class="card-block">
+                                        @if (Model.ListingItem.Pictures.Count > 0)
+                                        {
+                                            <div id="carousel-gallery" class="carousel slide" data-ride="carousel">
+                                                <ul class="carousel-indicators">
+                                                    @for (int i = 0; i < Model.ListingItem.Pictures.Count; i++)
+                                                    {
+                                                        <li data-target="#carousel-gallery" data-slide-to="@i"></li>
+                                                    }
+                                                </ul>
 
-                                    <div class="tab-pane container" id="map-canvas">
+                                                <div class="carousel-inner">
+                                                    @for (int i = 0; i < Model.ListingItem.Pictures.Count; i++)
+                                                    {
+                                                        <div class="carousel-item @(i == 0 ? "active" : "")">
+                                                            <img style=" margin-left: auto; margin-right: auto;" alt="" src="@Model.ListingItem.Pictures[i].Url">
+                                                        </div>
+                                                    }
+                                                </div>
+
+                                                <a class="carousel-control-prev pull-left" href="#carousel-gallery" data-slide="prev">
+                                                    <span class="carousel-control-prev-icon"></span>
+                                                </a>
+                                                <a class="carousel-control-next pull-right" href="#carousel-gallery" data-slide="next">
+                                                    <span class="carousel-control-next-icon"></span>
+                                                </a>
+
+                                            </div>
+
+                                            <div class="text-center mt-4">
+
+                                                <div class="row text-center ml-4">
+
+                                                    @foreach (var thumbnail in Model.ListingItem.Pictures)
+                                                    {
+                                                        <div class="carousel-buttons col-xs-6 col-md-2">
+                                                            <a data-target="#carousel-gallery" data-slide-to="@thumbnail.Ordering" href="#">
+                                                                <div class="img-circle">
+                                                                    <img class="carousel-icons-img" src="@thumbnail.Url" style=" width: 100%; display: block;" />
+                                                                </div>
+                                                            </a>
+                                                        </div>
+
+                                                    }
+                                                </div>
+
+
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <img style="width: 100%" src="@BeYourMarket.Web.Utilities.ImageHelper.GetListingImagePath(0)" />
+                                        }
+                                    </div>
+                                    <hr />
+                                    <div class="card-block bdr-t-none">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        [[[Category]]]
+                                                    </td>
+                                                    <td>
+                                                        <a href="@Url.Action("Search", "Home", new { categoryId = Model.ListingItem.ListingCurrent.CategoryID })">@Model.ListingItem.ListingCurrent.Category.Name</a>
+                                                    </td>
+                                                </tr>
+                                                @if (Model.ListingItem.ListingCurrent.Price.HasValue)
+                                                {
+                                                    <tr>
+                                                        <td>
+                                                            [[[Price]]]
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(x => Model.ListingItem.ListingCurrent.PriceFormatted)
+                                                        </td>
+                                                    </tr>
+                                                }
+                                                <tr>
+                                                    <td>
+                                                        [[[Listing Type]]]
+                                                    </td>
+                                                    <td>
+                                                        @Model.ListingItem.ListingCurrent.ListingType.Name
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        [[[Localization]]]
+                                                    </td>
+                                                    <td>
+                                                        @Model.ListingItem.ListingCurrent.LocationRef.Name - @Model.ListingItem.ListingCurrent.LocationRef.Description
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                <tr>
+                                                    <td>
+                                                        [[[Location detail]]]
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(x => Model.ListingItem.ListingCurrent.Location)
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        [[[Date Posted]]]
+                                                    </td>
+                                                    <td>
+                                                        @Model.ListingItem.ListingCurrent.Created.ToShortDateString()
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        [[[Views]]]
+                                                    </td>
+                                                    <td>
+                                                        @Model.ListingItem.ListingCurrent.ListingStats.FirstOrDefault().CountView
+                                                    </td>
+                                                </tr>
+
+                                                @foreach (var item in Model.ListingItem.ListingCurrent.ListingMetas)
+                                                {
+                                                    <tr>
+                                                        <td>
+                                                            @item.MetaField.Name
+                                                        </td>
+                                                        <td>
+                                                            @item.Value
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                    <hr />
+                                    <div class="card-block fa fa-map-marker">
+                                        <input type="hidden" id="LocSelectedName" name="LocSelectedName" value="ile Maurice" />
+                                        <input type="hidden" id="Longitude" name="ListingItem.ListingCurrent.Longitude" value="@Model.ListingItem.ListingCurrent.Longitude" />
+                                        <input type="hidden" id="Latitude" name="ListingItem.ListingCurrent.Latitude" value="@Model.ListingItem.ListingCurrent.Latitude" />
+
                                         @if (Model.ListingItem.ListingCurrent.Latitude.HasValue && Model.ListingItem.ListingCurrent.Longitude.HasValue)
                                         {
-                                            <div class="panel-heading bdr-t">
-                                                <i class="fa fa-map-marker"></i> [[[Map]]]
-                                            </div>
-                                            <div class="panel-body">
+                                            <div class="">
                                                 <div id="map-canvas"></div>
                                             </div>
                                         }
                                     </div>
-                                    <div class="tab-pane container" id="contact">
-                                        <div class="panel panel-default bdr-t-none">
+                                    <hr />
+                                    <div class="card-block" id="contact">
+
+                                        <div class="bdr-t-none">
                                             @if (Model.ListingItem.ListingCurrent.ShowPhone && !string.IsNullOrEmpty(Model.ListingItem.ListingCurrent.ContactPhone))
                                             {
                                                 <div class="list-group">
@@ -243,55 +223,21 @@
 
                                             <div class="panel-heading">
                                                 <span>[[[Contact]]] @Model.ListingItem.User.FullName</span>
+                                                <a class="btn btn-default pull-right" id="contactModal" data-toggle="modal" data-target="#contactModal"><i class="fa fa-envelope"></i> - [[[Send a message]]]</a>
                                             </div>
 
-                                            <a id="contactModal" data-toggle="modal" data-target="#contactModal"><i class="fa fa-envelope"></i>[[[Contact]]]</a>
                                         </div>
                                     </div>
-                                </div>
+                                    <hr />
 
-                                @Html.Partial("~/Views/Listing/_ListingReview.cshtml", Model.ListingItem.ListingCurrent.ListingReviews)
+                                    <div class="card-block">
+                                        @Html.Partial("~/Views/Listing/_ListingReviewModal.cshtml", Model.ListingItem)
+                                    </div>
+                                    <div class="card-block">
+                                        @Html.Partial("~/Views/Listing/_ListingReview.cshtml", Model.ListingItem.ListingReviews)
 
-                                @Html.Partial("~/Views/Listing/_ListingReviewModal.cshtml", Model.ListingItem)
-
-                                <!-- Listing Hook -->
-                                @*@Html.DoAction(HookName.Listing, Model.ListingItem.ListingCurrent.ListingItem.ListingCurrent.ID)*@
-                            </div>
-
-                            <div>
-                                <div class="col-md-4 col-xs-12">
-                                    <div id="sidebar" data-spy="affix" data-offset-top="120" class="affix text-center">
-                                        @*@Html.Partial("_ListingPayment", Model.ListingItem)*@
-
-                                        <div class="panel panel-default panel-body mrg-t text-center">
-                                            <a href="@Url.Action("Profile", "Listing", new { id = Model.ListingItem.User.Id })">
-                                                <img class="img-circle profile-picture" src="@BeYourMarket.Web.Utilities.ImageHelper.GetUserProfileImagePath(Model.ListingItem.User.Id)" />
-                                            </a>
-                                            <h5>@Model.ListingItem.User.FullName</h5>
-                                            <p class="text-lighten">
-                                                [[[Joined since]]] @Model.ListingItem.User.RegisterDate.ToShortDateString()
-                                            </p>
-                                            <a href="@Url.Action("Profile", "Listing", new { id = Model.ListingItem.User.Id })">
-                                                [[[View user's profile and other listings]]]<div>
-                                                    <span class="score @Model.ListingItem.User.RatingClass"></span>
-                                                    <span>@string.Format("[[[{0:N0} reviews]]]", Model.ListingItem.ListingCurrent.ListingReviews.Count)</span>
-                                                </div>
-                                            </a>
-
-                                            <a id="contactModal" data-toggle="modal" data-target="#contactModal" class="btn btn-default btn-block">[[[Contact]]]</a>
-                                        </div>
-
-                                        <!-- AddToAny BEGIN -->
-                                        <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-                                            <span class="pull-left m-r-5"><i class="fa fa-share-alt"></i> [[[Share]]]</span>
-                                            <a href="https://www.addtoany.com/share_save"></a>
-                                            <a class="a2a_button_facebook"></a>
-                                            <a class="a2a_button_twitter"></a>
-                                            <a class="a2a_button_google_plus"></a>
-                                            <a class="a2a_button_linkedin"></a>
-                                        </div>
-
-                                        @*<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>*@
+                                        <!-- Listing Hook -->
+                                        @Html.DoAction(HookName.Listing, Model.ListingItem.ListingCurrent.ID)
                                     </div>
                                 </div>
                             </div>
@@ -301,27 +247,65 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-5 ">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="font-weight-bold text-warning">
-                            <h4>
-                                <i class="font-weight-bold text-warning fa fa-shopping-cart">  [[[Articles also available in Shop]]]</i>
-                            </h4>
-                        </div>
+            <div class="col-md-5 m-b-3">
 
-                    </div>
+                <div class="row align-self-center">
+                    <a href="@Url.Action("ShowProIdentityByID", "UserPro", new {area="Pro", userID = @Model.ListingItem.User.Id })">
+                        <h3 class="font-weight-bold display-4 text-center">
+                            @Html.DisplayFor(m => m.ProInfos.UserAddInf.ProCompany, new { @class = "form-control" })
+                        </h3>
+                    </a>
                 </div>
                 <div class="row">
-                    <div class="form-inline pull-right">
+                    <div class="col col-md-4">
+                        <div class="align-bottom">
+                            <a href="@Url.Action("ShowProShopByID", "UserPro", new {area="Pro", userID = @Model.ListingItem.User.Id })">
+                                <img class="img-fluid" style="width: 100%; height: auto" src="@Model.ProInfos.Pictures.First().Url" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col col-md-8 align-self-start">
+
                         <div class="form-group">
-                            <div class="btn-group" role="group" aria-label="Sort View">
-                                <a class="btn btn-primary" href="@Request.UrlReplace("SortView", BeYourMarket.Model.Enum.Enum_SortView.Grid.ToString())"><i class="fa fa-th"></i> [[[Grid]]]</a>
-                                <a class="btn btn-primary" href="@Request.UrlReplace("SortView", BeYourMarket.Model.Enum.Enum_SortView.List.ToString())"><i class="fa fa-th-list"></i> [[[List]]]</a>
+                            <div class="mark">
+                                <label class="" for="ProTownZip">[[[City]]] : </label>
+                                @Html.DisplayFor(m => m.ProInfos.UserAddInf.ProTownZip, new { @class = "form-control" })
+                            </div>
+                            <div class="mark">
+                                <label class="" for="ProPhone">[[[Professional Phone]]] : </label>
+                                @Html.DisplayFor(m => m.ProInfos.UserAddInf.ProPhone, new { @class = "form-control" })
+                            </div>
+                            <div class="mark">
+                                <label class="" for="Email">[[[Company Email]]] : </label>
+                                @Html.DisplayFor(m => m.ProInfos.UserAddInf.ProEmail, new { @class = "form-control" })
+                            </div>
+                            <div class="mark">
+                                <label for="ProSiteWeb">[[[Web Site]]] : </label>
+                                @Html.DisplayFor(m => m.ProInfos.UserAddInf.ProSiteWeb, new { @class = "form-control" })
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <hr />
+                <div class="row m-t-5 m-b-3">
+                    <div class="col-md-12">
+                        <div class="form-group ">
+                            <div class="font-weight-bold text-warning">
+                                <h4>
+                                    <i class="font-weight-bold text-warning fa fa-shopping-cart">  [[[Articles in Shop]]]</i>
+                                </h4>
+                            </div>
+
+                            <div class="btn-group pull-right" role="group" aria-label="Sort View">
+                                <a class="btn btn-primary" href="@Request.UrlReplace("SortView", BeYourMarket.Model.Enum.Enum_SortView.Grid.ToString())"><i class="fa fa-th"></i> [[[Grid]]]</a>
+                                <a class="btn btn-primary" href="@Request.UrlReplace("SortView", BeYourMarket.Model.Enum.Enum_SortView.List.ToString())"><i class="fa fa-th-list"></i> [[[List]]]</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
                 <div class="row m-b-10">
 
                     @switch (Model.ListingsSearch.SortView)
@@ -329,7 +313,15 @@
                         case BeYourMarket.Model.Enum.Enum_SortView.Grid:
                         default:
 
-                            @Html.Partial("~/Views/Listing/_ListingGrid.cshtml", Model.ListingsSearch)
+                            @*@Html.Partial("~/Views/Listing/_ListingGrid.cshtml", Model.ListingsSearch)*@
+                            <div class="row">
+                                @foreach (var item in Model.ListingsSearch.ListingsPageList)
+                                {
+                                    <div class="card-deck col-xs-2 col-sm-5 col-md-6 ">
+                                        @Html.Partial("~/Views/Listing/_ListingCard.cshtml", item)
+                                    </div>
+                                }
+                            </div>
                             break;
 
                         case BeYourMarket.Model.Enum.Enum_SortView.List:
@@ -358,9 +350,10 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
-</div>
+    </div>
 <!-- ./ Main Content -->
 
 
@@ -372,6 +365,9 @@
     <script src="~/js/formstone/transition.js"></script>
     <script src="~/js/formstone/lightbox.js"></script>
 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgB8z009mHSrPLaJUobfgmI1gTlk1aqyc&libraries=places"></script>
+    <script src="~/Scripts/TnTutils/GoogleMapsGeocode.js" type="text/javascript"></script>
+
     <script>
         $(".text-swap").on("click", function () {
             var el = $(this);
@@ -381,336 +377,29 @@
         });
     </script>
 
-    <script type="text/javascript">
+    @*<script type="text/javascript">
         $(".boxer").lightbox({
             mobile: true
         });
-    </script>
+    </script>*@
 
-    @if (Model.ListingItem.ListingCurrent.Latitude.HasValue && Model.ListingItem.ListingCurrent.Longitude.HasValue)
-    {
-        <text>
-            <script type="text/javascript">
-                function initMap() {
-                    var myLatlng = new google.maps.LatLng(@Model.ListingItem.ListingCurrent.Latitude.Value.ToString(System.Globalization.CultureInfo.InvariantCulture), @Model.ListingItem.ListingCurrent.Longitude.Value.ToString(System.Globalization.CultureInfo.InvariantCulture));
-                    var isDraggable = $(document).width() > 480 ? true : false; // If document (your website) is wider than 480px, isDraggable = true, else isDraggable = false
-
-                    var mapOptions = {
-                        draggable: isDraggable,
-                        scrollwheel: false, // Prevent users to start zooming the map when scrolling down the page
-                        zoom: 14,
-                        center: myLatlng
-                    };
-
-                    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
-                    var marker = new google.maps.Marker({
-                        position: myLatlng,
-                        map: map,
-                        content: '@Model.ListingItem.ListingCurrent.Location'
-                    });
-                }
-            </script>
-        </text>
-    }
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgB8z009mHSrPLaJUobfgmI1gTlk1aqyc&libraries=places&callback=initMap" async defer></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
-                localStorage.setItem('activeTab', $(e.target).attr('href'));
-            });
-            var activeTab = localStorage.getItem('activeTab');
-            if (activeTab) {
-                $('#mainTab a[href="' + activeTab + '"]').tab('show');
-            }
+            initializeMapCanvas();
         });
     </script>
 
 
-    @*<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgB8z009mHSrPLaJUobfgmI1gTlk1aqyc&libraries=places&callback=initMap" async defer></script>*@
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
 
-    @*<script>
-            //https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete
-            //https://developers.google.com/maps/documentation/javascript/examples/geocoding-reverse
-            function initMap() {
-                var isDraggable = $(document).width() > 480 ? true : false; // If document (your website) is wider than 480px, isDraggable = true, else isDraggable = false
+        // Initialize popover component
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        })
 
-                var mapOptions = {
-                    draggable: isDraggable,
-                    scrollwheel: false, // Prevent users to start zooming the map when scrolling down the page
-                    zoom: 13,
-                    center: new google.maps.LatLng(-20.1608912, 57.50122220000003),
-                };
-
-                @{ var hasLatLng = @Model.ListingItem.ListingCurrent.Latitude.HasValue && @Model.ListingItem.ListingCurrent.Longitude.HasValue; }
-                var hasLatLng = @hasLatLng.ToString().ToLowerInvariant();
-
-                @if (hasLatLng){
-                    <text>
-                mapOptions = {
-                    center: new google.maps.LatLng(@Model.ListingItem.ListingCurrent.Latitude.Value.ToString(System.Globalization.CultureInfo.InvariantCulture), @Model.ListingItem.ListingCurrent.Longitude.Value.ToString(System.Globalization.CultureInfo.InvariantCulture)),
-                    zoom: 12
-                };
-                </text>
-                };
-
-                var map = new google.maps.Map(document.getElementById('map-canvas'),  mapOptions);
-
-                @if (hasLatLng){
-                    <text>
-                var marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(@Model.ListingItem.ListingCurrent.Latitude.Value.ToString(System.Globalization.CultureInfo.InvariantCulture), @Model.ListingItem.ListingCurrent.Longitude.Value.ToString(System.Globalization.CultureInfo.InvariantCulture)),
-                    map: map
-                });
-
-                marker.setVisible(true);
-                </text>
-                }
-
-                geocoder = new google.maps.Geocoder();
-
-                var input = (document.getElementById('LocSelectedName'));
-
-                // Try HTML5 geolocation
-                if (@Model.ListingItem.ListingCurrent.ID == 0){
-                    if (navigator.geolocation) {
-                        navigator.geolocation.getCurrentPosition(function (position) {
-                            var pos = new google.maps.LatLng(position.coords.latitude,
-                                                             position.coords.longitude);
-
-                            geocoder.geocode({ 'latLng': pos }, function (results, status) {
-                                if (status == google.maps.GeocoderStatus.OK) {
-                                    if (results[1]) {
-                                        map.setZoom(14);
-                                        map.setCenter(pos);
-
-                                        marker = new google.maps.Marker({
-                                            position: pos,
-                                            map: map,
-                                            content: results[1].formatted_address
-                                        });
-                                        infowindow.setContent(results[1].formatted_address);
-                                        infowindow.open(map, marker);
-
-                                        $('#LocSelectedName').val(results[1].formatted_address);
-
-                                        alert(results[1].formatted_address);
-
-                                        $('#Latitude').val(pos.lat());
-                                        $('#Longitude').val(pos.lng());
-
-                                    } else {
-                                        alert('No results found');
-                                    }
-                                } else {
-                                    alert('Geocoder failed due to: ' + status);
-                                }
-                            });
-                        }, function () {
-                            handleNoGeolocation(true);
-                        });
-                    } else {
-                        // Browser doesn't support Geolocation
-                        handleNoGeolocation(false);
-                    }
-                }
-
-                var options = {
-                    types: ['(cities)'],
-                    componentRestrictions: { country: 'mu' }
-                };
-                var autocomplete = new google.maps.places.Autocomplete(input);
-                autocomplete.bindTo('bounds', map);
-
-                // ASY : Set the data fields to return when the user selects a place.
-                autocomplete.setFields(  ['address_components', 'geometry', 'icon', 'name']);
-
-                // ASY : try
-                //var service = new google.maps.places.AutocompleteService();
-                //var txtLoc = document.getElementById('LocSelectedName').value;
-                //service.getQueryPredictions({ input: txtLoc }, displaySuggestions);
-
-                var autoCompleService = new google.maps.places.AutocompleteService();
-                var placesService = new google.maps.places.PlacesService(map);
-                var infowindow = new google.maps.InfoWindow();
-                var marker = new google.maps.Marker({
-                    map: map,
-                    anchorPoint: new google.maps.Point(0, -29)
-                });
-
-                // ASY
-                var callbackSetMaps = function (predictions, status) {
-                    if (status != google.maps.places.PlacesServiceStatus.OK) {
-                        alert(status);
-                        return;
-                    }
-
-                    predictions.forEach(function (prediction) {
-                        //var li = document.createElement('li');
-                        //li.appendChild(document.createTextNode(prediction.description));
-                        //document.getElementById('LocSelectedName').appendChild(li);
-
-                        getPlaceDetails(prediction.place_id);
-
-                    });
-                };
-
-                // Get place details
-                function getPlaceDetails(placeId) {
-                    var request = {
-                        placeId: placeId
-                    };
-
-                    placesService.getDetails(request, function (place, status) {
-
-                        if (status === google.maps.places.PlacesServiceStatus.OK) {
-
-                            if (!place.geometry) {
-                                window.alert("Autocomplete's returned place contains no geometry");
-                                window.alert("No details available for input: '" + place.name + "'");
-                                return;
-                            }
-
-                            // Set lat/long
-                            $('#Latitude').val(place.geometry.location.lat());
-                            $('#Longitude').val(place.geometry.location.lng());
-
-                            //window.alert("Latitude : '" + document.getElementById('Latitude').value + "'");
-                            //window.alert("Longitude : '" + document.getElementById('Longitude').value + "'");
-
-                            // If the place has a geometry, then present it on a map.
-                            if (place.geometry.viewport) {
-                                map.fitBounds(place.geometry.viewport);
-                            } else {
-                                map.setCenter(place.geometry.location);
-                                map.setZoom(12);
-                            }
-                            marker.setIcon(({
-                                url: place.icon,
-                                size: new google.maps.Size(71, 71),
-                                origin: new google.maps.Point(0, 0),
-                                anchor: new google.maps.Point(17, 34),
-                                scaledSize: new google.maps.Size(35, 35)
-                            }));
-                            marker.setPosition(place.geometry.location);
-                            marker.setVisible(true);
-
-                            var address = '';
-                            if (place.address_components) {
-                                address = [
-                                    (place.address_components[0] && place.address_components[0].short_name || ''),
-                                    (place.address_components[1] && place.address_components[1].short_name || ''),
-                                    (place.address_components[2] && place.address_components[2].short_name || '')
-                                ].join(' ');
-                            }
-
-                            infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
-                            infowindow.open(map, marker);
-
-                        }
-                    });
-                }
-
-                //google.maps.event.addListener(autocomplete, 'place_changed', function () {
-                autocomplete.addListener('place_changed', function () {
-                    infowindow.close();
-                    marker.setVisible(false);
-                    var place = autocomplete.getPlace();
-
-                    if (!place ) {
-
-                        //perform request. limit results to Maurice
-                        //var txtLoc = document.getElementById('LocSelectedName').value;
-                        var request = {
-                            input: document.getElementById('LocSelectedName').value ,
-                            types: ['establishment', 'geocode'],
-                            componentRestrictions: { country: 'mu' },
-                        };
-                        autoCompleService.getPlacePredictions(request, callbackSetMaps);
-                        return;
-                    }
-                   // window.alert("ASY Debug ---- autocomplete.getPlace() : '" + place.name + "'");
-
-                    if (!place.geometry) {
-                        window.alert("Autocomplete's returned place contains no geometry");
-                        window.alert("No details available for input: '" + place.name + "'");
-                        return;
-                    }
-
-                    // Set lat/long
-                    $('#Latitude').val(place.geometry.location.lat());
-                    $('#Longitude').val(place.geometry.location.lng());
-
-                    //window.alert("Latitude : '" + document.getElementById('Latitude').value + "'");
-                    //window.alert("Longitude : '" + document.getElementById('Longitude').value + "'");
-
-                    // If the place has a geometry, then present it on a map.
-                    if (place.geometry.viewport) {
-                        map.fitBounds(place.geometry.viewport);
-                    } else {
-                        map.setCenter(place.geometry.location);
-                        map.setZoom(12);
-                    }
-                    marker.setIcon(({
-                        url: place.icon,
-                        size: new google.maps.Size(71, 71),
-                        origin: new google.maps.Point(0, 0),
-                        anchor: new google.maps.Point(17, 34),
-                        scaledSize: new google.maps.Size(35, 35)
-                    }));
-                    marker.setPosition(place.geometry.location);
-                    marker.setVisible(true);
-
-                    var address = '';
-                    if (place.address_components) {
-                        address = [
-                          (place.address_components[0] && place.address_components[0].short_name || ''),
-                          (place.address_components[1] && place.address_components[1].short_name || ''),
-                          (place.address_components[2] && place.address_components[2].short_name || '')
-                        ].join(' ');
-                    }
-
-                    infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
-                    infowindow.open(map, marker);
-                });
-
-                // ASY : force fire event
-              //  autocomplete.place_changed();
-               google.maps.event.trigger(autocomplete, 'place_changed');
-
-                google.maps.event.addDomListener(input, 'keydown', function (e) {
-                    if (e.keyCode == 13) {
-                        if (e.preventDefault) {
-                            e.preventDefault();
-                        }
-                        else {
-                            // Since the google event handler framework does not handle
-                            e.cancelBubble = true;
-                            e.returnValue = false;
-                        }
-                    }
-                });
-
-            }
-
-            function handleNoGeolocation(errorFlag) {
-                if (errorFlag) {
-                    var content = 'Error: The Geolocation service failed.';
-                } else {
-                    var content = 'Error: Your browser doesn\'t support geolocation.';
-                }
-
-                var options = {
-                    map: map,
-                    position: new google.maps.LatLng(60, 105),
-                    content: content
-                };
-
-                var infowindow = new google.maps.InfoWindow(options);
-                map.setCenter(options.position);
-            }
-        </script>*@
-
+    </script>
 }
 

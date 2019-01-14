@@ -322,14 +322,19 @@ namespace BeYourMarket.Web.Controllers
                 return RedirectToAction("Listing", "Listing", new { area = "", id = listingId });
 
         }
-            
+        public PartialViewResult LoginPartial()
+        {
+            return PartialView("_LoginPartial");
+        }
+
         [ChildActionOnly]
         public ActionResult LanguageSelector()
         {
             //var languages = i18n.LanguageHelpers.GetAppLanguages();
             var languages = LanguageHelper.AvailableLanguges.Languages;
-            var languageCurrent = ControllerContext.RequestContext.HttpContext.GetPrincipalAppLanguageForRequest();
 
+            var languageCurrent = ControllerContext.RequestContext.HttpContext.GetPrincipalAppLanguageForRequest();
+            
             var model = new LanguageSelectorModel();
             model.Culture = languageCurrent.GetLanguage();
             model.DisplayName = languageCurrent.GetCultureInfo().NativeName;

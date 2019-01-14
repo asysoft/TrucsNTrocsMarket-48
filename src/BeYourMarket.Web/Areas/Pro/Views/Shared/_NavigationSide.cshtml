@@ -19,7 +19,7 @@
         </a>
 
     </form>
-    <ul class="sidebar-menu" >
+    <ul class="sidebar-menu">
         @if (!User.Identity.IsAuthenticated)
         {
             <li class="hidden-lg hidden-md text-center">
@@ -27,18 +27,13 @@
                     <span>[[[Log in]]]</span>
                 </a>
             </li>
-            
 
             <li class="hidden-lg hidden-md">
                 <a href="@Url.Action("Register", "Account")">
                     <span>[[[Create an account]]]</span>
                 </a>
             </li>
-            <li class="hidden-lg hidden-md">
-                <a href="@Url.Action("ListingUpdate", "Listing")">
-                    <span>[[[New listing]]]</span>
-                </a>
-            </li>
+
         }
         else
         {
@@ -47,45 +42,6 @@
                     <i class="fa fa-dashboard"></i> <span>[[[Dashboard]]]</span>
                 </a>
             </li>
-
-            if (User.IsInRole("Professional"))
-            {
-            <li class="divider">
-
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <img class="mx-auto d-block" src="@ImageHelper.GetCommunityImagePath("Pro_Star","png")">
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-                <li class="hidden-lg hidden-md">
-                    <a href="@Url.Action("Index", "UserPro")">
-                        <span class="font-weight-bold text-warning">[[[My Shop]]]</span>
-                    </a>
-                </li>
-                <li class="hidden-lg hidden-md">
-                    <a href="@Url.Action("ProIdentity", "UserPro", new { area = "Pro" })">
-                        <span class="font-weight-bold text-warning">[[[View Company Details]]]</span>
-                    </a>
-                </li>
-                <li class="hidden-lg hidden-md">
-                    <a href="@Url.Action("ProListingUpdate", "UserPro", new { area = "Pro" })">
-                        <span class="font-weight-bold text-warning">[[[Add new article]]]</span>
-                    </a>
-                </li>
-            }
-            else
-            {
-                <li class="hidden-lg hidden-md">
-                    <a href="@Url.Action("Index", "Home", new { area ="" })">
-                        <span>[[[Return to Home page]]]</span>
-                    </a>
-                </li>
-            }
-
 
             if (User.IsInRole("Administrator"))
             {
@@ -97,8 +53,58 @@
             }
         }
 
+        <li class="divider">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <img class="mx-auto d-block" src="@ImageHelper.GetCommunityImagePath("Pro_Star","png")">
+                    </div>
+                </div>
+            </div>
+        </li>
+
+
+
+        @if (User.IsInRole("Professional"))
+        {
+            <li class="hidden-xs">
+                <a href="@Url.Action("Index", "UserPro")">
+                    <span class="font-weight-bold text-warning">[[[The Shop]]]</span>
+                </a>
+            </li>
+
+            <li class="hidden-xs">
+                <a href="@Url.Action("ProIdentity", "UserPro", new { area = "Pro" })">
+                    <span class="font-weight-bold text-warning">[[[View Company Details]]]</span>
+                </a>
+            </li>
+
+            @*Faut que soit sont annonce aussi, pas a celle d un autre PRO !*@
+            <li class="hidden-xs">
+                <a href="@Url.Action("ProListingUpdate", "UserPro", new { area = "Pro" })">
+                    <span class="font-weight-bold text-warning">[[[Add new article]]]</span>
+                </a>
+            </li>
+
+            <li class="hidden-xs">
+                <a href="#">
+                    <span class="font-weight-bold text-warning">[[[Manage your Cards]]]</span>
+                </a>
+            </li>
+
+        }
+        else
+        {
+            <li class="hidden-lg hidden-md">
+                <a href="@Url.Action("Index", "Home", new { area ="" })">
+                    <span>[[[Return to Home page]]]</span>
+                </a>
+            </li>
+        }
+
         @*<li class="divider"><i class="fa fa-th-list"></i> [[[Categories]]]</li>
-            <li id="jstreeCategNav">  </li>*@
+        <li id="jstreeCategNav">  </li>*@
 
         <li>
             <footer class="copyright">

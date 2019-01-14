@@ -1,5 +1,5 @@
 /*!
- * bootstrap-fileinput v4.5.1
+ * bootstrap-fileinput v4.5.2
  * http://plugins.krajee.com/file-input
  *
  * Krajee default styling for bootstrap-fileinput.
@@ -293,6 +293,10 @@ input[type=file].file-loading {
         &:not(.file-preview-error):hover {
             border: $border solid $black-30;
             box-shadow: 0 0 multiply($pad, 2) 0 $black-40;
+        }
+        &[data-template="audio"] .kv-file-content {
+            width: 240px;
+            height: 55px;
         }
     }
     .file-preview-text {
@@ -629,8 +633,8 @@ input[type=file].file-loading {
 }
 
 @media(max-width: 350px) {
-    .krajee-default.file-preview-frame .kv-file-content {
-        width: multiply($pad, 32);
+    .krajee-default.file-preview-frame:not([data-template="audio"]) .kv-file-content {
+        width: 160px;
     }
 }
 

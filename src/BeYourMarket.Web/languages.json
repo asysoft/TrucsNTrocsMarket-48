@@ -1,1 +1,21 @@
-{"DefaultCulture":"fr","Languages":[{"Culture":"da","Enabled":false},{"Culture":"en","Enabled":true},{"Culture":"it","Enabled":false},{"Culture":"fr","Enabled":true}]}
+{
+  "DefaultCulture": "fr",
+  "Languages": [
+    {
+      "Culture": "fr",
+      "Enabled": true
+    },
+    {
+      "Culture": "en",
+      "Enabled": true
+    },
+    {
+      "Culture": "da",
+      "Enabled": false
+    },
+    {
+      "Culture": "it",
+      "Enabled": false
+    }
+  ]
+}

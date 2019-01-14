@@ -94,47 +94,50 @@ namespace BeYourMarket.Web.Models
         [Display(Name = "[[[Last Name]]]")]
         public string LastName { get; set; }
 
-        [Display(Name = "[[[Phone Number]]")]
+        [Display(Name = "[[[Phone Number]]]")]
         public string PhoneNumber { get; set; }
 
         // Permet de savoir le type de compte a a creation ( par defaut : normal, sinon Pro)
         public Enum_UserType UserType { get; set; }
 
-        [Display(Name = "[[[Gender]]")]
+        [Display(Name = "[[[Gender]]]")]
         public string Gender { get; set; }
 
-        [Display(Name = "[[[Company Name]]")]
+        [Display(Name = "[[[Company Name]]]")]
         public string ProCompany { get; set; }
 
-        [Display(Name = "[[[Siret]]")]
+        [Display(Name = "[[[Siret]]]")]
         public string ProSiret { get; set; }
 
-        [Display(Name = "[[[Adress]]")]
+        [Display(Name = "[[[Adress]]]")]
         public string ProAdress { get; set; }
 
-        [Display(Name = "[[[Town Or Zip]]")]
+        [Display(Name = "[[[Town Or Zip]]]")]
         public string ProTownZip { get; set; }
 
-        [Display(Name = "[[[Company Phone]]")]
+        [Display(Name = "[[[Company Phone]]]")]
         public string ProPhone { get; set; }
 
         // liste des categ du pro separe  par un; 
         public string ProCategoryIDs { get; set; }
 
-        [Display(Name = "[[[Company Web Site]]")]
+        [Display(Name = "[[[Company Web Site]]]")]
         public string ProSiteWeb { get; set; }
 
-        [Display(Name = "[[[Company Email]]")]
+        [Display(Name = "[[[Company Email]]]")]
         public string ProEmail { get; set; }
 
-        [Display(Name = "[[[Location ID]]")]
+        [Display(Name = "[[[Location ID]]]")]
         public int ProLocationRefID { get; set; }
 
-        [Display(Name = "[[[Latitude]]")]
+        [Display(Name = "[[[Latitude]]]")]
         public double? ProLatitude { get; set; }
 
-        [Display(Name = "[[[Longitude]]")]
+        [Display(Name = "[[[Longitude]]]")]
         public double? ProLongitude { get; set; }
+        
+        [Display(Name = "[[[Pro Card Number]]]")]
+        public string ProCardNumber { get; set; }
 
         // pour les Pro Uniquement, logo en indice 0 et autres ( pubs ? best of products ?...)
         public IEnumerable<HttpPostedFileBase> ImgFiles { get; set; }

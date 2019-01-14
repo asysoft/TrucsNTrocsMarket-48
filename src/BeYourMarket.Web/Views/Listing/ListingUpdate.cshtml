@@ -3,7 +3,11 @@
 @using BeYourMarket.Web.Models;
 
 @{
-    ViewBag.Title = "[[[Listing Update]]]";
+                /**/
+
+                /**/
+
+                ViewBag.Title = "[[[Listing Update]]]";
 }
 
 @section Styles {
@@ -153,7 +157,8 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgB8z009mHSrPLaJUobfgmI1gTlk1aqyc&libraries=places&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgB8z009mHSrPLaJUobfgmI1gTlk1aqyc&libraries=places"></script>
+    <script src="~/Scripts/TnTutils/GoogleMapsGeocode.js" type="text/javascript"></script>
 
     <script src="~/Scripts/fileinput.min.js"></script>
     @Html.Partial("_LocalizationFileInput")
@@ -275,7 +280,7 @@
             geocoder = new google.maps.Geocoder();
 
             var input = (document.getElementById('LocSelectedName'));
-            
+
             // Try HTML5 geolocation
             if (@Model.ListingItem.ID == 0){
                 if (navigator.geolocation) {
@@ -330,7 +335,7 @@
             // ASY : Set the data fields to return when the user selects a place.
             autocomplete.setFields(  ['address_components', 'geometry', 'icon', 'name']);
 
-            // ASY : try 
+            // ASY : try
             //var service = new google.maps.places.AutocompleteService();
             //var txtLoc = document.getElementById('LocSelectedName').value;
             //service.getQueryPredictions({ input: txtLoc }, displaySuggestions);

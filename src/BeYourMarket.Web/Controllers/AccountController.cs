@@ -230,23 +230,23 @@ namespace BeYourMarket.Web.Controllers
         // pour les pros recuperer logo  
         public async Task<ActionResult> Register(RegisterViewModel model, FormCollection form , IEnumerable<HttpPostedFileBase> files)
         {
-            if (ModelState.IsValid)
-            {
-                //
-                model.ImgFiles = files;
-                var result = await RegisterAccount(model);
+            model.ProLatitude = Double.Parse(form["ProLatitude"].Replace(',', '.'), CultureInfo.InvariantCulture); ;
+            model.ProLongitude = Double.Parse(form["ProLongitude"].Replace(',', '.'), CultureInfo.InvariantCulture);
+
+            //
+            model.ImgFiles = files;
+            var result = await RegisterAccount(model);
                 
-                // Add errors
-                AddErrors(result);
+            // Add errors
+            AddErrors(result);
 
-                if (result.Succeeded)
-                {
-                    // ASY : redirige vers l env de l user
-                    //return RedirectToAction("Index", "Manage");
-                    return RedirectToUserTypeEnv(model.Email);
-                }
-
+            if (result.Succeeded)
+            {
+                // ASY : redirige vers l env de l user
+                //return RedirectToAction("Index", "Manage");
+                return RedirectToUserTypeEnv(model.Email);
             }
+
 
             // If we got this far, something failed, redisplay form
             return View(model);
@@ -338,7 +338,7 @@ namespace BeYourMarket.Web.Controllers
 
                                 //https://naimhamadi.wordpress.com/2014/06/25/processing-images-in-c-easily-using-imageprocessor/
                                 // Initialize the ImageFactory using the overload to preserve EXIF metadata.
-                                using (ImageFactory imageFactory = new ImageFactory(preserveExifData: true))
+                                using (ImageFactory imageFactory = new ImageFactory(preserveExifData: false))
                                 {
                                     var path = Path.Combine(Server.MapPath("~/Images/Profile/Prologos"), string.Format("{0}.{1}", picture.ID.ToString("00000000"), "jpg"));
 
@@ -350,6 +350,7 @@ namespace BeYourMarket.Web.Controllers
                                 }
 
                                 var itemPicture = new UserImgFile();
+                                itemPicture.ObjectState = Repository.Pattern.Infrastructure.ObjectState.Added;
                                 itemPicture.AspNetUserId = user.Id;
                                 itemPicture.PictureID = picture.ID;
                                 itemPicture.Ordering = PictureLogoOrder;
@@ -361,6 +362,9 @@ namespace BeYourMarket.Web.Controllers
                     }
 
                 }
+
+                // sauve le logo
+                await _unitOfWorkAsync.SaveChangesAsync();
 
                 // connection de l utilisateur
                 await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);

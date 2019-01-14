@@ -37,14 +37,16 @@
 }
 
     <div class="main-section" style="background-color:#EAF4D3">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
-                <div class="col-md-2">
-                    <div class="card" id="divLogoHautGauche"></div>
+                
+               
+                <a href="#" id="testPub" onclick="ShowHidePub()">P</a>
+                <div class="col-sm-12 col-md-2 m-t-5 d-none d-md-inline">                  
                     <img src="@ImageHelper.GetCommunityImagePath("LogoTnTcom_150x184", "png"))" style="display: block;" />
                 </div>
-                <div class="col-md-9">
-                    <div class="card " id="divPubRegisterHaut">
+                <div class="col-sm-12 col-md-9">
+                    <div class="card border-success " id="divPubRegisterHaut">
                         <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Index_Haut_800x200_Img1"))" style="display: block;" pubHaut />
                         @{
                             for (int iH = 2; iH <= @ImageHelper.GetMaxNbforPub("pub_Index_Haut_800x200_Img"); iH++)
@@ -82,7 +84,7 @@
                         </div>
                 </div>
                     <div class="col-md-6 mx-auto">
-                        <div id="divcentre" class="landing-bg text-center" style="background-repeat: no-repeat ;">
+                        <div id="divcentre" class="text-center" style="background-repeat: no-repeat ;">
                             <img id="idImgMap" class="map" src="@mapUrl" border="0" usemap="#map" style="background-repeat: no-repeat ;" width="556" height="650" />
                             <map name="map" id="idMap" style="background-repeat: no-repeat ;">
                                 <area title="Port-Louis" alt="Port-Louis" href="" class="Zone1" rel="1" shape="poly" coords="136,193,139,193,140,192,141,191,139,189,139,182,144,177,146,177,147,179,149,180,154,180,155,179,159,179,167,184,171,181,177,181,177,182,181,182,183,183,183,185,184,185,184,190,186,191,186,194,187,198,188,204,189,209,191,231,190,237,188,240,185,243,183,245,171,245,171,244,168,244,168,243,166,243,165,242,163,242,157,237,153,233,151,232,146,227,144,222,143,221,141,221,137,226,136,226,136,228,135,229,133,231,125,231,125,224,124,218,125,213,129,208,129,205,131,203,133,201,133,197,135,195,135,193,137,193" />
@@ -107,7 +109,7 @@
                         </div>
                     </div>
                     <div class="col d-flex h-100 align-bottom">
-                        <div class="card mt-10" id="divPubRegisterDroite">
+                        <div class="card mt-10" id="divPubIndexDroite">
                             <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Index_Droite_250x350_Img1"))" style="display: block;" pubdroite />
                             @{
                                 for (int iD = 2; iD <= @ImageHelper.GetMaxNbforPub("pub_Index_Droite_250x350_Img"); iD++)
@@ -119,15 +121,20 @@
                     </div>
                 </div>
             <div class="row mt-2">
-                <div class="col-md-12 section-title">
-                    <h4>[[[Latest Listings]]] <a class="btn btn-default btn-sm pull-right" href="@Url.Action("Search","Home")">[[[See All Listings]]] &raquo;</a></h4>
+                <div class="col-md-5 section-title">  <h4>[[[Latest Listings]]] <i class="fa fa-arrow-circle-o-down  "></i></h4></div>
+                <div class="text-center">
+                    <a class="btn btn-primary  hidden-sm hidden-xs" href="@Url.Action("Search","Home")">
+                    <i class="fa fa-arrow-circle-down"></i> [[[See All Listings]]]</a>
+                    @*<a class="btn btn-primary btn-sm mx-auto" href="@Url.Action("Search","Home")">
+                        [[[See All Listings]]]
+                    </a>*@
                 </div>
             </div>
 
             <div class="row mt-2">
                 @foreach (var item in Model.ListingsPageList.Take(8))
                 {
-                    <div class="card-deck col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card-deck col-xs-12 col-sm-6 col-md-3 col-lg-3">
                         @Html.Partial("~/Views/Listing/_ListingCard.cshtml", item)
                     </div>
                 }
