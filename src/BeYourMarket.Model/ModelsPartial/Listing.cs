@@ -48,7 +48,9 @@ namespace BeYourMarket.Model.Models
         {
             get
             {
-                return "s" + Math.Round(Rating * 2);
+                // ASY : pas de  demi en demi
+                //return "s" + Math.Round(Rating * 2);
+                return "s" + Math.Round(Rating);
             }
         }
 

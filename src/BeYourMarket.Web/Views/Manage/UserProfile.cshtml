@@ -14,14 +14,16 @@
             @Html.Partial("_DashBoardSide", "profile")
 
             <div class=" col-md-9">
-                <div id="myTabContent" class="tab-content ">
-                    <div role="tabpanel" class="tab-pane card-content fade active in" id="listings" aria-labelledby="listings-tab">
-                        <div class="panel panel-default">
+                <div id="myTabContent">
+                    <div  class="card" id="listings" aria-labelledby="listings-tab">
+                        <div class="">
                             <!-- Default panel contents -->
-                            <div class="panel-heading">
-                                [[[Profile]]]
+                            <div class="card-header text-center">
+                                <h3>
+                                    [[[Profile]]]
+                                </h3>
                             </div>
-                            <div class="panel-body">
+                            <div class="card-body">
                                 @using (Html.BeginForm("ProfileUpdate", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
                                 {
                                     @Html.AntiForgeryToken()

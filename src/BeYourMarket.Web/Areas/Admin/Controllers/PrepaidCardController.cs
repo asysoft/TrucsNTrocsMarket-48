@@ -66,8 +66,8 @@ namespace BeYourMarket.Web.Areas.Admin.Controllers
             model.DateFinValidite = new DateTime(2019, 12, 31);
             model.DateGeneration = DateTime.Now;
 
-            model.NumLot = 1;
-            model.LastNumSerie = 1;  // recuperer dans la base !
+            model.NumLot = 2;
+            model.LastNumSerie = 3501;  // recuperer dans la base !
 
             model.IsActif = true;
 

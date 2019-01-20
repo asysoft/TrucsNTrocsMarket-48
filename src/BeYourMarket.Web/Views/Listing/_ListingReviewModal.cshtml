@@ -15,15 +15,42 @@
                     <div class="panel-body">
                         <div class="media">
                             <a href="@Url.Action("Profile", "Listing", new { id = User.Identity.GetUserId() })" class="pull-left">
-                                <img class="pull-left media-object img-circle thumb-sm m-t-10" src="@BeYourMarket.Web.Utilities.ImageHelper.GetUserProfileImagePath(User.Identity.GetUserId())" />
+                                <img class="pull-left media-object rounded-circle thumb-sm m-t-10" src="@BeYourMarket.Web.Utilities.ImageHelper.GetUserProfileImagePath(User.Identity.GetUserId())" />
                             </a>
                             <div class="media-body">
                                 <form action="@Url.Action("ReviewListing", "Listing")" method="post" role="form">
                                     @Html.AntiForgeryToken()
                                     @Html.Hidden("ID", Model.ListingCurrent.ID)
 
-                                    <span class="text-md">[[[Please Rate]]]</span>
-                                    <input id="Rating" name="Rating" class="rating" data-show-clear="false" data-show-caption="false" data-size="sm" />
+                                    @*<span class="text-md">[[[Please Rate]]]</span>
+                                    <input id="Rating" name="Rating" class="rating" data-show-clear="false" data-show-caption="false" data-size="sm" />*@
+                                    <div class="form-group" id="rating-ability-wrapper">
+                                        <label class="control-label" for="rating">
+                                            <span class="field-label-header">[[[Please Rate]]]</span><br>
+                                            <span class="field-label-info"></span>
+                                            <input type="hidden" id="Rating" name="Rating" value="" required="required">
+                                        </label>
+                                        <h2 class="bold rating-header" style="">
+                                            <span class="selected-rating">0</span><small> / 5</small>
+                                        </h2>
+                                        <button type="button" class="btnrating btn btn-default btn-lg" data-attr="1" id="rating-star-1">
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                        </button>
+                                        <button type="button" class="btnrating btn btn-default btn-lg" data-attr="2" id="rating-star-2">
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                        </button>
+                                        <button type="button" class="btnrating btn btn-default btn-lg" data-attr="3" id="rating-star-3">
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                        </button>
+                                        <button type="button" class="btnrating btn btn-default btn-lg" data-attr="4" id="rating-star-4">
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                        </button>
+                                        <button type="button" class="btnrating btn btn-default btn-lg" data-attr="5" id="rating-star-5">
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+
+
                                     <textarea class="form-control m-b-10" id="Description" name="Description" required rows="4" placeholder="[[[Write your review...]]]"></textarea>
                                     <button class="btn btn-primary" type="submit"><i class="fa fa-send"></i> [[[Send Review]]]</button>
                                     <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-close"></i> [[[Close]]]</button>
@@ -54,6 +81,6 @@
 @{
     if (CacheHelper.Settings.ListingReviewEnabled)
     {
-        <a id = "reviewModal" class="btn btn-default pull-right" data-toggle="modal" data-target="#reviewModal"><i class="fa fa-star"></i> - [[[Add a Review]]]</a>
+        <a id = "reviewModal" class="btn btn-default pull-right" data-toggle="modal" data-target="#reviewModal"><i class="fa fa-star"></i> [[[Add a Review]]]</a>
     }
 }

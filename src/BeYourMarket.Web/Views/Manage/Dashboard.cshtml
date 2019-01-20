@@ -10,14 +10,16 @@
 
             @Html.Partial("_DashBoardSide", "dashboard")
 
-            <div class=" col-md-9">
-                <div id="myTabContent" class="tab-content ">
-                    <div role="tabpanel" class="tab-pane card-content fade active in" id="listings" aria-labelledby="listings-tab">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                [[[My Listings]]]
+            <div class="col-md-9">
+                <div id="myTabContent" >
+                    <div class="card " id="listings" >
+
+                            <div class="card-header text-center">
+                                <h3>
+                                    [[[My Listings]]]
+                                </h3>
                             </div>
-                            <div class="panel-body">
+                            <div class="card-body ">
                                 <div class="pull-left">
                                     <form class="form-inline" action="@Url.Action("Dashboard", "Manage")" method="get" role="form">
                                         <input type="text" id="searchText" name="searchText" class="input-sm form-control" placeholder="[[[Search your listings...]]]" value="@Request.QueryString["searchText"]">
@@ -51,7 +53,7 @@
                                     </li>
                                 }
                             </ul>
-                        </div>
+               
                     </div>
 
                 </div>

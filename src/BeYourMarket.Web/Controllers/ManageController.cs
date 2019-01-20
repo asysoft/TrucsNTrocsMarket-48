@@ -142,7 +142,7 @@ namespace BeYourMarket.Web.Controllers
                 : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
                 : "";
 
-          //  return RedirectToAction("Dashboard");
+            return RedirectToAction("Dashboard");
 
             var userId = User.Identity.GetUserId();
             var model = new IndexViewModel

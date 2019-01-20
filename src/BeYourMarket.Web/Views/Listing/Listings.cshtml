@@ -56,8 +56,9 @@
 
     <div class="mrg-tb">
         <div class="row">
+            <a href="#" id="testPub" onclick="ShowHidePub()">P</a>
             <div id="divLogoHautGauche" style="background-image: url(@ImageHelper.GetCommunityImagePath("LogoTnTcom_150x184", "png"));"></div>
-            <div  class="card border-success" id="divPubHaut">
+            <div class="card border-success" id="divPubHaut">
                 <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Listings_Haut_800x200_Img1","jpg",true)" style="display: block;" pubHaut />
                 @{
                     for (int iH = 2; iH <= @ImageHelper.GetMaxNbforPub("pub_Listings_Haut_800x200_Img"); iH++)
@@ -77,7 +78,7 @@
                             <fieldset>
 
                                 <div class="form-body" style="border-style:groove;overflow-y: auto; ">
-                                    <div id="jstreeCateg">  </div>                       
+                                    <div id="jstreeCateg">  </div>
                                     <input type="hidden" id="CategoryIDhidd" name="CategoryIDsSearch" value="@Model.CategoryIDsSearch" />
                                 </div>
 

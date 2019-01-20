@@ -335,10 +335,13 @@ namespace BeYourMarket.Web.Controllers
                     Ordering = x.Ordering
                 }).OrderBy(x => x.Ordering).ToList();
 
+            //ASY : on prend toutes les review sur l'article et non sur l utilisateur
             var reviews = await _listingReviewService
-                .Query(x => x.UserTo == item.UserID)
+                //.Query(x => x.UserTo == item.UserID )
+                .Query(x => x.ListingID == item.ID)
                 .Include(x => x.AspNetUserFrom)
                 .SelectAsync();
+
 
             var user = await UserManager.FindByIdAsync(item.UserID);
 

@@ -230,8 +230,11 @@ namespace BeYourMarket.Web.Controllers
         // pour les pros recuperer logo  
         public async Task<ActionResult> Register(RegisterViewModel model, FormCollection form , IEnumerable<HttpPostedFileBase> files)
         {
-            model.ProLatitude = Double.Parse(form["ProLatitude"].Replace(',', '.'), CultureInfo.InvariantCulture); ;
-            model.ProLongitude = Double.Parse(form["ProLongitude"].Replace(',', '.'), CultureInfo.InvariantCulture);
+            if( !string.IsNullOrEmpty(form["ProLatitude"]) )
+                model.ProLatitude = Double.Parse(form["ProLatitude"].Replace(',', '.'), CultureInfo.InvariantCulture);
+
+            if (!string.IsNullOrEmpty(form["ProLongitude"]))
+                model.ProLongitude = Double.Parse(form["ProLongitude"].Replace(',', '.'), CultureInfo.InvariantCulture);
 
             //
             model.ImgFiles = files;
@@ -737,17 +740,18 @@ namespace BeYourMarket.Web.Controllers
                 // Pro
                 var rolePro = RoleManager.FindByName(Enum_UserType.Professional.ToString());
                 var isPro = currentUsr.Roles.Any(x => x.RoleId == rolePro.Id);
-                //if (isPro)
-                //    return RedirectToAction("Index", "Professional", new { proUserID = currentUsr.Id } );
                 if (isPro)
                     return RedirectToAction("Index", "UserPro", new { area = "Pro" });
 
                 // Autres roles , backoff
 
+                // Particulier : redirige pour entrer le nom, prenom et autre
+                return RedirectToAction("UserProfile", "Manage");
+
 
             }
 
-            // Sinon Par defaut, les particuliers
+            // Sinon Par defaut
             return RedirectToAction("Index", "Home");
         }
 

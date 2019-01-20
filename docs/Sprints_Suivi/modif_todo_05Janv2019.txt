@@ -12,3 +12,11 @@ Creer un compte :
 - Ajouter numero carte apres Siret 
 + un lien avec une page , ou se procurer les cartes (points de ventes)
 - dans Layout du Pro, ajouter lien pour gerer la carte  
+
+- code secret de la carte secret trucs 
+
+- rating de l entreprise
+-  agrandir dresse etc, et personne de contact
+- aussi dans annonces, agrandir police
+- Ma  Vitrine,  / Vitrine 
+
