@@ -14,6 +14,8 @@ using BeYourMarket.Web.Models.Grids;
 using i18n;
 using i18n.Helpers;
 using BeYourMarket.Model.Enum;
+using Microsoft.AspNet.Identity;
+using BeYourMarket.Web.Areas.Pro.Controllers;
 
 namespace BeYourMarket.Web.Controllers
 {
@@ -322,9 +324,28 @@ namespace BeYourMarket.Web.Controllers
                 return RedirectToAction("Listing", "Listing", new { area = "", id = listingId });
 
         }
-        public PartialViewResult LoginPartial()
+
+        //public PartialViewResult LoginPartial()
+        public async Task<PartialViewResult> LoginPartial()
         {
-            return PartialView("_LoginPartial");
+            ProShopModel resultPro = null;
+
+            // Pour les Pro afficher le nom de la societe
+            var userId = User.Identity.GetUserId();
+
+            if (User.IsInRole("Professional"))
+            {
+
+                var controller = DependencyResolver.Current.GetService<UserProController>();
+                 controller.ControllerContext = new ControllerContext(this.Request.RequestContext, controller);
+
+                //Call your method
+                //ActionInvoker.InvokeAction(controller.ControllerContext, "LoadUserProInfosAndLogoByID");
+                resultPro = await controller.LoadUserProInfosAndLogoByID(userId);
+            }
+
+            //
+            return PartialView("_LoginPartial", resultPro);
         }
 
         [ChildActionOnly]

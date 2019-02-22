@@ -11,16 +11,16 @@ function initializeMapCanvas() {
     var zoomIle;
 
     if ((document.getElementById('Latitude') != null) && (document.getElementById('Longitude') != null)) {
-        lat = parseFloat( document.getElementById('Latitude').value.replace(',' , '.' ) ) ;
-        long = parseFloat( document.getElementById('Longitude').value.replace(',', '.'));
+        lat = parseFloat(document.getElementById('Latitude').value.replace(',', '.'));
+        long = parseFloat(document.getElementById('Longitude').value.replace(',', '.'));
     }
 
-    if (lat != null && long != null) {
+    if (!isNaN(lat) && !isNaN(long) && lat != null && long != null) {
         latlng = new google.maps.LatLng(lat, long);
         zoomIle = 16;
     }
     else {
-        latlng = new google.maps.LatLng(-20.1608912, 57.50122220000003); // Port Louis
+        latlng = new google.maps.LatLng(-20.1608912, 57.50122220000003); 
         zoomIle = 10;
     }
 
@@ -30,7 +30,8 @@ function initializeMapCanvas() {
     };
 
     // set Map
-    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    if ( document.getElementById('map-canvas') != null)
+        map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
 }
 

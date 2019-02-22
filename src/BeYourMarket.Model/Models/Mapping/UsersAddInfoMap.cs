@@ -32,8 +32,7 @@ namespace BeYourMarket.Model.Models.Mapping
             this.Property(t => t.LocationRefID).HasColumnName("LocationRefID");
             this.Property(t => t.ProLongitude).HasColumnName("ProLongitude");
             this.Property(t => t.ProLatitude).HasColumnName("ProLatitude");
-
-            //
+ 
             // Relationships
             this.HasRequired(t => t.AspNetUser)
                 .WithMany(t => t.UsersAddInfos)
@@ -44,6 +43,6 @@ namespace BeYourMarket.Model.Models.Mapping
                 .HasForeignKey(d => d.LocationRefID).WillCascadeOnDelete();
         }
 
-}
+    }
 
 }

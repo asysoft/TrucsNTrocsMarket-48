@@ -1,19 +1,19 @@
 
 - Le map qui remonte				=> OK
 - Voir toutes les annonces : en bleu au milieu, avec les fleches vers le bas		=> OK
-- Etoile Pro plus petite au niveau du prix ==> mieux, presque
+- Etoile Pro plus petite au niveau du prix ==> mieux, presque OK
 - mode liste, etoile
 - Pied de page dans chaque page
 - Deposer une annonce : si pas connecter => afficher la page de login
 
 Creer un compte :
-- Glisser et deposer le LOGO
+- Glisser et deposer le LOGO => OK
 - Creer un compte Pro, pb
 - Ajouter numero carte apres Siret 
 + un lien avec une page , ou se procurer les cartes (points de ventes)
 - dans Layout du Pro, ajouter lien pour gerer la carte  
 
-- code secret de la carte secret trucs 
+- code secret de la carte trucs 
 
 - rating de l entreprise
 -  agrandir dresse etc, et personne de contact

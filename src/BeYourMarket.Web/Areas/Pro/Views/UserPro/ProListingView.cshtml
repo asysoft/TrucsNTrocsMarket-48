@@ -35,14 +35,30 @@
                                     <div class="card-header">
                                         <h3>
                                             @Model.ListingItem.ListingCurrent.Title
-                                            <span class="score @Model.ListingItem.ListingCurrent.RatingClass text-md"></span>
+                                            @*<span class="score @Model.ListingItem.ListingCurrent.RatingClass text-md"></span>*@
                                             <!-- Show edit button if administrator or the user who create the listing -->
                                             @if (Model.ListingItem.ListingCurrent.UserID == User.Identity.GetUserId() || User.IsInRole("Administrator"))
                                             {
                                                 <a class="btn btn-primary" href="@Url.Action("ListingUpdate", "Listing", new { id = Model.ListingItem.ListingCurrent.ID, area = "" })"><i class="fa fa-edit"></i> [[[Edit]]]</a>
                                             }
                                         </h3>
-
+                                        <div class="form-group pull-right" id="rating-ability-wrapper">
+                                            <button type="button" class="btnrating btn btn-default btn-sm " data-attr="1" id="rating-star-Title-1">
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            </button>
+                                            <button type="button" class="btnrating btn btn-default btn-sm" data-attr="2" id="rating-star-Title-2">
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            </button>
+                                            <button type="button" class="btnrating btn btn-default btn-sm" data-attr="3" id="rating-star-Title-3">
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            </button>
+                                            <button type="button" class="btnrating btn btn-default btn-sm" data-attr="4" id="rating-star-Title-4">
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            </button>
+                                            <button type="button" class="btnrating btn btn-default btn-sm" data-attr="5" id="rating-star-Title-5">
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
                                         @if (Model.ListingItem.ListingCurrent.Price.HasValue)
                                         {
                                             <h4>
@@ -258,7 +274,7 @@
                 </div>
                 <div class="row">
                     <div class="col col-md-4">
-                        <div class="align-bottom">
+                        <div class="align-self-baseline m-t-3">
                             <a href="@Url.Action("ShowProShopByID", "UserPro", new {area="Pro", userID = @Model.ListingItem.User.Id })">
                                 <img class="img-fluid" style="width: 100%; height: auto" src="@Model.ProInfos.Pictures.First().Url" />
                             </a>
@@ -266,21 +282,21 @@
                     </div>
                     <div class="col col-md-8 align-self-start">
 
-                        <div class="form-group">
+                        <div class="form-group text-md font-weight-bold">
                             <div class="mark">
-                                <label class="" for="ProTownZip">[[[City]]] : </label>
+                                @*<label class="text-md" for="ProTownZip">[[[City]]] : </label>*@
                                 @Html.DisplayFor(m => m.ProInfos.UserAddInf.ProTownZip, new { @class = "form-control" })
                             </div>
                             <div class="mark">
-                                <label class="" for="ProPhone">[[[Professional Phone]]] : </label>
+                                @*<label class="text-md" for="ProPhone">[[[Professional Phone]]] : </label>*@
                                 @Html.DisplayFor(m => m.ProInfos.UserAddInf.ProPhone, new { @class = "form-control" })
                             </div>
                             <div class="mark">
-                                <label class="" for="Email">[[[Company Email]]] : </label>
+                                @*<label class="text-md" for="Email">[[[Company Email]]] : </label>*@
                                 @Html.DisplayFor(m => m.ProInfos.UserAddInf.ProEmail, new { @class = "form-control" })
                             </div>
                             <div class="mark">
-                                <label for="ProSiteWeb">[[[Web Site]]] : </label>
+                                @*<label class="text-md" for="ProSiteWeb">[[[Web Site]]] : </label>*@
                                 @Html.DisplayFor(m => m.ProInfos.UserAddInf.ProSiteWeb, new { @class = "form-control" })
                             </div>
                         </div>
@@ -387,6 +403,35 @@
         $(document).ready(function () {
             initializeMapCanvas();
         });
+
+               $(".btnrating").on('click', (function (e) {
+
+            var previous_value = $("#Rating").val();
+
+            var selected_value = $(this).attr("data-attr");
+            $("#Rating").val(selected_value);
+
+            $(".selected-rating").empty();
+            $(".selected-rating").html(selected_value);
+
+            for (i = 1; i <= selected_value; ++i) {
+                $("#rating-star-" + i).toggleClass('btn-warning');
+                $("#rating-star-" + i).toggleClass('btn-default');
+            }
+
+            for (ix = 1; ix <= previous_value; ++ix) {
+                $("#rating-star-" + ix).toggleClass('btn-warning');
+                $("#rating-star-" + ix).toggleClass('btn-default');
+            }
+
+        }));
+
+        // met le rating dans le titre
+        for (i = 1; i <= @Model.ListingItem.ListingCurrent.Rating; ++i) {
+            $("#rating-star-Title-" + i).toggleClass('btn-warning');
+            $("#rating-star-Title-" + i).toggleClass('btn-default');
+        }
+
     </script>
 
 

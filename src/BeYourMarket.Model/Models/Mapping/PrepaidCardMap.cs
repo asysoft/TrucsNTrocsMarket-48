@@ -26,9 +26,9 @@ namespace BeYourMarket.Model.Models.Mapping
             this.Property(t => t.NumLot).HasColumnName("NumLot");
             this.Property(t => t.DateGeneration).HasColumnName("DateGeneration");
             this.Property(t => t.DateFinValidite).HasColumnName("DateFinValidite");
-            this.Property(t => t.IsValid).HasColumnName("IsValid");
+            
             this.Property(t => t.IsActif).HasColumnName("IsActif");
-
+            this.Property(t => t.CardStatus).HasColumnName("CardStatus");
         }
     }
 }

@@ -1,8 +1,163 @@
 ﻿
+@model BeYourMarket.Web.Models.SearchCardsModel
+
+@using GridMvc.Html
+@using PagedList.Mvc
+@using System.Text.RegularExpressions
+
+@using BeYourMarket.Web.Utilities
+@using BeYourMarket.Service
+@using Microsoft.AspNet.Identity
+@using BeYourMarket.Web.Extensions;
+
 @{
-    Layout = null;
+    ViewBag.Title = "T N T";
 }
 
-<div>
 
+@section Styles {
+    <link href="~/Content/Gridmvc.css" rel="stylesheet" />
+    <link href="~/Content/gridmvc.datepicker.min.css" rel="stylesheet" />
+}
+
+<div class="container-fluid" style="background-color:#EAF4D3">
+    <div class="mx-auto col-md-9">
+        <form action="@Url.Action("SearchCards", "PrepaidCard", new { area = "Admin" })" id="SearchCardsForm" method="post" role="form" enctype="multipart/form-data">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>
+                        [[[Manage Cards]]]
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <h5>[[[Enter one or more search criterias]]]</h5>
+                    <hr />
+                    <div class="row">
+                        <div class="form-group ml-2">
+                            <label class="mark" for="NumLot">[[[Batch Number]]]</label>
+                            @Html.CheckBoxFor(m => m.SCrit.ChkNumLot, new { onchange = "chkOnChange(this)" })
+                            @Html.TextBoxFor(m => m.SCrit.NumLot, new { @class = "form-control", disabled = "disabled" })
+                        </div>
+                        <div class="form-group ml-2">
+                            <label class="mark" for="Code">[[[Secret Code]]]</label>
+                            @Html.CheckBoxFor(m => m.SCrit.ChkCode, new { onchange = "chkOnChange(this)" })
+                            @Html.TextBoxFor(m => m.SCrit.Code, new { @class = "form-control", disabled = "disabled" })
+                        </div>
+                        <div class="form-group ml-2">
+                            <label class="mark" for="NumSerie">[[[Serial Number]]]</label>
+                            @Html.CheckBoxFor(m => m.SCrit.ChkNumSerie, new { onchange = "chkOnChange(this)" })
+                            @Html.TextBoxFor(m => m.SCrit.NumSerie, new { @class = "form-control", disabled = "disabled" })
+                        </div>
+                        <div class="form-group ml-4">
+                            <label class="mark" for="IsInUse">[[[In Use?]]]</label>
+                            @Html.CheckBoxFor(m => m.SCrit.ChkIsInUse, new { onchange = "chkOnChangeChk(this)" })
+                            @Html.CheckBoxFor(m => m.SCrit.IsInUse, new { @class = "form-control" })
+                        </div>                        
+                        <div class="form-group ml-4">
+                            <label class="mark" for="IsValidCard">[[[Valid Card?]]]</label>
+                            @Html.CheckBoxFor(m => m.SCrit.ChkIsValidCard, new { onchange = "chkOnChangeChk(this)" })
+                            @Html.CheckBoxFor(m => m.SCrit.IsValidCard, new { @class = "form-control " })
+                        </div>
+                        <div class="form-group ml-4">
+                            <label class="mark" for="IsActifCard">[[[Actif Card?]]]</label>
+                            @Html.CheckBoxFor(m => m.SCrit.ChkIsActifCard, new { onchange = "chkOnChangeChk(this)" })
+                            @Html.CheckBoxFor(m => m.SCrit.IsActifCard, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group ml-2">
+                            <label class="mark" for="DateFinValidite">[[[Valide until]]]</label>
+                            @Html.CheckBoxFor(m => m.SCrit.ChkDateFinValidite, new { onchange = "chkOnChange(this)" })
+                            @Html.TextBoxFor(m => m.SCrit.DateFinValidite, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group ml-2">
+                            <label class="mark" for="DateFirstUse">[[[Used since]]]</label>
+                            @Html.CheckBoxFor(m => m.SCrit.ChkDateFirstUse, new { onchange = "chkOnChange(this)" })
+                            @Html.TextBoxFor(m => m.SCrit.DateFirstUse, new { @class = "form-control", disabled = "disabled" })
+                        </div>
+                        <div class="form-group ml-4">
+                            <label class="mark" for="ProOwnerName">[[[Pro Owner Name]]]</label>
+                            @Html.CheckBoxFor(m => m.SCrit.ChkProOwnerName, new { onchange = "chkOnChange(this)" })
+                            @Html.TextBoxFor(m => m.SCrit.ProOwnerName, new { @class = "form-control ", disabled = "disabled" })
+                        </div>                        
+                        <div class="form-group ml-2">
+                            <label class="mark" for="ProCompany">[[[Pro Company]]]</label>
+                            @Html.CheckBoxFor(m => m.SCrit.ChkProCompany, new { onchange = "chkOnChange(this)" })
+                            @Html.TextBoxFor(m => m.SCrit.ProCompany, new { @class = "form-control ", disabled = "disabled" })
+                        </div>
+                        <button class="btn btn-primary pull-right ml-2" disabled type="submit"><i class="fa fa-newspaper-o"></i> [[[Rechercher]]]</button>
+
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            @Html.Grid(Model.Grid).SetLanguage(Context.GetPrincipalAppLanguageForRequest().ToString()).EmptyText("[[[There are no items to display.]]]").Columns(columns =>
+                        {
+
+                            columns.Add(x => x.CurrentCard.NumLot).Titled("[[[Batch Number]]]")
+                                .RenderValueAs(x => x.CurrentCard.NumLot.ToString());
+
+                            columns.Add(x => x.CurrentCard.NumSerie).Titled("[[[Serial Number]]]")
+                                .RenderValueAs(x => x.CurrentCard.NumSerie.ToString());
+
+                            columns.Add(x => x.CurrentCard.Code).Titled("[[[Secret Code]]]")
+                                .RenderValueAs(x => Regex.Replace(x.CurrentCard.Code.ToString(), ".{3}", "$0 ") );
+
+                            columns.Add(x => x.DateFirstUse).Titled("[[[First Use]]]")
+                                .RenderValueAs(x => (x.DateFirstUse == DateTime.MinValue ? "" : x.DateFirstUse.ToShortDateString() ));
+
+                            columns.Add(x => x.CurrentCard.DateFinValidite).Titled("[[[Validity Max]]]")
+                                .RenderValueAs(x => x.CurrentCard.DateFinValidite.ToShortDateString());
+
+                            columns.Add(x => x.IsInUse).Titled("[[[Is Used]]]")
+                                .RenderValueAs(x => (x.IsInUse ? "[[[in Use]]]" : "[[[Not Used]]]") );
+
+                        }).Sortable().Filterable().Selectable(false)
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-footer">
+                    <div class="container-fluid">
+                        <div class=" col-md-12">
+                            <h5 class="pull-left">
+                                @string.Format("[[[Page {0} of {1}]]]", Model.CardsPageList.PageCount < Model.PageNumber ? 0 : Model.PageNumber, Model.CardsPageList.PageCount)
+                            </h5>
+                            @Html.PagedListPager(Model.CardsPageList, (page) => { return Request.UrlReplace("PageNumber", page.ToString()); },
+                            new PagedListRenderOptions
+                                    {
+                                        ContainerDivClasses = new List<string>(new string[] { "pull-right" }),
+                                        DisplayPageCountAndCurrentLocation = false,
+                                        MaximumPageNumbersToDisplay = 10,
+                                        DisplayEllipsesWhenNotShowingAllPageNumbers = false
+                                    })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
+
+        @section Scripts {
+            <script src="~/Scripts/gridmvc.min.js"></script>
+            @Html.Partial("_LocalizationGridMvc")
+
+            <script>
+                function chkOnChange(element) {
+                    var txtboxID = element.id.split('SCrit_Chk');
+                    var txtB = document.getElementById('SCrit_' + txtboxID[1] );
+
+                    element.checked ? txtB.disabled = false : txtB.disabled = true
+                    if (!element.checked) txtB.value = "";
+                }
+
+                function chkOnChangeChk(element) {
+                    var txtboxID = element.id.substring(3);
+                    var txtB = document.getElementById(txtboxID);
+
+                    element.checked ? txtB.disabled = false : txtB.disabled = true
+
+                }
+            </script>
+        }

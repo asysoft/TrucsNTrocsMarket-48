@@ -356,6 +356,7 @@
     <Compile Include="Models\Grids\ListingModelGrid.cs" />
     <Compile Include="Models\Grids\ListingTypesGrid.cs" />
     <Compile Include="Models\Grids\LocationsRefGrid.cs" />
+    <Compile Include="Models\Grids\ProCardsModelGrid.cs" />
     <Compile Include="Models\jsTree3Node.cs" />
     <Compile Include="Models\LanguageSelectorModel.cs" />
     <Compile Include="Models\ListingTypeModel.cs" />
@@ -365,6 +366,7 @@
     <Compile Include="Models\Grids\ListingsGrid.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\PaymentModel.cs" />
+    <Compile Include="Models\ProCardItemModel.cs" />
     <Compile Include="Models\ProfileModel.cs" />
     <Compile Include="Models\ListingItemModel.cs" />
     <Compile Include="Models\OrderModel.cs" />
@@ -372,7 +374,9 @@
     <Compile Include="Models\ListingModel.cs" />
     <Compile Include="Models\ListingUpdateModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ProManageCardsModel.cs" />
     <Compile Include="Models\ProShopModel.cs" />
+    <Compile Include="Models\SearchCardsModel.cs" />
     <Compile Include="Models\SearchListingModel.cs" />
     <Compile Include="Models\SortViewModel.cs" />
     <Compile Include="Models\TextFileModel.cs" />
@@ -943,6 +947,7 @@
     <Content Include="Content\bootstrap-fileinput\scss\themes\explorer-fas\theme.scss" />
     <Content Include="Content\bootstrap-fileinput\scss\fileinput.scss" />
     <Content Include="Content\bootstrap-fileinput\scss\fileinput-rtl.scss" />
+    <Content Include="Areas\Pro\Views\UserPro\ProManageCards.cshtml" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfileDebugNet452.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfileReleaseNet452.pubxml" />

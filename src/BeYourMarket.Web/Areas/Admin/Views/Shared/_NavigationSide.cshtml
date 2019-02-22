@@ -162,10 +162,10 @@ var attribute = groupDictionary[menu].Contains(ViewContext.RouteData.Values["act
         </li>
 
         <li class="has-submenu @DisplayGroupAttribute("PrepaidCards")">
-            <a href="#"><i class="fa fa-paint-brush"></i> <span class="nav-label">[[[Prepaid Cards]]]</span></a>
+            <a href="#"><i class="fa fa-newspaper-o"></i> <span class="nav-label">[[[Prepaid Cards]]]</span></a>
             <ul class="list-unstyled">
                 <li class="@DisplayAttribute("View Cards")"><a href="@Url.Action("ViewCards", "PrepaidCard", new { area = "Admin" } )">[[[View Cards]]]</a></li>
-                <li class="@DisplayAttribute("Generate Cards")"><a href="@Url.Action("Index", "PrepaidCard", new { area = "Admin" })">[[[Generate Cards]]]</a></li>
+                <li class="@DisplayAttribute("Generate Cards")"><a href="@Url.Action("GenerateNewCards", "PrepaidCard", new { area = "Admin" })">[[[Generate Cards]]]</a></li>
                 <li class="@DisplayAttribute("Follow Cars")"><a href="@Url.Action("FollowCars", "PrepaidCard" , new { area = "Admin" })">[[[Follow Cars]]]</a></li>
             </ul>
         </li>

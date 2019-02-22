@@ -53,7 +53,30 @@
                     @Html.Raw(Model.ListingCurrent.Description)
                 </p>
                 <p>
-                    <span class="score @Model.ListingCurrent.RatingClass text-sm"></span> @Model.ListingCurrent.ListingReviews.Count [[[Reviews]]]
+                    @*<span class="score @Model.ListingCurrent.RatingClass text-sm"></span> @Model.ListingCurrent.ListingReviews.Count [[[Reviews]]]*@
+                    <div class="form-group">
+                        @for (int i = 1; i <= 5; ++i)
+                        {
+                            if (i <= @Model.ListingCurrent.Rating)
+                            {
+                                <button type="button" class="btnrating btn btn-warning btn-sm">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </button>
+
+                            }
+                            else
+                            {
+                                <button type="button" class="btnrating btn btn-default btn-sm">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </button>
+
+                            }
+                        }
+                        
+                    </div>
+                    <div>
+                        <span class="text-sm"></span> @Model.ListingCurrent.ListingReviews.Count [[[Reviews]]]
+                    </div>
                 </p>
             </a>
         </div>

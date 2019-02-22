@@ -89,6 +89,9 @@ namespace BeYourMarket.Web
     .RegisterType<IRepositoryAsync<UsersAddInfo>, Repository<UsersAddInfo>>()
     .RegisterType<IUsersAddInfoService, UsersAddInfoService>()
 
+    .RegisterType<IRepositoryAsync<UserPrepaidCard>, Repository<UserPrepaidCard>>()
+    .RegisterType<IUserPrepaidCardService, UserPrepaidCardService>()
+
     .RegisterType<IMessageService, MessageService>()
     .RegisterType<IMessageParticipantService, MessageParticipantService>()
     .RegisterType<IMessageReadStateService, MessageReadStateService>()

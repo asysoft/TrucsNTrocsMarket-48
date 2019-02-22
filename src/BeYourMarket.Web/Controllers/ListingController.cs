@@ -967,7 +967,12 @@ namespace BeYourMarket.Web.Controllers
             await MessageHelper.SendMessage(message);
 
             TempData[TempDataKeys.UserMessage] = "[[[Thanks for your feedback!]]]";
-            return RedirectToAction("Listing", "Listing", new { id = listingReview.ID });
+
+            // redirige vers la page de depart ( du Pro ou du Particulier)
+            if(user.UserType == Enum_UserType.Professional)
+                return RedirectToAction("ProListingView", "UserPro", new { area="Pro",  id = listingReview.ID });
+            else
+                return RedirectToAction("Listing", "Listing", new { id = listingReview.ID });
         }
         #endregion
     }

@@ -29,7 +29,7 @@
 
     @RenderSection("styles", required: false)
 
-    @Html.DoAction(HookName.Head)
+    @*@Html.DoAction(HookName.Head)*@
 
 </head>
 
@@ -78,7 +78,7 @@
                     }
 
                     <div class="d-none d-md-flex p-4 navbar-nav ml-auto ">
-                        @Html.Partial("_LoginPartial")
+                        @Html.Partial("_LoginPartial", new BeYourMarket.Web.Models.ProShopModel() )
                     </div>
 
                 </nav>

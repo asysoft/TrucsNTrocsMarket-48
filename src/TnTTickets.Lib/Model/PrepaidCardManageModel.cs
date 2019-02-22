@@ -24,6 +24,7 @@ namespace TnTPrepaidCard.Lib.Model
         public int NbCards { get; set; }
         public int NumLot { get; set; }
         public int LastNumSerie { get; set; }
+        public int LastNumLot { get; set; }
 
         public DateTime DateGeneration { get; set; }
         public DateTime DateFinValidite { get; set; }

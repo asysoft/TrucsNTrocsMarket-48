@@ -21,6 +21,8 @@ using ImageProcessor.Imaging.Formats;
 using System.Drawing;
 using ImageProcessor;
 using System.IO;
+using TnTPrepaidCard.Lib;
+using System.Threading;
 
 namespace BeYourMarket.Web.Controllers
 {
@@ -38,6 +40,9 @@ namespace BeYourMarket.Web.Controllers
         private readonly IPictureService _pictureService;
 
         private IUsersAddInfoService _usersAddInfoService;
+
+        IPrepaidCardService _prepaidCardService;
+        IUserPrepaidCardService _userPrepaidCardService;
 
         private readonly IUnitOfWorkAsync _unitOfWorkAsync;
         #endregion
@@ -86,7 +91,9 @@ namespace BeYourMarket.Web.Controllers
                                 IAspNetUserCategoriesService UserCategoriesService,
                                 IAspNetUserImgFileService AspNetUserImgFileService,
                                 IPictureService pictureService,
-                                IUsersAddInfoService UsersAddInfoService
+                                IUsersAddInfoService UsersAddInfoService,
+                                IPrepaidCardService prepaidCardService,
+                                IUserPrepaidCardService userPrepaidCardService
                                 )
         {
             _unitOfWorkAsync = unitOfWorkAsync;
@@ -96,7 +103,10 @@ namespace BeYourMarket.Web.Controllers
             _pictureService = pictureService;
 
             _usersAddInfoService = UsersAddInfoService;
-    }
+
+            _prepaidCardService = prepaidCardService;
+            _userPrepaidCardService = userPrepaidCardService;
+        }
         #endregion
 
         #region Methods
@@ -155,7 +165,7 @@ namespace BeYourMarket.Web.Controllers
                     //    return RedirectToAction("Index", "Manage");
                     //}
                     //return RedirectToLocal(returnUrl);
-                    return RedirectToUserTypeEnv(model.Email);
+                    return RedirectToUserTypeEnv(model.Email,false);
 
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -226,15 +236,18 @@ namespace BeYourMarket.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        //public async Task<ActionResult> Register(RegisterViewModel model)
-        // pour les pros recuperer logo  
         public async Task<ActionResult> Register(RegisterViewModel model, FormCollection form , IEnumerable<HttpPostedFileBase> files)
         {
-            if( !string.IsNullOrEmpty(form["ProLatitude"]) )
-                model.ProLatitude = Double.Parse(form["ProLatitude"].Replace(',', '.'), CultureInfo.InvariantCulture);
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
 
-            if (!string.IsNullOrEmpty(form["ProLongitude"]))
-                model.ProLongitude = Double.Parse(form["ProLongitude"].Replace(',', '.'), CultureInfo.InvariantCulture);
+            if ( !string.IsNullOrEmpty(form["ProLatitudeStr"]) )
+                model.ProLatitude = Double.Parse(form["ProLatitudeStr"].Replace(',', '.'), CultureInfo.InvariantCulture);
+
+            if (!string.IsNullOrEmpty(form["ProLongitudeStr"]))
+                model.ProLongitude = Double.Parse(form["ProLongitudeStr"].Replace(',', '.'), CultureInfo.InvariantCulture);
 
             //
             model.ImgFiles = files;
@@ -245,16 +258,20 @@ namespace BeYourMarket.Web.Controllers
 
             if (result.Succeeded)
             {
-                // ASY : redirige vers l env de l user
-                //return RedirectToAction("Index", "Manage");
-                return RedirectToUserTypeEnv(model.Email);
+                // ASY : redirige vers l env de l user , 
+                //parametre true : on est en train de creer donc aller a ala page profile pour rajputer le nom prenom, etc
+                return RedirectToUserTypeEnv(model.Email, true);
             }
-
-
+                                        
             // If we got this far, something failed, redisplay form
             return View(model);
         }
 
+        /// <summary>
+        /// Crée un nouveau compte particulier ou Pro
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public async Task<IdentityResult> RegisterAccount(RegisterViewModel model)
         {
             var user = new ApplicationUser
@@ -274,6 +291,32 @@ namespace BeYourMarket.Web.Controllers
                 LastAccessIP = System.Web.HttpContext.Current.Request.GetVisitorIP()
             };
 
+            // Pour les PRO Verifie d'abord si le code est correcte : s'il existe, n'est pas déja utilise et est actif
+            if ( model.UserType == Enum_UserType.Professional)
+            {
+                string msgErrCard = string.Empty;
+
+                // genere les cartes en bases
+                CardsManager cMan = new CardsManager(_unitOfWorkAsync, _prepaidCardService, _userPrepaidCardService);
+                try
+                {
+                    msgErrCard = cMan.CheckCodeNewProValid(model.ProCardNumber);
+                }
+                catch (Exception ex)
+                {
+                    Console.Write("Erreur controller method GenerateNewCards : GenerateCards : " + ex.Message);
+                    msgErrCard = "Erreur de verification du code de la carte";
+                }
+
+                //
+                if (!string.IsNullOrEmpty(msgErrCard))
+                {
+                    string[] resErr = { msgErrCard };
+                    return new IdentityResult(resErr);
+                }
+            }
+
+            // tente de creer lutilisateur
             var result = await UserManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
@@ -291,7 +334,7 @@ namespace BeYourMarket.Web.Controllers
                     usrAddInf.ProPhone = model.ProPhone;
                     usrAddInf.ProSiteWeb = model.ProSiteWeb;
                     usrAddInf.ProEmail = model.ProEmail;
-                    usrAddInf.LocationRefID = model.ProLocationRefID;
+                    usrAddInf.LocationRefID = (model.ProLocationRefID == 0) ? 1 : model.ProLocationRefID;
                     usrAddInf.ProLatitude = model.ProLatitude;
                     usrAddInf.ProLongitude = model.ProLongitude;
 
@@ -318,7 +361,6 @@ namespace BeYourMarket.Web.Controllers
 
                     // Sauvegarde le logo
                     int PictureLogoOrder = 0;
-
                     if (model.ImgFiles != null && model.ImgFiles.Count() > 0)
                     {
                         foreach (HttpPostedFileBase file in model.ImgFiles)
@@ -364,9 +406,19 @@ namespace BeYourMarket.Web.Controllers
                         }
                     }
 
+                    // Enregistre le code secret Valide
+                    _userPrepaidCardService.Insert(new UserPrepaidCard()
+                    {
+                        UserID = user.Id,
+                        Code = model.ProCardNumber.Replace(" ", string.Empty),
+                        DateFirstUse = DateTime.Now,
+                        IsActif = true,
+                        ObjectState = Repository.Pattern.Infrastructure.ObjectState.Added
+                    });
+
                 }
 
-                // sauve le logo
+                // sauve le logo et infos du Pro
                 await _unitOfWorkAsync.SaveChangesAsync();
 
                 // connection de l utilisateur
@@ -705,7 +757,15 @@ namespace BeYourMarket.Web.Controllers
         {
             foreach (var error in result.Errors)
             {
-                ModelState.AddModelError("", error);
+
+                // ASY : les erreurs identity ne sont pas localisé. Trucs pour afficher en francais
+                // Solution plus complete sur : https://stackoverflow.com/questions/19961648/how-to-localize-asp-net-identity-username-and-password-error-messages
+
+                string errorLang = error;
+                if (error.Contains("is already taken") )
+                    errorLang = error.Replace("is already taken", "[[[is already taken]]]").Replace("Name", "[[[Name]]]").Replace("Email", "[[[Email]]]");
+
+                ModelState.AddModelError("", errorLang);
             }
         }
 
@@ -722,11 +782,12 @@ namespace BeYourMarket.Web.Controllers
 
         /// <summary>
         /// ASY :  redirige dans l environnement de l utilisateur
-        /// a voir le cas des login externe
+        /// a voir le cas des login externe 
         /// </summary>
         /// <param name="currentUserId"></param>
+        /// <param name="bCreating">true : on est en train de creer donc aller a ala page profile pour rajputer le nom prenom, etc</param>
         /// <returns></returns>
-        private ActionResult RedirectToUserTypeEnv(string userEMail)
+        private ActionResult RedirectToUserTypeEnv(string userEMail, bool bCreating)
         {
             var currentUsr = UserManager.FindByName(userEMail);
 
@@ -735,7 +796,8 @@ namespace BeYourMarket.Web.Controllers
                 var roleAdministrator = RoleManager.FindByName(Enum_UserType.Administrator.ToString());
                 var isAdministrator = currentUsr.Roles.Any(x => x.RoleId == roleAdministrator.Id);
                 if (isAdministrator)
-                    return RedirectToAction("Index", "Home");
+                    //return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Manage", new { area = "Admin" } );
 
                 // Pro
                 var rolePro = RoleManager.FindByName(Enum_UserType.Professional.ToString());
@@ -746,7 +808,10 @@ namespace BeYourMarket.Web.Controllers
                 // Autres roles , backoff
 
                 // Particulier : redirige pour entrer le nom, prenom et autre
-                return RedirectToAction("UserProfile", "Manage");
+                if (bCreating)
+                    return RedirectToAction("UserProfile", "Manage");
+                else
+                    return RedirectToAction("Index", "Home");
 
 
             }

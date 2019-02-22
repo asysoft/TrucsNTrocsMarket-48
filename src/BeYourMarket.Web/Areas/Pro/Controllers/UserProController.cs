@@ -50,6 +50,9 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
         private readonly IAspNetUserImgFileService _aspNetUserImgFileService;
         private readonly IAspNetUserCategoriesService _aspNetUserCategoriesService;
 
+        private readonly IUserPrepaidCardService _userPrepaidCardService;
+        private readonly IPrepaidCardService _prepaidCardService;
+
         private readonly DataCacheService _dataCacheService;
         private readonly SqlDbService _sqlDbService;
 
@@ -92,10 +95,12 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
                            IAspNetUserCategoriesService AspNetUserCategoriesService,
                            IListingService listingService,
                            IListingPictureService listingPictureservice,
+                           IUserPrepaidCardService userPrepaidCardService,
+                           IPrepaidCardService prepaidCardService,
+
                            IOrderService orderService,
                            ICustomFieldService customFieldService,
-
-                            IListingReviewService listingReviewService,
+                           IListingReviewService listingReviewService,
                            ICustomFieldCategoryService customFieldCategoryService,
                            ICustomFieldListingService customFieldListingService,
                            ISettingDictionaryService settingDictionaryService,
@@ -115,6 +120,10 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
             _listingReviewService = listingReviewService;
             _pictureService = pictureService;
             _listingPictureservice = listingPictureservice;
+
+            _userPrepaidCardService = userPrepaidCardService;
+            _prepaidCardService = prepaidCardService;
+
             _orderService = orderService;
 
             _customFieldCategoryService = customFieldCategoryService;
@@ -133,22 +142,12 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
         {
             var userId = User.Identity.GetUserId();
             return  await ShowProShopByID(userId);
-
-            //// chzrge l App User de Identity et le logo
-            //var model = new ProShopModel();
-            //model = await LoadUserProInfosAndLogo();
-
-            //// charge les annonces du pro         
-            //model.ListingsSearch = await GetCurrentProListingsResult(model.UserPro.Id);
-        
-            //return View("~/Areas/Pro/Views/UserPro/ProShop.cshtml", model);
-
         }
 
         // GET: Pro/UserPro
         public async Task<ActionResult> ShowProShopByID(string userID)
         {
-            // chzrge l App User de Identity et le logo
+            // charge l App User de Identity et le logo
             var model = new ProShopModel();
             model = await LoadUserProInfosAndLogoByID(userID);
 
@@ -266,10 +265,10 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
                 addInf.ProSiteWeb = form["UserAddInf.ProSiteWeb"];
                 addInf.ProEmail = form["UserAddInf.ProEmail"];
 
-                if ( ! string.IsNullOrEmpty(form["UserAddInf.Latitude"]))
-                    addInf.ProLatitude = Double.Parse(form["UserAddInf.Latitude"].Replace(',', '.'), CultureInfo.InvariantCulture); 
-                if (!string.IsNullOrEmpty(form["UserAddInf.Longitude"]))
-                    addInf.ProLongitude = Double.Parse(form["UserAddInf.Longitude"].Replace(',', '.'), CultureInfo.InvariantCulture);
+                if ( ! string.IsNullOrEmpty(form["UserAddInf.ProLatitude"]))
+                    addInf.ProLatitude = Double.Parse(form["UserAddInf.ProLatitude"].Replace(',', '.'), CultureInfo.InvariantCulture); 
+                if (!string.IsNullOrEmpty(form["UserAddInf.ProLongitude"]))
+                    addInf.ProLongitude = Double.Parse(form["UserAddInf.ProLongitude"].Replace(',', '.'), CultureInfo.InvariantCulture);
                 int locRefID = 0;
                 if (int.TryParse(form["UserAddInf.LocationRefID"], out locRefID))
                     addInf.LocationRefID = locRefID;
@@ -1255,6 +1254,65 @@ namespace BeYourMarket.Web.Areas.Pro.Controllers
             };
 
             return View("~/Areas/Pro/Views/Shared/_NavigationSide.cshtml", model);
+        }
+
+        public async Task<ActionResult> ProManageCards()
+        {
+            // charge l App User de Identity et le logo
+            var userId = User.Identity.GetUserId();
+            ProShopModel proModel =  await LoadUserProInfosAndLogoByID(userId);
+
+            //
+            ProManageCardsModel cardManModel = new ProManageCardsModel();
+            cardManModel.UserAddInf = proModel.UserAddInf;
+            cardManModel.Prologos = proModel.Pictures;
+
+            // SearchCardsModel : recupere toutes les cards de l tuilisateur pour l affichage dans le grid
+            cardManModel.CardsSearch = await GetUserSearchCardsModel(userId);
+
+            // NeedNewCard : indique si le Pro a fini ses cartes valides et s il doit en entrer une nouvelle
+            var nbCardsInUse = cardManModel.CardsSearch.Cards.Select(x => x.CurrentCard.UserPrepaidCards.Select(y => y.IsActif)).Count();
+            cardManModel.NeedNewCard = (nbCardsInUse == 0);
+
+            //
+            return View(cardManModel);
+        }
+
+        /// <summary>
+        /// Recupere les cartes et donnees associees pour un Pro donnee
+        /// Prepare le model pour les afficher dans le gridMvc
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public async Task<SearchCardsModel> GetUserSearchCardsModel(string userId)
+        {
+            SearchCardsModel searchCardModel = new SearchCardsModel();
+
+            // Prend tout les cartes utilisées par le Pro
+            var itemsUserCards = await _userPrepaidCardService.Query(x => x.UserID == userId)
+                                            .Include(x => x.PrepaidCard)                            
+                                            .SelectAsync();
+
+            var itemsModelList = new List<ProCardItemModel>();
+
+            if (itemsUserCards != null)
+            {
+                foreach (var item in itemsUserCards.OrderByDescending(x => x.DateFirstUse))
+                {
+                    itemsModelList.Add(new ProCardItemModel()
+                    {
+                        UserAddInf = GetUserAdditionalInfos(userId),
+                        CurrentCard = item.PrepaidCard,
+                        DateFirstUse = item.DateFirstUse
+                    });
+                }
+            }
+
+            searchCardModel.Cards = itemsModelList;
+            searchCardModel.CardsPageList = itemsModelList.ToPagedList(searchCardModel.PageNumber, searchCardModel.PageSize);
+            searchCardModel.Grid = new ProCardsModelGrid(searchCardModel.CardsPageList.AsQueryable());
+
+            return searchCardModel;
         }
 
 

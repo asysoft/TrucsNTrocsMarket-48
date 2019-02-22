@@ -8,10 +8,12 @@
 }
 
 <div class="container-fluid" style="background-color:#EAF4D3">
-    <div class="mx-auto col-md-8">
+    <div class="mx-auto col-md-12">
         <div class="card">
             <div class="card-header text-center">
-                <label class="display-4">[[[Company Infos]]]</label>
+                <h4 class="font-weight-bold display-4 text-center">
+                    @Html.DisplayFor(m => m.UserAddInf.ProCompany, new { @class = "form-control" })
+                </h4>
                 @*Faut que soit sont annonce aussi, pas a celle d un autre PRO !*@
                 @if (User.IsInRole("Professional") && (User.Identity.User().Id == @Model.UserPro.Id))
                 {
@@ -20,15 +22,15 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col col-md-4">
-                        <div class="align-bottom">
+                    <div class="col col-md-3">
+                        <div class="align-self-baseline m-t-30">
                             <img class="img-fluid" style="width: 100%; height: auto" src="@Model.Pictures.First().Url" />
                         </div>
                     </div>
-                    <div class="col col-md-7 align-self-center">
-                        <h3 class="font-weight-bold display-4 text-center">
+                    <div class="col col-md-9 align-self-center text-md font-weight-bold">
+                        @*<h3 class="font-weight-bold display-4 text-center">
                             @Html.DisplayFor(m => m.UserAddInf.ProCompany, new { @class = "form-control" })
-                        </h3>
+                        </h3>*@
                         <div class="form-group">
                             <div class="mark">
                                 <label class="" for="ProAdress">[[[Adress]]] : </label>

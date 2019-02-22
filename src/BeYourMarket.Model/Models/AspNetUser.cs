@@ -26,9 +26,11 @@ namespace BeYourMarket.Model.Models
             this.AspNetUserImgFiles = new List<UserImgFile>();
 
             this.UsersAddInfos = new HashSet<UsersAddInfo>();
- 
-        // Valeur parr defaut en base
-        UserType =0;
+
+            this.UserPrepaidCards = new HashSet<UserPrepaidCard>();
+
+            // Valeur parr defaut en base
+            UserType =0;
         }
 
         public string Id { get; set; }
@@ -73,11 +75,17 @@ namespace BeYourMarket.Model.Models
         public virtual ICollection<ListingReview> ListingReviewsUserTo { get; set; }
         public virtual ICollection<AspNetRole> AspNetRoles { get; set; }
 
-        // pour les pro : relation avec la (ou les?) categ du pro
+        // pour les pro : relation avec les categ du pro
         public virtual ICollection<UserCategory> AspNetUserCategories { get; set; }
         public virtual ICollection<UserImgFile> AspNetUserImgFiles { get; set; }
 
-        public virtual ICollection<UsersAddInfo> UsersAddInfos { get; set; }       
+        public virtual ICollection<UsersAddInfo> UsersAddInfos { get; set; }
+
+        // pour creer Many to Many avec des champos customizable en plus dans la table de liaison 
+        // On crée 2 One to Many et l entity table de liaison avec les champs
+        // https://stackoverflow.com/questions/7050404/create-code-first-many-to-many-with-additional-fields-in-association-table
+        public virtual ICollection<UserPrepaidCard> UserPrepaidCards { get; set; }
+
 
     }
 }

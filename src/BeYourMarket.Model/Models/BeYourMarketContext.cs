@@ -63,6 +63,8 @@ namespace BeYourMarket.Model.Models
         public DbSet<UsersAddInfo> UsersAddInfos { get; set; }
 
         public DbSet<PrepaidCard> PrepaidCards { get; set; }
+        public DbSet<UserPrepaidCard> UserPrepaidCards { get; set; }
+        public DbSet<PrepaidCardHisto> PrepaidCardsHisto { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -102,6 +104,8 @@ namespace BeYourMarket.Model.Models
             modelBuilder.Configurations.Add(new UsersAddInfoMap());
 
             modelBuilder.Configurations.Add(new PrepaidCardMap());
+            modelBuilder.Configurations.Add(new UserPrepaidCardMap());
+            modelBuilder.Configurations.Add(new PrepaidCardHistoMap());
         }
     }
 }

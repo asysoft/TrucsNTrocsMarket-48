@@ -73,7 +73,7 @@ namespace BeYourMarket.Web.Models
         }
 
         [Required]
-        [EmailAddress]
+        [DataType(DataType.EmailAddress)]
         [Display(Name = "[[[Email]]]")]
         public string Email { get; set; }
 
@@ -87,7 +87,11 @@ namespace BeYourMarket.Web.Models
         [Display(Name = "[[[Confirm password]]]")]
         [Compare("Password", ErrorMessage = "[[[The password and confirmation password do not match.]]]")]
         public string ConfirmPassword { get; set; }
-        
+
+        [Display(Name = "[[[I accept Terms & Conditions]]]")]
+        [Range(typeof(bool), "true", "true", ErrorMessage = "[[[Please accepts the terms and conditions to continue]]]")]
+        public bool TermsAndConditions { get; set; }
+
         [Display(Name = "[[[First Name]]]")]
         public string FirstName { get; set; }
         
@@ -98,6 +102,7 @@ namespace BeYourMarket.Web.Models
         public string PhoneNumber { get; set; }
 
         // Permet de savoir le type de compte a a creation ( par defaut : normal, sinon Pro)
+        [Required]
         public Enum_UserType UserType { get; set; }
 
         [Display(Name = "[[[Gender]]]")]
@@ -133,10 +138,17 @@ namespace BeYourMarket.Web.Models
         [Display(Name = "[[[Latitude]]]")]
         public double? ProLatitude { get; set; }
 
+        [Display(Name = "[[[Latitude]]]")]
+        public string ProLatitudeStr { get; set; }
+
         [Display(Name = "[[[Longitude]]]")]
         public double? ProLongitude { get; set; }
-        
+
+        [Display(Name = "[[[Longitude]]]")]
+        public string ProLongitudeStr { get; set; }
+
         [Display(Name = "[[[Pro Card Number]]]")]
+        [StringLength(9, ErrorMessage = "[[[Invalid  Secret code]]]")]
         public string ProCardNumber { get; set; }
 
         // pour les Pro Uniquement, logo en indice 0 et autres ( pubs ? best of products ?...)

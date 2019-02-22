@@ -4,73 +4,87 @@
 
 
 <div class="card">
-    @using (Html.BeginForm("GenerateNewCards", "PrepaidCard", FormMethod.Post, new { area = "Admin", role = "form", id = "formNewCards" }))
+    @using (Html.BeginForm("DoGenerateNewCards", "PrepaidCard", FormMethod.Post, new { area = "Admin", role = "form", id = "formNewCards" }))
     {
 
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="card-header">
-            [[[Company Infos]]]
-            <button class="btn btn-primary  btn-sm pull-right" type="submit"><i class="fa fa-save"></i> [[[Generate]]]</button>
-
+            [[[Generate Cards]]]
+            <button class="btn btn-primary  btn-sm pull-right" type="submit" disabled ><i class="fa fa-save"></i> [[[Generate]]]</button>
         </div>
         <div class="card-body">
-            <div class="form-group row">
-                <div class="mark">
-                    <label>[[[Last Serial Number]]] : </label>
-                    @Html.DisplayFor(m => m.LastNumSerie, new { @class = "form-control" })
+            <div class="row">
+                <div class="col col-md-4">
+                    <div class="form-group">
+                        <div class="mark">
+                            <label>[[[Last Batch Number]]]  :  </label>
+                            @Html.DisplayFor(m => m.LastNumLot, new { @class = "form-control" })
+                            @Html.HiddenFor(x => x.LastNumLot)
+                        </div>
+                       
+                    </div>
+                </div>
+
+                <div class="col col-md-4">
+                    <div class="form-group">
+                        <div class="mark">
+                            <label>[[[Last Serial Number]]]  :  </label>
+                            @Html.DisplayFor(m => m.LastNumSerie, new { @class = "form-control" })
+                            @Html.HiddenFor(x => x.LastNumSerie)
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col col-md-4">
+                    <div class="form-group">
+                        <div class="mark">
+                            <label>[[[New Batch Number]]] </label>
+                            @Html.TextBoxFor(m => m.NumLot, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-md-4">
+                    <div class="form-group">
+                        <label>[[[Number Cards to create]]] </label>
+                        @Html.TextBoxFor(m => m.NbCards, new { @class = "form-control" })
+                    </div>
 
-            <div class="form-group row">
-                <div class="mark">
-                    <label>[[[Last Batch Number]]] : </label>
-                    @Html.DisplayFor(m => m.NumLot, new { @class = "form-control" })
                 </div>
             </div>
-
-            <hr />
-            <fieldset>
-
-                <div class="form-group">
-                    <label>[[[Number Cards to create]]] : </label>
-                    @Html.TextBoxFor(m => m.NbCards, new { @class = "form-control" })
+            <div class="row">
+                <div class="col col-md-4">
+                    <div class="form-group">
+                        <label class="mark" for="DateGeneration">[[[Date de Generation]]]  :  </label>
+                        @Html.TextBoxFor(m => m.DateGeneration, new { @class = "form-control" })
+                    </div>
                 </div>
-            </fieldset>
-            <fieldset>
-                <div class="form-group">
-                    <label for="DateGeneration">[[[DateGeneration]]]</label>
-                    @Html.DisplayFor(m => m.DateGeneration, new { @class = "form-control" })
+                <div class="col col-md-4">
+                    <div class="form-group">
+                        <label class="mark" for="DateFinValidite">[[[Date de Fin de Validite]]]  :  </label>
+                        @Html.TextBoxFor(m => m.DateFinValidite, new { @class = "form-control" })
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="DateFinValidite">[[[DateFinValidite]]]</label>
-                    @Html.TextBoxFor(m => m.DateFinValidite, new { @class = "form-control" })
-                </div>
-            </fieldset>
-            <hr />
-
-            <fieldset>
+            </div>
+            <div class="row">
                 <div class="form-group text-center">
                     <label class="cr-styled">
-                        <input type="radio" name="IsActif" enabled="true" id="cardActif" />
+                        <input type="radio" name="IsActif" enabled="false" selected id="cardActif" />
                         @*@Html.RadioButtonFor(m => m.IsActif, Model.IsActif, new { id = "cardActif" })*@
-                        <i class="fa"></i> [[[Cards actves]]]
+                        <i class="fa"></i> [[[Cards actives]]]
                     </label> <i class="fa fa-female"></i>
 
                     <label class="cr-styled">
-                        <input type="radio" name="IsActif" enabled="true" id="cardNotActif" />
+                        <input type="radio" name="IsActif" enabled="false" id="cardNotActif" />
                         <i class="fa"></i> [[[Cards not actives]]]
                     </label> <i class="fa fa-female"></i>
                 </div>
 
-            </fieldset>
-            <hr />
-
+            </div>
         </div>
 
-        <div class="card-footer">
-        </div>
     }
 </div>
 

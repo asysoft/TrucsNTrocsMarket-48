@@ -18,7 +18,7 @@
                                 <img class="pull-left media-object rounded-circle thumb-sm m-t-10" src="@BeYourMarket.Web.Utilities.ImageHelper.GetUserProfileImagePath(User.Identity.GetUserId())" />
                             </a>
                             <div class="media-body">
-                                <form action="@Url.Action("ReviewListing", "Listing")" method="post" role="form">
+                                <form action="@Url.Action("ReviewListing", "Listing", new { area = "" } )" method="post" role="form">
                                     @Html.AntiForgeryToken()
                                     @Html.Hidden("ID", Model.ListingCurrent.ID)
 

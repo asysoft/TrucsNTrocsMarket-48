@@ -14,8 +14,10 @@ namespace TnTPrepaidCard.Lib
     {
         const int C_MIN_CODE = 100000001;
         const int C_MAX_CODE = 999999999;
+        const int C_CODE_LENGHT = 9;
 
         IPrepaidCardService _prepaidCardService;
+        IUserPrepaidCardService _userPrepaidCardService;
         private readonly IUnitOfWorkAsync _unitOfWorkAsync;
         //
 
@@ -32,9 +34,13 @@ namespace TnTPrepaidCard.Lib
         /// <param name="prepaidCardService"></param>
         public CardsManager(
             IUnitOfWorkAsync unitOfWorkAsync,
-           IPrepaidCardService prepaidCardService)
+            IPrepaidCardService prepaidCardService,
+            IUserPrepaidCardService userPrepaidCardService
+            )
         {
             _prepaidCardService = prepaidCardService;
+            _userPrepaidCardService = userPrepaidCardService;
+
             _unitOfWorkAsync = unitOfWorkAsync;
         }
 
@@ -71,7 +77,7 @@ namespace TnTPrepaidCard.Lib
                             DateFinValidite = cardsParams.DateFinValidite,
                             DateGeneration = DateTime.Now,
                             IsActif = cardsParams.IsActif,
-                            IsValid = true,
+                            CardStatus = 0,   // status  ACtive a la creation
                             NumLot = cardsParams.NumLot,
                             NumSerie = numSerie
                         });
@@ -119,6 +125,67 @@ namespace TnTPrepaidCard.Lib
 
             return res;
         }
+        
+        /// <summary>
+        /// On regarde dans la table de liaison user-cards
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        public bool IsCodeAlreadyUsed(int code)
+        {
+            bool res = true;
+            var item = _userPrepaidCardService.Query(x => x.Code == code.ToString() ).Select();
+            if (item.Count() == 0)
+                res = false;
+
+            return res;
+        }
+
+        /// <summary>
+        /// Desactivation du code au niveau table des cartes et aussi table de liaison
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        public bool IsCodeNotActivated(int code)
+        {
+            bool res = false;
+            var item = _prepaidCardService.Query(x => x.Code == code.ToString() && x.IsActif == false).Select();
+            var item2 = _userPrepaidCardService.Query(x => x.Code == code.ToString() && x.IsActif == false).Select();
+
+            if ((item.Count() > 0) || (item2.Count() > 0) )
+                res = true;
+
+            return res;
+        }
+
+        /// <summary>
+        /// Verifie que le code utilisé est valide 
+        /// pour un nouveau Pro en train de se créeer
+        /// </summary>
+        /// <param name="CodePro"></param>
+        /// <returns></returns>
+        public string CheckCodeNewProValid(string CodePro)
+        {
+            int iCode = 0;
+            string resMsgErr = string.Empty;
+
+            CodePro = CodePro.Replace(" ", string.Empty);
+            bool bValidInt = int.TryParse(CodePro, out iCode);
+
+            if (CodePro.Length != C_CODE_LENGHT)
+                resMsgErr = "[[[Code Secret Invalid : Bad Lenght]]]";
+            else if ( !bValidInt)
+                resMsgErr = "[[[Code Secret Invalid : Contains invalid caracters]]]";
+            else if ( !IsCodeExist(iCode) )
+                resMsgErr = "[[[Code Secret Invalid : Does not exist]]]";
+            else if (IsCodeAlreadyUsed(iCode))
+                resMsgErr = "[[[Code Secret Invalid : Already used]]]";
+            else if (IsCodeNotActivated(iCode))
+                resMsgErr = "[[[Code Secret Invalid : This code is not Activated]]]";
+
+            return resMsgErr;
+        }
+
 
     }
 }

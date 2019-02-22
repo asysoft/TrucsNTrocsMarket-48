@@ -23,6 +23,7 @@ namespace BeYourMarket.Web.Models
         {
             UserPro = new ApplicationUser();
             Pictures = new List<PictureModel>();
+            UserAddInf = new UsersAddInfo();
 
             ListingsSearch = new SearchListingModel();
             currListing = new ListingUpdateModel();

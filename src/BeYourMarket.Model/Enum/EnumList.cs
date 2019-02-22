@@ -93,6 +93,16 @@ namespace BeYourMarket.Model.Enum
         BackOffListings = 5
     }
 
+    public enum EnumCardStatus
+    {
+        Active = 0,
+        InUse = 1,
+        ExpiredEndUse = 2,  // fin de la validite d utilisation pour l utilisateur
+        ExpiredEndDate = 3,  // fin Totale de la carte defini a la creation de la carte
+        DeactivatedByAdmin = 4,
+        InError = 5
+    }
+
     public enum Enum_PluginAction
     {
         Install = 0,
