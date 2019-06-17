@@ -31,9 +31,11 @@ namespace BeYourMarket.Web.Areas.Admin
             context.MapRoute(
                 "Admin_default",
                 "Admin/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional },
+                new {  id = UrlParameter.Optional },
                 namespaces: new[] { "BeYourMarket.Web.Areas.Admin.Controllers" }
             );
+
+
         }
     }
 }

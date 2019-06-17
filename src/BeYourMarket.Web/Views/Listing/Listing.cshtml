@@ -42,6 +42,9 @@
                                 <a class="btn btn-primary" href="@Url.Action("ListingUpdate", "Listing", new { id = Model.ListingCurrent.ID, area = "" })"><i class="fa fa-edit"></i> [[[Edit]]]</a>
                             }
                         </h3>
+                        <h4>
+                            @Model.ListingCurrent.ListingRef
+                        </h4>
                         <div class="form-group pull-right" id="rating-ability-wrapper">
                             <button type="button" class="btnrating btn btn-default btn-sm " data-attr="1" id="rating-star-Title-1">
                                 <i class="fa fa-star" aria-hidden="true"></i>

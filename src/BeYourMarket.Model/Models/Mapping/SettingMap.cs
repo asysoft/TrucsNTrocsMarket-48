@@ -77,6 +77,9 @@ namespace BeYourMarket.Model.Models.Mapping
 
             this.Property(t => t.ListingReviewMaxPerDay)
                 .IsRequired();
+            
+            this.Property(t => t.NbMaxListingUsrDefault)
+                .IsRequired();
 
             // Table & Column Mappings
             this.ToTable("Settings");
@@ -110,6 +113,8 @@ namespace BeYourMarket.Model.Models.Mapping
             this.Property(t => t.ListingReviewMaxPerDay).HasColumnName("ListingReviewMaxPerDay");
             this.Property(t => t.Created).HasColumnName("Created");
             this.Property(t => t.LastUpdated).HasColumnName("LastUpdated");
+            this.Property(t => t.NbMaxListingUsrDefault).HasColumnName("NbMaxListingUsrDefault");
+            
         }
     }
 }

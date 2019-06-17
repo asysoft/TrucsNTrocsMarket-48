@@ -454,7 +454,9 @@
     <Content Include="Images\Community\logo.png" />
     <Content Include="Images\Community\LogoTnTcom_150x184.png" />
     <Content Include="Images\Community\map.png" />
-    <Content Include="Images\Community\Pro_Star.png" />
+    <Content Include="Images\Community\Pro_Star.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Community\Pro_Star_Petit.png" />
     <Content Include="Images\Community\Pubs\pub_Index_Droite_250x350_Img1.jpg" />
     <Content Include="Images\Community\Pubs\pub_Index_Droite_250x350_Img2.jpg" />

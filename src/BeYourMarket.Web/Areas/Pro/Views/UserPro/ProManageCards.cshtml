@@ -47,13 +47,15 @@
                 <hr />
             </div>
             <div class="row">
-                <button class="btn btn-primary btn-lg pull-right ml-2 " disabled><i class="fa fa-newspaper-o"></i> [[[Validate a New Card]]]</button>
+
                 @if (Model.NeedNewCard)
                 {
-                    <h5 class="text-center text-danger ml-2 mt-2">[[[You need a new valid Card to be able to use your full services]]]</h5>
+                    <button class="btn btn-primary btn-lg pull-right ml-2 " ><i class="fa fa-newspaper-o"></i> [[[Validate a New Card]]]</button>
+                    <h5 class="text-center text-danger ml-4 mt-2">[[[You need a new valid Card to be able to use your full services]]]</h5>
                 }
                 else
                 {
+                    <button class="btn btn-primary btn-lg pull-right ml-2 " disabled><i class="fa fa-newspaper-o"></i> [[[Validate a New Card]]]</button>
                     <h5 class="text-center text-success ml-2 mt-2">[[[You have a valid Card active in use]]]</h5>
                 }
 

@@ -17,12 +17,20 @@ namespace BeYourMarket.Model.Models
             this.MessageThreads = new List<MessageThread>();
 
             this.OwnerUserType = Enum_UserType.Normal;
+            this.IsOccasion = true;
+            this.StockDispo = 1;
         }
 
         public int ID { get; set; }
+
+        public string ListingRef { get; set; }
+        public bool IsOccasion { get; set; }
+        public int StockDispo { get; set; }
+
         public string Title { get; set; }
         public string Description { get; set; }
         public int CategoryID { get; set; }
+
         public int ListingTypeID { get; set; }
         public string UserID { get; set; }
         public Nullable<double> Price { get; set; }

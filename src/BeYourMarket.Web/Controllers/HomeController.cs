@@ -355,7 +355,7 @@ namespace BeYourMarket.Web.Controllers
             var languages = LanguageHelper.AvailableLanguges.Languages;
 
             var languageCurrent = ControllerContext.RequestContext.HttpContext.GetPrincipalAppLanguageForRequest();
-            
+
             var model = new LanguageSelectorModel();
             model.Culture = languageCurrent.GetLanguage();
             model.DisplayName = languageCurrent.GetCultureInfo().NativeName;

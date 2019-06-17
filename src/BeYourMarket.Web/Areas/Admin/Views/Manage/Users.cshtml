@@ -25,7 +25,7 @@
 
                     <div class="row">
                         <div class="col-lg-10">
-                            <a class="btn btn-primary" href="@Url.Action("UserUpdate", "Manage")"><i class="fa fa-plus"></i> [[[Add New]]]</a>
+                            <a class="btn btn-primary" href="@Url.Action("UserUpdate", "Manage", new { area="Admin" })"><i class="fa fa-plus"></i> [[[Add New]]]</a>
                         </div>
                     </div>
 
@@ -40,6 +40,8 @@
                                         <th>[[[Email Confirmed]]]</th>
                                         <th>[[[Phone Number]]]</th>
                                         <th>[[[Phone Number Confirmed]]]</th>
+                                        <th>[[[Last IP Connexion]]]]</th>
+                                        <th>[[[Last access date]]]</th>
                                         <th></th>
                                         <th></th>
                                     </tr>
@@ -48,16 +50,18 @@
                                 <tbody>
                                     @foreach (var user in Model)
                                     {
-                                        <tr>
-                                            <td>@user.Email</td>
-                                            <td>@RazorHelper.DisplayYesNo(user.EmailConfirmed)</td>
-                                            <td>@user.PhoneNumber</td>
-                                            <td>@RazorHelper.DisplayYesNo(user.PhoneNumberConfirmed)</td>
-                                            <td>
-                                                <a class="btn btn-primary m-b-5" href="@Url.Action("UserUpdate", "Manage", new { id = user.Id })"><i class="fa fa-edit"></i> [[[Edit]]]</a>
-                                            </td>
-                                            <td>@DisplayDeleteLink(user.Id, user.FullName)</td>
-                                        </tr>
+                                    <tr>
+                                        <td>@user.Email</td>
+                                        <td>@RazorHelper.DisplayYesNo(user.EmailConfirmed)</td>
+                                        <td>@user.PhoneNumber</td>
+                                        <td>@RazorHelper.DisplayYesNo(user.PhoneNumberConfirmed)</td>
+                                        <td>@user.LastAccessIP</td>
+                                        <td>@user.LastAccessDate</td>
+                                        <td>
+                                            <a class="btn btn-primary m-b-5" href="@Url.Action("UserUpdate", "Manage", new { id = user.Id , area = "Admin"})"><i class="fa fa-edit"></i> [[[Edit]]]</a>
+                                        </td>
+                                        <td>@DisplayDeleteLink(user.Id, user.FullName)</td>
+                                    </tr>
                                     }
                                 </tbody>
                             </table>
@@ -81,7 +85,6 @@
                 confirmButtonColor: "#DD6B55",
                 confirmButtonText: "[[[Yes, delete it!]]]",
                 cancelButtonText: "[[[No, cancel please!]]]",
-                inputPlaceholder: "[[[Type DELETE to confirm delete]]]",
                 closeOnConfirm: false,
                 closeOnCancel: true
             }, function (inputValue) {
@@ -94,7 +97,7 @@
 
                 swal.disableButtons();
 
-                post('@Url.Action("UserDelete","Manage")', { id: id });
+                post('@Url.Action("UserDelete","Manage", new { area="Admin" })', { id: id });
 
                 swal("Deleted!", "[[[User is deleted.]]]", "success");
             });

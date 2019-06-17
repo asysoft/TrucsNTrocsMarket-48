@@ -32,8 +32,8 @@ using BeYourMarket.Core.Web;
 namespace BeYourMarket.Web.Areas.Admin.Controllers
 {
     [Authorize(Roles = "Administrator")]
-    [Authorize(Roles = "BackOffAdmin")]
-    [Authorize(Roles = "BackOffListings")]
+    //[Authorize(Roles = "BackOffAdmin")]
+    //[Authorize(Roles = "BackOffListings")]
     public class ListingController : Controller
     {
         #region Fields
@@ -371,8 +371,11 @@ namespace BeYourMarket.Web.Areas.Admin.Controllers
         }
 
         public ActionResult Listings()
-        {
-            var grid = new ListingsGrid(_listingService.Query().Include(x => x.ListingType).Select().OrderByDescending(x => x.Created).AsQueryable());
+         {
+            var grid = new ListingsGrid(_listingService.Query()
+                .Include(x => x.ListingType)
+                .Include(x => x.AspNetUser)
+                .Select().OrderByDescending(x => x.Created).AsQueryable());
             var categories = CacheHelper.Categories;
 
             var model = new ListingModel()

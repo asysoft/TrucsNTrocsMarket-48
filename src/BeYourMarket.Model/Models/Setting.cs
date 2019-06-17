@@ -8,6 +8,8 @@ namespace BeYourMarket.Model.Models
         public Setting()
         {
             this.SettingDictionaries = new List<SettingDictionary>();
+            // par defaut
+            this.NbMaxListingUsrDefault = 7;
         }
 
         public int ID { get; set; }
@@ -40,6 +42,7 @@ namespace BeYourMarket.Model.Models
         public int ListingReviewMaxPerDay { get; set; }
         public System.DateTime Created { get; set; }
         public System.DateTime LastUpdated { get; set; }
+        public int NbMaxListingUsrDefault { get; set; }
         public virtual ICollection<SettingDictionary> SettingDictionaries { get; set; }
     }
 }

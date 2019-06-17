@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-02-19 15:08+01:00\n"
-"PO-Revision-Date: 2019-02-19 15:08+01:00\n"
+"POT-Creation-Date: 2019-06-17 19:15+02:00\n"
+"PO-Revision-Date: 2019-06-17 19:15+02:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,7 +12,7 @@ msgstr ""
 msgid "\", \"(((\").Replace(\""
 msgstr ""
 
-#: Views\Listing\Listing.cshtml:287
+#: Views\Listing\Listing.cshtml:290
 #: Views\Listing\Profile.cshtml:25
 #: Views\Listing\Review.cshtml:36
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:287
@@ -67,10 +67,10 @@ msgstr ""
 msgid "Actif Card?"
 msgstr ""
 
-#: Views\Listing\ListingUpdate.cshtml:74
+#: Views\Listing\ListingUpdate.cshtml:82
 #: Areas\Admin\Views\Listing\Listings.cshtml:67
 #: Areas\Admin\Views\Listing\ListingUpdate.cshtml:133
-#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:78
+#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:86
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:74
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:74
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Listing\Listings.cshtml:67
@@ -175,9 +175,9 @@ msgstr ""
 #: Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:76
 #: obj\Release\AspnetCompileMerge\Source\Views\Account\Register.cshtml:169
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:169
-#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:34
+#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:36
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:76
-#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:34
+#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:36
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:76
 msgid "Adress"
 msgstr ""
@@ -254,9 +254,9 @@ msgstr "Valider"
 #: Views\Manage\Dashboard.cshtml:69
 #: Views\Payment\Orders.cshtml:166
 #: Areas\Admin\Views\Listing\Categories.cshtml:101
-#: Areas\Admin\Views\Listing\Listings.cshtml:92
+#: Areas\Admin\Views\Listing\Listings.cshtml:94
 #: Areas\Admin\Views\Listing\ListingTypes.cshtml:102
-#: Areas\Admin\Views\Manage\Users.cshtml:77
+#: Areas\Admin\Views\Manage\Users.cshtml:81
 #: Areas\Admin\Views\Payment\Order.cshtml:142
 #: obj\Release\AspnetCompileMerge\Source\Views\Manage\Dashboard.cshtml:69
 #: obj\Release\AspnetCompileMerge\Source\Views\Payment\Orders.cshtml:166
@@ -273,7 +273,7 @@ msgstr "Valider"
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Manage\Users.cshtml:77
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Payment\Order.cshtml:142
 msgid "Are you sure?"
-msgstr ""
+msgstr "Etes vous sure?"
 
 #: Areas\Pro\Views\UserPro\ProListingView.cshtml:312
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProListingView.cshtml:312
@@ -308,13 +308,13 @@ msgstr "Retour a l'accueil"
 
 #: Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:37
 #: Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:97
-#: Areas\Pro\Views\UserPro\ProManageCards.cshtml:67
+#: Areas\Pro\Views\UserPro\ProManageCards.cshtml:69
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:37
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:97
-#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProManageCards.cshtml:67
+#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProManageCards.cshtml:69
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:37
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:97
-#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProManageCards.cshtml:67
+#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProManageCards.cshtml:69
 msgid "Batch Number"
 msgstr "Numéro de Lot"
 
@@ -333,7 +333,7 @@ msgstr "Corps"
 msgid "Button Label"
 msgstr ""
 
-#: Views\Listing\ListingUpdate.cshtml:146
+#: Views\Listing\ListingUpdate.cshtml:150
 #: Views\Listing\Review.cshtml:74
 #: Views\Payment\Orders.cshtml:26
 #: Views\Payment\Orders.cshtml:30
@@ -354,7 +354,7 @@ msgstr ""
 #: Areas\Admin\Views\Payment\Order.cshtml:25
 #: Areas\Admin\Views\Payment\Order.cshtml:29
 #: Areas\Admin\Views\Payment\PaymentSetting.cshtml:46
-#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:150
+#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:158
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:146
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\Review.cshtml:74
 #: obj\Release\AspnetCompileMerge\Source\Views\Payment\Orders.cshtml:26
@@ -417,7 +417,7 @@ msgstr ""
 
 #: Views\Manage\Dashboard.cshtml:93
 #: Views\Payment\Orders.cshtml:189
-#: Areas\Admin\Views\Listing\Listings.cshtml:105
+#: Areas\Admin\Views\Listing\Listings.cshtml:107
 #: obj\Release\AspnetCompileMerge\Source\Views\Manage\Dashboard.cshtml:93
 #: obj\Release\AspnetCompileMerge\Source\Views\Payment\Orders.cshtml:189
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Manage\Dashboard.cshtml:93
@@ -456,12 +456,12 @@ msgstr "Cartes Non Actives"
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Listing\Categories.cshtml:8
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Listing\Categories.cshtml:37
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\Shared\_NavigationSide.cshtml:106
-#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:92
+#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:94
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:50
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Listing\Categories.cshtml:8
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Listing\Categories.cshtml:37
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\Shared\_NavigationSide.cshtml:106
-#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:92
+#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:94
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:50
 msgid "Categories"
 msgstr ""
@@ -477,7 +477,7 @@ msgid "Categories by Groups"
 msgstr "Categories par Groupes"
 
 #: Views\Account\Register.cshtml:160
-#: Views\Listing\Listing.cshtml:148
+#: Views\Listing\Listing.cshtml:151
 #: Views\Listing\ListingUpdate.cshtml:42
 #: Views\Listing\_ListingGridList.cshtml:35
 #: Areas\Admin\Views\Listing\CategoryUpdate.cshtml:4
@@ -583,11 +583,11 @@ msgstr "Villes par Zones"
 #: Areas\Pro\Views\UserPro\ProShop.cshtml:39
 #: obj\Release\AspnetCompileMerge\Source\Views\Account\Register.cshtml:174
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:174
-#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:38
+#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:40
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:80
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProListingView.cshtml:287
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProShop.cshtml:39
-#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:38
+#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:40
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:80
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProListingView.cshtml:287
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProShop.cshtml:39
@@ -665,9 +665,9 @@ msgstr "Adresse de la société"
 #: Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:97
 #: obj\Release\AspnetCompileMerge\Source\Views\Account\Register.cshtml:203
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:203
-#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:65
+#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:67
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:97
-#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:65
+#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:67
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:97
 msgid "Company Contact"
 msgstr "Personne de contact"
@@ -683,11 +683,11 @@ msgstr "Personne de contact"
 #: obj\Release\AspnetCompileMerge\Source\Views\Account\Register.cshtml:196
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:195
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:196
-#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:50
+#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:52
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:64
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProListingView.cshtml:295
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProShop.cshtml:48
-#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:50
+#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:52
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:64
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProListingView.cshtml:295
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProShop.cshtml:48
@@ -695,9 +695,7 @@ msgid "Company Email"
 msgstr "Email de la société"
 
 #: Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:19
-#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:14
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:19
-#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:14
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:19
 msgid "Company Infos"
 msgstr "Fiche société"
@@ -777,10 +775,10 @@ msgstr "Confirmer le Mot de Passe"
 
 #: Views\Account\Register.cshtml:118
 #: Views\Account\Register.cshtml:119
-#: Views\Listing\ListingUpdate.cshtml:139
-#: Views\Listing\ListingUpdate.cshtml:140
-#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:143
-#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:144
+#: Views\Listing\ListingUpdate.cshtml:143
+#: Views\Listing\ListingUpdate.cshtml:144
+#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:151
+#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:152
 #: obj\Release\AspnetCompileMerge\Source\Views\Account\Register.cshtml:118
 #: obj\Release\AspnetCompileMerge\Source\Views\Account\Register.cshtml:119
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:139
@@ -823,8 +821,8 @@ msgid "Connnect to stripe successfully!"
 msgstr ""
 
 #: Views\Home\Contact.cshtml:4
-#: Views\Listing\Listing.cshtml:250
-#: Views\Listing\Listing.cshtml:291
+#: Views\Listing\Listing.cshtml:253
+#: Views\Listing\Listing.cshtml:294
 #: Views\Listing\_ListingContactModal.cshtml:8
 #: Areas\Pro\Views\UserPro\ProListingView.cshtml:241
 #: obj\Release\AspnetCompileMerge\Source\Views\Home\Contact.cshtml:4
@@ -852,8 +850,8 @@ msgstr ""
 msgid "Contact Name"
 msgstr ""
 
-#: Views\Listing\Listing.cshtml:243
-#: Views\Listing\Listing.cshtml:243
+#: Views\Listing\Listing.cshtml:246
+#: Views\Listing\Listing.cshtml:246
 #: Views\Listing\_ListingContactModal.cshtml:17
 #: Areas\Pro\Views\UserPro\ProListingView.cshtml:235
 #: Areas\Pro\Views\UserPro\ProListingView.cshtml:235
@@ -868,19 +866,19 @@ msgstr ""
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProListingView.cshtml:235
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProListingView.cshtml:235
 msgid "Contact number (Click to show)"
-msgstr ""
+msgstr "Numéro de contact (Cliquer pour voir)"
 
 #: Views\Listing\_ListingContactModal.cshtml:17
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\_ListingContactModal.cshtml:17
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Listing\_ListingContactModal.cshtml:17
 msgid "Contact number (Double click to show)"
-msgstr ""
+msgstr "Numéro de contact (Double Cliquer pour voir)"
 
-#: Views\Listing\Listing.cshtml:244
+#: Views\Listing\Listing.cshtml:247
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:244
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:244
 msgid "Contact number : "
-msgstr ""
+msgstr "Numéro de contact : "
 
 #: Views\Home\Contact.cshtml:16
 #: Views\Shared\_NavigationSide.cshtml:92
@@ -913,19 +911,19 @@ msgstr ""
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\Dashboard.cshtml:69
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Manage\Dashboard.cshtml:69
 msgid "Count"
-msgstr ""
+msgstr "Compte"
 
 #: Areas\Admin\Views\Design\Appearance.cshtml:29
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Design\Appearance.cshtml:29
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Design\Appearance.cshtml:29
 msgid "Cover photo"
-msgstr ""
+msgstr "Photo"
 
 #: Views\Manage\Index.cshtml:22
 #: obj\Release\AspnetCompileMerge\Source\Views\Manage\Index.cshtml:22
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Manage\Index.cshtml:22
 msgid "Create"
-msgstr ""
+msgstr "Creer"
 
 #: Views\Account\Register.cshtml:59
 #: Views\Shared\_LoginPartial.cshtml:89
@@ -951,7 +949,7 @@ msgstr ""
 #: Views\Listing\_ListingGridList.cshtml:44
 #: Views\Payment\Orders.cshtml:132
 #: Areas\Admin\Views\ContentPage\ContentPages.cshtml:49
-#: Areas\Admin\Views\Listing\Listings.cshtml:71
+#: Areas\Admin\Views\Listing\Listings.cshtml:73
 #: Areas\Admin\Views\Listing\ListingUpdate.cshtml:115
 #: Areas\Admin\Views\Manage\EmailTemplates.cshtml:39
 #: Areas\Admin\Views\Payment\Order.cshtml:112
@@ -1096,7 +1094,7 @@ msgstr ""
 msgid "Date Format"
 msgstr ""
 
-#: Views\Listing\Listing.cshtml:192
+#: Views\Listing\Listing.cshtml:195
 #: Areas\Pro\Views\UserPro\ProListingView.cshtml:185
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:192
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:192
@@ -1131,13 +1129,13 @@ msgstr ""
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Listing\ListingTypes.cshtml:20
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Manage\Users.cshtml:12
 msgid "Delete"
-msgstr ""
+msgstr "Supprimer"
 
 #: Views\Manage\Dashboard.cshtml:84
 #: obj\Release\AspnetCompileMerge\Source\Views\Manage\Dashboard.cshtml:84
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Manage\Dashboard.cshtml:84
 msgid "Deleted!"
-msgstr ""
+msgstr "Supprimé"
 
 #: Views\Listing\ListingUpdate.cshtml:58
 #: Views\Listing\_ListingGridList.cshtml:40
@@ -1241,7 +1239,7 @@ msgstr ""
 #: Areas\Admin\Views\Listing\Listings.cshtml:15
 #: Areas\Admin\Views\Listing\ListingTypes.cshtml:15
 #: Areas\Admin\Views\Manage\EmailTemplates.cshtml:15
-#: Areas\Admin\Views\Manage\Users.cshtml:57
+#: Areas\Admin\Views\Manage\Users.cshtml:61
 #: Areas\Pro\Views\UserPro\ProListingView.cshtml:42
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:42
 #: obj\Release\AspnetCompileMerge\Source\Views\Manage\Dashboard.cshtml:49
@@ -1264,7 +1262,7 @@ msgstr ""
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Manage\Users.cshtml:57
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProListingView.cshtml:42
 msgid "Edit"
-msgstr ""
+msgstr "Editer"
 
 #: Controllers\AccountController.cs:766
 #: Models\AccountViewModels.cs:47
@@ -1290,9 +1288,9 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: Views\Listing\ListingUpdate.cshtml:129
+#: Views\Listing\ListingUpdate.cshtml:133
 #: Areas\Admin\Views\Manage\SettingsEmail.cshtml:18
-#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:133
+#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:141
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:129
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:129
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\SettingsEmail.cshtml:18
@@ -1362,6 +1360,10 @@ msgstr ""
 msgid "Email Templates"
 msgstr "Modeles d'Email"
 
+#: Views\Listing\ListingUpdate.cshtml:75
+msgid "En Stock"
+msgstr ""
+
 #: Areas\Admin\Views\Plugin\Plugins.cshtml:34
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Plugin\Plugins.cshtml:34
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Plugin\Plugins.cshtml:34
@@ -1407,8 +1409,8 @@ msgstr "Saisisser un email"
 msgid "Enter Email"
 msgstr "Saisisser un email"
 
-#: Views\Listing\ListingUpdate.cshtml:130
-#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:134
+#: Views\Listing\ListingUpdate.cshtml:134
+#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:142
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:130
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:130
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:134
@@ -1423,8 +1425,8 @@ msgid "Enter Location"
 msgstr "Entrer un Lieux"
 
 #: Views\Listing\Listings.cshtml:107
-#: Views\Listing\ListingUpdate.cshtml:101
-#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:105
+#: Views\Listing\ListingUpdate.cshtml:109
+#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:113
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:107
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:101
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Listing\Listings.cshtml:107
@@ -1440,8 +1442,8 @@ msgstr "Ajouter des details sur le lieu"
 msgid "Enter one or more search criterias"
 msgstr ""
 
-#: Views\Listing\ListingUpdate.cshtml:122
-#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:126
+#: Views\Listing\ListingUpdate.cshtml:130
+#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:134
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:122
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:122
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:126
@@ -1497,8 +1499,8 @@ msgstr ""
 msgid "Enter your email."
 msgstr ""
 
-#: Views\Listing\ListingUpdate.cshtml:118
-#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:122
+#: Views\Listing\ListingUpdate.cshtml:126
+#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:130
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:118
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:118
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:122
@@ -1574,10 +1576,10 @@ msgstr ""
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:210
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Manage\UserProfile.cshtml:71
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\UserUpdate.cshtml:50
-#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:73
+#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:75
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:104
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Manage\UserUpdate.cshtml:50
-#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:73
+#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:75
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:104
 msgid "Female"
 msgstr "Femme"
@@ -1593,10 +1595,10 @@ msgstr "Femme"
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:219
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Manage\UserProfile.cshtml:45
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\UserUpdate.cshtml:30
-#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:77
+#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:79
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:110
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Manage\UserUpdate.cshtml:30
-#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:77
+#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:79
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:110
 msgid "First Name"
 msgstr "Prénom"
@@ -1608,11 +1610,11 @@ msgid "First Name of the Owner"
 msgstr "Prénom du gérant"
 
 #: Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:106
-#: Areas\Pro\Views\UserPro\ProManageCards.cshtml:76
+#: Areas\Pro\Views\UserPro\ProManageCards.cshtml:78
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:106
-#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProManageCards.cshtml:76
+#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProManageCards.cshtml:78
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:106
-#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProManageCards.cshtml:76
+#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProManageCards.cshtml:78
 msgid "First Use"
 msgstr "Première utilisation"
 
@@ -1665,8 +1667,8 @@ msgstr ""
 msgid "Frontend"
 msgstr ""
 
-#: Views\Listing\ListingUpdate.cshtml:117
-#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:121
+#: Views\Listing\ListingUpdate.cshtml:125
+#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:129
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:117
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:117
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:121
@@ -1727,25 +1729,25 @@ msgstr ""
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Listing\Categories.cshtml:44
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Listing\Categories.cshtml:44
 msgid "Here you can add categories and subcategories. There shall always be one category for each listing."
-msgstr ""
+msgstr "Vous pouvez creer des catégories - Chaque annonces doit avoir une catégorie"
 
 #: Areas\Admin\Views\Listing\CustomFields.cshtml:41
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Listing\CustomFields.cshtml:41
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Listing\CustomFields.cshtml:41
 msgid "Here you can define custom fields for listings in different categories."
-msgstr ""
+msgstr "Ici vous pouvez créer des champs personalisé pour les annonces."
 
 #: Areas\Admin\Views\Listing\ListingTypes.cshtml:41
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Listing\ListingTypes.cshtml:41
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Listing\ListingTypes.cshtml:41
 msgid "Here you can define the listing types like offer, request, etc. This will be supported and configured in different categories."
-msgstr ""
+msgstr "Ici vous pouvez definir les types d'annonces (offre, demande, etc.)"
 
 #: Areas\Admin\Views\Listing\Listings.cshtml:39
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Listing\Listings.cshtml:39
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Listing\Listings.cshtml:39
 msgid "Here you can manage all the listings in the marketplace."
-msgstr ""
+msgstr "Ici vous pouvez gérer toutes les annonces"
 
 #: Areas\Admin\Views\Payment\Order.cshtml:71
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Payment\Order.cshtml:71
@@ -1853,11 +1855,11 @@ msgid "is already taken"
 msgstr "est déja pris"
 
 #: Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:112
-#: Areas\Pro\Views\UserPro\ProManageCards.cshtml:82
+#: Areas\Pro\Views\UserPro\ProManageCards.cshtml:84
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:112
-#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProManageCards.cshtml:82
+#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProManageCards.cshtml:84
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:112
-#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProManageCards.cshtml:82
+#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProManageCards.cshtml:84
 msgid "Is Used"
 msgstr "Utilisé"
 
@@ -1882,7 +1884,7 @@ msgstr ""
 msgid "Join"
 msgstr "S'inscrire"
 
-#: Views\Listing\Listing.cshtml:282
+#: Views\Listing\Listing.cshtml:285
 #: Views\Listing\Profile.cshtml:28
 #: Views\Listing\Review.cshtml:33
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:282
@@ -1892,7 +1894,7 @@ msgstr "S'inscrire"
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Listing\Profile.cshtml:28
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Listing\Review.cshtml:33
 msgid "Joined since"
-msgstr ""
+msgstr "Membre depuis"
 
 #: Areas\Admin\Views\Manage\SettingsLanguage.cshtml:4
 #: Areas\Admin\Views\Manage\SettingsLanguage.cshtml:11
@@ -1906,11 +1908,16 @@ msgstr ""
 msgid "Language Settings"
 msgstr "Parametrage des Langues"
 
+#: Areas\Admin\Views\Listing\Listings.cshtml:71
+#: Areas\Admin\Views\Manage\Users.cshtml:44
+msgid "Last access date"
+msgstr "Date dernier acces"
+
 #: Areas\Admin\Views\Manage\UserUpdate.cshtml:131
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\UserUpdate.cshtml:131
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Manage\UserUpdate.cshtml:131
 msgid "Last Access Date"
-msgstr ""
+msgstr "Date dernier acces"
 
 #: Areas\Admin\Views\Manage\UserUpdate.cshtml:138
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\UserUpdate.cshtml:138
@@ -1924,6 +1931,11 @@ msgstr ""
 msgid "Last Batch Number"
 msgstr "Dernier Numéro de Lot"
 
+#: Areas\Admin\Views\Listing\Listings.cshtml:70
+#: Areas\Admin\Views\Manage\Users.cshtml:43
+msgid "Last IP Connexion"
+msgstr "IP dernier acces"
+
 #: Models\AccountViewModels.cs:98
 #: Views\Account\Register.cshtml:215
 #: Views\Manage\UserProfile.cshtml:51
@@ -1935,10 +1947,10 @@ msgstr "Dernier Numéro de Lot"
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:215
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Manage\UserProfile.cshtml:51
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\UserUpdate.cshtml:37
-#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:81
+#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:83
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:114
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Manage\UserUpdate.cshtml:37
-#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:81
+#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:83
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:114
 msgid "Last Name"
 msgstr "Nom"
@@ -2005,16 +2017,20 @@ msgstr "Liste"
 msgid "Listing Details"
 msgstr "Détails de l'annonce"
 
-#: Controllers\ListingController.cs:625
+#: Controllers\ListingController.cs:635
 #: Areas\Pro\Controllers\UserProController.cs:1193
 msgid "Listing is updated!"
 msgstr "Annonce mise a jour!"
 
-#: Controllers\ListingController.cs:898
+#: Areas\Admin\Views\Listing\Listings.cshtml:64
+msgid "Listing Ref"
+msgstr "Ref Annonces"
+
+#: Controllers\ListingController.cs:917
 msgid "Listing review is not allowed!"
 msgstr "Les commentaires sur l'annonce ne sont pas permises"
 
-#: Views\Listing\Listing.cshtml:167
+#: Views\Listing\Listing.cshtml:170
 #: Views\Listing\Listings.cshtml:87
 #: Views\Shared\_ListingTypes.cshtml:6
 #: Areas\Admin\Views\Listing\CategoryUpdate.cshtml:44
@@ -2114,11 +2130,11 @@ msgid "Listings by category"
 msgstr "Annonces par Categorie"
 
 #: Views\Account\Register.cshtml:167
-#: Views\Listing\Listing.cshtml:175
+#: Views\Listing\Listing.cshtml:178
 #: Views\Listing\Listings.cshtml:101
-#: Views\Listing\ListingUpdate.cshtml:93
+#: Views\Listing\ListingUpdate.cshtml:101
 #: Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:73
-#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:97
+#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:105
 #: Areas\Pro\Views\UserPro\ProListingView.cshtml:168
 #: obj\Release\AspnetCompileMerge\Source\Views\Account\Register.cshtml:167
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:175
@@ -2146,7 +2162,7 @@ msgstr "Localisation"
 msgid "Location"
 msgstr "Lieux"
 
-#: Views\Listing\Listing.cshtml:184
+#: Views\Listing\Listing.cshtml:187
 #: Areas\Pro\Views\UserPro\ProListingView.cshtml:177
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:184
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:184
@@ -2252,10 +2268,10 @@ msgstr ""
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:206
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Manage\UserProfile.cshtml:68
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\UserUpdate.cshtml:47
-#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:70
+#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:72
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:100
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Manage\UserUpdate.cshtml:47
-#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:70
+#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:72
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:100
 msgid "Male"
 msgstr "Homme"
@@ -2279,13 +2295,13 @@ msgstr "Gestion des cartes Prépayées"
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Shared\_NavigationSide.cshtml:90
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Shared\_NavigationSide.cshtml:90
 msgid "Manage Categories"
-msgstr ""
+msgstr "Gérer les catégories"
 
 #: Areas\Admin\Views\Shared\_NavigationSide.cshtml:91
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Shared\_NavigationSide.cshtml:91
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Shared\_NavigationSide.cshtml:91
 msgid "Manage Listing Types"
-msgstr ""
+msgstr "Gérer Les Types d'annonces"
 
 #: Areas\Admin\Views\Shared\_NavigationSide.cshtml:92
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Shared\_NavigationSide.cshtml:92
@@ -2309,13 +2325,13 @@ msgstr "Gérer mes Messages"
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Shared\_NavigationSide.cshtml:150
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Shared\_NavigationSide.cshtml:150
 msgid "Manage Pages"
-msgstr ""
+msgstr "Gérer les pages"
 
 #: Areas\Admin\Views\Shared\_NavigationSide.cshtml:159
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Shared\_NavigationSide.cshtml:159
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Shared\_NavigationSide.cshtml:159
 msgid "Manage Plugins"
-msgstr ""
+msgstr "gérer les Plugins"
 
 #: Areas\Admin\Views\Shared\_NavigationSide.cshtml:140
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Shared\_NavigationSide.cshtml:140
@@ -2336,7 +2352,7 @@ msgstr "Gérer vos cartes prépayées"
 #: obj\Release\AspnetCompileMerge\Source\Views\Manage\Messages.cshtml:48
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Manage\Messages.cshtml:48
 msgid "Mark as read"
-msgstr ""
+msgstr "Marquer comme lu"
 
 #: Areas\Admin\Views\Manage\Settings.cshtml:137
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\Settings.cshtml:137
@@ -2351,15 +2367,15 @@ msgstr "Maximum de commentaires par jour"
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Home\Contact.cshtml:28
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Listing\_ListingContactModal.cshtml:26
 msgid "Message"
-msgstr ""
+msgstr "Message"
 
 #: Controllers\ManageController.cs:534
 msgid "Message is sent."
-msgstr ""
+msgstr "Message envoyé"
 
-#: Controllers\ListingController.cs:756
+#: Controllers\ListingController.cs:775
 msgid "Message sent succesfully!"
-msgstr ""
+msgstr "Message envoyé avec success"
 
 #: Areas\Admin\Controllers\ManageController.cs:444
 msgid "Message sent to {0} succesfully!"
@@ -2486,9 +2502,9 @@ msgstr ""
 
 #: Views\Manage\Dashboard.cshtml:75
 #: Areas\Admin\Views\Listing\Categories.cshtml:107
-#: Areas\Admin\Views\Listing\Listings.cshtml:98
+#: Areas\Admin\Views\Listing\Listings.cshtml:100
 #: Areas\Admin\Views\Listing\ListingTypes.cshtml:108
-#: Areas\Admin\Views\Manage\Users.cshtml:83
+#: Areas\Admin\Views\Manage\Users.cshtml:87
 #: obj\Release\AspnetCompileMerge\Source\Views\Manage\Dashboard.cshtml:75
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Manage\Dashboard.cshtml:75
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Listing\Categories.cshtml:107
@@ -2500,7 +2516,7 @@ msgstr ""
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Listing\ListingTypes.cshtml:108
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Manage\Users.cshtml:83
 msgid "No, cancel please!"
-msgstr ""
+msgstr "Non, annuler s'il vous plait!"
 
 #: Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:113
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:113
@@ -2519,6 +2535,10 @@ msgstr "Nombre de cartes a créer"
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Home\Index.cshtml:66
 msgid "Number of Listing actually on site"
 msgstr "Nombres d'annonces sur le site"
+
+#: Views\Listing\ListingUpdate.cshtml:79
+msgid "Occasion"
+msgstr ""
 
 #: Views\Listing\Listings.cshtml:125
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\Listings.cshtml:125
@@ -2653,14 +2673,14 @@ msgstr ""
 #: Views\Account\Login.cshtml:64
 #: Views\Account\Register.cshtml:113
 #: Views\Account\Register.cshtml:114
-#: Views\Listing\ListingUpdate.cshtml:135
-#: Views\Listing\ListingUpdate.cshtml:136
+#: Views\Listing\ListingUpdate.cshtml:139
+#: Views\Listing\ListingUpdate.cshtml:140
 #: Views\Manage\Index.cshtml:13
 #: Areas\Admin\Views\Install\Index.cshtml:32
 #: Areas\Admin\Views\Install\Index.cshtml:33
 #: Areas\Admin\Views\Install\Index.cshtml:82
-#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:139
-#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:140
+#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:147
+#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:148
 #: obj\Release\AspnetCompileMerge\Source\Views\Account\Login.cshtml:64
 #: obj\Release\AspnetCompileMerge\Source\Views\Account\Register.cshtml:113
 #: obj\Release\AspnetCompileMerge\Source\Views\Account\Register.cshtml:114
@@ -2773,14 +2793,14 @@ msgstr ""
 #: Models\AccountViewModels.cs:101
 #: Models\ManageViewModels.cs:65
 #: Views\Account\Register.cshtml:223
-#: Views\Listing\ListingUpdate.cshtml:121
+#: Views\Listing\ListingUpdate.cshtml:129
 #: Views\Manage\AddPhoneNumber.cshtml:3
 #: Views\Manage\UserProfile.cshtml:58
 #: Areas\Admin\Views\Manage\Users.cshtml:41
 #: Areas\Admin\Views\Manage\UserUpdate.cshtml:73
 #: Areas\Pro\Views\UserPro\ProIdentity.cshtml:87
 #: Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:118
-#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:125
+#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:133
 #: obj\Release\AspnetCompileMerge\Source\Views\Account\Register.cshtml:223
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:121
 #: obj\Release\AspnetCompileMerge\Source\Views\Manage\AddPhoneNumber.cshtml:3
@@ -2791,12 +2811,12 @@ msgstr ""
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Manage\UserProfile.cshtml:58
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\Users.cshtml:41
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\UserUpdate.cshtml:73
-#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:85
+#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:87
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:118
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:125
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Manage\Users.cshtml:41
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Manage\UserUpdate.cshtml:73
-#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:85
+#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:87
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:118
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:125
 msgid "Phone Number"
@@ -2899,7 +2919,7 @@ msgstr ""
 msgid "Prepaid Cards"
 msgstr "Cartes Pépayées"
 
-#: Views\Listing\Listing.cshtml:158
+#: Views\Listing\Listing.cshtml:161
 #: Views\Listing\Listings.cshtml:112
 #: Views\Listing\ListingUpdate.cshtml:65
 #: Views\Listing\ListingUpdate.cshtml:67
@@ -2978,10 +2998,10 @@ msgstr "Professionnel"
 #: Areas\Pro\Views\UserPro\ProIdentity.cshtml:48
 #: Areas\Pro\Views\UserPro\ProListingView.cshtml:291
 #: Areas\Pro\Views\UserPro\ProShop.cshtml:43
-#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:46
+#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:48
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProListingView.cshtml:291
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProShop.cshtml:43
-#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:46
+#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:48
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProListingView.cshtml:291
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProShop.cshtml:43
 msgid "Professional Phone"
@@ -3023,8 +3043,8 @@ msgstr ""
 msgid "Publish a listing (it's 100% free)"
 msgstr "Deposer une annonce (c'est 100% gratuit)"
 
-#: Views\Listing\ListingUpdate.cshtml:145
-#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:149
+#: Views\Listing\ListingUpdate.cshtml:149
+#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:157
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:145
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:145
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:149
@@ -3053,8 +3073,8 @@ msgstr "Deposer une annonce"
 msgid "Published"
 msgstr ""
 
-#: Views\Listing\ListingUpdate.cshtml:115
-#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:119
+#: Views\Listing\ListingUpdate.cshtml:123
+#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:127
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:115
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:115
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:119
@@ -3323,13 +3343,13 @@ msgstr ""
 
 #: Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:42
 #: Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:103
-#: Areas\Pro\Views\UserPro\ProManageCards.cshtml:73
+#: Areas\Pro\Views\UserPro\ProManageCards.cshtml:75
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:42
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:103
-#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProManageCards.cshtml:73
+#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProManageCards.cshtml:75
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:42
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:103
-#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProManageCards.cshtml:73
+#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProManageCards.cshtml:75
 msgid "Secret Code"
 msgstr "Code Secret "
 
@@ -3366,7 +3386,7 @@ msgstr ""
 msgid "Send"
 msgstr "Envoyer"
 
-#: Views\Listing\Listing.cshtml:251
+#: Views\Listing\Listing.cshtml:254
 #: Areas\Pro\Views\UserPro\ProListingView.cshtml:242
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:251
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:251
@@ -3398,13 +3418,13 @@ msgstr "Envoyer le commentaire"
 
 #: Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:47
 #: Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:100
-#: Areas\Pro\Views\UserPro\ProManageCards.cshtml:70
+#: Areas\Pro\Views\UserPro\ProManageCards.cshtml:72
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:47
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:100
-#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProManageCards.cshtml:70
+#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProManageCards.cshtml:72
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:47
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:100
-#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProManageCards.cshtml:70
+#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProManageCards.cshtml:72
 msgid "Serial Number"
 msgstr "Numéro de Série"
 
@@ -3426,7 +3446,7 @@ msgstr ""
 msgid "Settings"
 msgstr "Parametrage"
 
-#: Views\Listing\Listing.cshtml:296
+#: Views\Listing\Listing.cshtml:299
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:296
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:296
 msgid "Share"
@@ -3441,17 +3461,16 @@ msgstr ""
 msgid "Shipping Enabled"
 msgstr ""
 
-#: Areas\Admin\Views\Listing\Listings.cshtml:70
+#: Areas\Admin\Views\Listing\Listings.cshtml:72
 #: Areas\Admin\Views\Listing\ListingUpdate.cshtml:74
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Listing\Listings.cshtml:70
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Listing\ListingUpdate.cshtml:74
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Listing\Listings.cshtml:70
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Listing\ListingUpdate.cshtml:74
 msgid "Show Email"
-msgstr ""
+msgstr "Montrer l'Email"
 
-#: Views\Listing\ListingUpdate.cshtml:125
-#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:129
+#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:137
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:125
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:125
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:129
@@ -3463,7 +3482,7 @@ msgstr "Afficher le numéro de téléphone"
 #: obj\Release\AspnetCompileMerge\Source\Views\Manage\Messages.cshtml:122
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Manage\Messages.cshtml:122
 msgid "Showing {0} - {1} of {2}"
-msgstr ""
+msgstr "Visualisation de {0} - {1} of {2}"
 
 #: Views\Listing\_ListingContactModal.cshtml:40
 #: Views\Listing\_ListingReviewModal.cshtml:69
@@ -3501,9 +3520,9 @@ msgstr "Numéro de SIRET ou RCS"
 
 #: Areas\Pro\Views\UserPro\ProIdentity.cshtml:44
 #: Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:45
-#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:42
+#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:44
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:45
-#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:42
+#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:44
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:45
 msgid "Siret Number"
 msgstr "Numéro de SIRET ou RCS"
@@ -3560,6 +3579,15 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
+#: Views\Listing\ListingUpdate.cshtml:73
+#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:81
+msgid "Stock Available"
+msgstr "Nombre d'article disponible"
+
+#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:82
+msgid "Stock..."
+msgstr ""
+
 #: Areas\Admin\Views\Manage\EmailTemplates.cshtml:37
 #: Areas\Admin\Views\Manage\EmailTemplateUpdate.cshtml:36
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\EmailTemplates.cshtml:37
@@ -3612,8 +3640,8 @@ msgstr ""
 msgid "Thank you for confirming your email."
 msgstr ""
 
-#: Controllers\ListingController.cs:880
-#: Controllers\ListingController.cs:969
+#: Controllers\ListingController.cs:899
+#: Controllers\ListingController.cs:988
 msgid "Thanks for your feedback!"
 msgstr "Merci pour votre commentaire!"
 
@@ -3628,15 +3656,15 @@ msgstr ""
 msgid "The {0} must be at least {2} characters long."
 msgstr ""
 
-#: Areas\Admin\Controllers\ListingController.cs:706
+#: Areas\Admin\Controllers\ListingController.cs:709
 msgid "The category has been deleted."
 msgstr "La categorie a �t supprim�e."
 
-#: Areas\Admin\Controllers\ListingController.cs:668
+#: Areas\Admin\Controllers\ListingController.cs:671
 msgid "The listing has been deleted."
 msgstr ""
 
-#: Areas\Admin\Controllers\ListingController.cs:690
+#: Areas\Admin\Controllers\ListingController.cs:693
 msgid "The listing type has been deleted."
 msgstr ""
 
@@ -3711,7 +3739,7 @@ msgstr ""
 #: Areas\Admin\Views\Payment\Order.cshtml:84
 #: Areas\Admin\Views\Plugin\Plugins.cshtml:75
 #: Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:94
-#: Areas\Pro\Views\UserPro\ProManageCards.cshtml:64
+#: Areas\Pro\Views\UserPro\ProManageCards.cshtml:66
 #: obj\Release\AspnetCompileMerge\Source\bin\Views\Transaction.cshtml:40
 #: obj\Release\AspnetCompileMerge\Source\bin\Views\Transaction.cshtml:63
 #: obj\Release\AspnetCompileMerge\Source\bin\Views\TransactionOverview.cshtml:31
@@ -3736,7 +3764,7 @@ msgstr ""
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Payment\Order.cshtml:84
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Plugin\Plugins.cshtml:75
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:94
-#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProManageCards.cshtml:64
+#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProManageCards.cshtml:66
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\ContentPage\ContentPages.cshtml:36
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Listing\CustomFields.cshtml:54
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Listing\Listings.cshtml:52
@@ -3745,7 +3773,7 @@ msgstr ""
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Payment\Order.cshtml:84
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Plugin\Plugins.cshtml:75
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:94
-#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProManageCards.cshtml:64
+#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProManageCards.cshtml:66
 msgid "There are no items to display."
 msgstr ""
 
@@ -3757,8 +3785,8 @@ msgstr "Pas de nouveaux messages"
 
 #: Controllers\ListingController.cs:188
 #: Controllers\ListingController.cs:395
-#: Areas\Admin\Controllers\ListingController.cs:392
-#: Areas\Admin\Controllers\ListingController.cs:492
+#: Areas\Admin\Controllers\ListingController.cs:395
+#: Areas\Admin\Controllers\ListingController.cs:495
 #: Areas\Pro\Controllers\UserProController.cs:777
 #: Areas\Pro\Controllers\UserProController.cs:867
 #: Areas\Pro\Controllers\UserProController.cs:958
@@ -3930,22 +3958,19 @@ msgstr ""
 #: Areas\Admin\Views\Listing\Categories.cshtml:116
 #: Areas\Admin\Views\Listing\ListingTypes.cshtml:109
 #: Areas\Admin\Views\Listing\ListingTypes.cshtml:117
-#: Areas\Admin\Views\Manage\Users.cshtml:84
-#: Areas\Admin\Views\Manage\Users.cshtml:92
+#: Areas\Admin\Views\Manage\Users.cshtml:95
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Listing\Categories.cshtml:108
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Listing\Categories.cshtml:116
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Listing\ListingTypes.cshtml:109
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Listing\ListingTypes.cshtml:117
-#: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\Users.cshtml:84
-#: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\Users.cshtml:92
+#: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\Users.cshtml:91
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Listing\Categories.cshtml:108
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Listing\Categories.cshtml:116
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Listing\ListingTypes.cshtml:109
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Listing\ListingTypes.cshtml:117
-#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Manage\Users.cshtml:84
-#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Manage\Users.cshtml:92
+#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Manage\Users.cshtml:91
 msgid "Type DELETE to confirm delete"
-msgstr ""
+msgstr "Cliquer sur effacer pour confirmer"
 
 #: Areas\Admin\Views\Plugin\Plugins.cshtml:17
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Plugin\Plugins.cshtml:17
@@ -3960,8 +3985,8 @@ msgid "Unsuccessful login with service."
 msgstr ""
 
 #: Areas\Pro\Views\UserPro\ProIdentity.cshtml:20
-#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:18
-#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:18
+#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:20
+#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:20
 msgid "Update"
 msgstr "Modifier"
 
@@ -3971,9 +3996,9 @@ msgstr "Modifier"
 msgid "Update Profile"
 msgstr ""
 
-#: Views\Listing\ListingUpdate.cshtml:84
+#: Views\Listing\ListingUpdate.cshtml:92
 #: Areas\Admin\Views\Listing\ListingUpdate.cshtml:159
-#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:88
+#: Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:96
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\ListingUpdate.cshtml:84
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Listing\ListingUpdate.cshtml:84
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Listing\ListingUpdate.cshtml:159
@@ -4021,31 +4046,31 @@ msgstr ""
 
 #: Areas\Admin\Controllers\ManageController.cs:212
 msgid "User {0} is deleted."
-msgstr ""
+msgstr "Utilisateur {0} a été effacé."
 
 #: Areas\Admin\Views\Install\Index.cshtml:25
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Install\Index.cshtml:25
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Install\Index.cshtml:25
 msgid "User information"
-msgstr ""
+msgstr "Information utilisateur"
 
-#: Areas\Admin\Views\Manage\Users.cshtml:99
-#: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\Users.cshtml:99
-#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Manage\Users.cshtml:99
+#: Areas\Admin\Views\Manage\Users.cshtml:102
+#: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\Users.cshtml:98
+#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Manage\Users.cshtml:98
 msgid "User is deleted."
-msgstr ""
+msgstr "Utilisateur est effacé"
 
 #: Areas\Admin\Views\Manage\UserUpdate.cshtml:4
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\UserUpdate.cshtml:4
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Manage\UserUpdate.cshtml:4
 msgid "User update"
-msgstr ""
+msgstr "Mise a jour de l'utilisateur"
 
 #: Views\Manage\UserProfile.cshtml:38
 #: obj\Release\AspnetCompileMerge\Source\Views\Manage\UserProfile.cshtml:38
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Manage\UserProfile.cshtml:38
 msgid "UserName"
-msgstr ""
+msgstr "Nom Utilisateur"
 
 #: Areas\Admin\Views\Manage\Dashboard.cshtml:48
 #: Areas\Admin\Views\Manage\Users.cshtml:7
@@ -4057,17 +4082,20 @@ msgstr ""
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Manage\Users.cshtml:7
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Manage\Users.cshtml:20
 msgid "Users"
-msgstr ""
+msgstr "Utilisateurs"
 
 #: Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:57
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:57
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:57
 msgid "Valid Card?"
-msgstr ""
+msgstr "Carte valide?"
 
-#: Areas\Pro\Views\UserPro\ProManageCards.cshtml:50
-#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProManageCards.cshtml:50
-#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProManageCards.cshtml:50
+#: Areas\Pro\Views\UserPro\ProManageCards.cshtml:53
+#: Areas\Pro\Views\UserPro\ProManageCards.cshtml:58
+#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProManageCards.cshtml:53
+#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProManageCards.cshtml:58
+#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProManageCards.cshtml:53
+#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProManageCards.cshtml:58
 msgid "Validate a New Card"
 msgstr "Valider une nouvelle carte"
 
@@ -4078,11 +4106,11 @@ msgid "Valide until"
 msgstr ""
 
 #: Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:109
-#: Areas\Pro\Views\UserPro\ProManageCards.cshtml:79
+#: Areas\Pro\Views\UserPro\ProManageCards.cshtml:81
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:109
-#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProManageCards.cshtml:79
+#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProManageCards.cshtml:81
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\PrepaidCard\ViewCards.cshtml:109
-#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProManageCards.cshtml:79
+#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProManageCards.cshtml:81
 msgid "Validity Max"
 msgstr "Validité Max"
 
@@ -4119,7 +4147,7 @@ msgstr "Voir Toutes les cartes"
 msgid "View Company Details"
 msgstr " Details de la société"
 
-#: Views\Listing\Listing.cshtml:245
+#: Views\Listing\Listing.cshtml:248
 #: Views\Listing\_ListingContactModal.cshtml:18
 #: Areas\Pro\Views\UserPro\ProListingView.cshtml:236
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:245
@@ -4131,7 +4159,7 @@ msgstr " Details de la société"
 msgid "View User's other listings"
 msgstr "Voir les autres annonces de l'utilisateur"
 
-#: Views\Listing\Listing.cshtml:285
+#: Views\Listing\Listing.cshtml:288
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:285
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:285
 msgid "View user's profile and other listings"
@@ -4143,7 +4171,7 @@ msgstr "Voir le profil de l'utilisateur et ses autres annonces"
 msgid "View Your Profile"
 msgstr "Voir votre synthèse"
 
-#: Views\Listing\Listing.cshtml:200
+#: Views\Listing\Listing.cshtml:203
 #: Areas\Pro\Views\UserPro\ProListingView.cshtml:193
 #: obj\Release\AspnetCompileMerge\Source\Views\Listing\Listing.cshtml:200
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Listing\Listing.cshtml:200
@@ -4168,11 +4196,11 @@ msgstr ""
 #: obj\Release\AspnetCompileMerge\Source\Views\Account\Register.cshtml:200
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:199
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:200
-#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:54
+#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:56
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:68
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProListingView.cshtml:299
 #: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProShop.cshtml:52
-#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:54
+#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:56
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:68
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProListingView.cshtml:299
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProShop.cshtml:52
@@ -4196,8 +4224,8 @@ msgid "Welcome to Admin Panel!"
 msgstr "Bienvenue a l'ecran d'administration!"
 
 #: Areas\Pro\Views\UserPro\ProIdentity.cshtml:106
-#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:104
-#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:104
+#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProIdentity.cshtml:106
+#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProIdentity.cshtml:106
 msgid "Where to find us?"
 msgstr "Ou nous trouver ?"
 
@@ -4226,9 +4254,9 @@ msgstr "Oui!"
 
 #: Views\Manage\Dashboard.cshtml:74
 #: Areas\Admin\Views\Listing\Categories.cshtml:106
-#: Areas\Admin\Views\Listing\Listings.cshtml:97
+#: Areas\Admin\Views\Listing\Listings.cshtml:99
 #: Areas\Admin\Views\Listing\ListingTypes.cshtml:107
-#: Areas\Admin\Views\Manage\Users.cshtml:82
+#: Areas\Admin\Views\Manage\Users.cshtml:86
 #: obj\Release\AspnetCompileMerge\Source\Views\Manage\Dashboard.cshtml:74
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Manage\Dashboard.cshtml:74
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Listing\Categories.cshtml:106
@@ -4240,45 +4268,45 @@ msgstr "Oui!"
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Listing\ListingTypes.cshtml:107
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Manage\Users.cshtml:82
 msgid "Yes, delete it!"
-msgstr ""
+msgstr "Oui, Effacer"
 
 #: Controllers\PaymentController.cs:315
 msgid "You cannot book the item from yourself!"
-msgstr ""
+msgstr "Vous ne pouvez pas"
 
 #: Areas\Admin\Controllers\ManageController.cs:204
 msgid "You cannot delete Administrator, change the user role first."
 msgstr ""
 
-#: Controllers\ListingController.cs:638
-#: Areas\Admin\Controllers\ListingController.cs:659
+#: Controllers\ListingController.cs:648
+#: Areas\Admin\Controllers\ListingController.cs:662
 msgid "You cannot delete item with orders! You can deactivate it instead."
 msgstr ""
 
-#: Controllers\ListingController.cs:833
+#: Controllers\ListingController.cs:852
 msgid "You cannot review the order!"
 msgstr ""
 
-#: Controllers\ListingController.cs:825
-#: Controllers\ListingController.cs:925
+#: Controllers\ListingController.cs:844
+#: Controllers\ListingController.cs:944
 msgid "You cannot review yourself!"
 msgstr "Vous ne pouvez pas vous Auto noter!"
 
-#: Controllers\ListingController.cs:728
+#: Controllers\ListingController.cs:747
 msgid "You cannot send message to yourself!"
 msgstr "Vous ne pouvez pas vous Envoyer un message!"
 
-#: Areas\Admin\Controllers\ListingController.cs:679
+#: Areas\Admin\Controllers\ListingController.cs:682
 msgid "You cannot the listing type. There should be at least one listing type."
 msgstr ""
 
-#: Areas\Pro\Views\UserPro\ProManageCards.cshtml:57
-#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProManageCards.cshtml:57
-#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProManageCards.cshtml:57
+#: Areas\Pro\Views\UserPro\ProManageCards.cshtml:59
+#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProManageCards.cshtml:59
+#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProManageCards.cshtml:59
 msgid "You have a valid Card active in use"
 msgstr "Vous avez une carte valide en cours d'utilisation"
 
-#: Controllers\ListingController.cs:911
+#: Controllers\ListingController.cs:930
 msgid "You have reach the review limits today!"
 msgstr "Vous avez atteind le nombre maximum de commentaires pour aujourd'hui"
 
@@ -4286,20 +4314,20 @@ msgstr "Vous avez atteind le nombre maximum de commentaires pour aujourd'hui"
 msgid "You must have a confirmed email to log on."
 msgstr ""
 
-#: Areas\Pro\Views\UserPro\ProManageCards.cshtml:53
-#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProManageCards.cshtml:53
-#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProManageCards.cshtml:53
+#: Areas\Pro\Views\UserPro\ProManageCards.cshtml:54
+#: obj\Release\AspnetCompileMerge\Source\Areas\Pro\Views\UserPro\ProManageCards.cshtml:54
+#: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProManageCards.cshtml:54
 msgid "You need a new valid Card to be able to use your full services"
 msgstr "Vous avez besoin d'une nouvelle carte valide pour bénéficier pleinement de vos services"
 
 #: Views\Manage\Dashboard.cshtml:70
-#: Areas\Admin\Views\Listing\Listings.cshtml:93
+#: Areas\Admin\Views\Listing\Listings.cshtml:95
 #: obj\Release\AspnetCompileMerge\Source\Views\Manage\Dashboard.cshtml:70
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Views\Manage\Dashboard.cshtml:70
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Listing\Listings.cshtml:93
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Listing\Listings.cshtml:93
 msgid "You will delete"
-msgstr ""
+msgstr "Vous aller effacer"
 
 #: Areas\Admin\Views\Listing\Categories.cshtml:102
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Listing\Categories.cshtml:102
@@ -4313,11 +4341,11 @@ msgstr "Vous allez supprimer toutes les annonces de la categorie "
 msgid "You will delete all listings with the listing type "
 msgstr "\"Vous allez supprimer toutes les annonces correspondant au type d'annonce "
 
-#: Areas\Admin\Views\Manage\Users.cshtml:78
+#: Areas\Admin\Views\Manage\Users.cshtml:82
 #: obj\Release\AspnetCompileMerge\Source\Areas\Admin\Views\Manage\Users.cshtml:78
 #: obj\Release\AspnetCompileMerge\TempBuildDir\Areas\Admin\Views\Manage\Users.cshtml:78
 msgid "You will delete the user and its all listings from "
-msgstr ""
+msgstr "Vous aller effacer cet utilisateur et toutes les annonces de "
 
 #: Views\Home\Contact.cshtml:24
 #: obj\Release\AspnetCompileMerge\Source\Views\Home\Contact.cshtml:24
@@ -4325,7 +4353,7 @@ msgstr ""
 msgid "Your Email"
 msgstr "Votre Email"
 
-#: Controllers\ListingController.cs:646
+#: Controllers\ListingController.cs:656
 msgid "Your listing has been deleted."
 msgstr ""
 

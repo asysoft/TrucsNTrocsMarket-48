@@ -488,6 +488,12 @@ namespace BeYourMarket.Web.Controllers
                 // AS : populate loc ref
                 listing.LocationRef = CacheHelper.LocationsRef.Where(m => m.ID == listing.LocationRefID).FirstOrDefault();
 
+                // init la ref
+                listing.ListingRef = GetNewListingRef();
+
+                listing.IsOccasion = bool.Parse(form["IsOccasion"]);
+                listing.StockDispo = int.Parse(form["Stock"]);
+
                 updateCount = true;
                 _listingService.Insert(listing);
             }
@@ -520,6 +526,10 @@ namespace BeYourMarket.Web.Controllers
 
                 listingExisting.CategoryID = listing.CategoryID;
                 listingExisting.ListingTypeID = listing.ListingTypeID;
+
+                listingExisting.ListingRef = listing.ListingRef;
+                listingExisting.IsOccasion = listing.IsOccasion;
+                listingExisting.StockDispo = listing.StockDispo;
 
                 listingExisting.ObjectState = Repository.Pattern.Infrastructure.ObjectState.Modified;
 
@@ -671,6 +681,15 @@ namespace BeYourMarket.Web.Controllers
                 var result = new { Success = "false", Message = ex.Message };
                 return Json(result, JsonRequestBehavior.AllowGet);
             }
+        }
+
+        /// <summary>
+        /// Recupere un nouveau numero de ref basé sur le dernier
+        /// </summary>
+        /// <returns></returns>
+        private string GetNewListingRef()
+        {
+            return _listingService.GetNewListingRef();
         }
 
         [AllowAnonymous]

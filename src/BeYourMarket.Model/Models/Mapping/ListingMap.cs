@@ -8,9 +8,8 @@ namespace BeYourMarket.Model.Models.Mapping
         public ListingMap()
         {
             // Primary Key
-            this.HasKey(t => t.ID);
+            this.HasKey(t => t.ID);           
 
-            // Properties
             this.Property(t => t.Title)
                 .IsRequired()
                 .HasMaxLength(500);
@@ -41,10 +40,18 @@ namespace BeYourMarket.Model.Models.Mapping
             this.Property(t => t.Location)
                 .HasMaxLength(250);
 
+            this.Property(t => t.ListingRef)
+                 .HasMaxLength(250);
+
+            this.Property(t => t.IsOccasion);
+
             // Table & Column Mappings
             this.ToTable("Listings");
             this.Property(t => t.ID).HasColumnName("ID");
             this.Property(t => t.Title).HasColumnName("Title");
+            this.Property(t => t.ListingRef).HasColumnName("ListingRef");
+            this.Property(t => t.IsOccasion).HasColumnName("IsOccasion");
+            this.Property(t => t.StockDispo).HasColumnName("StockDispo");
             this.Property(t => t.Description).HasColumnName("Description");
             this.Property(t => t.CategoryID).HasColumnName("CategoryID");
             this.Property(t => t.ListingTypeID).HasColumnName("ListingTypeID");
