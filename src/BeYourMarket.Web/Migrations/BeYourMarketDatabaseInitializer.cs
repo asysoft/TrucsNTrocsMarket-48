@@ -69,7 +69,7 @@ namespace BeYourMarket.Web.Migrations
                 InstallCategoryTypes(context);
                 InstallSampleData(context, user);
                 InstallPictures(context);
-                InstallStripe(context);
+                //InstallStripe(context);
                 InstallDisqus(context);
             }
         }
@@ -553,38 +553,38 @@ namespace BeYourMarket.Web.Migrations
             }
         }
 
-        private void InstallStripe(Model.Models.BeYourMarketContext context)
-        {
-            context.SettingDictionaries.Add(new Model.Models.SettingDictionary()
-            {
-                SettingID = 1,
-                Name = "StripeApiKey",
-                Value = "sk_test_kUNQFEh3YLbEFEa38tbeMJLV",
-                Created = DateTime.Now,
-                LastUpdated = DateTime.Now,
-                ObjectState = Repository.Pattern.Infrastructure.ObjectState.Added
-            });
+        //private void InstallStripe(Model.Models.BeYourMarketContext context)
+        //{
+        //    context.SettingDictionaries.Add(new Model.Models.SettingDictionary()
+        //    {
+        //        SettingID = 1,
+        //        Name = "StripeApiKey",
+        //        Value = "sk_test_kUNQFEh3YLbEFEa38tbeMJLV",
+        //        Created = DateTime.Now,
+        //        LastUpdated = DateTime.Now,
+        //        ObjectState = Repository.Pattern.Infrastructure.ObjectState.Added
+        //    });
 
-            context.SettingDictionaries.Add(new Model.Models.SettingDictionary()
-            {
-                SettingID = 1,
-                Name = "StripePublishableKey",
-                Value = "pk_test_EfbP8SfcALEJ8Jk2JxtSxmqe",
-                Created = DateTime.Now,
-                LastUpdated = DateTime.Now,
-                ObjectState = Repository.Pattern.Infrastructure.ObjectState.Added
-            });
+        //    context.SettingDictionaries.Add(new Model.Models.SettingDictionary()
+        //    {
+        //        SettingID = 1,
+        //        Name = "StripePublishableKey",
+        //        Value = "pk_test_EfbP8SfcALEJ8Jk2JxtSxmqe",
+        //        Created = DateTime.Now,
+        //        LastUpdated = DateTime.Now,
+        //        ObjectState = Repository.Pattern.Infrastructure.ObjectState.Added
+        //    });
 
-            context.SettingDictionaries.Add(new Model.Models.SettingDictionary()
-            {
-                SettingID = 1,
-                Name = "StripeClientID",
-                Value = "ca_6Rh18px61rjCEZIav5ItunZ1mKD8YjvU",
-                Created = DateTime.Now,
-                LastUpdated = DateTime.Now,
-                ObjectState = Repository.Pattern.Infrastructure.ObjectState.Added
-            });
-        }
+        //    context.SettingDictionaries.Add(new Model.Models.SettingDictionary()
+        //    {
+        //        SettingID = 1,
+        //        Name = "StripeClientID",
+        //        Value = "ca_6Rh18px61rjCEZIav5ItunZ1mKD8YjvU",
+        //        Created = DateTime.Now,
+        //        LastUpdated = DateTime.Now,
+        //        ObjectState = Repository.Pattern.Infrastructure.ObjectState.Added
+        //    });
+        //}
 
         private void InstallDisqus(Model.Models.BeYourMarketContext context)
         {

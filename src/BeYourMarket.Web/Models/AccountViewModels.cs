@@ -148,7 +148,7 @@ namespace BeYourMarket.Web.Models
         public string ProLongitudeStr { get; set; }
 
         [Display(Name = "[[[Pro Card Number]]]")]
-        [StringLength(9, ErrorMessage = "[[[Invalid  Secret code]]]")]
+        [StringLength(9, ErrorMessage = "[[[Invalid Secret code]]]")]
         public string ProCardNumber { get; set; }
 
         // pour les Pro Uniquement, logo en indice 0 et autres ( pubs ? best of products ?...)

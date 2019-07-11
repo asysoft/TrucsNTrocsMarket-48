@@ -126,8 +126,6 @@
     <Compile Include="Models\Mapping\PictureMap.cs" />
     <Compile Include="Models\Mapping\SettingDictionaryMap.cs" />
     <Compile Include="Models\Mapping\SettingMap.cs" />
-    <Compile Include="Models\Mapping\StripeConnectMap.cs" />
-    <Compile Include="Models\Mapping\StripeTransactionMap.cs" />
     <Compile Include="Models\Mapping\UserImgFileMap.cs" />
     <Compile Include="Models\Mapping\UsersAddInfoMap.cs" />
     <Compile Include="Models\Message.cs" />
@@ -141,8 +139,6 @@
     <Compile Include="Models\UserImgFile.cs" />
     <Compile Include="Models\Setting.cs" />
     <Compile Include="Models\SettingDictionary.cs" />
-    <Compile Include="Models\StripeConnect.cs" />
-    <Compile Include="Models\StripeTransaction.cs" />
     <Compile Include="Models\PrepaidCard.cs" />
     <Compile Include="Models\UserPrepaidCard.cs" />
     <Compile Include="Models\UsersAddInfo.cs" />

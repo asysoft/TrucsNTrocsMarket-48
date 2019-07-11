@@ -27,7 +27,8 @@ namespace BeYourMarket.Web
         {
             // Change from the default of 'en'.
             i18n.LocalizedApplication.Current.DefaultLanguage = "fr";
-           // i18n.LocalizedApplication.Current.DefaultLanguage = BeYourMarket.Web.Utilities.LanguageHelper.DefaultCulture;
+            // i18n.LocalizedApplication.Current.DefaultLanguage = BeYourMarket.Web.Utilities.LanguageHelper.DefaultCulture;
+
 
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);

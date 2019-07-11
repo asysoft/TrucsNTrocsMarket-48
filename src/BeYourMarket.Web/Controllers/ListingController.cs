@@ -491,7 +491,9 @@ namespace BeYourMarket.Web.Controllers
                 // init la ref
                 listing.ListingRef = GetNewListingRef();
 
-                listing.IsOccasion = bool.Parse(form["IsOccasion"]);
+                //if ( !(string.IsNullOrEmpty(form["IsOccasion"])) && (form["IsOccasion"] == "checked"))
+                //listing.IsOccasion = bool.Parse(form["IsOccasion"]);
+
                 listing.StockDispo = int.Parse(form["Stock"]);
 
                 updateCount = true;

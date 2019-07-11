@@ -115,19 +115,19 @@ namespace BeYourMarket.Web.Utilities
                 case "pub_Index_Haut_800x200_Img":
                 case "pub_Index_Gauche_250x350_Img":
                 case "pub_Index_Droite_250x350_Img":
-                    nb = 3;
+                    nb = 1;
                     break;
 
                 case "pub_Listings_Haut_800x200_Img":
                 case "pub_Listings_Gauche_250x350_Img":
                 case "pub_Listings_Droite_250x350_Img":
-                    nb = 3;
+                    nb = 1;
                     break;
 
                 case "pub_Register_Haut_800x200_Img1":
                 case "pub_Register_Gauche_250x350_Img":
                 case "pub_Register_Droite_250x350_Img":
-                    nb = 3;
+                    nb = 1;
                     break;
             }
 

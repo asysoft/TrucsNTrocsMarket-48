@@ -18,11 +18,11 @@ using Plugin.Payment.Stripe.Models;
 using Plugin.Payment.Stripe.Models.Grids;
 using Plugin.Payment.Services;
 using Plugin.Payment.Stripe.Data;
-using Microsoft.Practices.Unity;
+//using Microsoft.Practices.Unity;
 using Unity;
 using BeYourMarket.Service.Models;
 using i18n;
-using Unity.Attributes;
+//using Unity.Attributes;
 
 namespace Plugin.Payment.Stripe.Controllers
 {

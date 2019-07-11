@@ -79,6 +79,16 @@
                                     <input type="checkbox" id="IsOccasion" name="IsOccasion" value="@(Model.ListingItem.IsOccasion ? "checked" : "")" /> <label for="Active">[[[Occasion]]]</label>
                                 </div>
                                 <div class="form-group">
+                                    <label class="mark fa fa-recycle">
+                                        [[[Occasion]]]
+                                        <input type="radio" name="IsOccasion" enabled="true" id="IsOccasion" value="@(Model.ListingItem.IsOccasion ? "checked" : "")" />
+                                    </label>
+                                    <label class="mark fa fa-trophy">
+                                        [[[Neuf]]]
+                                        <input type="radio" name="IsOccasion" enabled="true" id="IsOccasion" value="@(Model.ListingItem.IsOccasion ? "checked" : "")" />
+                                    </label>
+                                </div>
+                                <div class="form-group">
                                     <input type="checkbox" id="Active" name="Active" value="@(Model.ListingItem.Active ? "checked" : "")" /> <label for="Active">[[[Active]]]</label>
                                     <input name="Active" type="hidden" value="false" />
                                 </div>

@@ -7,8 +7,10 @@ using System;
 using BeYourMarket.Core.Plugins;
 
 using Unity.ServiceLocation;
-using CommonServiceLocator;
 using Unity.Mvc5;
+using CommonServiceLocator;
+
+//using Unity.AspNet.Mvc;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(BeYourMarket.Web.App_Start.UnityWebActivator), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethod(typeof(BeYourMarket.Web.App_Start.UnityWebActivator), "Shutdown")]
@@ -35,6 +37,7 @@ namespace BeYourMarket.Web.App_Start
             //FilterProviders.Providers.Add(new UnityFilterAttributeFilterProvider(container));
 
             //
+            //DependencyResolver.SetResolver(new UnityDependencyResolver(container));
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
 
             var assemblies = AppDomain.CurrentDomain.GetAssemblies();

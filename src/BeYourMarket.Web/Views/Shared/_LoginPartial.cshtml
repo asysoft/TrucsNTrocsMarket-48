@@ -68,8 +68,11 @@
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="idLogin">
 
                 <a class="dropdown-item" href="@Url.Action("Dashboard", "Manage",new { area ="" })">[[[Dashboard]]]</a>
-                <a class="dropdown-item" href="@Url.Action("ListingUpdate", "Listing",new { area ="" })">[[[Publish new listing]]]</a>
+                @if (!User.IsInRole("Professional"))
+                { 
+                    <a class="dropdown-item" href="@Url.Action("ListingUpdate", "Listing",new { area ="" })">[[[Publish new listing]]]</a>
                 <div class="dropdown-divider"></div>
+                }
 
                 @if (User.IsInRole("Administrator"))
                 {

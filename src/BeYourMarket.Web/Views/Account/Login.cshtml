@@ -19,13 +19,13 @@
             </div>
             <div class="col-md-9">
                 <div class="card border-success" id="divPubRegisterHaut">
-                    <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Haut_800x200_Img1"))" style="display: block;" pubHaut />
-                    @{
+                    <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Haut_800x200_Img1","png"))" style="display: block;" pubHaut />
+                    @*@{
                         for (int iH = 2; iH <= @ImageHelper.GetMaxNbforPub("pub_Register_Haut_800x200_Img"); iH++)
                         {
                             <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Haut_800x200_Img" + iH)" style="display: none;" pubHaut />
                         }
-                    }
+                    }*@
 
                 </div>
             </div>
@@ -33,13 +33,13 @@
         <div class="row mt-3">
             <div class="col-md-3">
                 <div class="card " id="divPubRegisterGauche">
-                    <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Gauche_250x350_Img1"))" style="display: block;" pubgauche />
-                    @{
+                    <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Gauche_250x350_Img1", "png"))" style="display: block;" pubgauche />
+                    @*@{
                         for (int iG = 2; iG <= @ImageHelper.GetMaxNbforPub("pub_Register_Gauche_250x350_Img"); iG++)
                         {
                             <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Gauche_250x350_Img" + iG)" style="display: none;" pubgauche />
                         }
-                    }
+                    }*@
 
                 </div>
             </div>
@@ -80,13 +80,13 @@
             </div>
             <div class="col-md-3">
                 <div class="card" id="divPubRegisterDroite">
-                    <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Droite_250x350_Img1"))" style="display: block;" pubdroite />
-                    @{
+                    <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Droite_250x350_Img1", "png"))" style="display: block;" pubdroite />
+                    @*@{
                         for (int iD = 2; iD <= @ImageHelper.GetMaxNbforPub("pub_Register_Droite_250x350_Img"); iD++)
                         {
                             <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Droite_250x350_Img" + iD)" style="display: none;" pubdroite />
                         }
-                    }
+                    }*@
                 </div>
             </div>
         </div>

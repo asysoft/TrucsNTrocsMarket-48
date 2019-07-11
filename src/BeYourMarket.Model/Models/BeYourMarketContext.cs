@@ -54,8 +54,8 @@ namespace BeYourMarket.Model.Models
         public DbSet<Picture> Pictures { get; set; }
         public DbSet<SettingDictionary> SettingDictionaries { get; set; }
         public DbSet<Setting> Settings { get; set; }
-        public DbSet<StripeConnect> StripeConnects { get; set; }
-        public DbSet<StripeTransaction> StripeTransactions { get; set; }
+        //public DbSet<StripeConnect> StripeConnects { get; set; }
+        //public DbSet<StripeTransaction> StripeTransactions { get; set; }
         public DbSet<LocationRef> LocationsRef { get; set; }
 
         public DbSet<UserCategory> UserCategories { get; set; }
@@ -95,8 +95,8 @@ namespace BeYourMarket.Model.Models
             modelBuilder.Configurations.Add(new PictureMap());
             modelBuilder.Configurations.Add(new SettingDictionaryMap());
             modelBuilder.Configurations.Add(new SettingMap());
-            modelBuilder.Configurations.Add(new StripeConnectMap());
-            modelBuilder.Configurations.Add(new StripeTransactionMap());
+            //modelBuilder.Configurations.Add(new StripeConnectMap());
+            //modelBuilder.Configurations.Add(new StripeTransactionMap());
             modelBuilder.Configurations.Add(new LocationRefMap());
 
             modelBuilder.Configurations.Add(new UserCategoryMap()); 

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Unity;
 
+
 namespace BeYourMarket.Service
 {
     public static class CacheHelper
@@ -75,13 +76,13 @@ namespace BeYourMarket.Service
             }
         }
 
-        public static string StripeConnectUrl
-        {
-            get
-            {
-                return string.Format("https://connect.stripe.com/oauth/authorize?response_type=code&amp;client_id={0}&amp;scope=read_write", GetSettingDictionary("StripeClientID").Value);
-            }
-        }
+        //public static string StripeConnectUrl
+        //{
+        //    get
+        //    {
+        //        return string.Format("https://connect.stripe.com/oauth/authorize?response_type=code&amp;client_id={0}&amp;scope=read_write", GetSettingDictionary("StripeClientID").Value);
+        //    }
+        //}
 
         public static List<LocationRef> LocationsRef
         {

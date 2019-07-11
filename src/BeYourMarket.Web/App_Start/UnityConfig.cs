@@ -11,6 +11,9 @@ using System.Web.Mvc;
 using Unity;
 using Unity.Lifetime;
 using Unity.Mvc5;
+using Microsoft.Practices.Unity;
+//using Unity.AspNet.Mvc;
+
 
 namespace BeYourMarket.Web
 {
@@ -35,7 +38,7 @@ namespace BeYourMarket.Web
     .RegisterType<IRepositoryAsync<ListingPicture>, Repository<ListingPicture>>()
     .RegisterType<IRepositoryAsync<Picture>, Repository<Picture>>()
     .RegisterType<IRepositoryAsync<Order>, Repository<Order>>()
-    .RegisterType<IRepositoryAsync<StripeConnect>, Repository<StripeConnect>>()
+    //.RegisterType<IRepositoryAsync<StripeConnect>, Repository<StripeConnect>>()
     .RegisterType<IRepositoryAsync<MetaField>, Repository<MetaField>>()
     .RegisterType<IRepositoryAsync<MetaCategory>, Repository<MetaCategory>>()
     .RegisterType<IRepositoryAsync<ListingMeta>, Repository<ListingMeta>>()

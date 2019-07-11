@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Practices.Unity;
-using Microsoft.Practices.Unity.Configuration;
+//using Microsoft.Practices.Unity;
+//using Microsoft.Practices.Unity.Configuration;
 
 using Repository.Pattern.Repositories;
 using Plugin.Payment.Stripe.Data;

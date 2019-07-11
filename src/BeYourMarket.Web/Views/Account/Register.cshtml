@@ -10,7 +10,7 @@
 
     <link href="~/Content/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet" />
     <link href="~/Content/jsTree/themes/default/style.min.css" rel="stylesheet" />
-    
+
     <style type="text/css">
         .field-validation-error {
             color: #ff0000;
@@ -29,31 +29,19 @@
             </div>
             <div class="col-md-9">
                 <div class="card border-success" id="divPubRegisterHaut">
-                    <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Haut_800x200_Img1"))" style="display: block;" pubHaut />
-                    @{
-                        for (int iH = 2; iH <= @ImageHelper.GetMaxNbforPub("pub_Register_Haut_800x200_Img"); iH++)
-                        {
-                            <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Haut_800x200_Img" + iH)" style="display: none;" pubHaut />
-                        }
-                    }
+                    <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Haut_800x200_Img1", "png"))" style="display: block;" pubHaut />
+                    @*@{
+                            for (int iH = 2; iH <= @ImageHelper.GetMaxNbforPub("pub_Register_Haut_800x200_Img"); iH++)
+                            {
+                                <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Haut_800x200_Img" + iH)" style="display: none;" pubHaut />
+                            }
+                        }*@
 
                 </div>
             </div>
         </div>
         <div class="row mt-3">
-            <div class="col-md-3">
-                <div class="card " id="divPubRegisterGauche">
-                    <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Gauche_250x350_Img1"))" style="display: block;" pubgauche />
-                    @{
-                        for (int iG = 2; iG <= @ImageHelper.GetMaxNbforPub("pub_Register_Gauche_250x350_Img"); iG++)
-                        {
-                            <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Gauche_250x350_Img" + iG)" style="display: none;" pubgauche />
-                        }
-                    }
-
-                </div>
-            </div>
-            <div class="col-md-6 mx-auto ">
+            <div class="col-md-12 mx-auto ">
                 <div class="card border border-success mrg-t">
                     <div class="card-header bdr-b" style="text-align:center;">
                         <h4>[[[Create an account]]]</h4>
@@ -74,7 +62,7 @@
                                         </div>
                                         <div class="modal-body">
                                             <h4>@CacheHelper.Settings.AgreementLabel</h4>
-                                            <p>@CacheHelper.Settings.AgreementText</p>
+                                            <p><div>@Html.Raw(ViewBag.WordHtml)</div></p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">[[[Close]]]</button>
@@ -91,7 +79,7 @@
 
                             <div id="idBtnType" class="btn-group d-flex " data-toggle="buttons">
                                 <label class="btn btn-success btn-lg active w-50">
-                                    @Html.RadioButtonFor(x => x.UserType, 0, new { id = "optPart" , @checked = true }) [[[Personal]]]
+                                    @Html.RadioButtonFor(x => x.UserType, 0, new { id = "optPart", @checked = true }) [[[Personal]]]
                                 </label>
                                 <label class="btn btn-success btn-lg w-50">
                                     @Html.RadioButtonFor(x => x.UserType, 2, new { id = "optPro" })  [[[Professional]]]
@@ -100,7 +88,7 @@
                                     @Html.ValidationMessageFor(x => x.UserType)
 
                                 </div>
-                                
+
                             </div>
 
                             <div class="card-block">
@@ -126,169 +114,181 @@
                                     <h5> [[[Required fields for professional accounts]]] </h5>
                                 </div>
                                 <div class="card-body">
-                                    <div class="target text-center">
-                                        <input type="file" id="files" name="files" class="file-loading" data-preview-file-type="img">
-                                        <label for="files">[[[Choose your Logo]]]</label>
-                                    </div>
+                                    <div class="row">
 
-                                    <div class="form-group">
-                                        <label class="mark" for="ProCompany">[[[Company]]] <span class="text-red">*</span></label>
-                                        @Html.TextBoxFor(m => m.ProCompany, new { @class = "form-control input-lg", @placeholder = "[[[Company Name]]]" })
-                                        @Html.ValidationMessageFor(x => x.ProCompany)
-
-                                    </div>
-                                    <div class="form-group">
-                                        <div>
-                                            <div class="shadow-lg p-3  bg-white rounded">
-                                                <div class="card border border-info mark font-weight-bold text-center ">
-                                                    <label class="mark" for="ProCardNumber">[[[Card Number]]] <span class="text-red">*</span></label>
-                                                    @Html.TextBoxFor(m => m.ProCardNumber, new { @class = "form-control input-lg", @placeholder = "[[[Trucs N Trocs Secret Card Number]]]" })
-                                                    @Html.ValidationMessageFor(x => x.ProCardNumber)
+                                        <div class="col col-md-4">
+                                            <div class="shadow-lg bg-white rounded">
+                                                <div class="target text-center">
+                                                    <input type="file" id="files" name="files" class="file-loading" data-preview-file-type="img">
+                                                    <label for="files">[[[Choose your Logo]]]</label>
                                                 </div>
-
                                             </div>
-                                            
                                         </div>
-                                        
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="mark" for="ProSiret">[[[Siret]]]</label>
-                                        @Html.TextBoxFor(m => m.ProSiret, new { @class = "form-control input-lg", @placeholder = "[[[Company SIRET number]]]" })
-                                        @Html.ValidationMessageFor(x => x.ProSiret)
-                                    </div>
-                                    <fieldset>
-                                        <label>[[[Category]]]</label>
-                                        <div class="form-group" style="border-style:groove;overflow-y: auto; height: 270px;">
-                                            <div id="jstreeCateg">  </div>
-                                            <input type="hidden" id="CategoryIDhidd" name="ProCategoryIDs" value="" />
-                                        </div>
-                                    </fieldset>
-                                    <fieldset>
-                                        <legend>[[[Localization]]]</legend>
-                                        <div class="form-group">
-                                            <label class="mark" for="ProAdress">[[[Adress]]] </label>
-                                            @Html.TextBoxFor(m => m.ProAdress, new { @class = "form-control input-lg", @placeholder = "[[[Company Adress]]]" })
-                                            @Html.ValidationMessageFor(x => x.ProAdress)
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="ProTownZip">[[[City]]]</label>
-                                            @Html.TextBoxFor(m => m.ProTownZip, new { @class = "form-control input-lg", @placeholder = "[[[Company Town or Zip Code]]]" })
-                                            @Html.ValidationMessageFor(x => x.ProTownZip)
-                                        </div>
-                                        <div class="form-body" style="border-style:groove;overflow-y: auto; height: 270px;">
-                                            <div id="jstreeLoc"> </div>
+                                        <div class="col col-md-4">
+                                            <div class="shadow-lg bg-white rounded">
+                                                <div class="form-group">
+                                                    <label class="mark" for="ProCompany">[[[Company]]] <span class="text-red">*</span></label>
+                                                    @Html.TextBoxFor(m => m.ProCompany, new { @class = "form-control input-lg", @placeholder = "[[[Company Name]]]" })
+                                                    @Html.ValidationMessageFor(x => x.ProCompany)
 
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="hidden" id="LocSelectedName" name="LocSelectedName" value="" />
-                                            <input type="hidden" id="LocationRefIDhidd" name="ProLocationRefID" value="0" />
-                                            <input type="hidden" id="Longitude" name="ProLongitudeStr" value="" />
-                                            <input type="hidden" id="Latitude" name="ProLatitudeStr" value="" />
-                                        </div>
-                                    </fieldset>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div>
+                                                        <div class="shadow-lg p-3  bg-white rounded">
+                                                            <div class="card border border-info mark font-weight-bold text-center ">
+                                                                <label class="mark" for="ProCardNumber">[[[Card Number]]] <span class="text-red">*</span></label>
+                                                                @Html.TextBoxFor(m => m.ProCardNumber, new { @class = "form-control input-lg", @placeholder = "[[[Trucs N Trocs Secret Card Number]]]" })
+                                                                @Html.ValidationMessageFor(x => x.ProCardNumber)
+                                                            </div>
 
-                                    <div class="form-group">
-                                        <label class="mark" for="ProPhone">[[[Phone]]]</label>
-                                        @Html.TextBoxFor(m => m.ProPhone, new { @class = "form-control input-lg", @placeholder = "[[[Company Phone]]]" })
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="mark" for="ProEmail">[[[Company Email]]]</label>
-                                        @Html.TextBoxFor(m => m.ProEmail, new { @class = "form-control input-lg", @placeholder = "[[[Company Email]]]" })
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="mark" for="ProSiteWeb">[[[Web Site]]]</label>
-                                        @Html.TextBoxFor(m => m.ProSiteWeb, new { @class = "form-control input-lg", @placeholder = "[[[Web Site]]]" })
-                                    </div>
-                                    <fieldset>
-                                        <legend>[[[Company Contact]]]</legend>
-                                        <div class="form-group">
-                                            <label class="mark fa fa-male">
-                                                [[[Male]]]
-                                                <input type="radio" name="Gender" enabled="true" id="GenderM" value="M" checked />
-                                            </label>
-                                            <label class="mark fa fa-female">
-                                                [[[Female]]]
-                                                <input type="radio" name="Gender" enabled="true" id="GenderF" value="F" />
-                                            </label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="mark" for="LastName">[[[Last Name]]] <span class="text-red">*</span></label>
-                                            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control input-lg", @placeholder = "[[[Last Name of the Owner]]]" })
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="mark" for="FirstName">[[[First Name]]] <span class="text-red">*</span></label>
-                                            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control input-lg", @placeholder = "[[[First Name of the Owner]]]" })
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="mark" for="PhoneNumber">[[[Phone Number]]] : </label>
-                                            @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control input-lg", @placeholder = "[[[Phone Number of the Owner]]]" })
-                                        </div>
-                                    </fieldset>
+                                                        </div>
 
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="mark" for="ProSiret">[[[Siret]]]</label>
+                                                    @Html.TextBoxFor(m => m.ProSiret, new { @class = "form-control input-lg", @placeholder = "[[[Company SIRET number]]]" })
+                                                    @Html.ValidationMessageFor(x => x.ProSiret)
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col col-md-4">
+                                            <div class="shadow-lg bg-white rounded">
+                                                <fieldset>
+                                                    <label>[[[Category]]]</label>
+                                                    <div class="form-group" style="border-style:groove;overflow-y: auto; height: 270px;">
+                                                        <div id="jstreeCateg">  </div>
+                                                        <input type="hidden" id="CategoryIDhidd" name="ProCategoryIDs" value="" />
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col col-md-4">
+                                            <div class="shadow-lg bg-white rounded">
+                                                <fieldset>
+                                                    <legend>[[[Localization]]]</legend>
+                                                    <div class="form-group">
+                                                        <label class="mark" for="ProAdress">[[[Adress]]] </label>
+                                                        @Html.TextBoxFor(m => m.ProAdress, new { @class = "form-control input-lg", @placeholder = "[[[Company Adress]]]" })
+                                                        @Html.ValidationMessageFor(x => x.ProAdress)
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="ProTownZip">[[[City]]]</label>
+                                                        @Html.TextBoxFor(m => m.ProTownZip, new { @class = "form-control input-lg", @placeholder = "[[[Company Town or Zip Code]]]" })
+                                                        @Html.ValidationMessageFor(x => x.ProTownZip)
+                                                    </div>
+                                                    <div class="form-body" style="border-style:groove;overflow-y: auto; height: 270px;">
+                                                        <div id="jstreeLoc"> </div>
+
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="hidden" id="LocSelectedName" name="LocSelectedName" value="" />
+                                                        <input type="hidden" id="LocationRefIDhidd" name="ProLocationRefID" value="0" />
+                                                        <input type="hidden" id="Longitude" name="ProLongitudeStr" value="" />
+                                                        <input type="hidden" id="Latitude" name="ProLatitudeStr" value="" />
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="col col-md-4">
+                                            <div class="shadow-lg bg-white rounded">
+                                                <div class="form-group">
+                                                    <label class="mark" for="ProPhone">[[[Phone]]]</label>
+                                                    @Html.TextBoxFor(m => m.ProPhone, new { @class = "form-control input-lg", @placeholder = "[[[Company Phone]]]" })
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="mark" for="ProEmail">[[[Company Email]]]</label>
+                                                    @Html.TextBoxFor(m => m.ProEmail, new { @class = "form-control input-lg", @placeholder = "[[[Company Email]]]" })
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="mark" for="ProSiteWeb">[[[Web Site]]]</label>
+                                                    @Html.TextBoxFor(m => m.ProSiteWeb, new { @class = "form-control input-lg", @placeholder = "[[[Web Site]]]" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col col-md-4">
+                                            <div class="shadow-lg bg-white rounded">
+                                                <fieldset>
+                                                    <legend>[[[Company Contact]]]</legend>
+                                                    <div class="form-group">
+                                                        <label class="mark fa fa-male">
+                                                            [[[Male]]]
+                                                            <input type="radio" name="Gender" enabled="true" id="GenderM" value="M" checked />
+                                                        </label>
+                                                        <label class="mark fa fa-female">
+                                                            [[[Female]]]
+                                                            <input type="radio" name="Gender" enabled="true" id="GenderF" value="F" />
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="mark" for="LastName">[[[Last Name]]] <span class="text-red">*</span></label>
+                                                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control input-lg", @placeholder = "[[[Last Name of the Owner]]]" })
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="mark" for="FirstName">[[[First Name]]] <span class="text-red">*</span></label>
+                                                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control input-lg", @placeholder = "[[[First Name of the Owner]]]" })
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="mark" for="PhoneNumber">[[[Phone Number]]] : </label>
+                                                        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control input-lg", @placeholder = "[[[Phone Number of the Owner]]]" })
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+
+                                @if (CacheHelper.Settings.AgreementRequired)
+                                {
+                                    <div class="form-group ml-3">
+                                        @Html.CheckBoxFor(x => x.TermsAndConditions)
+                                        @Html.LabelFor(x => x.TermsAndConditions)
+                                        @Html.ValidationMessageFor(x => x.TermsAndConditions)
+                                        <div>
+                                            <a id="agreementModal" data-toggle="modal" data-target="#agreementModal" class="text-blue font-weight-bold" href="#"> [[[Terms & Conditions]]]</a>
+                                        </div>
+                                    </div>
+                                }
+                                <input type="submit" class="btn btn-success btn-lg w-100 " value="[[[Join]]]">
+
+                            </div>
+                            <div class="card-footer " style="text-align:center">
+                                <div><span>[[[Already a member?]]] <a href="@Url.Action("Login", "Account")">[[[Login]]]</a></span></div>
                             </div>
 
-                            if (CacheHelper.Settings.AgreementRequired)
-                            {
-                                <div class="form-group">
-                                    @Html.CheckBoxFor(x => x.TermsAndConditions)
-                                    @Html.LabelFor(x => x.TermsAndConditions)
-                                    @Html.ValidationMessageFor(x => x.TermsAndConditions)
-                                    <div>
-                                        <a id="agreementModal" data-toggle="modal" data-target="#agreementModal" class="text-blue font-weight-bold" href="#"> [[[Terms & Conditions]]]</a>
-                                    </div>
-                                </div>
-                            }
-                            <input type="submit" class="btn btn-success btn-lg w-100 " value="[[[Join]]]">
                         }
                     </div>
-                    <div class="card-footer " style="text-align:center">
-                        <div><span>[[[Already a member?]]] <a href="@Url.Action("Login", "Account")">[[[Login]]]</a></span></div>
-                    </div>
-
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card" id="divPubRegisterDroite">
-                    <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Droite_250x350_Img1"))" style="display: block;" pubdroite />
-                    @{
-                        for (int iD = 2; iD <= @ImageHelper.GetMaxNbforPub("pub_Register_Droite_250x350_Img"); iD++)
-                        {
-                            <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Droite_250x350_Img" + iD)" style="display: none;" pubdroite />
-                        }
-                    }
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
-<!-- ./ Main Content -->
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgB8z009mHSrPLaJUobfgmI1gTlk1aqyc&libraries=places"></script>
-    <script src="~/Scripts/TnTutils/GoogleMapsGeocode.js" type="text/javascript"></script>
+            <!-- ./ Main Content -->
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgB8z009mHSrPLaJUobfgmI1gTlk1aqyc&libraries=places"></script>
+                <script src="~/Scripts/TnTutils/GoogleMapsGeocode.js" type="text/javascript"></script>
 
-    <script src="~/Scripts/fileinput.min.js"></script>
-    @Html.Partial("_LocalizationFileInput")
+                <script src="~/Scripts/fileinput.min.js"></script>
+                @Html.Partial("_LocalizationFileInput")
 
-    <script type="text/javascript">
-        $(document).ready(function () {
+                <script type="text/javascript">
+                    $(document).ready(function () {
 
-            // init les champs a afficher
-            var elPro = document.getElementById("dPro");
-            if (document.getElementById("optPro").checked)
-                elPro.style.display = 'block';
-            else
-                elPro.style.display = 'none';
+                        // init les champs a afficher
+                        var elPro = document.getElementById("dPro");
+                        if (document.getElementById("optPro").checked)
+                            elPro.style.display = 'block';
+                        else
+                            elPro.style.display = 'none';
 
-            //
-            initializeMapCanvas();
-        });
+                        //
+                        initializeMapCanvas();
+                    });
 
-    </script>
+                </script>
 
-    <script>
+                <script>
         @{
             var preview = new System.Text.StringBuilder();
             var previewDelete = new System.Text.StringBuilder();
@@ -302,7 +302,7 @@
             showCaption: false,
             showRemove: false,
             showUpload: false,
-            maxImageWidth: 200,
+            maxImageWidth: 150,
             maxImageHeight: 200,
             resizeImage: true,
             resizePreference: 'width',
@@ -324,107 +324,107 @@
             dropZoneTitle : "[[[Please select your logo...]]]",
             language: '@Context.GetPrincipalAppLanguageForRequest().ToString()'
         });
-    </script>
-    <script type="text/javascript">
-        $('#idBtnType').on('click', function (e) {
+                </script>
+                <script type="text/javascript">
+                    $('#idBtnType').on('click', function (e) {
 
-            var elPro = document.getElementById("dPro");
-            if (e.target.control.id == "optPro") {
-                //document.getElementById("userTypeHidd").value = "Professional";
-                elPro.style.display = 'block';
+                        var elPro = document.getElementById("dPro");
+                        if (e.target.control.id == "optPro") {
+                            //document.getElementById("userTypeHidd").value = "Professional";
+                            elPro.style.display = 'block';
+                        }
+                        else {
+                            //document.getElementById("userTypeHidd").value = "Particulier";
+                            elPro.style.display = 'none';
+                        }
+
+                    })
+                </script>
+                <script>
+                    $(function () {
+                        var CategID;
+                        $('#jstreeCateg').jstree({
+                            'core': {
+                                "multiple": true,
+                                "check_callback": false,
+                                'data': {
+                                    'url': '/jsTree3/GetJsTree3CategData/',
+                                    "data": function (node) { return { id: CategID }; },
+                                    'dataType': 'json',
+                                },
+                                "themes": {
+                                    "responsive": true,
+                                    "variant": 'larg',
+                                    "stripes": false,
+                                    "icons": false,
+                                    "ellipsis": false,
+                                    "dots": false
+                                },
+                                "checkbox": {
+                                    "visible": true,
+                                    "two_state": false
+                                }
+                            },
+                            "plugins": ["checkbox"]
+                        });
+
+                        $('#jstreeCateg').on("changed.jstree", function (e, data) {
+                            if (data != null && data.selected != null && data.selected.length > 0) {
+                                document.getElementById('CategoryIDhidd').value = data.selected.join(";");
+                            }
+                            else
+                                document.getElementById('CategoryIDhidd').value = null;
+                        });
+
+                    });
+                </script>
+                <script>
+                    $(function () {
+                        $('#jstreeLoc').jstree({
+                            'core': {
+                                "multiple": false,
+                                "check_callback": false,
+                                'data': {
+                                    'url': '/jsTree3/GetJsTree3LocData/',
+                                    "data": function (node) { return { id: null }; },
+                                    'dataType': 'json',
+                                },
+                                "themes": {
+                                    "responsive": true,
+                                    "variant": 'larg',
+                                    "stripes": false,
+                                    "icons": false,
+                                    "ellipsis": false,
+                                    "dots": false
+                                },
+                                "checkbox": {
+                                    "visible": true,
+                                    "two_state": false
+                                }
+                            },
+                            "plugins": ["checkbox"]
+                        });
+
+                        $('#jstreeLoc').on("changed.jstree", function (e, data) {
+                            if (data != null && data.selected != null && data.selected.length > 0) {
+                                document.getElementById('LocationRefIDhidd').value = data.selected[0];
+
+                                // Recupere le ou les texte selectionne
+                                var i, j, r = [];
+                                for (i = 0, j = data.selected.length; i < j; i++) {
+                                    r.push(data.instance.get_node(data.selected[i]).text);
+                                }
+
+                                var sel = r.join(' ') + ', ile Maurice';
+                                document.getElementById('LocSelectedName').value = sel;
+
+                                codeAddress(sel);
+
+                            }
+                        });
+
+                    });
+                </script>
+
+
             }
-            else {
-                //document.getElementById("userTypeHidd").value = "Particulier";
-                elPro.style.display = 'none';
-            }
-
-        })
-    </script>
-    <script>
-        $(function () {
-            var CategID;
-            $('#jstreeCateg').jstree({
-                'core': {
-                    "multiple": true,
-                    "check_callback": false,
-                    'data': {
-                        'url': '/jsTree3/GetJsTree3CategData/',
-                        "data": function (node) { return { id: CategID }; },
-                        'dataType': 'json',
-                    },
-                    "themes": {
-                        "responsive": true,
-                        "variant": 'larg',
-                        "stripes": false,
-                        "icons": false,
-                        "ellipsis": false,
-                        "dots": false
-                    },
-                    "checkbox": {
-                        "visible": true,
-                        "two_state": false
-                    }
-                },
-                "plugins": ["checkbox"]
-            });
-
-            $('#jstreeCateg').on("changed.jstree", function (e, data) {
-                if (data != null && data.selected != null && data.selected.length > 0) {
-                    document.getElementById('CategoryIDhidd').value = data.selected.join(";");
-                }
-                else
-                    document.getElementById('CategoryIDhidd').value = null;
-            });
-
-        });
-    </script>
-    <script>
-        $(function () {
-            $('#jstreeLoc').jstree({
-                'core': {
-                    "multiple": false,
-                    "check_callback": false,
-                    'data': {
-                        'url': '/jsTree3/GetJsTree3LocData/',
-                        "data": function (node) { return { id: null }; },
-                        'dataType': 'json',
-                    },
-                    "themes": {
-                        "responsive": true,
-                        "variant": 'larg',
-                        "stripes": false,
-                        "icons": false,
-                        "ellipsis": false,
-                        "dots": false
-                    },
-                    "checkbox": {
-                        "visible": true,
-                        "two_state": false
-                    }
-                },
-                "plugins": ["checkbox"]
-            });
-
-            $('#jstreeLoc').on("changed.jstree", function (e, data) {
-                if (data != null && data.selected != null && data.selected.length > 0) {
-                    document.getElementById('LocationRefIDhidd').value = data.selected[0];
-
-                    // Recupere le ou les texte selectionne
-                    var i, j, r = [];
-                    for (i = 0, j = data.selected.length; i < j; i++) {
-                        r.push(data.instance.get_node(data.selected[i]).text);
-                    }
-
-                    var sel = r.join(' ') + ', ile Maurice';
-                    document.getElementById('LocSelectedName').value = sel;
-
-                    codeAddress(sel);
-
-                }
-            });
-
-        });
-    </script>
-
-
-}

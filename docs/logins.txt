@@ -69,4 +69,9 @@ sa /sadev2018
 http://webmail.trucsntrocs.com
 user : contact@trucsntrocs.com
 pwd : TnTmail@2018
-		
+
+-------------------
+https://dev.azure.com/surfanoid3/TrucsNTrocs/_sprints/taskboard/TrucsNTrocs%20Team/TrucsNTrocs/Sprint%201
+surfanoid3@hotmail.com
+
+Saturne+98		

@@ -24,6 +24,9 @@ using System.IO;
 using TnTPrepaidCard.Lib;
 using System.Threading;
 
+using System.Text.RegularExpressions;
+using System.Text;
+
 namespace BeYourMarket.Web.Controllers
 {
     [Authorize]
@@ -227,10 +230,46 @@ namespace BeYourMarket.Web.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            // chargement des cgu
+             loadCGUDocInHTML();
+
             return View();
         }
         
+        private void loadCGUDocInHTML()
+        {
+            object documentFormat = 8;
+            string CGUDIRFiles = "TnT_CGU";
+            
+            string directoryPath = Server.MapPath("~/CGU/") + CGUDIRFiles + "_files";
+            object fileSavePath = Server.MapPath("~/CGU/") + "CGU.docx";
 
+            //Open the word document in background.
+            // _Application applicationclass = new Application();
+            // applicationclass.Documents.Open(ref fileSavePath);
+            // applicationclass.Visible = false;
+            // Document document = applicationclass.ActiveDocument;
+
+
+            //Save the word document as HTML file.
+            //document.SaveAs(ref htmlFilePath, ref documentFormat);
+
+            //Close the word document.
+            //document.Close();
+
+            //Read the saved Html File.
+            object htmlFilePath = Server.MapPath("~/CGU/") + CGUDIRFiles + ".htm";
+            string wordHTML = System.IO.File.ReadAllText(htmlFilePath.ToString(), Encoding.Default);
+
+            //Loop and replace the Image Path.
+            foreach (Match match in Regex.Matches(wordHTML, "<v:imagedata.+?src=[\"'](.+?)[\"'].*?>", RegexOptions.IgnoreCase))
+            {
+                wordHTML = Regex.Replace(wordHTML, match.Groups[1].Value, "Temp/" + match.Groups[1].Value);
+            }
+
+            ViewBag.WordHtml = wordHTML;
+
+        }
         //
         // POST: /Account/Register
         [HttpPost]
