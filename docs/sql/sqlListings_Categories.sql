@@ -4,7 +4,8 @@
 --use Shak29_tntmarket_testdb
 
 SELECT *  FROM [dbo].[ListingTypes]
---SELECT *  FROM [dbo].[Listings]
+
+SELECT *  FROM [dbo].[Listings]
 
 
 SELECT *  FROM [dbo].[Categories]

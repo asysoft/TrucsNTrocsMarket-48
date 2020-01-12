@@ -56,16 +56,21 @@
 
     <div class="mrg-tb">
         <div class="row">
-            <a href="#" id="testPub" onclick="ShowHidePub()">P</a>
-            <div id="divLogoHautGauche" style="background-image: url(@ImageHelper.GetCommunityImagePath("LogoTnTcom_150x184", "png"));"></div>
-            <div class="card border-success" id="divPubHaut">
-                <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Listings_Haut_800x200_Img1","png",true)" style="display: block;" pubHaut />
-                @*@{
-                    for (int iH = 2; iH <= @ImageHelper.GetMaxNbforPub("pub_Listings_Haut_800x200_Img"); iH++)
+            @*<a href="#" id="testPub" onclick="ShowHidePub()">P</a>*@
+            <div class="col-sm-12 col-md-2 m-t-5 d-none d-md-inline">
+                <img src="@ImageHelper.GetCommunityImagePath("LogoTnTcom_150x184", "png"))" style="display: block;" />
+            </div>
+            <div class="col-sm-12 col-md-8">
+                <div class="card border-success " id="divPubRegisterHaut">
+                    <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Listings_Haut_800x200_Img1", "png"))" style="display: block;" pubHaut />
+                    @*@{
+                    for (int iH = 2; iH <= @ImageHelper.GetMaxNbforPub("pub_Index_Haut_800x200_Img"); iH++)
                     {
-                        <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Listings_Haut_800x200_Img" + iH)" style="display: none;" pubHaut />
+                        <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Index_Haut_800x200_Img" + iH, "png")" style="display: none;" pubHaut />
                     }
                 }*@
+
+                </div>
             </div>
             <div class="col-md-5">
                 <div class="search-widget panel panel-default mt-5">

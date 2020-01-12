@@ -62,9 +62,9 @@
                         </button>
                     </form>
 
-                    <div class="d-none d-md-flex p-5">
+                    @*<div class="d-none d-md-flex p-5">
                         @Html.Action("LanguageSelector", "Home", new { Area = "" })
-                    </div>
+                    </div>*@
 
                     @if (User.IsInRole("Professional"))
                     {
@@ -74,7 +74,7 @@
                     }
                     else
                     {
-                        <a class="btn navbar-btn btn-primary" href="@Url.Action("ListingUpdate", "Listing", new { id = string.Empty })"><i class="mdi-content-add-circle-outline"></i> [[[Publish new listing]]]</a>
+                        <a class="btn  btn-primary" href="@Url.Action("ListingUpdate", "Listing", new { id = string.Empty })"><i class="mdi-content-add-circle-outline"></i> [[[Publish new listing]]]</a>
                     }
 
                     <div class="d-none d-md-flex p-4 navbar-nav ml-auto ">

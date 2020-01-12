@@ -105,6 +105,9 @@ namespace BeYourMarket.Web.Models
         [Required]
         public Enum_UserType UserType { get; set; }
 
+        [Required]
+        public bool IsAnnonceurValid { get; set; }
+
         [Display(Name = "[[[Gender]]]")]
         public string Gender { get; set; }
 

@@ -109,6 +109,7 @@
     <Compile Include="Models\MessageSendModel.cs" />
     <Compile Include="Models\Statistics.cs" />
     <Compile Include="MessageService.cs" />
+    <Compile Include="PubLocationsService.cs" />
     <Compile Include="UserPrepaidCardService.cs" />
     <Compile Include="UsersAddInfoService.cs" />
     <Compile Include="OrderService.cs" />

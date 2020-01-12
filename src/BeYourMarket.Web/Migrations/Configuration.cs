@@ -9,7 +9,7 @@ namespace BeYourMarket.Web.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(BeYourMarket.Web.Models.ApplicationDbContext context)

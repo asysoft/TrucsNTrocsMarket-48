@@ -182,9 +182,9 @@ namespace BeYourMarket.Web.Controllers
                 model.SearchText = model.SearchText.ToLower();
 
                 // Search by title, description, location
-                if (items != null)
+                if ( items != null )
                 {
-                    items = items.Where(x =>
+                    items = items.Where(x => 
                         x.Title.ToLower().Contains(model.SearchText) ||
                         x.Description.ToLower().Contains(model.SearchText) ||
                         x.Location.ToLower().Contains(model.SearchText));

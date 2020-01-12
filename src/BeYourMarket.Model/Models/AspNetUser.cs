@@ -31,6 +31,7 @@ namespace BeYourMarket.Model.Models
 
             // Valeur parr defaut en base
             UserType =0;
+            IsAnnonceurValid = false;
         }
 
         public string Id { get; set; }
@@ -62,6 +63,9 @@ namespace BeYourMarket.Model.Models
         // Permet de savoir le type de compte a a creation ( par defaut : normal, sinon Pro)
         [DefaultValue(0)]
         public int UserType { get; set; }
+
+        public bool IsAnnonceurValid { get; set; }
+        
 
         public virtual ICollection<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual ICollection<AspNetUserLogin> AspNetUserLogins { get; set; }

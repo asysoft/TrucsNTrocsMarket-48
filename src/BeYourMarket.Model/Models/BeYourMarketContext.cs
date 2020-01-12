@@ -66,6 +66,8 @@ namespace BeYourMarket.Model.Models
         public DbSet<UserPrepaidCard> UserPrepaidCards { get; set; }
         public DbSet<PrepaidCardHisto> PrepaidCardsHisto { get; set; }
 
+        public DbSet<PubLocations> PubLocationsInfos { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 

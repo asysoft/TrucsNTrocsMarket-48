@@ -63,13 +63,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enum\EnumList.cs" />
-    <Compile Include="Migrations\201812150714204_initial.cs" />
-    <Compile Include="Migrations\201812150714204_initial.Designer.cs">
-      <DependentUpon>201812150714204_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201812190304105_promail.cs" />
-    <Compile Include="Migrations\201812190304105_promail.Designer.cs">
-      <DependentUpon>201812190304105_promail.cs</DependentUpon>
+    <Compile Include="Migrations\202001111559482_isAnnonceur.cs" />
+    <Compile Include="Migrations\202001111559482_isAnnonceur.Designer.cs">
+      <DependentUpon>202001111559482_isAnnonceur.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelsPartial\ContentPage.cs" />
@@ -80,6 +76,7 @@
     <Compile Include="Models\AspNetRole.cs" />
     <Compile Include="Models\AspNetUser.cs" />
     <Compile Include="Models\Mapping\PrepaidCardHistoMap.cs" />
+    <Compile Include="Models\Mapping\PubLocationsMap.cs" />
     <Compile Include="Models\Mapping\UserPrepaidCardMap.cs" />
     <Compile Include="Models\PrepaidCardHisto.cs" />
     <Compile Include="Models\UserCategory.cs" />
@@ -143,6 +140,7 @@
     <Compile Include="Models\UserPrepaidCard.cs" />
     <Compile Include="Models\UsersAddInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\PubLocations.cs" />
     <Compile Include="StoredProcedures\BeYourMarketContext.cs" />
     <Compile Include="StoredProcedures\IStoredProcedures.cs" />
   </ItemGroup>
@@ -179,11 +177,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812150714204_initial.resx">
-      <DependentUpon>201812150714204_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812190304105_promail.resx">
-      <DependentUpon>201812190304105_promail.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001111559482_isAnnonceur.resx">
+      <DependentUpon>202001111559482_isAnnonceur.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

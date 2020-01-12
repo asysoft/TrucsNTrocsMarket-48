@@ -95,6 +95,10 @@ namespace BeYourMarket.Web
     .RegisterType<IRepositoryAsync<UserPrepaidCard>, Repository<UserPrepaidCard>>()
     .RegisterType<IUserPrepaidCardService, UserPrepaidCardService>()
 
+    //  PubLocationsService : Service<PubLocations>, IPubLocationsService
+    .RegisterType<IRepositoryAsync<PubLocations>, Repository<PubLocations>>()
+    .RegisterType<IPubLocationsService, PubLocationsService>()
+
     .RegisterType<IMessageService, MessageService>()
     .RegisterType<IMessageParticipantService, MessageParticipantService>()
     .RegisterType<IMessageReadStateService, MessageReadStateService>()

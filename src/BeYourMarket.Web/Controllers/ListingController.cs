@@ -491,10 +491,12 @@ namespace BeYourMarket.Web.Controllers
                 // init la ref
                 listing.ListingRef = GetNewListingRef();
 
-                //if ( !(string.IsNullOrEmpty(form["IsOccasion"])) && (form["IsOccasion"] == "checked"))
-                //listing.IsOccasion = bool.Parse(form["IsOccasion"]);
+                if (!(string.IsNullOrEmpty(form["ListingItem.IsOccasion"])) && form["ListingItem.IsOccasion"].Contains("IsOccasionYes") )
+                    listing.IsOccasion = true;
+                else
+                    listing.IsOccasion = false;
 
-                listing.StockDispo = int.Parse(form["Stock"]);
+                //listing.StockDispo = int.Parse(form["StockDispo"]);
 
                 updateCount = true;
                 _listingService.Insert(listing);
@@ -529,9 +531,15 @@ namespace BeYourMarket.Web.Controllers
                 listingExisting.CategoryID = listing.CategoryID;
                 listingExisting.ListingTypeID = listing.ListingTypeID;
 
-                listingExisting.ListingRef = listing.ListingRef;
-                listingExisting.IsOccasion = listing.IsOccasion;
+               // listingExisting.ListingRef = listing.ListingRef;
+                //listingExisting.IsOccasion = listing.IsOccasion;
+                if (!(string.IsNullOrEmpty(form["ListingItem.IsOccasion"])) && form["ListingItem.IsOccasion"].Contains("IsOccasionYes"))
+                    listing.IsOccasion = true;
+                else
+                    listing.IsOccasion = false;
+
                 listingExisting.StockDispo = listing.StockDispo;
+                listing.StockDispo = int.Parse(form["StockDispo"]);
 
                 listingExisting.ObjectState = Repository.Pattern.Infrastructure.ObjectState.Modified;
 

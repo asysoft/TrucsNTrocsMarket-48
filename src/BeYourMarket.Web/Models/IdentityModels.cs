@@ -50,6 +50,7 @@ namespace BeYourMarket.Web.Models
         // Permet de savoir le type de compte a a creation ( par defaut : normal, sinon Pro)
         public Enum_UserType UserType { get; set; }
 
+        public bool IsAnnonceurValid { get; set; }
 
         [NotMapped]
         public bool RoleAdministrator { get; set; }

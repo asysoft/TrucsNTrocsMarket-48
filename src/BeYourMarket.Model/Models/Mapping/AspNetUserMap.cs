@@ -51,6 +51,9 @@ namespace BeYourMarket.Model.Models.Mapping
             
             this.Property(t => t.UserType).HasColumnName("UserType");
 
+            this.Property(t => t.IsAnnonceurValid).HasColumnName("IsAnnonceurValid");
+           
+
         }
     }
 }

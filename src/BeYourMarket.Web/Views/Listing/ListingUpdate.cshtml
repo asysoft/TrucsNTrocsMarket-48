@@ -72,20 +72,19 @@
                                 <div class="form-group">
                                     <label>[[[Stock Available]]] <span class="text-red">*</span></label>
                                     <div class="input-group">
-                                        <input type="number" min="1" class="form-control" id="Stock" name="Stock" placeholder="[[[En Stock]]]" value="@Model.ListingItem.StockDispo" data-rule-number="true" data-rule-min="1">
+                                        <input type="number" min="1" class="form-control" id="StockDispo" name="StockDispo" placeholder="[[[En Stock]]]" value="@Model.ListingItem.StockDispo" data-rule-number="true" data-rule-min="1">
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" id="IsOccasion" name="IsOccasion" value="@(Model.ListingItem.IsOccasion ? "checked" : "")" /> <label for="Active">[[[Occasion]]]</label>
                                 </div>
                                 <div class="form-group">
                                     <label class="mark fa fa-recycle">
                                         [[[Occasion]]]
-                                        <input type="radio" name="IsOccasion" enabled="true" id="IsOccasion" value="@(Model.ListingItem.IsOccasion ? "checked" : "")" />
+                                        @*<input type="radio" name="ListingItem.IsOccasion" enabled="true" id="IsOccasion" value="@(Model.ListingItem.IsOccasion ? "checked" : "")" />*@
+                                        @Html.RadioButtonFor(model => model.ListingItem.IsOccasion, new { @name = "IsOccasion", @type = "radio", id = "IsOccasionYes" })
                                     </label>
                                     <label class="mark fa fa-trophy">
                                         [[[Neuf]]]
-                                        <input type="radio" name="IsOccasion" enabled="true" id="IsOccasion" value="@(Model.ListingItem.IsOccasion ? "checked" : "")" />
+                                        @*<input type="radio" name="ListingItem.IsOccasion" enabled="true" id="IsOccasionNot" value="@(!Model.ListingItem.IsOccasion ? "checked" : "")" />*@
+                                        @Html.RadioButtonFor(model => model.ListingItem.IsOccasion, new { @name = "IsOccasion", @type = "radio", id = "IsOccasionNO" })
                                     </label>
                                 </div>
                                 <div class="form-group">
