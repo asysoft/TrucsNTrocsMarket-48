@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2020-01-11 19:58+01:00\n"
-"PO-Revision-Date: 2020-01-11 19:58+01:00\n"
+"POT-Creation-Date: 2020-01-18 14:05+01:00\n"
+"PO-Revision-Date: 2020-01-18 14:05+01:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -170,7 +170,7 @@ msgid "Administrator"
 msgstr "Administrator"
 
 #: Models\AccountViewModels.cs:120
-#: Views\Account\CreateAccount_Pro.cshtml:156
+#: Views\Account\CreateAccount_ProInfos.cshtml:95
 #: Views\Account\Register.cshtml:173
 #: Areas\Pro\Views\UserPro\ProIdentity.cshtml:36
 #: Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:76
@@ -183,9 +183,8 @@ msgstr "Administrator"
 msgid "Adress"
 msgstr ""
 
-#: Views\Account\CreateAccount_Annonceur.cshtml:52
 #: Views\Account\CreateAccount_Particulier.cshtml:51
-#: Views\Account\CreateAccount_Pro.cshtml:59
+#: Views\Account\CreateAccount_Pro.cshtml:53
 #: Views\Account\Register.cshtml:61
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:61
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:61
@@ -216,9 +215,9 @@ msgstr "Aftale tekst"
 msgid "Allow Listing Review"
 msgstr ""
 
-#: Views\Account\CreateAccount_Annonceur.cshtml:102
+#: Views\Account\CreateAccount_Annonceur.cshtml:81
 #: Views\Account\CreateAccount_Particulier.cshtml:115
-#: Views\Account\CreateAccount_Pro.cshtml:240
+#: Views\Account\CreateAccount_ProInfos.cshtml:179
 #: Views\Account\Register.cshtml:257
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:257
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:257
@@ -340,7 +339,6 @@ msgstr "Brødtekst"
 msgid "Button Label"
 msgstr "Label"
 
-#: Views\Account\EnterNewAnnonceurCardCode.cshtml:47
 #: Views\Listing\ListingUpdate.cshtml:159
 #: Views\Listing\Review.cshtml:74
 #: Views\Payment\Orders.cshtml:26
@@ -435,8 +433,8 @@ msgstr "Annulleret"
 msgid "Cancelled!"
 msgstr "Annulleret"
 
-#: Views\Account\CreateAccount_Pro.cshtml:122
-#: Views\Account\EnterNewAnnonceurCardCode.cshtml:37
+#: Views\Account\CreateAccount_Pro.cshtml:97
+#: Views\Account\EnterNewCardCode.cshtml:37
 #: Views\Account\Register.cshtml:139
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:139
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:139
@@ -486,7 +484,7 @@ msgstr ""
 msgid "Categories by Groups"
 msgstr ""
 
-#: Views\Account\CreateAccount_Pro.cshtml:141
+#: Views\Account\CreateAccount_ProInfos.cshtml:80
 #: Views\Account\Register.cshtml:158
 #: Views\Listing\Listing.cshtml:151
 #: Views\Listing\ListingUpdate.cshtml:42
@@ -574,7 +572,7 @@ msgstr "Skift adgangskode"
 msgid "Choose Category..."
 msgstr "Vælg kategori..."
 
-#: Views\Account\CreateAccount_Pro.cshtml:106
+#: Views\Account\CreateAccount_ProInfos.cshtml:70
 #: Views\Account\Register.cshtml:123
 #: Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:31
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:123
@@ -588,7 +586,7 @@ msgstr ""
 msgid "Cities by Zones"
 msgstr ""
 
-#: Views\Account\CreateAccount_Pro.cshtml:161
+#: Views\Account\CreateAccount_ProInfos.cshtml:100
 #: Views\Account\Register.cshtml:178
 #: Areas\Pro\Views\UserPro\ProIdentity.cshtml:40
 #: Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:80
@@ -607,9 +605,8 @@ msgstr ""
 msgid "City"
 msgstr ""
 
-#: Views\Account\CreateAccount_Annonceur.cshtml:59
 #: Views\Account\CreateAccount_Particulier.cshtml:58
-#: Views\Account\CreateAccount_Pro.cshtml:66
+#: Views\Account\CreateAccount_Pro.cshtml:60
 #: Views\Account\Register.cshtml:68
 #: Views\Listing\_ListingContactModal.cshtml:29
 #: Views\Listing\_ListingContactModal.cshtml:41
@@ -662,21 +659,21 @@ msgstr ""
 msgid "Comments"
 msgstr ""
 
-#: Views\Account\CreateAccount_Pro.cshtml:113
+#: Views\Account\CreateAccount_Pro.cshtml:75
 #: Views\Account\Register.cshtml:130
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:130
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:130
 msgid "Company"
 msgstr ""
 
-#: Views\Account\CreateAccount_Pro.cshtml:157
+#: Views\Account\CreateAccount_ProInfos.cshtml:96
 #: Views\Account\Register.cshtml:174
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:174
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:174
 msgid "Company Adress"
 msgstr ""
 
-#: Views\Account\CreateAccount_Pro.cshtml:197
+#: Views\Account\CreateAccount_ProInfos.cshtml:136
 #: Views\Account\Register.cshtml:214
 #: Areas\Pro\Views\UserPro\ProIdentity.cshtml:67
 #: Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:97
@@ -690,8 +687,8 @@ msgid "Company Contact"
 msgstr ""
 
 #: Models\AccountViewModels.cs:135
-#: Views\Account\CreateAccount_Pro.cshtml:185
-#: Views\Account\CreateAccount_Pro.cshtml:186
+#: Views\Account\CreateAccount_ProInfos.cshtml:124
+#: Views\Account\CreateAccount_ProInfos.cshtml:125
 #: Views\Account\Register.cshtml:202
 #: Views\Account\Register.cshtml:203
 #: Areas\Pro\Views\UserPro\ProIdentity.cshtml:52
@@ -726,7 +723,7 @@ msgid "Company name"
 msgstr ""
 
 #: Models\AccountViewModels.cs:114
-#: Views\Account\CreateAccount_Pro.cshtml:114
+#: Views\Account\CreateAccount_Pro.cshtml:76
 #: Views\Account\Register.cshtml:131
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:131
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:131
@@ -734,7 +731,7 @@ msgid "Company Name"
 msgstr ""
 
 #: Models\AccountViewModels.cs:126
-#: Views\Account\CreateAccount_Pro.cshtml:182
+#: Views\Account\CreateAccount_ProInfos.cshtml:121
 #: Views\Account\Register.cshtml:199
 #: Areas\Pro\Views\UserPro\ProIdentityUpdate.cshtml:60
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:199
@@ -744,14 +741,13 @@ msgstr ""
 msgid "Company Phone"
 msgstr ""
 
-#: Views\Account\CreateAccount_Pro.cshtml:133
 #: Views\Account\Register.cshtml:150
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:150
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:150
 msgid "Company SIRET number"
 msgstr ""
 
-#: Views\Account\CreateAccount_Pro.cshtml:162
+#: Views\Account\CreateAccount_ProInfos.cshtml:101
 #: Views\Account\Register.cshtml:179
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:179
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:179
@@ -796,12 +792,12 @@ msgstr "Bekræft ny adgangskode"
 msgid "Confirm password"
 msgstr "Bekræft adgangskode"
 
-#: Views\Account\CreateAccount_Annonceur.cshtml:83
-#: Views\Account\CreateAccount_Annonceur.cshtml:84
+#: Views\Account\CreateAccount_Annonceur.cshtml:62
+#: Views\Account\CreateAccount_Annonceur.cshtml:63
 #: Views\Account\CreateAccount_Particulier.cshtml:96
 #: Views\Account\CreateAccount_Particulier.cshtml:97
-#: Views\Account\CreateAccount_Pro.cshtml:90
 #: Views\Account\CreateAccount_Pro.cshtml:91
+#: Views\Account\CreateAccount_Pro.cshtml:92
 #: Views\Account\Register.cshtml:106
 #: Views\Account\Register.cshtml:107
 #: Views\Listing\ListingUpdate.cshtml:152
@@ -978,7 +974,7 @@ msgstr ""
 msgid "Create an account Particulier"
 msgstr ""
 
-#: Views\Account\CreateAccount_Pro.cshtml:45
+#: Views\Account\CreateAccount_Pro.cshtml:38
 msgid "Create an account Pro"
 msgstr ""
 
@@ -1306,15 +1302,15 @@ msgstr ""
 msgid "Edit"
 msgstr "Redigér"
 
-#: Controllers\AccountController.cs:1076
+#: Controllers\AccountController.cs:1409
 #: Models\AccountViewModels.cs:47
 #: Models\AccountViewModels.cs:54
 #: Models\AccountViewModels.cs:77
 #: Models\AccountViewModels.cs:166
 #: Models\AccountViewModels.cs:187
-#: Views\Account\CreateAccount_Annonceur.cshtml:73
+#: Views\Account\CreateAccount_Annonceur.cshtml:52
 #: Views\Account\CreateAccount_Particulier.cshtml:86
-#: Views\Account\CreateAccount_Pro.cshtml:80
+#: Views\Account\CreateAccount_Pro.cshtml:81
 #: Views\Account\Register.cshtml:96
 #: Areas\Admin\Views\Manage\Settings.cshtml:49
 #: Areas\Admin\Views\Manage\Settings.cshtml:51
@@ -1438,13 +1434,9 @@ msgstr "Aktivér"
 msgid "Enabled"
 msgstr "Aktivéret"
 
-#: Views\Account\EnterNewAnnonceurCardCode.cshtml:25
-msgid "Enter Annonceur Code Card"
-msgstr ""
-
-#: Views\Account\CreateAccount_Annonceur.cshtml:74
+#: Views\Account\CreateAccount_Annonceur.cshtml:53
 #: Views\Account\CreateAccount_Particulier.cshtml:87
-#: Views\Account\CreateAccount_Pro.cshtml:81
+#: Views\Account\CreateAccount_Pro.cshtml:82
 #: Views\Account\Register.cshtml:97
 #: Areas\Admin\Views\Install\Index.cshtml:29
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:97
@@ -1513,6 +1505,10 @@ msgstr "Indtast telefonnr."
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Areas\Pro\Views\UserPro\ProListingUpdate.cshtml:58
 msgid "Enter Title"
 msgstr "Indtast titel"
+
+#: Views\Account\EnterNewCardCode.cshtml:25
+msgid "Enter Valid Card Code"
+msgstr ""
 
 #: Views\Account\VerifyCode.cshtml:12
 #: Views\Manage\VerifyPhoneNumber.cshtml:12
@@ -1620,7 +1616,7 @@ msgstr "Fejl"
 msgid "Favicon"
 msgstr "Favicon"
 
-#: Views\Account\CreateAccount_Pro.cshtml:204
+#: Views\Account\CreateAccount_ProInfos.cshtml:143
 #: Views\Account\Register.cshtml:221
 #: Views\Manage\UserProfile.cshtml:71
 #: Areas\Admin\Views\Manage\UserUpdate.cshtml:50
@@ -1640,7 +1636,7 @@ msgid "Female"
 msgstr "Kvinde"
 
 #: Models\AccountViewModels.cs:95
-#: Views\Account\CreateAccount_Pro.cshtml:213
+#: Views\Account\CreateAccount_ProInfos.cshtml:152
 #: Views\Account\Register.cshtml:230
 #: Views\Manage\UserProfile.cshtml:45
 #: Areas\Admin\Views\Manage\UserUpdate.cshtml:30
@@ -1659,7 +1655,7 @@ msgstr "Kvinde"
 msgid "First Name"
 msgstr "Fornavn"
 
-#: Views\Account\CreateAccount_Pro.cshtml:214
+#: Views\Account\CreateAccount_ProInfos.cshtml:153
 #: Views\Account\Register.cshtml:231
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:231
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:231
@@ -1824,8 +1820,9 @@ msgstr "Her kan du administrere alle plugins. For at tilføje/udvikle et plugin 
 msgid "Here you can view all the transactions. Transactions is supported only when payment plugin is installed and payment method is configured."
 msgstr "Her kan du se alle transaktioner. Transaktioner understøttes kun, hvis betalings-plugin er installeret og der er opsat en betalingsmetode."
 
-#: Controllers\AccountController.cs:565
-#: Controllers\AccountController.cs:750
+#: Controllers\AccountController.cs:595
+#: Controllers\AccountController.cs:792
+#: Controllers\AccountController.cs:1083
 msgid "Hi, Welcome to {0}! I am happy to assist you if you has any questions."
 msgstr ""
 
@@ -1908,7 +1905,7 @@ msgstr ""
 msgid "IP"
 msgstr "IP"
 
-#: Controllers\AccountController.cs:1076
+#: Controllers\AccountController.cs:1409
 msgid "is already taken"
 msgstr ""
 
@@ -1937,7 +1934,7 @@ msgid "Javascript Code Editor"
 msgstr "Javascript kode editor"
 
 #: Views\Account\CreateAccount_Particulier.cshtml:114
-#: Views\Account\CreateAccount_Pro.cshtml:239
+#: Views\Account\CreateAccount_ProInfos.cshtml:178
 #: Views\Account\Register.cshtml:256
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:256
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:256
@@ -2005,7 +2002,7 @@ msgid "Last IP Connexion"
 msgstr ""
 
 #: Models\AccountViewModels.cs:98
-#: Views\Account\CreateAccount_Pro.cshtml:209
+#: Views\Account\CreateAccount_ProInfos.cshtml:148
 #: Views\Account\Register.cshtml:226
 #: Views\Manage\UserProfile.cshtml:51
 #: Areas\Admin\Views\Manage\UserUpdate.cshtml:37
@@ -2024,7 +2021,7 @@ msgstr ""
 msgid "Last Name"
 msgstr "Efternavn"
 
-#: Views\Account\CreateAccount_Pro.cshtml:210
+#: Views\Account\CreateAccount_ProInfos.cshtml:149
 #: Views\Account\Register.cshtml:227
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:227
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:227
@@ -2201,7 +2198,7 @@ msgstr "Annoncer"
 msgid "Listings by category"
 msgstr "Annoncer efter kategori"
 
-#: Views\Account\CreateAccount_Pro.cshtml:154
+#: Views\Account\CreateAccount_ProInfos.cshtml:93
 #: Views\Account\Register.cshtml:171
 #: Views\Listing\Listing.cshtml:178
 #: Views\Listing\Listings.cshtml:106
@@ -2287,9 +2284,9 @@ msgstr "Log ind med din {0} konto"
 msgid "Log off"
 msgstr "Log ud"
 
-#: Views\Account\CreateAccount_Annonceur.cshtml:102
+#: Views\Account\CreateAccount_Annonceur.cshtml:81
 #: Views\Account\CreateAccount_Particulier.cshtml:115
-#: Views\Account\CreateAccount_Pro.cshtml:240
+#: Views\Account\CreateAccount_ProInfos.cshtml:179
 #: Views\Account\Login.cshtml:5
 #: Views\Account\Register.cshtml:257
 #: Areas\Admin\Views\Install\Index.cshtml:77
@@ -2334,7 +2331,7 @@ msgstr "Logo"
 msgid "Longitude"
 msgstr ""
 
-#: Views\Account\CreateAccount_Pro.cshtml:200
+#: Views\Account\CreateAccount_ProInfos.cshtml:139
 #: Views\Account\Register.cshtml:217
 #: Views\Manage\UserProfile.cshtml:68
 #: Areas\Admin\Views\Manage\UserUpdate.cshtml:47
@@ -2506,7 +2503,7 @@ msgstr "Mine annoncer"
 msgid "My Shop"
 msgstr ""
 
-#: Controllers\AccountController.cs:1076
+#: Controllers\AccountController.cs:1409
 #: Areas\Admin\Views\Listing\CategoryUpdate.cshtml:19
 #: Areas\Admin\Views\Listing\CustomFields.cshtml:62
 #: Areas\Admin\Views\Listing\CustomFieldUpdate.cshtml:40
@@ -2569,8 +2566,9 @@ msgstr "Ny adgangskode"
 msgid "New Password"
 msgstr ""
 
-#: Views\Account\CreateAccount_Annonceur.cshtml:101
-#: Views\Account\EnterNewAnnonceurCardCode.cshtml:46
+#: Views\Account\CreateAccount_Annonceur.cshtml:80
+#: Views\Account\CreateAccount_Pro.cshtml:115
+#: Views\Account\EnterNewCardCode.cshtml:51
 msgid "Next"
 msgstr "Næste"
 
@@ -2754,12 +2752,12 @@ msgstr "Betalt"
 #: Models\AccountViewModels.cs:60
 #: Models\AccountViewModels.cs:83
 #: Models\AccountViewModels.cs:172
-#: Views\Account\CreateAccount_Annonceur.cshtml:78
-#: Views\Account\CreateAccount_Annonceur.cshtml:79
+#: Views\Account\CreateAccount_Annonceur.cshtml:57
+#: Views\Account\CreateAccount_Annonceur.cshtml:58
 #: Views\Account\CreateAccount_Particulier.cshtml:91
 #: Views\Account\CreateAccount_Particulier.cshtml:92
-#: Views\Account\CreateAccount_Pro.cshtml:85
 #: Views\Account\CreateAccount_Pro.cshtml:86
+#: Views\Account\CreateAccount_Pro.cshtml:87
 #: Views\Account\Login.cshtml:64
 #: Views\Account\Register.cshtml:101
 #: Views\Account\Register.cshtml:102
@@ -2862,8 +2860,7 @@ msgstr "Udbetalingsoplysninger"
 msgid "Pending"
 msgstr "Afventer"
 
-#: Views\Account\CreateAccount_Main.cshtml:44
-#: Views\Account\CreateAccount_Main.cshtml:46
+#: Views\Account\CreateAccount_Main.cshtml:43
 #: Views\Account\CreateAccount_Particulier.cshtml:72
 #: Views\Account\Register.cshtml:82
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:82
@@ -2871,7 +2868,7 @@ msgstr "Afventer"
 msgid "Personal"
 msgstr ""
 
-#: Views\Account\CreateAccount_Pro.cshtml:181
+#: Views\Account\CreateAccount_ProInfos.cshtml:120
 #: Views\Account\Register.cshtml:198
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:198
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:198
@@ -2880,7 +2877,7 @@ msgstr ""
 
 #: Models\AccountViewModels.cs:101
 #: Models\ManageViewModels.cs:65
-#: Views\Account\CreateAccount_Pro.cshtml:217
+#: Views\Account\CreateAccount_ProInfos.cshtml:156
 #: Views\Account\Register.cshtml:234
 #: Views\Listing\ListingUpdate.cshtml:138
 #: Views\Manage\AddPhoneNumber.cshtml:3
@@ -2920,7 +2917,7 @@ msgstr "Telefonnr."
 msgid "Phone Number Confirmed"
 msgstr "Telefonnr. er bekræftet"
 
-#: Views\Account\CreateAccount_Pro.cshtml:218
+#: Views\Account\CreateAccount_ProInfos.cshtml:157
 #: Views\Account\Register.cshtml:235
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:235
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:235
@@ -2961,7 +2958,7 @@ msgstr "Klik her for at logge ind"
 msgid "Please Rate"
 msgstr ""
 
-#: Views\Account\CreateAccount_Pro.cshtml:300
+#: Views\Account\CreateAccount_ProInfos.cshtml:248
 #: Views\Account\Register.cshtml:326
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:323
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:323
@@ -3080,7 +3077,7 @@ msgstr ""
 msgid "Pro Owner Name"
 msgstr ""
 
-#: Views\Account\CreateAccount_Main.cshtml:47
+#: Views\Account\CreateAccount_Main.cshtml:44
 #: Views\Account\CreateAccount_Particulier.cshtml:75
 #: Views\Account\Register.cshtml:85
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:85
@@ -3210,18 +3207,19 @@ msgstr "Justér søgning"
 
 #: Views\Account\CreateAccount_Main.cshtml:3
 #: Views\Account\CreateAccount_Particulier.cshtml:6
+#: Views\Account\CreateAccount_ProInfos.cshtml:4
 #: Views\Account\Register.cshtml:6
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:6
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:6
 msgid "Register"
 msgstr "Registrér"
 
-#: Views\Account\CreateAccount_Annonceur.cshtml:7
-msgid "Register Annonceur"
+#: Views\Account\EnterNewCardCode.cshtml:4
+msgid "Register - Enter Valid Code"
 msgstr ""
 
-#: Views\Account\EnterNewAnnonceurCardCode.cshtml:4
-msgid "Register Annonceur - Code"
+#: Views\Account\CreateAccount_Annonceur.cshtml:7
+msgid "Register Annonceur"
 msgstr ""
 
 #: Views\Account\Login.cshtml:75
@@ -3274,7 +3272,7 @@ msgstr ""
 msgid "Required"
 msgstr "Påkrævet"
 
-#: Views\Account\CreateAccount_Pro.cshtml:97
+#: Views\Account\CreateAccount_ProInfos.cshtml:43
 #: Views\Account\Register.cshtml:114
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:114
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:114
@@ -3620,7 +3618,6 @@ msgid "Signup Text"
 msgstr "Signup tekst"
 
 #: Models\AccountViewModels.cs:117
-#: Views\Account\CreateAccount_Pro.cshtml:132
 #: Views\Account\Register.cshtml:149
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:149
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:149
@@ -3734,9 +3731,10 @@ msgstr "Succes"
 msgid "SystemName"
 msgstr "Systemnavn"
 
-#: Views\Account\CreateAccount_Annonceur.cshtml:97
+#: Views\Account\CreateAccount_Annonceur.cshtml:76
 #: Views\Account\CreateAccount_Particulier.cshtml:110
-#: Views\Account\CreateAccount_Pro.cshtml:235
+#: Views\Account\CreateAccount_Pro.cshtml:111
+#: Views\Account\CreateAccount_ProInfos.cshtml:174
 #: Views\Account\Register.cshtml:252
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:252
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:252
@@ -4041,8 +4039,8 @@ msgstr "Transaktionsindstillinger"
 msgid "Transactions"
 msgstr "Transaktioner"
 
-#: Views\Account\CreateAccount_Pro.cshtml:123
-#: Views\Account\EnterNewAnnonceurCardCode.cshtml:38
+#: Views\Account\CreateAccount_Pro.cshtml:98
+#: Views\Account\EnterNewCardCode.cshtml:38
 #: Views\Account\Register.cshtml:140
 #: obj\Debug\AspnetCompileMerge\Source\Views\Account\Register.cshtml:140
 #: obj\Debug\AspnetCompileMerge\TempBuildDir\Views\Account\Register.cshtml:140
@@ -4290,8 +4288,8 @@ msgstr "Besøgende"
 msgid "Ville"
 msgstr ""
 
-#: Views\Account\CreateAccount_Pro.cshtml:189
-#: Views\Account\CreateAccount_Pro.cshtml:190
+#: Views\Account\CreateAccount_ProInfos.cshtml:128
+#: Views\Account\CreateAccount_ProInfos.cshtml:129
 #: Views\Account\Register.cshtml:206
 #: Views\Account\Register.cshtml:207
 #: Areas\Pro\Views\UserPro\ProIdentity.cshtml:56
@@ -4319,8 +4317,9 @@ msgstr ""
 msgid "Welcome to {0} Admin Panel!"
 msgstr "Velkommen til {0} Admin panel"
 
-#: Controllers\AccountController.cs:564
-#: Controllers\AccountController.cs:749
+#: Controllers\AccountController.cs:594
+#: Controllers\AccountController.cs:791
+#: Controllers\AccountController.cs:1082
 msgid "Welcome to {0}!"
 msgstr ""
 
@@ -4551,6 +4550,9 @@ msgstr "Din adgangskode er blevet nulstillet"
 #~ msgid "CompanyTownZip"
 #~ msgstr ""
 
+#~ msgid "Create an account PRO"
+#~ msgstr ""
+
 #~ msgid "Date First Use"
 #~ msgstr ""
 
@@ -4573,6 +4575,9 @@ msgstr "Din adgangskode er blevet nulstillet"
 #~ msgstr ""
 
 #~ msgid "Edit Your Profile"
+#~ msgstr ""
+
+#~ msgid "Enter Annonceur Code Card"
 #~ msgstr ""
 
 #~ msgid "Enter the Company Owner First Name"
@@ -5158,6 +5163,9 @@ msgstr "Din adgangskode er blevet nulstillet"
 #~ msgid "Professionnel"
 #~ msgstr ""
 
+#~ msgid "Register Annonceur - Code"
+#~ msgstr ""
+
 #~ msgid "Speciality"
 #~ msgstr ""
 
@@ -5171,6 +5179,9 @@ msgstr "Din adgangskode er blevet nulstillet"
 #~ msgstr ""
 
 #~ msgid "Validate"
+#~ msgstr ""
+
+#~ msgid "Validate Secret Code"
 #~ msgstr ""
 
 #~ msgid "View Identity"

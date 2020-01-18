@@ -242,7 +242,8 @@ namespace BeYourMarket.Web.Controllers
         {
             // chargement des cgu
             loadCGUDocInHTML();
-
+            RegisterViewModel model = new RegisterViewModel();
+            model.UserType = Enum_UserType.Normal;
             return View("CreateAccount_Particulier");
             //return View();
         }
@@ -253,7 +254,9 @@ namespace BeYourMarket.Web.Controllers
             // chargement des cgu
             loadCGUDocInHTML();
 
-            return View("CreateAccount_Pro");
+            RegisterViewModel model = new RegisterViewModel();
+            model.UserType = Enum_UserType.Professional;
+            return View("CreateAccount_Pro",model);
             //return View();
         }
         [AllowAnonymous]
@@ -262,7 +265,9 @@ namespace BeYourMarket.Web.Controllers
             // chargement des cgu
             loadCGUDocInHTML();
 
-            return View("CreateAccount_Annonceur");
+            RegisterViewModel model = new RegisterViewModel();
+            model.UserType = Enum_UserType.Professional;
+            return View("CreateAccount_Annonceur",model);
             //return View();
         }
         private void loadCGUDocInHTML()
@@ -339,7 +344,7 @@ namespace BeYourMarket.Web.Controllers
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken] 
         public async Task<ActionResult> RegisterAnnonceurNext(RegisterViewModel model, FormCollection form, IEnumerable<HttpPostedFileBase> files)
         {
             if (!ModelState.IsValid)
@@ -372,7 +377,7 @@ namespace BeYourMarket.Web.Controllers
                 */
             };
 
-            return View("EnterNewAnnonceurCardCode");  // RedirectToAction("UserProfile", "Manage");
+            return View("EnterNewCardCode");  // RedirectToAction("UserProfile", "Manage");
             //var result = await RegisterAndCheckAnnonceurCode(model);
 
             // Add errors
@@ -389,6 +394,31 @@ namespace BeYourMarket.Web.Controllers
             //return View(model);
         }
 
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> CreateProAndGoAddInfos(RegisterViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("CreateAccount_Pro", model);
+            }
+
+            //
+            var result = await RegisterAccountPro(model);
+
+            // Add errors
+            AddErrors(result);
+
+            if (result.Succeeded)
+            {
+                // ASY : redirige vers l env de l user , 
+                return View("CreateAccount_ProInfos", model);  // RedirectToAction("UserProfile", "Manage");
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View("CreateAccount_Pro",model);
+        }
 
         /// <summary>
         /// Crée un nouveau compte particulier ou Pro
@@ -592,8 +622,311 @@ namespace BeYourMarket.Web.Controllers
             return result;
         }
 
-        //
-        public async Task<IdentityResult> CheckAnnonceurCode(RegisterViewModel model)
+        public async Task<IdentityResult> RegisterAccountPro(RegisterViewModel model)
+        {
+            var user = new ApplicationUser
+            {
+                Gender = model.Gender,
+                UserName = model.Email,
+                Email = model.Email,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                PhoneNumber = model.PhoneNumber,
+
+                UserType = model.UserType,
+
+                RegisterDate = DateTime.Now,
+                RegisterIP = System.Web.HttpContext.Current.Request.GetVisitorIP(),
+                LastAccessDate = DateTime.Now,
+                LastAccessIP = System.Web.HttpContext.Current.Request.GetVisitorIP()
+            };
+
+            // Pour les PRO Verifie d'abord si le code est correcte : s'il existe, n'est pas déja utilise et est actif
+            if (model.UserType == Enum_UserType.Professional)
+            {
+                string msgErrCard = string.Empty;
+
+                // genere les cartes en bases
+                CardsManager cMan = new CardsManager(_unitOfWorkAsync, _prepaidCardService, _userPrepaidCardService);
+                try
+                {
+                    msgErrCard = cMan.CheckCodeNewProValid(model.ProCardNumber);
+                }
+                catch (Exception ex)
+                {
+                    Console.Write("Erreur controller method GenerateNewCards : GenerateCards : " + ex.Message);
+                    msgErrCard = "Erreur de verification du code de la carte";
+                }
+
+                //
+                if (!string.IsNullOrEmpty(msgErrCard))
+                {
+                    string[] resErr = { msgErrCard };
+                    return new IdentityResult(resErr);
+                }
+            }
+
+            // tente de creer lutilisateur
+            var result = await UserManager.CreateAsync(user, model.Password);
+            if (result.Succeeded)
+            {
+                // Creation des categories du pro, des infos complementaires et affectation au role Pro
+                if (model.UserType == Enum_UserType.Professional)
+                {
+                    // infos compl
+                    // Specific aux Pros  
+                    //UsersAddInfo usrAddInf = new UsersAddInfo();
+                    //usrAddInf.UserID = user.Id;
+                    //usrAddInf.ProCompany = model.ProCompany;
+                    //usrAddInf.ProSiret = model.ProSiret;
+                    //usrAddInf.ProAdress = model.ProAdress;
+                    //usrAddInf.ProTownZip = model.ProTownZip;
+                    //usrAddInf.ProPhone = model.ProPhone;
+                    //usrAddInf.ProSiteWeb = model.ProSiteWeb;
+                    //usrAddInf.ProEmail = model.ProEmail;
+                    //usrAddInf.LocationRefID = (model.ProLocationRefID == 0) ? 1 : model.ProLocationRefID;
+                    //usrAddInf.ProLatitude = model.ProLatitude;
+                    //usrAddInf.ProLongitude = model.ProLongitude;
+
+                    //_usersAddInfoService.Insert(usrAddInf);
+
+                    ////  categories
+                    //List<string> idsSel = new List<string>();
+                    //if (model.ProCategoryIDs != null)
+                    //    idsSel = model.ProCategoryIDs.Split(';').ToList();
+
+                    //foreach (string catId in idsSel)
+                    //{
+                    //    _userCategoriesService.Insert(new UserCategory()
+                    //    {
+                    //        AspNetUserId = user.Id,
+                    //        CategoryID = int.Parse(catId),
+                    //        //Created = DateTime.Now,
+                    //        ObjectState = Repository.Pattern.Infrastructure.ObjectState.Added
+                    //    });
+                    //}
+
+                    // Affecte au role Pro
+                    var roleAdded = UserManager.AddToRole(user.Id, Enum_UserType.Professional.ToString());
+
+                    //// Sauvegarde le logo
+                    //int PictureLogoOrder = 0;
+                    //if (model.ImgFiles != null && model.ImgFiles.Count() > 0)
+                    //{
+                    //    foreach (HttpPostedFileBase file in model.ImgFiles)
+                    //    {
+                    //        if ((file != null) && (file.ContentLength > 0) && !string.IsNullOrEmpty(file.FileName))
+                    //        {
+                    //            // Picture picture and get id
+                    //            var picture = new Picture();
+
+                    //            picture.MimeType = "image/jpeg";
+                    //            var mimeType = MimeMapping.GetMimeMapping(file.FileName);
+                    //            picture.MimeType = mimeType;
+
+                    //            _pictureService.Insert(picture);
+                    //            await _unitOfWorkAsync.SaveChangesAsync();
+
+                    //            // Format is automatically detected though can be changed.
+                    //            ISupportedImageFormat format = new JpegFormat { Quality = 90 };
+                    //            Size size = new Size(200, 200);
+
+                    //            //https://naimhamadi.wordpress.com/2014/06/25/processing-images-in-c-easily-using-imageprocessor/
+                    //            // Initialize the ImageFactory using the overload to preserve EXIF metadata.
+                    //            using (ImageFactory imageFactory = new ImageFactory(preserveExifData: false))
+                    //            {
+                    //                var path = Path.Combine(Server.MapPath("~/Images/Profile/Prologos"), string.Format("{0}.{1}", picture.ID.ToString("00000000"), "jpg"));
+
+                    //                // Load, resize, set the format and quality and save an image.
+                    //                imageFactory.Load(file.InputStream)
+                    //                            .Resize(size)
+                    //                            .Format(format)
+                    //                            .Save(path);
+                    //            }
+
+                    //            var itemPicture = new UserImgFile();
+                    //            itemPicture.ObjectState = Repository.Pattern.Infrastructure.ObjectState.Added;
+                    //            itemPicture.AspNetUserId = user.Id;
+                    //            itemPicture.PictureID = picture.ID;
+                    //            itemPicture.Ordering = PictureLogoOrder;
+
+                    //            _aspNetUserImgFileService.Insert(itemPicture);
+
+                    //        }
+                    //    }
+                    //}
+
+                    // Enregistre le code secret Valide
+                    _userPrepaidCardService.Insert(new UserPrepaidCard()
+                    {
+                        UserID = user.Id,
+                        Code = model.ProCardNumber.Replace(" ", string.Empty),
+                        DateFirstUse = DateTime.Now,
+                        IsActif = true,
+                        ObjectState = Repository.Pattern.Infrastructure.ObjectState.Added
+                    });
+
+                }
+
+                // sauve le logo et infos du Pro
+                await _unitOfWorkAsync.SaveChangesAsync();
+
+                // connection de l utilisateur
+                await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+                // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
+                // Send an email with this link
+                // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+                // Send Message
+                var roleAdministrator = await RoleManager.FindByNameAsync(BeYourMarket.Model.Enum.Enum_UserType.Administrator.ToString());
+                var administrator = roleAdministrator.Users.FirstOrDefault();
+
+                var message = new MessageSendModel()
+                {
+                    UserFrom = administrator.UserId,
+                    UserTo = user.Id,
+                    Subject = HttpContext.ParseAndTranslate(string.Format("[[[Welcome to {0}!]]]", CacheHelper.Settings.Name)),
+                    Body = HttpContext.ParseAndTranslate(string.Format("[[[Hi, Welcome to {0}! I am happy to assist you if you has any questions.]]]", CacheHelper.Settings.Name))
+
+                };
+
+                await MessageHelper.SendMessage(message);
+
+                // Send an email with this link
+                string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+
+                var urlHelper = new UrlHelper(System.Web.HttpContext.Current.Request.RequestContext);
+                var callbackUrl = urlHelper.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: System.Web.HttpContext.Current.Request.Url.Scheme);
+
+                var emailTemplateQuery = await _emailTemplateService.Query(x => x.Slug.ToLower() == "signup").SelectAsync();
+                var emailTemplate = emailTemplateQuery.FirstOrDefault();
+
+                if (emailTemplate != null)
+                {
+                    dynamic email = new Postal.Email("Email");
+                    email.To = user.Email;
+                    email.From = CacheHelper.Settings.EmailAddress;
+                    email.Subject = emailTemplate.Subject;
+                    email.Body = emailTemplate.Body;
+                    email.CallbackUrl = callbackUrl;
+                    EmailHelper.SendEmail(email);
+                }
+            }
+
+            return result;
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> AddProsDetails(RegisterViewModel model, FormCollection form, IEnumerable<HttpPostedFileBase> files)
+        {
+            var user = UserManager.FindByName(model.Email);
+
+            if (!ModelState.IsValid)
+            {
+                return View("CreateAccount_ProInfos", model);
+            }
+
+            // Creation des categories du pro, des infos complementaires et affectation au role Pro
+            if (model.UserType == Enum_UserType.Professional)
+            {
+                // infos compl
+                // Specific aux Pros  
+                UsersAddInfo usrAddInf = new UsersAddInfo();
+                usrAddInf.UserID = user.Id;
+                usrAddInf.ProCompany = model.ProCompany;
+                usrAddInf.ProSiret = model.ProSiret;
+                usrAddInf.ProAdress = model.ProAdress;
+                usrAddInf.ProTownZip = model.ProTownZip;
+                usrAddInf.ProPhone = model.ProPhone;
+                usrAddInf.ProSiteWeb = model.ProSiteWeb;
+                usrAddInf.ProEmail = model.ProEmail;
+                usrAddInf.LocationRefID = (model.ProLocationRefID == 0) ? 1 : model.ProLocationRefID;
+                usrAddInf.ProLatitude = model.ProLatitude;
+                usrAddInf.ProLongitude = model.ProLongitude;
+
+                _usersAddInfoService.Insert(usrAddInf);
+
+                //  categories
+                List<string> idsSel = new List<string>();
+                if (model.ProCategoryIDs != null)
+                    idsSel = model.ProCategoryIDs.Split(';').ToList();
+
+                foreach (string catId in idsSel)
+                {
+                    _userCategoriesService.Insert(new UserCategory()
+                    {
+                        AspNetUserId = user.Id,
+                        CategoryID = int.Parse(catId),
+                        //Created = DateTime.Now,
+                        ObjectState = Repository.Pattern.Infrastructure.ObjectState.Added
+                    });
+                }
+
+                // Affecte au role Pro
+                var roleAdded = UserManager.AddToRole(user.Id, Enum_UserType.Professional.ToString());
+
+                // Sauvegarde le logo
+                int PictureLogoOrder = 0;
+                if (model.ImgFiles != null && model.ImgFiles.Count() > 0)
+                {
+                    foreach (HttpPostedFileBase file in model.ImgFiles)
+                    {
+                        if ((file != null) && (file.ContentLength > 0) && !string.IsNullOrEmpty(file.FileName))
+                        {
+                            // Picture picture and get id
+                            var picture = new Picture();
+
+                            picture.MimeType = "image/jpeg";
+                            var mimeType = MimeMapping.GetMimeMapping(file.FileName);
+                            picture.MimeType = mimeType;
+
+                            _pictureService.Insert(picture);
+                            await _unitOfWorkAsync.SaveChangesAsync();
+
+                            // Format is automatically detected though can be changed.
+                            ISupportedImageFormat format = new JpegFormat { Quality = 90 };
+                            Size size = new Size(200, 200);
+
+                            //https://naimhamadi.wordpress.com/2014/06/25/processing-images-in-c-easily-using-imageprocessor/
+                            // Initialize the ImageFactory using the overload to preserve EXIF metadata.
+                            using (ImageFactory imageFactory = new ImageFactory(preserveExifData: false))
+                            {
+                                var path = Path.Combine(Server.MapPath("~/Images/Profile/Prologos"), string.Format("{0}.{1}", picture.ID.ToString("00000000"), "jpg"));
+
+                                // Load, resize, set the format and quality and save an image.
+                                imageFactory.Load(file.InputStream)
+                                            .Resize(size)
+                                            .Format(format)
+                                            .Save(path);
+                            }
+
+                            var itemPicture = new UserImgFile();
+                            itemPicture.ObjectState = Repository.Pattern.Infrastructure.ObjectState.Added;
+                            itemPicture.AspNetUserId = user.Id;
+                            itemPicture.PictureID = picture.ID;
+                            itemPicture.Ordering = PictureLogoOrder;
+
+                            _aspNetUserImgFileService.Insert(itemPicture);
+
+                        }
+                    }
+                }
+            }
+
+            //
+            return RedirectToAction("Index", "UserPro", new { area = "Pro" }); // RedirectToUserTypeEnv(user.Email)
+        }
+
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IdentityResult> CheckCardCodeAndGoNextPro(RegisterViewModel model, FormCollection form, IEnumerable<HttpPostedFileBase> files)
         {
 
             // Pour les PRO Verifie d'abord si le code est correcte : s'il existe, n'est pas déja utilise et est actif

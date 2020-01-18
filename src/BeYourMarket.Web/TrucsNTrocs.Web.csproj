@@ -473,6 +473,9 @@
     <Content Include="css\admin\bootstrap-reset.css" />
     <Content Include="Areas\Admin\Views\Shared\_CategoryCustomFields.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_LanguageSelector.cshtml" />
+    <Content Include="Images\Community\Account_Annonceur.jpg" />
+    <Content Include="Images\Community\Account_Particulier.jpg" />
+    <Content Include="Images\Community\Account_Pro.jpg" />
     <Content Include="Images\Community\home-button-icon.jpg" />
     <Content Include="Images\Community\logo.png" />
     <Content Include="Images\Community\LogoTnTcom_150x184.png" />
@@ -1005,7 +1008,8 @@
     <Content Include="Views\Account\CreateAccount_Particulier.cshtml" />
     <Content Include="Views\Account\CreateAccount_Pro.cshtml" />
     <Content Include="Views\Account\CreateAccount_Annonceur.cshtml" />
-    <Content Include="Views\Account\EnterNewAnnonceurCardCode.cshtml" />
+    <Content Include="Views\Account\EnterNewCardCode.cshtml" />
+    <Content Include="Views\Account\CreateAccount_ProInfos.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />

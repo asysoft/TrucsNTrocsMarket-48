@@ -1,0 +1,91 @@
+﻿
+@model BeYourMarket.Web.Models.RegisterViewModel
+@{
+    /**/
+
+    /**/
+    ViewBag.Title = "[[[Register Annonceur]]]";
+}
+
+@section Styles {
+
+    <link href="~/Content/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet" />
+    <link href="~/Content/jsTree/themes/default/style.min.css" rel="stylesheet" />
+
+    <style type="text/css">
+        .field-validation-error {
+            color: #ff0000;
+            display: block;
+        }
+    </style>
+}
+
+
+<!-- Start Main Content -->
+<div class=" main-section" style="background-color:#EAF4D3">
+    <div class="container" style="background-color:#EAF4D3">
+        <div class="row mt-1">
+            <div class="col-md-2  d-none d-md-inline">
+                <img src="@ImageHelper.GetCommunityImagePath("LogoTnTcom_150x184", "png"))" style="display: block;" />
+            </div>
+            <div class="col-md-9">
+                <div class="card border-success" id="divPubRegisterHaut">
+                    <img src="@ImageHelper.GetCommunityImagePubsPath("pub_Register_Haut_800x200_Img1", "png"))" style="display: block;" pubHaut />
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12 mx-auto ">
+                <div class="card border border-success mrg-t">
+                    <div class="card-header bdr-b" style="text-align:center;">
+                        <h4>[[[Create an account Annonceur]]]</h4>
+                    </div>
+                    <div class="card-body">
+
+                        @using (Html.BeginForm("RegisterAnnonceurNext", "Account", FormMethod.Post, new { role = "form", id = "form0", enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+                            <div class="card-block">
+                                <div class="form-group">
+                                    <label for="Email">[[[Email]]] <span class="text-red">*</span></label>
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control input-lg", @placeholder = "[[[Enter email]]]" })
+                                    @Html.ValidationMessageFor(x => x.Email)
+                                </div>
+                                <div class="form-group">
+                                    <label for="Password">[[[Password]]] <span class="text-red">*</span></label>
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control input-lg", @placeholder = "[[[Password]]]" })
+                                    @Html.ValidationMessageFor(x => x.Password)
+                                </div>
+                                <div class="form-group">
+                                    <label for="ConfirmPassword">[[[Confirm Password]]] <span class="text-red">*</span></label>
+                                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control input-lg", @placeholder = "[[[Confirm Password]]]" })
+                                    @Html.ValidationMessageFor(x => x.ConfirmPassword)
+                                </div>
+                            </div>
+
+                            <div class="card-footer " style="text-align:center">
+                                @if (CacheHelper.Settings.AgreementRequired)
+                                {
+                                    <div class="form-group ml-3">
+                                        @Html.CheckBoxFor(x => x.TermsAndConditions)
+                                        @Html.LabelFor(x => x.TermsAndConditions)
+                                        @Html.ValidationMessageFor(x => x.TermsAndConditions)
+                                        <div>
+                                            <a id="agreementModal" data-toggle="modal" data-target="#agreementModal" class="text-blue font-weight-bold" href="#"> [[[Terms & Conditions]]]</a>
+                                        </div>
+                                    </div>
+                                }
+                                <input type="submit" class="btn btn-success btn-lg w-100 " value="[[[Next]]]">
+                                <div><span>[[[Already a member?]]] <a href="@Url.Action("Login", "Account")">[[[Login]]]</a></span></div>
+                            </div>
+
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

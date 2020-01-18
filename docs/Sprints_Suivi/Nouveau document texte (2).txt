@@ -1,0 +1,33 @@
+Dans admin Panel : annonces, y a rien qui marche
+Afficher les adresse ip dans la page Utilisateurs dans admin du sitepanel
+Commencer a voir l'esthetique
+Page formulaire en pilote pour l'esthetique
+Moteur d'integration de la publiciter automatiquement
+Determiner Les espaces publicitaire sur chaque pages
+Les pb de deconnexion
+Parametrage du SMTP
+Creation des boites mails
+Mise en place des conditions Generale
+Genere une Reference unique pour chaque annonce et qui s'affiche a coter de l'annonce (Pour facilite une recherche plus tard)
+
+----------------------- 03 mai
+-tel with shak : test worklow
+En tant que particulier
+
+- en tant que que pro
+	- Moi particier
+
+	- moi pro 
+
+rendre plus visible desc du lieu
+
+- pas de prix sur une annonce : warning
+*- message  pourquoi erreur:
+- affichage du message, a xco te et au au cxentre rien
+
+envoyer message message a un pro plante
+-contacternous ; rediriger ver contact
+-smtp : bienvenue; 
+
+
+
