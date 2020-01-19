@@ -37,7 +37,7 @@
             <div class="col-md-12 mx-auto ">
                 <div class="card border border-success mrg-t">
                     <div class="card-header bdr-b" style="text-align:center;">
-                        <h4>[[[Create an account Particulier]]]</h4>
+                        <h4>[[[Create an account Particulier]]] et staff technique</h4>
                     </div>
                     <div class="card-body">
 
@@ -62,24 +62,10 @@
                             </div>
                         }
 
-                        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form", id = "form0", enctype = "multipart/form-data" }))
+                        @using (Html.BeginForm("RegisterParticulieretAutres", "Account", FormMethod.Post, new { role = "form", id = "form0", enctype = "multipart/form-data" }))
                         {
                             @Html.AntiForgeryToken()
                             @Html.ValidationSummary(false, "", new { @class = "text-danger" })
-
-                            @*<div id="idBtnType" class="btn-group d-flex " data-toggle="buttons">
-                                <label class="btn btn-success btn-lg active w-50">
-                                    @Html.RadioButtonFor(x => x.UserType, 0, new { id = "optPart", @checked = true }) [[[Personal]]]
-                                </label>
-                                <label class="btn btn-success btn-lg w-50">
-                                    @Html.RadioButtonFor(x => x.UserType, 2, new { id = "optPro" })  [[[Professional]]]
-                                </label>
-                                <div>
-                                    @Html.ValidationMessageFor(x => x.UserType)
-
-                                </div>
-
-                            </div>*@
 
                             <div class="card-block">
                                 <div class="form-group">

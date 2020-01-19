@@ -1,0 +1,5 @@
+
+=> Creer compte Pro :
+- centrer et diminuer numero de carte
+- sur F5 : antiforgery token errur
+- Pro : latitude longitude, firstname lastname

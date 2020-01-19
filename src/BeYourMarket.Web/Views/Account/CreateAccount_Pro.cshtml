@@ -64,7 +64,7 @@
                                 </div>
                             }
 
-                            @using (Html.BeginForm("CreateProAndGoAddInfos", "Account", FormMethod.Post, new { role = "form", id = "form0" }))
+                            @using (Html.BeginForm("RegisterProAndGoAddInfos", "Account", FormMethod.Post, new { role = "form", id = "form0" }))
                             {
                                 @Html.AntiForgeryToken()
                                 @Html.ValidationSummary(false, "", new { @class = "text-danger" })
