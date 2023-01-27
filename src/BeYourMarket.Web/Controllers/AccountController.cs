@@ -381,32 +381,26 @@ namespace BeYourMarket.Web.Controllers
                 return View("CreateAccount_Annonceur", model);
             }
 
-            //if (!string.IsNullOrEmpty(form["ProLatitudeStr"]))
-            //    model.ProLatitude = Double.Parse(form["ProLatitudeStr"].Replace(',', '.'), CultureInfo.InvariantCulture);
-
-            //if (!string.IsNullOrEmpty(form["ProLongitudeStr"]))
-            //    model.ProLongitude = Double.Parse(form["ProLongitudeStr"].Replace(',', '.'), CultureInfo.InvariantCulture);
-
-            //
-            //model.ImgFiles = files;
-            //var result = await RegisterAccount(model);
-
-            var user = new ApplicationUser
+            RegisterViewModel RegisterInfosNew = new RegisterViewModel
             {
-                UserName = model.Email,
                 Email = model.Email,
+                Password = model.Password,
+                TermsAndConditions = model.TermsAndConditions,
+                FirstName = model.FirstName,
                 UserType = Enum_UserType.Professional,
-                IsAnnonceurValid = true
-
-                /*
-                RegisterDate = DateTime.Now,
-                RegisterIP = System.Web.HttpContext.Current.Request.GetVisitorIP(),
-                LastAccessDate = DateTime.Now,
-                LastAccessIP = System.Web.HttpContext.Current.Request.GetVisitorIP()
-                */
+                IsAnnonceurValid = true,
+                ProCompany = model.ProCompany
             };
 
-            return View("EnterNewCardCode");  // RedirectToAction("UserProfile", "Manage");
+            var annonceur = new AnnonceurPubModel
+            {
+                RegisterInfos = RegisterInfosNew
+            };
+
+            //PubsPlaceModel PubsLocations = new PubsPlaceModel();
+
+
+            return View("EnterNewCardCode",model);  // RedirectToAction("UserProfile", "Manage");
             //var result = await RegisterAndCheckAnnonceurCode(model);
 
             // Add errors
@@ -952,6 +946,19 @@ namespace BeYourMarket.Web.Controllers
             return RedirectToAction("Index", "UserPro", new { area = "Pro" }); // RedirectToUserTypeEnv(user.Email)
         }
 
+        [HttpPost]
+        public async Task<ActionResult>  CheckCodeAndGoNext(RegisterViewModel model)
+        {
+            
+            if (model.UserType ==  Enum_UserType.Professional && model.IsAnnonceurValid)
+            {
+                return View("Annonceurs_ChoosePubs", model);
+            }
+            else
+            {
+                return View("", model);
+            }
+        }
 
 
         // GET: /Account/ConfirmEmail

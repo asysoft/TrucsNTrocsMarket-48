@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
@@ -166,6 +167,7 @@ namespace Repository.Pattern.Ef6
             int? pageSize = null)
         {
             IQueryable<TEntity> query = _dbSet;
+            //RepoDbAsyncQueryProvider<TEntity> query = _dbSet;
 
             if (includes != null)
             {
@@ -183,7 +185,10 @@ namespace Repository.Pattern.Ef6
             {
                 query = query.Skip((page.Value - 1)*pageSize.Value).Take(pageSize.Value);
             }
-            return query;
+            //return query;
+
+            var queryAsync = new RepoDbAsyncEnumerable<TEntity>(query);
+            return queryAsync;
         }
 
         internal async Task<IEnumerable<TEntity>> SelectAsync(

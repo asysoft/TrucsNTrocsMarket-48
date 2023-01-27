@@ -1,0 +1,106 @@
+﻿
+@model BeYourMarket.Web.Models.AnnonceurPubModel
+
+@section Styles {
+}
+
+@{
+    ViewBag.Title = "[[[Pubs]]]";
+}
+
+@helper DisplayDeleteLink(string id, string title)
+{
+    <a class="btn btn-danger btn-sm" href="javascript:void(0);" onclick="confirmDelete('@id', '@title');"><i class="fa fa-remove"></i> [[[Delete]]]</a>
+}
+
+<div class="wraper container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card border border-success mrg-t">
+                <div class="card-header bdr-b">
+
+                </div>
+
+                <div class="card-body">
+
+                    <div class="row">
+                        <div class="col-lg-10">
+                            <a class="btn btn-primary" href="@Url.Action("", "")"><i class="fa fa-plus"></i> [[[Add New]]]</a>
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 table-responsive">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>[[[Page]]]</th>
+                                        <th>[[[Left]]]</th>
+                                        <th>[[[Top]]]</th>
+                                        <th>[[Right]]]</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @foreach (var publoc in Model.PubsLocations)
+                                    {
+                                    <tr>
+                                        <td>@publoc.PubPageName
+                                            <a class="btn btn-primary m-b-5" href="@Url.Action("Choose", "PubsSelector")"><i class="fa fa-edit"></i> [[[Choose]]]</a>
+                                        </td>
+                                        <td>@publoc.PubFileName
+                                            <a class="btn btn-primary m-b-5" href="@Url.Action("Choose", "PubsSelector")"><i class="fa fa-edit"></i> [[[Choose]]]</a>
+                                        </td>
+                                        <td>@publoc.PubPageName
+                                            <a class="btn btn-primary m-b-5" href="@Url.Action("Choose", "PubsSelector")"><i class="fa fa-edit"></i> [[[Choose]]]</a>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-primary m-b-5" href="@Url.Action("Choose", "PubsSelector")"><i class="fa fa-edit"></i> [[[Choose]]]</a>
+                                        </td>
+                                        @*<td>@DisplayDeleteLink(user.Id, user.FullName)</td>*@
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        function confirmDelete(id, title) {
+            swal({
+                title: "[[[Are you sure?]]]",
+                text: "[[[You will delete the user and its all listings from ]]] " + title,
+                type: "input",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "[[[Yes, delete it!]]]",
+                cancelButtonText: "[[[No, cancel please!]]]",
+                closeOnConfirm: false,
+                closeOnCancel: true
+            }, function (inputValue) {
+
+                if (inputValue === false)
+                    return false;
+                if (inputValue === "" || inputValue != "DELETE") {
+                    swal.showInputError("[[[Type DELETE to confirm delete]]]"); return false
+                }
+
+                swal.disableButtons();
+
+                post('@Url.Action("UserDelete","Manage", new { area="Admin" })', { id: id });
+
+                swal("Deleted!", "[[[User is deleted.]]]", "success");
+            });
+        }
+    </script>
+}
+

@@ -96,7 +96,8 @@
 
                             </map>
                             <div id="zonesMap">
-                                @foreach (var item in Model.LocationsRef.Select(i => new { i.Name, i.Description, i.Parent }).Where(p => p.Parent == 0).OrderBy(s => Int32.Parse(s.Name.Substring(4))))
+                                @*@foreach (var item in Model.LocationsRef.Select(i => new { i.Name, i.Description, i.Parent }).Where(p => p.Parent == 0).OrderBy(s => Int32.Parse(s.Name.Substring(4))))*@
+                                @foreach (var item in Model.LocationsRef.Select(i => new { i.ID, i.Name, i.Description, i.Parent }).Where(p => p.Parent == 0).OrderBy(s =>  s.ID))
                                 {
                                     <a style="color: #4472c4" id="@item.Name" href="@Url.Action("SearchByLocationRefZone", "Home", new { zoneName = @item.Name } )"> @item.Name : @item.Description </a><br>
                                 }

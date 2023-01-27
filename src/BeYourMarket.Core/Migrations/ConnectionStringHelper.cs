@@ -54,6 +54,7 @@ namespace BeYourMarket.Core.Migrations
             var connectionString = configuration.ConnectionStrings.ConnectionStrings["DefaultConnection"];
 
             return connectionString == null ? string.Empty : connectionString.ConnectionString;
+            //return null;
         }
 
         public static bool IsDatabaseInstalled()

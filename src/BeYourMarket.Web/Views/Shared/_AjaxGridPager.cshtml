@@ -1,5 +1,5 @@
-﻿@model GridMvc.Pagination.GridPager
-@if (Model.PageCount < 0)
+﻿@model GridMvc.Site.Models.Grids.AjaxGridPager
+@if (!Model.HasPages)
 {
     return;
 }

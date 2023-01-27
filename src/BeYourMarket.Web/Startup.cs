@@ -86,8 +86,12 @@ namespace BeYourMarket.Web
             {
                 var user = new ApplicationUser();
                 user.UserName = "asy";
+
+                user.FirstName = "Amadou";
+                user.LastName = "SY";
+
                 user.Email = AdminASYEmail;
-                string userPWD = "TnTtest2018";
+                string userPWD = "asy2023";
 
                 //////////////////////
                 user.RegisterDate = DateTime.Now;

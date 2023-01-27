@@ -11,20 +11,26 @@ namespace BeYourMarket.Model.Models.Mapping
     {
         public PubLocationsMap()
         {
-            // ID, IdHtml, PubPageName, PubIsFree, PubFileName, PubFileNumber, AspNetUser
-
             // Primary Key
             this.HasKey(t => new { t.ID });
 
             // Table & Column Mappings
             this.ToTable("PubLocations");
             this.Property(t => t.ID).HasColumnName("ID");
-            this.Property(t => t.IdHtml).HasColumnName("IdHtml");
-            this.Property(t => t.PubPageName).HasColumnName("PubPageName");
-            this.Property(t => t.PubIsFree).HasColumnName("PubIsFree");
-            this.Property(t => t.PubFileName).HasColumnName("PubFileName");
-            this.Property(t => t.PubFileNumber).HasColumnName("PubFileNumber");
 
+            this.Property(t => t.PageName).HasColumnName("PageName");
+
+            this.Property(t => t.TopIsFree).HasColumnName("TopIsFree");
+            this.Property(t => t.TopFileName).HasColumnName("TopFileName");
+            this.Property(t => t.TopFileNum).HasColumnName("TopFileNum");
+
+            this.Property(t => t.LeftIsFree).HasColumnName("LeftIsFree");
+            this.Property(t => t.LeftFileName).HasColumnName("LeftFileName");
+            this.Property(t => t.LeftFileNum).HasColumnName("LeftFileNum");
+
+            this.Property(t => t.RightIsFree).HasColumnName("RightIsFree");
+            this.Property(t => t.RightFileName).HasColumnName("RightFileName");
+            this.Property(t => t.RightFileNum).HasColumnName("RightFileNum");
         }
     }
 }
